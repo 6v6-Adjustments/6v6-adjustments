@@ -7,7 +7,7 @@
 
 rule "[reinhardt/init.opy]: Initialize Reinhardt":
     @Event eachPlayer
-    @Hero reinhardt
+    @Condition isHero(eventPlayer, Hero.REINHARDT)
     @Condition eventPlayer.call_init
 
     resetHero()

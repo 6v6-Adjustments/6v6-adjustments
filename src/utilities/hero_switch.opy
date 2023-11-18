@@ -190,7 +190,7 @@ rule "[utilities/hero_switch.opy]: Detect switch to Reaper":
 
 rule "[utilities/hero_switch.opy]: Detect switch to Reinhardt":
     @Event eachPlayer
-    @Hero reinhardt
+    @Condition isHero(eventPlayer, Hero.REINHARDT)
 
     eventPlayer.call_init = true
 
