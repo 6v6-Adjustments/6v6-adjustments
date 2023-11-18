@@ -15,7 +15,7 @@ subroutine hideOrisaAmmoHud
 
 rule "[orisa/fusion_driver.opy]: Decrease ammo when shooting gun":
     @Event eachPlayer
-    @Hero orisa
+    @Condition isHero(eventPlayer, Hero.ORISA)
     @Condition eventPlayer.isFiringPrimaryFire()
     @Condition not eventPlayer.is_orisa_reloading
     
@@ -26,7 +26,7 @@ rule "[orisa/fusion_driver.opy]: Decrease ammo when shooting gun":
 
 rule "[orisa/fusion_driver.opy]: Reload when out of ammo":
     @Event eachPlayer
-    @Hero orisa
+    @Condition isHero(eventPlayer, Hero.ORISA)
     @Condition eventPlayer.orisa_ammo <= 0
     
     reloadFusionDriver()
@@ -34,7 +34,7 @@ rule "[orisa/fusion_driver.opy]: Reload when out of ammo":
 
 rule "[orisa/fusion_driver.opy]: Reload on key press":
     @Event eachPlayer
-    @Hero orisa
+    @Condition isHero(eventPlayer, Hero.ORISA)
     @Condition eventPlayer.isHoldingButton(Button.RELOAD)
     @Condition eventPlayer.orisa_ammo < OW1_ORISA_CLIP_SIZE
     
@@ -88,7 +88,7 @@ def hideOrisaAmmoHud():
 
 rule "[orisa/fusion_driver.opy]: Slow down Orisa when shooting":
     @Event eachPlayer
-    @Hero orisa
+    @Condition isHero(eventPlayer, Hero.ORISA)
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE)
     @Condition not eventPlayer.is_orisa_reloading
 
@@ -99,7 +99,7 @@ rule "[orisa/fusion_driver.opy]: Slow down Orisa when shooting":
 
 rule "[orisa/fusion_driver.opy]: Deal OW1 Orisa primary fire damage":
     @Event playerDealtDamage
-    @Hero orisa
+    @Condition isHero(eventPlayer, Hero.ORISA)
     @Condition eventAbility == Button.PRIMARY_FIRE
 
     damage(victim, attacker, OW1_ORISA_GUN_DAMAGE - eventDamage)
@@ -107,7 +107,7 @@ rule "[orisa/fusion_driver.opy]: Deal OW1 Orisa primary fire damage":
 
 rule "[orisa/fusion_driver.opy]: Deal OW1 Orisa melee damage":
     @Event playerDealtDamage
-    @Hero orisa
+    @Condition isHero(eventPlayer, Hero.ORISA)
     @Condition eventAbility == Button.MELEE
 
     damage(victim, attacker, eventDamage*(OW2_ORISA_GUN_DAMAGE/OW1_ORISA_GUN_DAMAGE) - eventDamage + 1) # +1 compensates for rounding error
@@ -115,6 +115,6 @@ rule "[orisa/fusion_driver.opy]: Deal OW1 Orisa melee damage":
 
 rule "[orisa/fusion_driver.opy]: Reload after dying":
     @Event playerDied
-    @Hero orisa
+    @Condition isHero(eventPlayer, Hero.ORISA)
 
     resetFusionDriver()

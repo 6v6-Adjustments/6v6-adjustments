@@ -3,7 +3,7 @@
 
 rule "[junkrat/init.opy]: Initialize Junkrat":
     @Event eachPlayer
-    @Hero junkrat
+    @Condition isHero(eventPlayer, Hero.JUNKRAT)
     @Condition eventPlayer.call_init
     
     resetHero()
@@ -14,7 +14,7 @@ rule "[junkrat/init.opy]: Initialize Junkrat":
 
 rule "[junkrat.opy]: Deal extra damage on ability other than steel trap and increase root duration.":
     @Event playerDealtDamage
-    @Hero junkrat
+    @Condition isHero(eventPlayer, Hero.JUNKRAT)
 
     if eventAbility == Button.ABILITY_1 :
         # Increase damage for concussion mine

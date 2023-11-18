@@ -4,7 +4,7 @@
 
 rule "[zenyatta/init.opy]: Initialize Zenyatta":
     @Event eachPlayer
-    @Hero zenyatta
+    @Condition isHero(eventPlayer, Hero.ZENYATTA)
     @Condition eventPlayer.call_init
     
     resetHero()

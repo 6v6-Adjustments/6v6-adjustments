@@ -3,7 +3,7 @@
 
 rule "[sojourn/init.opy]: Initialize Sojourn":
     @Event eachPlayer
-    @Hero sojourn
+    @Condition isHero(eventPlayer, Hero.SOJOURN)
     @Condition eventPlayer.call_init
 
     resetHero()

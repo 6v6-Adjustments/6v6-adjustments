@@ -52,7 +52,7 @@ def hideAllyBubbleCD():
 
 rule "[zarya/ally_bubble.opy]: OW1 zarya ally bubble cooldown":
     @Event eachPlayer
-    @Hero zarya
+    @Condition isHero(eventPlayer, Hero.ZARYA)
     @Condition eventPlayer.isUsingAbility2()
 
     eventPlayer.setAbilityCharge(Button.ABILITY_2, 2)
@@ -64,7 +64,7 @@ rule "[zarya/ally_bubble.opy]: OW1 zarya ally bubble cooldown":
 
 rule "[zarya/ally_bubble.opy]: Disable ally bubble if on cooldown":
     @Event eachPlayer
-    @Hero zarya
+    @Condition isHero(eventPlayer, Hero.ZARYA)
     @Condition eventPlayer.ally_bubble_cooldown > 0
 
     eventPlayer.setAbility2Enabled(false)
@@ -72,7 +72,7 @@ rule "[zarya/ally_bubble.opy]: Disable ally bubble if on cooldown":
 
 rule "[zarya/ally_bubble.opy]: Enable ally bubble if not on cooldown":
     @Event eachPlayer
-    @Hero zarya
+    @Condition isHero(eventPlayer, Hero.ZARYA)
     @Condition eventPlayer.ally_bubble_cooldown <= 0
 
     eventPlayer.setAbility2Enabled(true)

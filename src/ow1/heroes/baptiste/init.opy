@@ -5,7 +5,7 @@
 
 rule "[baptiste/init.opy]: Initialize Baptiste":
     @Event eachPlayer
-    @Hero baptiste
+    @Condition isHero(eventPlayer, Hero.BAPTISTE)
     @Condition eventPlayer.call_init == true
 
     
@@ -27,7 +27,7 @@ rule "[baptiste/init.opy]: Initialize Baptiste":
 
 rule "[baptiste/init.opy]: Correct all damage other than primary fire":
     @Event playerDealtDamage
-    @Hero baptiste
+    @Condition isHero(eventPlayer, Hero.BAPTISTE)
     @Condition eventAbility not in [Button.PRIMARY_FIRE]
 
     damage(victim, attacker, (OW2_BAPTISTE_PRIMARY_DAMAGE/OW1_BAPTISTE_PRIMARY_DAMAGE)*eventDamage - eventDamage)

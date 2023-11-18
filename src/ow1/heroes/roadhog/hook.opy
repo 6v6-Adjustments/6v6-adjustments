@@ -5,7 +5,7 @@ playervar time_hook_was_active
 
 rule "[roadhog/hook.opy]: Set default hook cooldown":
     @Event eachPlayer
-    @Hero roadhog
+    @Condition isHero(eventPlayer, Hero.ROADHOG)
     @Condition eventPlayer.isUsingAbility1()
     
     eventPlayer.time_hook_was_active = 0
@@ -16,7 +16,7 @@ rule "[roadhog/hook.opy]: Set default hook cooldown":
 
 rule "[roadhog/hook.opy]: Move hooked enemies closer":
     @Event playerDealtDamage
-    @Hero roadhog
+    @Condition isHero(eventPlayer, Hero.ROADHOG)
     @Condition eventPlayer.isUsingAbility1()
 
     waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)

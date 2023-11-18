@@ -6,7 +6,7 @@
 
 rule "[bastion/init.opy]: Initialize Bastion":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.call_init == true
     
     resetHero()

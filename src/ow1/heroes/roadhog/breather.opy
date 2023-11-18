@@ -2,7 +2,7 @@
 
 # rule "[roadhog/breather.opy]: Remove healing buff after breather":
 #     @Event eachPlayer
-#     @Hero roadhog
+#     @Condition isHero(eventPlayer, Hero.ROADHOG)
 #     @Condition eventPlayer.isUsingAbility2()
 
 #     wait(OW2_ROADHOG_BREATHER_DURATION, Wait.ABORT_WHEN_FALSE)
@@ -12,7 +12,7 @@
 
 rule "[roadhog/breather.opy]: OW1 Take a Breather":
     @Event eachPlayer
-    @Hero roadhog
+    @Condition isHero(eventPlayer, Hero.ROADHOG)
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_2)
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) <= 0
     @Condition not eventPlayer.hasStatusEffect(Status.HACKED)

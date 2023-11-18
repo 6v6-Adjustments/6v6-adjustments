@@ -7,14 +7,14 @@
 
 rule "[mccree/init.opy]: Disallow throwing Magnetic Grenade":
     @Event eachPlayer
-    @Hero mccree
+    @Condition isHero(eventPlayer, Hero.MCCREE)
 
     eventPlayer.disallowButton(Button.ABILITY_2)
 
 
 rule "[mccree.opy]: Throw projectile when pressing e":
     @Event eachPlayer
-    @Hero mccree
+    @Condition isHero(eventPlayer, Hero.MCCREE)
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_2)
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) <= 0
     @Condition not eventPlayer.isUsingAbility1() # Ensure Cassidy is not rolling
@@ -47,7 +47,7 @@ rule "[mccree.opy]: Throw projectile when pressing e":
 
 rule "[mccree.opy]: Stun flashed enemy":
     @Event playerDealtDamage
-    @Hero mccree
+    @Condition isHero(eventPlayer, Hero.MCCREE)
     @Condition eventAbility == 0
 
     victim.setStatusEffect(eventPlayer, Status.STUNNED, OW1_MCCREE_FLASHBANG_STUN_DURATION)

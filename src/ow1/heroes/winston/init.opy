@@ -3,7 +3,7 @@
 
 rule "[winston/init.opy]: Initialize Winston":
     @Event eachPlayer
-    @Hero winston
+    @Condition isHero(eventPlayer, Hero.WINSTON)
     @Condition eventPlayer.call_init
 
     resetHero()
@@ -18,7 +18,7 @@ rule "[winston/init.opy]: Initialize Winston":
 
 rule "[winston.opy]: Set default leap cooldown":
     @Event eachPlayer
-    @Hero winston
+    @Condition isHero(eventPlayer, Hero.WINSTON)
     @Condition eventPlayer.isUsingAbility1()
     @Condition not eventPlayer.isUsingUltimate()
     
@@ -27,7 +27,7 @@ rule "[winston.opy]: Set default leap cooldown":
 
 rule "[winston.opy]: Set leap after ultimate":
     @Event eachPlayer
-    @Hero winston
+    @Condition isHero(eventPlayer, Hero.WINSTON)
     @Condition eventPlayer.isUsingUltimate() == true
 
     waitUntil(eventPlayer.isUsingUltimate() == false, Math.INFINITY)

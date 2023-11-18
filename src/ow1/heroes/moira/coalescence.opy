@@ -3,7 +3,7 @@
 
 rule "[moira/coalescence.opy]: Prevent fading during coalescence":
     @Event eachPlayer
-    @Hero moira
+    @Condition isHero(eventPlayer, Hero.MOIRA)
     @Condition eventPlayer.isUsingUltimate()
 
     eventPlayer.setAbility1Enabled(false)

@@ -3,7 +3,7 @@
 
 rule "[tracer/init.opy]: Initialize Tracer":
     @Event eachPlayer
-    @Hero tracer
+    @Condition isHero(eventPlayer, Hero.TRACER)
     @Condition eventPlayer.call_init
 
     resetHero()
@@ -12,7 +12,7 @@ rule "[tracer/init.opy]: Initialize Tracer":
 
 rule "[tracer.opy]: Deal OW1 tracer primary fire damage":
     @Event playerDealtDamage
-    @Hero tracer
+    @Condition isHero(eventPlayer, Hero.TRACER)
     @Condition eventAbility == Button.PRIMARY_FIRE
 
     damage(victim, attacker, eventDamage*(OW1_TRACER_PULSE_PISTOL_DAMAGE/OW2_TRACER_PULSE_PISTOL_DAMAGE)-eventDamage)

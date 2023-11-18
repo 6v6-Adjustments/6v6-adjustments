@@ -14,7 +14,7 @@ subroutine hideMachineGunAmmo
 
 rule "[bastion/machine_gun.opy]: Activate machine gun in sentry mode":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.current_configuration == Configuration.SENTRY
 
     eventPlayer.machine_gun_ready = true
@@ -59,7 +59,7 @@ def startMachineGunReload():
 
 rule "[bastion/machine_gun.opy]: finish reloading machine gun":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.machine_gun_reload_timer <= 0
 
     eventPlayer.machine_gun_ammo = OW1_BASTION_SENTRY_CONFIG_CLIP_SIZE
@@ -70,7 +70,7 @@ rule "[bastion/machine_gun.opy]: finish reloading machine gun":
 
 rule "[bastion/machine_gun.opy]: Show machine gun gui when in sentry mode":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.current_configuration == Configuration.SENTRY
 
     showMachineGunAmmo()
@@ -78,7 +78,7 @@ rule "[bastion/machine_gun.opy]: Show machine gun gui when in sentry mode":
 
 rule "[bastion/machine_gun.opy]: Hide machine gun gui when not in sentry mode":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.current_configuration != Configuration.SENTRY
 
     hideMachineGunAmmo()
@@ -86,7 +86,7 @@ rule "[bastion/machine_gun.opy]: Hide machine gun gui when not in sentry mode":
 
 rule "[bastion/machine_gun.opy]: Consume machine gun ammo when shooting":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.current_configuration == Configuration.SENTRY
     @Condition eventPlayer.isFiringPrimaryFire() == true
 
@@ -95,7 +95,7 @@ rule "[bastion/machine_gun.opy]: Consume machine gun ammo when shooting":
 
 rule "[bastion/machine_gun.opy]: Stop machine gun ammo consumption when not shooting":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition not (eventPlayer.current_configuration == Configuration.SENTRY and eventPlayer.isFiringPrimaryFire())
 
     stopChasingVariable(eventPlayer.machine_gun_ammo)
@@ -103,7 +103,7 @@ rule "[bastion/machine_gun.opy]: Stop machine gun ammo consumption when not shoo
 
 rule "[bastion/machine_gun.opy]: Reload machine gun on reload key":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.isHoldingButton(Button.RELOAD)
     @Condition eventPlayer.current_configuration == Configuration.SENTRY
 
@@ -112,7 +112,7 @@ rule "[bastion/machine_gun.opy]: Reload machine gun on reload key":
     
 rule "[bastion/machine_gun.opy]: Reload machine gun if out of ammo":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.machine_gun_ammo <= 0
     @Condition eventPlayer.current_configuration == Configuration.SENTRY
 
@@ -121,7 +121,7 @@ rule "[bastion/machine_gun.opy]: Reload machine gun if out of ammo":
 
 rule "[bastion/machine_gun.opy]: Reload machine gun when not in sentry mode":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.current_configuration != Configuration.SENTRY
 
     startMachineGunReload()
@@ -129,7 +129,7 @@ rule "[bastion/machine_gun.opy]: Reload machine gun when not in sentry mode":
 
 rule "[bastion/machine_gun.opy]: Allow machine gun shooting when machine gun ready":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.current_configuration == Configuration.SENTRY
     @Condition eventPlayer.machine_gun_ready == true # gun ready to shoot
 
@@ -138,7 +138,7 @@ rule "[bastion/machine_gun.opy]: Allow machine gun shooting when machine gun rea
 
 rule "[bastion/machine_gun.opy]: Disallow machine gun shooting when machine gun not ready":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.machine_gun_ready == false # gun not ready to shoot
     @Condition eventPlayer.current_configuration == Configuration.SENTRY
 

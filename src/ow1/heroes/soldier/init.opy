@@ -2,7 +2,7 @@
 
 rule "[soldier/init.opy]: Initialize Soldier 76":
     @Event eachPlayer
-    @Hero soldier
+    @Condition isHero(eventPlayer, Hero.SOLDIER)
     @Condition eventPlayer.call_init
 
     resetHero()
@@ -12,7 +12,7 @@ rule "[soldier/init.opy]: Initialize Soldier 76":
 
 rule "[soldier.opy]: Deal OW1 soldier primary fire damage":
     @Event playerDealtDamage
-    @Hero soldier
+    @Condition isHero(eventPlayer, Hero.SOLDIER)
     @Condition eventAbility == Button.PRIMARY_FIRE
 
     damage(victim, attacker, eventDamage*(OW1_SOLDIER_HEAVY_PULSE_RIFLE_DAMAGE/OW2_SOLDIER_HEAVY_PULSE_RIFLE_DAMAGE)-eventDamage)

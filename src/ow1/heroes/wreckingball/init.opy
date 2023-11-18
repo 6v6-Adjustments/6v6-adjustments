@@ -4,7 +4,7 @@
 
 rule "[wreckingball/init.opy]: Initialize Wrecking Ball":
     @Event eachPlayer
-    @Hero hammond
+    @Condition isHero(eventPlayer, Hero.HAMMOND)
     @Condition eventPlayer.call_init
 
     resetHero()

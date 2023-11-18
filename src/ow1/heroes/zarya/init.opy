@@ -5,7 +5,7 @@
 
 rule "[zarya/init.opy]: Initialize Zarya":
     @Event eachPlayer
-    @Hero zarya
+    @Condition isHero(eventPlayer, Hero.ZARYA)
     @Condition eventPlayer.call_init
 
 

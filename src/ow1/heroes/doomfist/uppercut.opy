@@ -10,7 +10,7 @@ subroutine executeUppercut
 
 rule "[doomfist/uppercut.opy]: Control flow for uppercut":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition isHero(eventPlayer, Hero.DOOMFIST)
     @Condition eventPlayer.isUsingAbility2()
     @Condition not eventPlayer.isUsingAbility1()
     @Condition not eventPlayer.isFiringSecondaryFire()
@@ -60,7 +60,7 @@ def executeUppercut():
 
 rule "[doomfist/uppercut.opy]: Disable abilities when locked into uppercut":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition isHero(eventPlayer, Hero.DOOMFIST)
     @Condition eventPlayer.is_uppercut_locked
     
     eventPlayer.is_uppercut_locked = true
@@ -79,7 +79,7 @@ rule "[doomfist/uppercut.opy]: Disable abilities when locked into uppercut":
 
 rule "[doomfist/uppercut.opy]: Play uppercut VFX":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition isHero(eventPlayer, Hero.DOOMFIST)
     @Condition eventPlayer.is_using_uppercut
 
     playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, eventPlayer.getTeam(), eventPlayer, 100)
@@ -89,7 +89,7 @@ rule "[doomfist/uppercut.opy]: Play uppercut VFX":
 
 rule "[doomfist/uppercut.opy]: Set uppercut cooldown":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition isHero(eventPlayer, Hero.DOOMFIST)
     @Condition eventPlayer.is_using_uppercut
 
     waitUntil(not eventPlayer.is_using_uppercut, Math.INFINITY)
@@ -144,7 +144,7 @@ rule "[doomfist/uppercut.opy]: Play uppercut hit VFX":
 
 rule "[doomfist/uppercut.opy]: Heal doomfist uppercut shields":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition isHero(eventPlayer, Hero.DOOMFIST)
     @Condition updateEveryTick(eventPlayer.uppercut_shields > 0)
     @Condition updateEveryTick(eventPlayer.getHealth() < eventPlayer.getMaxHealth())
     

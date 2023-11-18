@@ -5,7 +5,7 @@
 
 rule "[mercy/init.opy]: Initialize Mercy":
     @Event eachPlayer
-    @Hero mercy
+    @Condition isHero(eventPlayer, Hero.MERCY)
     @Condition eventPlayer.call_init
     
     resetHero()

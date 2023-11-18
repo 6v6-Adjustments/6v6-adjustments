@@ -3,7 +3,7 @@
 
 rule "[sombra/emp.opy]: No damage with EMP":
     @Event eachPlayer
-    @Hero sombra
+    @Condition isHero(eventPlayer, Hero.SOMBRA)
     @Condition eventPlayer.getUltCharge() >= 100
     
     waitUntil(eventPlayer.isHoldingButton(Button.ULTIMATE), Math.INFINITY)

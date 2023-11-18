@@ -10,7 +10,7 @@ playervar current_configuration
 
 rule "[bastion/configuration.opy]: No cooldown on reconfigure (ability 1)":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.isUsingAbility1() == false
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)

@@ -4,7 +4,7 @@ playervar remech_damage_taken
 
 rule "[dva/hp.opy]: Correct DVa mech health":
     @Event eachPlayer
-    @Hero dva
+    @Condition isHero(eventPlayer, Hero.DVA)
     @Condition not eventPlayer.isInAlternateForm()
     @Condition not eventPlayer.call_init
 
@@ -16,7 +16,7 @@ rule "[dva/hp.opy]: Correct DVa mech health":
 
 rule "[dva/hp.opy]: Correct DVa pilot health":
     @Event eachPlayer
-    @Hero dva
+    @Condition isHero(eventPlayer, Hero.DVA)
     @Condition eventPlayer.isInAlternateForm()
     @Condition not eventPlayer.call_init
 

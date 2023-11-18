@@ -3,7 +3,7 @@
 
 rule "[junkerqueen/init.opy]: Initialize Junkerqueen":
     @Event eachPlayer
-    @Hero junkerQueen
+    @Condition isHero(eventPlayer, Hero.JUNKER_QUEEN)
     @Condition eventPlayer.call_init
     
     resetHero()

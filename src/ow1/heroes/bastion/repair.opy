@@ -16,7 +16,7 @@ subroutine hideSelfRepairGui
 
 rule "[bastion/repair.opy]: Detect Self Repair key press":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_2) or eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)
 
     eventPlayer.is_pressing_self_repair_key = true
@@ -26,7 +26,7 @@ rule "[bastion/repair.opy]: Detect Self Repair key press":
 
 rule "[bastion/repair.opy]: Activate self-repair":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition not (eventPlayer.isFiringPrimaryFire() or eventPlayer.isMeleeing())
     @Condition eventPlayer.is_pressing_self_repair_key
     @Condition not eventPlayer.is_using_self_repair
@@ -36,7 +36,7 @@ rule "[bastion/repair.opy]: Activate self-repair":
 
 rule "[bastion/repair.opy]: Deactivate self-repair on key release":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.is_using_self_repair
     @Condition not eventPlayer.is_pressing_self_repair_key
 
@@ -45,7 +45,7 @@ rule "[bastion/repair.opy]: Deactivate self-repair on key release":
 
 rule "[bastion/repair.opy]: Deactivate self-repair when resource exhuasted":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.self_repair_time_left <= 0
     @Condition eventPlayer.is_using_self_repair
 
@@ -54,7 +54,7 @@ rule "[bastion/repair.opy]: Deactivate self-repair when resource exhuasted":
 
 rule "[bastion/repair.opy]: Deactivate self-repair when dealing damage":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.is_using_self_repair
     @Condition eventPlayer.isFiringPrimaryFire() or eventPlayer.isMeleeing()
 
@@ -90,7 +90,7 @@ def exitSelfRepair():
 
 rule "[bastion/repair.opy]: Remove self repair GUI":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.self_repair_time_left >= OW1_BASTION_MAX_SELF_REPAIR_DURATION
 
     hideSelfRepairGui()
@@ -98,7 +98,7 @@ rule "[bastion/repair.opy]: Remove self repair GUI":
 
 rule "[bastion/repair.opy]: Give ult charge for self repair":
     @Event playerDealtHealing
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition healer == healee
 
     eventPlayer.missing_ult_points += eventHealing

@@ -19,49 +19,49 @@ rule "[hero_switch.opy]: detect hero switch":
 
 rule "[utilities/hero_switch.opy]: Detect switch to Ana":
     @Event eachPlayer
-    @Hero ana
+    @Condition isHero(eventPlayer, Hero.ANA)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Ashe":
     @Event eachPlayer
-    @Hero ashe
+    @Condition isHero(eventPlayer, Hero.ASHE)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Baptiste":
     @Event eachPlayer
-    @Hero baptiste
+    @Condition isHero(eventPlayer, Hero.BAPTISTE)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Bastion":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Brigitte":
     @Event eachPlayer
-    @Hero brigitte
+    @Condition isHero(eventPlayer, Hero.BRIGITTE)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Doomfist":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition isHero(eventPlayer, Hero.DOOMFIST)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Dva":
     @Event eachPlayer
-    @Hero dva
+    @Condition isHero(eventPlayer, Hero.DVA)
     @Condition eventPlayer.hero_switched
     # Apparently Pilot DVa and Mech DVA are 2 seperate heroes but workshop considers them both dva
     # Above condition is needed because otherwise, this rule activates every time dva transitions from pilot to mech and vice versa
@@ -71,119 +71,119 @@ rule "[utilities/hero_switch.opy]: Detect switch to Dva":
 
 rule "[utilities/hero_switch.opy]: Detect switch to Echo":
     @Event eachPlayer
-    @Hero echo
+    @Condition isHero(eventPlayer, Hero.ECHO)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Genji":
     @Event eachPlayer
-    @Hero genji
+    @Condition isHero(eventPlayer, Hero.GENJI)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Hanzo":
     @Event eachPlayer
-    @Hero hanzo
+    @Condition isHero(eventPlayer, Hero.HANZO)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Illari":
     @Event eachPlayer
-    @Hero illari
+    @Condition isHero(eventPlayer, Hero.ILLARI)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to JunkerQueen":
     @Event eachPlayer
-    @Hero junkerQueen
+    @Condition isHero(eventPlayer, Hero.JUNKER_QUEEN)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Junkrat":
     @Event eachPlayer
-    @Hero junkrat
+    @Condition isHero(eventPlayer, Hero.JUNKRAT)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Kiriko":
     @Event eachPlayer
-    @Hero kiriko
+    @Condition isHero(eventPlayer, Hero.KIRIKO)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Lifeweaver":
     @Event eachPlayer
-    @Hero lifeweaver
+    @Condition isHero(eventPlayer, Hero.LIFEWEAVER)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Lucio":
     @Event eachPlayer
-    @Hero lucio
+    @Condition isHero(eventPlayer, Hero.LUCIO)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Mccree":
     @Event eachPlayer
-    @Hero mccree
+    @Condition isHero(eventPlayer, Hero.MCCREE)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Mei":
     @Event eachPlayer
-    @Hero mei
+    @Condition isHero(eventPlayer, Hero.MEI)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Mercy":
     @Event eachPlayer
-    @Hero mercy
+    @Condition isHero(eventPlayer, Hero.MERCY)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Moira":
     @Event eachPlayer
-    @Hero moira
+    @Condition isHero(eventPlayer, Hero.MOIRA)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Orisa":
     @Event eachPlayer
-    @Hero orisa
+    @Condition isHero(eventPlayer, Hero.ORISA)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Pharah":
     @Event eachPlayer
-    @Hero pharah
+    @Condition isHero(eventPlayer, Hero.PHARAH)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Ramattra":
     @Event eachPlayer
-    @Hero ramattra
+    @Condition isHero(eventPlayer, Hero.RAMATTRA)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Reaper":
     @Event eachPlayer
-    @Hero reaper
+    @Condition isHero(eventPlayer, Hero.REAPER)
 
     eventPlayer.call_init = true
 
@@ -197,97 +197,97 @@ rule "[utilities/hero_switch.opy]: Detect switch to Reinhardt":
 
 rule "[utilities/hero_switch.opy]: Detect switch to Roadhog":
     @Event eachPlayer
-    @Hero roadhog
+    @Condition isHero(eventPlayer, Hero.ROADHOG)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Sigma":
     @Event eachPlayer
-    @Hero sigma
+    @Condition isHero(eventPlayer, Hero.SIGMA)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Sojourn":
     @Event eachPlayer
-    @Hero sojourn
+    @Condition isHero(eventPlayer, Hero.SOJOURN)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Soldier":
     @Event eachPlayer
-    @Hero soldier
+    @Condition isHero(eventPlayer, Hero.SOLDIER)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Sombra":
     @Event eachPlayer
-    @Hero sombra
+    @Condition isHero(eventPlayer, Hero.SOMBRA)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Symmetra":
     @Event eachPlayer
-    @Hero symmetra
+    @Condition isHero(eventPlayer, Hero.SYMMETRA)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Torbjorn":
     @Event eachPlayer
-    @Hero torbjorn
+    @Condition isHero(eventPlayer, Hero.TORBJORN)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Tracer":
     @Event eachPlayer
-    @Hero tracer
+    @Condition isHero(eventPlayer, Hero.TRACER)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Widowmaker":
     @Event eachPlayer
-    @Hero widowmaker
+    @Condition isHero(eventPlayer, Hero.WIDOWMAKER)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Winston":
     @Event eachPlayer
-    @Hero winston
+    @Condition isHero(eventPlayer, Hero.WINSTON)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Hammond":
     @Event eachPlayer
-    @Hero hammond
+    @Condition isHero(eventPlayer, Hero.HAMMOND)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Zarya":
     @Event eachPlayer
-    @Hero zarya
+    @Condition isHero(eventPlayer, Hero.ZARYA)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Zenyatta":
     @Event eachPlayer
-    @Hero zenyatta
+    @Condition isHero(eventPlayer, Hero.ZENYATTA)
 
     eventPlayer.call_init = true
 
 
 rule "[utilities/hero_switch.opy]: Detect switch to Widowmaker":
     @Event eachPlayer
-    @Hero widowmaker
+    @Condition isHero(eventPlayer, Hero.WIDOWMAKER)
 
     eventPlayer.call_init = true

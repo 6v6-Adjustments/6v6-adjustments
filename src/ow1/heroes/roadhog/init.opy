@@ -7,7 +7,7 @@
 
 rule "[roadhog/init.opy]: Initialize Roadhog":
     @Event eachPlayer
-    @Hero roadhog
+    @Condition isHero(eventPlayer, Hero.ROADHOG)
     @Condition eventPlayer.call_init
 
     resetHero()

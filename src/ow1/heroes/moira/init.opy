@@ -7,7 +7,7 @@
 
 rule "[moira/init.opy]: Initialize Moira":
     @Event eachPlayer
-    @Hero moira
+    @Condition isHero(eventPlayer, Hero.MOIRA)
     @Condition eventPlayer.call_init
     
     resetHero()

@@ -972,7 +972,7 @@ rule "uppercut hit":
 
 rule "diamond indicator":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition isHero(eventPlayer, Hero.DOOMFIST)
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
 
@@ -1219,7 +1219,7 @@ rule "slam knockback":
 
 rule "start slam timer (REVAMP)":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition isHero(eventPlayer, Hero.DOOMFIST)
     @Condition eventPlayer.isUsingAbility1() == true
     
     eventPlayer.slamTimer = 0
@@ -1249,7 +1249,7 @@ rule "start slam timer (REVAMP)":
 
 rule "Remove EMP PUNCH from ult":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition isHero(eventPlayer, Hero.DOOMFIST)
     @Condition eventPlayer.isUsingUltimate() == true
     
     eventPlayer.disallowButton(Button.ABILITY_1)
@@ -1273,7 +1273,7 @@ rule "============================================================= HUD THINGS =
 
 rule "slam timer hud":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition isHero(eventPlayer, Hero.DOOMFIST)
     @Condition eventPlayer.getCurrentHero() == Hero.DOOMFIST
     @Condition eventPlayer.hasSlamTimer == false
     
@@ -1293,7 +1293,7 @@ rule "slam timer hud":
 
 rule "slam timer visibility":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition isHero(eventPlayer, Hero.DOOMFIST)
     @Condition eventPlayer.isUsingAbility1() == true
     
     eventPlayer.slamTimerVisible = true

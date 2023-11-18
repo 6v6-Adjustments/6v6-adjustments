@@ -3,7 +3,7 @@
 
 rule "[bastion/sentry.opy]: Detect sentry mode":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.isInAlternateForm()
     @Condition eventPlayer.current_configuration == Configuration.RECON # Sentry mode can only be entered from recon mode
     @Condition eventPlayer.current_configuration != Configuration.TANK # prevents incorrectly identifying tank as sentry
@@ -14,7 +14,7 @@ rule "[bastion/sentry.opy]: Detect sentry mode":
 
 rule "[bastion/sentry.opy]: Initialize sentry mode":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.current_configuration == Configuration.SENTRY
 
     eventPlayer.setDamageDealt(percent(OW1_BASTION_SENTRY_CONFIG_DAMAGE/OW2_BASTION_ASSAULT_CONFIG_DAMAGE))

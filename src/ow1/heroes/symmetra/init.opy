@@ -7,7 +7,7 @@
 
 rule "[symmetra/init.opy]: Initialize Symmetra":
     @Event eachPlayer
-    @Hero symmetra
+    @Condition isHero(eventPlayer, Hero.SYMMETRA)
     @Condition eventPlayer.call_init
 
     resetHero()

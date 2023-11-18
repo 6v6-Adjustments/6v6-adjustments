@@ -8,7 +8,7 @@
 
 rule "[orisa/init.opy]: Initialize Orisa":
     @Event eachPlayer
-    @Hero orisa
+    @Condition isHero(eventPlayer, Hero.ORISA)
     @Condition eventPlayer.call_init
     
     resetHero()

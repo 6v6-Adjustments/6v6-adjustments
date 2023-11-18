@@ -2,7 +2,7 @@
 
 rule "[ana/sleep.opy]: Set default sleep dart cooldown":
     @Event eachPlayer
-    @Hero ana
+    @Condition isHero(eventPlayer, Hero.ANA)
     @Condition eventPlayer.isUsingAbility1()
     
     waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)
@@ -11,7 +11,7 @@ rule "[ana/sleep.opy]: Set default sleep dart cooldown":
 
 rule "[ana/sleep.opy]: Sleep tanks for longer duration":
     @Event playerDealtDamage
-    @Hero ana
+    @Condition isHero(eventPlayer, Hero.ANA)
     @Condition eventAbility == Button.ABILITY_1
     @Condition victim.getCurrentHero() in getTankHeroes()
     

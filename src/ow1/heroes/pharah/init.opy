@@ -3,7 +3,7 @@
 
 rule "[pharah/init.opy]: Initialize Pharah":
     @Event eachPlayer
-    @Hero pharah
+    @Condition isHero(eventPlayer, Hero.PHARAH)
     @Condition eventPlayer.call_init
 
     resetHero()

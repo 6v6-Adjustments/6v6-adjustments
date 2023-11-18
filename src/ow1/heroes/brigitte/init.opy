@@ -7,7 +7,7 @@
 
 rule "[brigitte/init.opy]: Initialize Brigitte":
     @Event eachPlayer
-    @Hero brigitte
+    @Condition isHero(eventPlayer, Hero.BRIGITTE)
     @Condition eventPlayer.call_init == true
     
     resetHero()

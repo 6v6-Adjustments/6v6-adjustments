@@ -3,7 +3,7 @@
 
 rule "[baptiste/immort_field.opy]: Set default immortality field cooldown":
     @Event eachPlayer
-    @Hero baptiste
+    @Condition isHero(eventPlayer, Hero.BAPTISTE)
     @Condition eventPlayer.isUsingAbility2()
     
     waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)

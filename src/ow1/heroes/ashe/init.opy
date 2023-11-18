@@ -4,7 +4,7 @@
 
 rule "[ashe/init.opy]: Initialize Ashe":
     @Event eachPlayer
-    @Hero ashe
+    @Condition isHero(eventPlayer, Hero.ASHE)
     @Condition eventPlayer.call_init == true
 
     resetHero()

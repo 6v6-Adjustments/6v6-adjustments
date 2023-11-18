@@ -3,7 +3,7 @@
 
 rule "[dva/booster.opy]: Set default booster cooldown":
     @Event eachPlayer
-    @Hero dva
+    @Condition isHero(eventPlayer, Hero.DVA)
     @Condition eventPlayer.isUsingAbility1()
 
     waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)
@@ -12,7 +12,7 @@ rule "[dva/booster.opy]: Set default booster cooldown":
 
 rule "[dva/booster.opy]: Decouple melee button from activating melee animation during booster":
     @Event eachPlayer
-    @Hero dva
+    @Condition isHero(eventPlayer, Hero.DVA)
     @Condition eventPlayer.isUsingAbility1()
 
     eventPlayer.disallowButton(Button.MELEE)
@@ -22,7 +22,7 @@ rule "[dva/booster.opy]: Decouple melee button from activating melee animation d
 
 rule "[dva/booster.opy]: Cancel booster if melee pressed":
     @Event eachPlayer
-    @Hero dva
+    @Condition isHero(eventPlayer, Hero.DVA)
     @Condition eventPlayer.isUsingAbility1()
     @Condition eventPlayer.isHoldingButton(Button.MELEE)
     
@@ -34,7 +34,7 @@ rule "[dva/booster.opy]: Cancel booster if melee pressed":
 
 rule "[dva/booster.opy]: Reduce boosters damage":
     @Event playerDealtDamage
-    @Hero dva
+    @Condition isHero(eventPlayer, Hero.DVA)
     @Condition eventAbility == Button.ABILITY_1
 
     heal(victim, null, OW2_DVA_BOOSTERS_DAMAGE - OW1_DVA_BOOSTERS_DAMAGE)

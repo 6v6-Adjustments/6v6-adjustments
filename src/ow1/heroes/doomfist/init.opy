@@ -19,7 +19,7 @@ playervar is_ultimate_locked
 
 rule "[doomfist/init.opy]: Initialize Doomfist":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition isHero(eventPlayer, Hero.DOOMFIST)
     @Condition eventPlayer.call_init == true
 
     resetHero()

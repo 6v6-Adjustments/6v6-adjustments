@@ -6,7 +6,7 @@
 
 rule "[mccree/init.opy]: Initialize Cassidy":
     @Event eachPlayer
-    @Hero mccree
+    @Condition isHero(eventPlayer, Hero.MCCREE)
     @Condition eventPlayer.call_init
 
     eventPlayer.setAbility2Enabled(false) # Prevents throwing magnetic grenade

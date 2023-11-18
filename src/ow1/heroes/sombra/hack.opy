@@ -3,7 +3,7 @@
 
 rule "[sombra/hack.opy]: Set default hack cooldown":
     @Event eachPlayer
-    @Hero sombra
+    @Condition isHero(eventPlayer, Hero.SOMBRA)
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0
 
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, OW1_SOMBRA_HACK_COOLDOWN_TIME)

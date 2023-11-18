@@ -3,7 +3,7 @@
 
 rule "[genji/init.opy]: Initialize Genji":
     @Event eachPlayer
-    @Hero genji
+    @Condition isHero(eventPlayer, Hero.GENJI)
     @Condition eventPlayer.call_init
     
     resetHero()
@@ -15,7 +15,7 @@ rule "[genji/init.opy]: Initialize Genji":
 
 rule "[genji.opy]: Deal OW1 shuriken damage":
     @Event playerDealtDamage
-    @Hero genji
+    @Condition isHero(eventPlayer, Hero.GENJI)
     @Condition eventAbility == Button.PRIMARY_FIRE or eventAbility == Button.SECONDARY_FIRE
 
     damage(victim, attacker, eventDamage*(OW1_GENJI_SHURIKEN_DAMAGE/OW2_GENJI_SHURIKEN_DAMAGE)-eventDamage)

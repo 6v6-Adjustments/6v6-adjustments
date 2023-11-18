@@ -3,7 +3,7 @@
 
 rule "[bastion/recon.opy]: Detect recon mode":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition not eventPlayer.isInAlternateForm() # built in workshop function for detecting default hero form
 
     eventPlayer.current_configuration = Configuration.RECON
@@ -11,7 +11,7 @@ rule "[bastion/recon.opy]: Detect recon mode":
 
 rule "[bastion/recon.opy]: Initialize recon mode":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.current_configuration == Configuration.RECON
 
     eventPlayer.setMoveSpeed(100)

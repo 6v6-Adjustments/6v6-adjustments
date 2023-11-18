@@ -5,7 +5,7 @@
 
 rule "[mei/init.opy]: Initialize Mei":
     @Event eachPlayer
-    @Hero mei
+    @Condition isHero(eventPlayer, Hero.MEI)
     @Condition eventPlayer.call_init
     
     resetHero()

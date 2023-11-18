@@ -3,7 +3,7 @@
 
 rule "[ramattra/init.opy]: Initialize Ramattra":
     @Event eachPlayer
-    @Hero ramattra
+    @Condition isHero(eventPlayer, Hero.RAMATTRA)
     @Condition eventPlayer.call_init
 
     resetHero()

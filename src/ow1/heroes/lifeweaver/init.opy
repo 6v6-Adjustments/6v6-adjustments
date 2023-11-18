@@ -3,7 +3,7 @@
 
 rule "[lifeweaver/init.opy]: Initialize Lifeweaver":
     @Event eachPlayer
-    @Hero lifeweaver
+    @Condition isHero(eventPlayer, Hero.LIFEWEAVER)
     @Condition eventPlayer.call_init
     
     resetHero()
@@ -13,7 +13,7 @@ rule "[lifeweaver/init.opy]: Initialize Lifeweaver":
 
 rule "[lifeweaver.opy]: Allow self healing during Rejuvanating Dash":
     @Event eachPlayer
-    @Hero lifeweaver
+    @Condition isHero(eventPlayer, Hero.LIFEWEAVER)
     @Condition eventPlayer.isJumping() # [TODO] Replace with better condition
 
     pushSelfHealing(Button.JUMP)
@@ -23,7 +23,7 @@ rule "[lifeweaver.opy]: Allow self healing during Rejuvanating Dash":
 
 rule "[lifeweaver.opy]: Allow self healing during Tree of Life":
     @Event eachPlayer
-    @Hero lifeweaver
+    @Condition isHero(eventPlayer, Hero.LIFEWEAVER)
     @Condition eventPlayer.isUsingUltimate()
 
     pushSelfHealing(Button.ULTIMATE)

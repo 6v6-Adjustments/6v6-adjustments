@@ -8,7 +8,7 @@
 
 rule "[sombra/init.opy]: Initialize Sombra":
     @Event eachPlayer
-    @Hero sombra
+    @Condition isHero(eventPlayer, Hero.SOMBRA)
     @Condition eventPlayer.call_init
 
     resetHero()

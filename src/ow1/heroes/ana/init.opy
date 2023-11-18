@@ -5,7 +5,7 @@
 
 rule "[ana/init.opy]: Initialize Ana":
     @Event eachPlayer
-    @Hero ana
+    @Condition isHero(eventPlayer, Hero.ANA)
     @Condition eventPlayer.call_init == true
     
     resetHero()

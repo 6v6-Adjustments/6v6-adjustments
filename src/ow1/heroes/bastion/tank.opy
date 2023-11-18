@@ -3,7 +3,7 @@
 
 rule "[bastion/tank.opy]: Detect tank mode":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.isUsingUltimate()
 
     eventPlayer.current_configuration = Configuration.TANK
@@ -11,7 +11,7 @@ rule "[bastion/tank.opy]: Detect tank mode":
 
 rule "[bastion/tank.opy]: Initialize tank mode":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.current_configuration == Configuration.TANK
 
     eventPlayer.setMoveSpeed(percent(OW1_BASTION_TANK_CONFIG_MOVE_SPEED)) # move faster in tank mode
@@ -49,7 +49,7 @@ def endTank():
 
 rule "[bastion/tank.opy]: Activate tank mode":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.current_configuration == Configuration.TANK
     
     startTank()
@@ -59,7 +59,7 @@ rule "[bastion/tank.opy]: Activate tank mode":
 
 rule "[bastion/tank.opy]: Fire tank shells":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.current_configuration == Configuration.TANK
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE)
     
@@ -74,7 +74,7 @@ rule "[bastion/tank.opy]: Fire tank shells":
 
 rule "[bastion/tank.opy]: Reload tank shells":
     @Event eachPlayer
-    @Hero bastion
+    @Condition isHero(eventPlayer, Hero.BASTION)
     @Condition eventPlayer.current_configuration == Configuration.TANK
     @Condition eventPlayer.isFiringSecondaryFire()
 

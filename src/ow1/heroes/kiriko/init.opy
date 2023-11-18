@@ -3,7 +3,7 @@
 
 rule "[kiriko/init.opy]: Initialize Kiriko":
     @Event eachPlayer
-    @Hero kiriko
+    @Condition isHero(eventPlayer, Hero.KIRIKO)
     @Condition eventPlayer.call_init
     
     resetHero()
@@ -13,7 +13,7 @@ rule "[kiriko/init.opy]: Initialize Kiriko":
 
 rule "[kiriko.opy]: Allow self healing during Suzu":
     @Event eachPlayer
-    @Hero kiriko
+    @Condition isHero(eventPlayer, Hero.KIRIKO)
     @Condition eventPlayer.isUsingAbility2()
 
     pushSelfHealing(Button.ABILITY_2)

@@ -3,7 +3,7 @@
 
 rule "[illari/init.opy]: Initialize Illari":
     @Event eachPlayer
-    @Hero illari
+    @Condition isHero(eventPlayer, Hero.ILLARI)
     @Condition eventPlayer.call_init
     
     resetHero()
@@ -13,7 +13,7 @@ rule "[illari/init.opy]: Initialize Illari":
 
 rule "[illari.opy]: Allow self healing during Pylon":
     @Event eachPlayer
-    @Hero illari
+    @Condition isHero(eventPlayer, Hero.ILLARI)
     @Condition eventPlayer.isUsingAbility2()
 
     pushSelfHealing(Button.ABILITY_2)

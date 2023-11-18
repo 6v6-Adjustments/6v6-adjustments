@@ -3,7 +3,7 @@
 
 rule "[dva/missile.opy]: Set default missile cooldown":
     @Event eachPlayer
-    @Hero dva
+    @Condition isHero(eventPlayer, Hero.DVA)
     @Condition eventPlayer.isUsingAbility2()
     
     waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)

@@ -8,7 +8,7 @@ playervar shield_bash_through_barrier
 
 rule "[brigitte/bash.opy]: Detect shield bash usage":
     @Event eachPlayer
-    @Hero brigitte
+    @Condition isHero(eventPlayer, Hero.BRIGITTE)
     @Condition eventPlayer.isFiringSecondaryFire()
 
     waitUntil(eventPlayer.isFiringSecondaryFire() and eventPlayer.isFiringPrimaryFire(), Math.INFINITY)
@@ -20,7 +20,7 @@ rule "[brigitte/bash.opy]: Detect shield bash usage":
 
 # rule "[brigitte/bash.opy]: Detect shield bash going through barrier":
 #     @Event eachPlayer
-#     @Hero brigitte
+#     @Condition isHero(eventPlayer, Hero.BRIGITTE)
 #     @Condition eventPlayer.is_using_shield_bash
 #     @Condition updateEveryTick(not isInLoS(eventPlayer.getEyePosition() + 1*worldVector(Vector.FORWARD, eventPlayer, Transform.ROTATION), 
 #                                            eventPlayer.getEyePosition() + 2*worldVector(Vector.FORWARD, eventPlayer, Transform.ROTATION), 
@@ -31,7 +31,7 @@ rule "[brigitte/bash.opy]: Detect shield bash usage":
 
 rule "[brigitte/bash.opy]: Add stun to shield bash":
     @Event playerDealtDamage
-    @Hero brigitte
+    @Condition isHero(eventPlayer, Hero.BRIGITTE)
     @Condition attacker.is_using_shield_bash
     @Condition eventAbility == Button.PRIMARY_FIRE
     @Condition not attacker.shield_bash_through_barrier
@@ -41,7 +41,7 @@ rule "[brigitte/bash.opy]: Add stun to shield bash":
 
 rule "[brigitte/bash.opy]: Reduce shield bash distance":
     @Event eachPlayer
-    @Hero brigitte
+    @Condition isHero(eventPlayer, Hero.BRIGITTE)
     @Condition eventPlayer.is_using_shield_bash
     @Condition not eventPlayer.isUsingUltimate()
     
@@ -55,7 +55,7 @@ rule "[brigitte/bash.opy]: Reduce shield bash distance":
 
 rule "[brigitte/bash.opy]: Reduce shield bash damage to OW1":
     @Event playerDealtDamage
-    @Hero brigitte
+    @Condition isHero(eventPlayer, Hero.BRIGITTE)
     @Condition eventPlayer.isFiringSecondaryFire()
     @Condition eventAbility == Button.PRIMARY_FIRE
 

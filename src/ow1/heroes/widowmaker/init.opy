@@ -16,7 +16,7 @@ playervar expected_scoped_damage
 
 rule "[widowmaker/init.opy]: Initialize Widowmaker":
     @Event eachPlayer
-    @Hero widowmaker
+    @Condition isHero(eventPlayer, Hero.WIDOWMAKER)
     @Condition eventPlayer.call_init
 
     resetHero()
@@ -26,7 +26,7 @@ rule "[widowmaker/init.opy]: Initialize Widowmaker":
 
 rule "[widowmaker.opy]: Revert sniper damage falloff":
     @Event playerDealtDamage
-    @Hero widowmaker
+    @Condition isHero(eventPlayer, Hero.WIDOWMAKER)
     @Condition eventPlayer.isFiringSecondaryFire()
     @Condition eventPlayer.isFiringPrimaryFire()
     @Condition eventAbility == Button.PRIMARY_FIRE

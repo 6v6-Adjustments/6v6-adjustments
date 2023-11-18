@@ -9,7 +9,7 @@ playervar ow1_adaptive_shield_n
 
 rule "[wreckingball/shields.opy]: OW1 Adaptive Shields":
     @Event eachPlayer
-    @Hero hammond
+    @Condition isHero(eventPlayer, Hero.HAMMOND)
     @Condition eventPlayer.isUsingAbility2()
 
     eventPlayer.ow2_adaptive_shield_n = len(getPlayersInRadius(eventPlayer.getEyePosition(), 

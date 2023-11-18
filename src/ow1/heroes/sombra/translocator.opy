@@ -27,7 +27,7 @@ subroutine hideTranslocator
 
 rule "[sombra/translocator.opy]: Bind Ability 2 to translocator":
     @Event eachPlayer
-    @Hero sombra
+    @Condition isHero(eventPlayer, Hero.SOMBRA)
     @Condition not eventPlayer.isHoldingButton(Button.ABILITY_2)
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) <= 0
     @Condition not eventPlayer.is_using_translocator
@@ -70,7 +70,7 @@ def destroyTranslocator():
 
 rule "[sombra/translocator.opy]: Call throwTranslocator()":
     @Event eachPlayer
-    @Hero sombra
+    @Condition isHero(eventPlayer, Hero.SOMBRA)
     @Condition eventPlayer.call_throwTranslocator
 
     throwTranslocator()

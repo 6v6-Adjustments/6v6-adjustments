@@ -3,7 +3,7 @@
 
 rule "[lucio/init.opy]: Initialize Lucio":
     @Event eachPlayer
-    @Hero lucio
+    @Condition isHero(eventPlayer, Hero.LUCIO)
     @Condition eventPlayer.call_init
     
     resetHero()
@@ -13,7 +13,7 @@ rule "[lucio/init.opy]: Initialize Lucio":
 
 rule "[lucio.opy]: Handle lucio self healing while amp is not active and supp passive is active":
     @Event eachPlayer
-    @Hero lucio
+    @Condition isHero(eventPlayer, Hero.LUCIO)
     @Condition not eventPlayer.isUsingAbility2()
     @Condition not eventPlayer.isUsingAbility1()
     @Condition eventPlayer.support_passive_active
@@ -23,7 +23,7 @@ rule "[lucio.opy]: Handle lucio self healing while amp is not active and supp pa
 
 rule "[lucio.opy]: Handle lucio self healing while amp is not active and support passive inactive":
     @Event eachPlayer
-    @Hero lucio
+    @Condition isHero(eventPlayer, Hero.LUCIO)
     @Condition not eventPlayer.isUsingAbility2()
     @Condition not eventPlayer.isUsingAbility1()
     @Condition not eventPlayer.support_passive_active
@@ -33,7 +33,7 @@ rule "[lucio.opy]: Handle lucio self healing while amp is not active and support
 
 rule "[lucio.opy]: Handle lucio self when amp is active and supp passive is active":
     @Event eachPlayer
-    @Hero lucio
+    @Condition isHero(eventPlayer, Hero.LUCIO)
     @Condition eventPlayer.isUsingAbility2()
     @Condition not eventPlayer.isUsingAbility1()
     @Condition eventPlayer.support_passive_active
@@ -43,7 +43,7 @@ rule "[lucio.opy]: Handle lucio self when amp is active and supp passive is acti
     
 rule "[lucio.opy]: Handle lucio self when amp is active and supp passive is inactive":
     @Event eachPlayer
-    @Hero lucio
+    @Condition isHero(eventPlayer, Hero.LUCIO)
     @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.support_passive_active == false   
@@ -53,7 +53,7 @@ rule "[lucio.opy]: Handle lucio self when amp is active and supp passive is inac
 
 rule "[lucio.opy]: If lucio uses speed aura remove self healing":
     @Event eachPlayer
-    @Hero lucio
+    @Condition isHero(eventPlayer, Hero.LUCIO)
     @Condition eventPlayer.isUsingAbility1() == true
 
     eventPlayer.self_healing_percent = 0

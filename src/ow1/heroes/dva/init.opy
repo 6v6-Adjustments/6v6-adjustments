@@ -9,7 +9,7 @@
 
 rule "[dva/init.opy]: Initialize DVa":
     @Event eachPlayer
-    @Hero dva
+    @Condition isHero(eventPlayer, Hero.DVA)
     @Condition eventPlayer.call_init
     
     resetHero()
