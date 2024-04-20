@@ -1,4 +1,4 @@
-#!mainFile "../main.opy"
+#!mainFile "../dev_main.opy"
 
 # Environment Variables
 #!define GAMEMODE_VERSION "Internal Build"
