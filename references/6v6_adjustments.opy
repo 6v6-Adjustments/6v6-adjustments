@@ -822,7 +822,7 @@ rule "Increase Pummel damage":
     @Condition eventAbility != Button.MELEE
     
     damage(victim, attacker, eventDamage * 1.169 - eventDamage)
-    
+
 
 rule "Set Ramattra Block Cooldown when not in Nemesis":
     @Event eachPlayer
@@ -2482,11 +2482,13 @@ rule "Debug: Display server load":
     #goto RULE_START
 */
 
+/*
 rule "Debug: 100% Ultimate on Interact":
     @Event eachPlayer
     @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
     
     eventPlayer.setUltCharge(100)
+*/
 
 /*
 rule "Debug: Teleport to other players":
