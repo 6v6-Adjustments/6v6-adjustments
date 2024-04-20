@@ -3,9 +3,7 @@ const overpy = require("./overpy/VS Code Extension/overpy.js");
 
 const version = process.env.NEXT_VERSION;
 
-generateWorkshop("ow1em_main.opy", "ow1em.txt")
-generateWorkshop("ow1pp_main.opy", "ow1pp.txt")
-generateWorkshop("1v1_main.opy", "1v1-ow1.txt")
+generateWorkshop("main.opy", "6v6-adj.txt")
 
 function generateWorkshop(mainFileName="main.opy", outputFileName="out.txt", srcDirectory="./src/", buildDirectory="./build/") {
   try {
@@ -14,7 +12,7 @@ function generateWorkshop(mainFileName="main.opy", outputFileName="out.txt", src
 
     let mainFileText = fs.readFileSync(mainFilePath, 'utf8');
     mainFileText = addVersionNumber(mainFileText, version)
-    mainFileText = addObfuscation(mainFileText)
+    // mainFileText = addObfuscation(mainFileText)
     const compiledText = overpy.compile(mainFileText, "en-US", srcDirectory).result;
 
     fs.mkdirSync(buildDirectory, { recursive: true });

@@ -1,24 +1,52 @@
-#!mainFile "../../dev_main.opy"
-
-#!include "heroes/soldier/pulse_rifle.opy"
-#!include "heroes/soldier/biotic_field.opy"
+#!mainFile "../../main.opy"
 
 
-rule "[soldier/init.opy]: Detect switch to Soldier 76":
+rule "Soldier 76":
     @Event eachPlayer
-    @Hero soldier
+    @Condition eventPlayer.hero_setup == Hero.SOLDIER
+    
+    eventPlayer.ult_change_check = 1.2
+    eventPlayer.removeAllHealthPools()
+    eventPlayer.setMaxHealth(100)
+    resetHealth()
+    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
+    heal(eventPlayer, null, 1)
+    resetStats()
+    resetStatuses()
+    enableAllAbilities()
+    eventPlayer.setHealingDealt(86.4)
+    eventPlayer.heal_state = 1
 
-    eventPlayer.call_init = true
+
+rule "Increase Heavy Pulse Rifle damage":
+    @Event playerDealtDamage
+    @Condition eventPlayer.hero_setup == Hero.SOLDIER
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    
+    damage(victim, attacker, eventDamage * 1.026 - eventDamage)
 
 
-rule "[soldier/init.opy]: Initialize Soldier 76":
+/*
+rule "76 backup":
     @Event eachPlayer
-    @Hero soldier
-    @Condition eventPlayer.call_init
+    @Condition eventPlayer.hero_setup == Hero.SOLDIER
+    @Condition eventPlayer.isHoldingButton(Button.ABILITY_2) == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
+    @Condition eventPlayer.heal_state == 0
+    
+    eventPlayer.heal_state = 1
+    eventPlayer.setHealingDealt(1)
+    waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0, 9999999)
+    waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0, 9999999)
+    eventPlayer.setHealingDealt(0)
+    eventPlayer.heal_state = 0
+*/
 
-    newHero(OW1_SOLDIER_HEALTH, 0, 0)
-    setUltCost(OW1_SOLDIER_ULT_COST)
-    eventPlayer.setHealingDealt(percent(OW1_SOLDIER_BIOTIC_FIELD_HEAL/OW2_SOLDIER_BIOTIC_FIELD_HEAL))
-    removeSelfHealing()
-
-    eventPlayer.call_init = false
+/*
+rule "76 heal":
+    @Event playerDealtHealing
+    @Condition eventPlayer.hero_setup == Hero.SOLDIER
+    @Condition eventAbility == Button.ABILITY_2
+    
+    heal(eventPlayer, null, eventHealing * 87.6)
+*/
