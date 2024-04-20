@@ -20,5 +20,5 @@
 #!define DISCORD_LONG_LINK "discord.gg/todo"
 #!define SOURCE_CODE_LINK "github.com/ieToastie/6v6-adjustments.git"
 
-rule "Copyright (c) 2024 6v6 Adjustments & Overwatch 1 Emulator. See github.com/ieToastie/6v6-adjustments.git for license to use this code.":
+rule "Copyright (c) 2024 6v6 Adjustments & Overwatch 1 Emulator. See https://github.com/6v6-Adjustments/6v6-adjustments for license to use this code.":
     disableInspector()
