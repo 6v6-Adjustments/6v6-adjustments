@@ -16,7 +16,6 @@ rule "Brigitte":
     enableAllAbilities()
     eventPlayer.setDamageDealt(77.888)
     eventPlayer.setHealingDealt(80)
-    eventPlayer.heal_state = 1
 
 
 rule "Increase Brigitte damage on most abilities":

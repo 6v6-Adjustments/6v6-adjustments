@@ -16,7 +16,6 @@ rule "Lucio":
     eventPlayer.setKnockbackDealt(89.286)
     eventPlayer.setHealingDealt(100)
     eventPlayer.setDamageDealt(66.667)
-    eventPlayer.heal_state = 1
 
 
 rule "Increase Lucio melee damage":

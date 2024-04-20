@@ -23,7 +23,6 @@ rule "Ana":
     enableAllAbilities()
     eventPlayer.setDamageDealt(66.667)
     eventPlayer.setHealingDealt(100)
-    eventPlayer.heal_state = 1
 
 
 rule "Increase Ana melee damage":
@@ -52,14 +51,3 @@ rule "Increase Biotic Grenade healing":
     @Condition eventAbility == Button.ABILITY_2
     
     heal(healee, healer, eventHealing * 1.111 - eventHealing)
-
-
-rule "Sleep Dart self-heal backup":
-    @Event eachPlayer
-    @Condition eventPlayer.hasStatusEffect(Status.ASLEEP) == true
-    
-    healPassiveReset()
-    startHealPassiveBackUp()
-    waitUntil(eventPlayer.hasStatusEffect(Status.ASLEEP) == false, 99999)
-    endHealPassiveBackUp()
-    healPassiveReset()

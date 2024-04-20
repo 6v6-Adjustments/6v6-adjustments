@@ -1,6 +1,5 @@
 #!mainFile "../dev_main.opy"
 
-playervar heal_state
 playervar ult_change_check
 playervar overhealth_check
 playervar balance_change_check

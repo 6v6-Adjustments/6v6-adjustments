@@ -18,7 +18,6 @@ rule "Baptiste":
     enableAllAbilities()
     eventPlayer.setDamageDealt(100)
     eventPlayer.setHealingDealt(70)
-    eventPlayer.heal_state = 1
     eventPlayer.balance_change_check = true
 
 

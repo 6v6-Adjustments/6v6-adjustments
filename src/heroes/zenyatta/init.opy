@@ -18,4 +18,3 @@ rule "Zenyatta":
     enableAllAbilities()
     eventPlayer.setKnockbackDealt(7)
     eventPlayer.setHealingDealt(100)
-    eventPlayer.heal_state = 1

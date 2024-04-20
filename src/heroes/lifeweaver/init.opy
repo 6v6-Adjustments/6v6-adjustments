@@ -20,7 +20,6 @@ rule "Lifeweaver":
     enableAllAbilities()
     eventPlayer.setDamageDealt(120)
     eventPlayer.setHealingDealt(100)
-    eventPlayer.heal_state = 1
 
 
 rule "Reduce Lifeweaver melee damage":
