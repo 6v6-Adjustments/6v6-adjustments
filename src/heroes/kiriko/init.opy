@@ -17,6 +17,8 @@ rule "Kiriko":
     resetStatuses()
     enableAllAbilities()
     eventPlayer.setHealingDealt(100)
+    
+    removePassiveHealing()
 
 
 rule "Heal when using Swift Step":

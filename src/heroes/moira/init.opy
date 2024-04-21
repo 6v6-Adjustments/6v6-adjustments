@@ -15,6 +15,8 @@ rule "Moira":
     enableAllAbilities()
     eventPlayer.setHealingDealt(100)
 
+    removePassiveHealing()
+
 
 rule "Prevent fading during coalescence":
     @Event eachPlayer

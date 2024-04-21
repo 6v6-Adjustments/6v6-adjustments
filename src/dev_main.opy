@@ -1,8 +1,8 @@
 #!include "env/dev_env.opy"
 
 # Useful constants
-# !include "constants/ow1_constants.opy"
-# !include "constants/ow2_constants.opy"
+#!include "constants/ow1_constants.opy"
+#!include "constants/ow2_constants.opy"
 
 # Useful functions
 # !include "utilities/macro_functions.opy"

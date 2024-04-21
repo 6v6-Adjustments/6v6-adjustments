@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/soldier/biotic_field.opy"
+
 
 rule "Soldier 76":
     @Event eachPlayer
@@ -15,6 +17,7 @@ rule "Soldier 76":
     resetStatuses()
     enableAllAbilities()
     eventPlayer.setHealingDealt(86.4)
+    removeSelfHealing()
 
 
 rule "Increase Heavy Pulse Rifle damage":

@@ -1,9 +1,9 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[ana/nade.opy]: Heal OW1 healing with biotic grenade":
+rule "[ana/nade.opy]: Increase Biotic Grenade healing":
     @Event playerDealtHealing
-    @Hero ana
+    @Condition eventPlayer.hero_setup == Hero.ANA
     @Condition eventAbility == Button.ABILITY_2
 
     heal(healee, healer, eventHealing*(OW1_ANA_BIOTIC_GRENADE_HEALING/OW2_ANA_BIOTIC_GRENADE_HEALING)-eventHealing)

@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/roadhog/breather.opy"
+
 
 rule "Roadhog":
     @Event eachPlayer
@@ -16,6 +18,7 @@ rule "Roadhog":
     resetStatuses()
     enableAllAbilities()
     removeTankPassive()
+    removeSelfHealing()
     eventPlayer.setDamageDealt(87.5)
 
 

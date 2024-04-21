@@ -16,6 +16,7 @@ rule "Ramattra":
     removeTankPassive()
     eventPlayer.startScalingSize(0.94, true)
     eventPlayer.setJumpVerticalSpeed(101)
+    removeSelfHealing()
 
 
 rule "Correct Nemesis Form armor, movement speed, and cooldown for duplicate":

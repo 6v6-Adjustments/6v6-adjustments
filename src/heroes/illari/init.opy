@@ -18,6 +18,8 @@ rule "Illari":
     eventPlayer.setDamageDealt(75)
     eventPlayer.setHealingDealt(100)
 
+    removePassiveHealing()
+
 
 rule "Increase Illari melee damage":
     @Event playerDealtDamage

@@ -21,6 +21,8 @@ rule "Mauga":
     eventPlayer.setHealingDealt(72)
     eventPlayer.startScalingSize(0.94, true)
     eventPlayer.setJumpVerticalSpeed(101)
+    
+    removePassiveHealing()
 
 
 rule "Increase Mauga melee damage":

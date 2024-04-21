@@ -14,6 +14,7 @@ rule "Reaper":
     resetStatuses()
     enableAllAbilities()
     eventPlayer.setHealingDealt(100)
+    removePassiveHealing()
 
 
 rule "Increase Hellfire Shotgun damage":

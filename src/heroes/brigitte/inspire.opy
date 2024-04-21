@@ -6,5 +6,5 @@ rule "[brigitte/inspire.opy]: Inspire self healing logic":
     @Hero brigitte
 
     pushSelfHealing(Button.MELEE)
-    wait(OW1_BRIGITTE_INSPIRE_DURATION, Wait.RESTART_WHEN_TRUE)
+    wait(OW2_BRIGITTE_INSPIRE_DURATION, Wait.RESTART_WHEN_TRUE)
     popSelfHealing(Button.MELEE)

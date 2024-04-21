@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/mei/cryo_freeze.opy"
+
 
 rule "Mei":
     @Event eachPlayer
@@ -15,3 +17,4 @@ rule "Mei":
     resetStats()
     resetStatuses()
     enableAllAbilities()
+    removeSelfHealing()

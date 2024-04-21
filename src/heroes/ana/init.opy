@@ -1,12 +1,14 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/ana/nade.opy"
+
 playervar ana_damage_check
 
 subroutine startHealPassiveBackUp
 subroutine endHealPassiveBackUp
 
 
-rule "Ana":
+rule "[ana/init.opy]: Ana":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ANA
     
@@ -23,6 +25,8 @@ rule "Ana":
     enableAllAbilities()
     eventPlayer.setDamageDealt(66.667)
     eventPlayer.setHealingDealt(100)
+
+    removeSelfHealing()
 
 
 rule "Increase Ana melee damage":
@@ -43,11 +47,3 @@ rule "Increase Biotic Rifle damage":
     victim.startDoT(attacker, 0.55, 64.404)
     wait(0.6)
     eventPlayer.ana_damage_check = false
-
-
-rule "Increase Biotic Grenade healing":
-    @Event playerDealtHealing
-    @Condition eventPlayer.hero_setup == Hero.ANA
-    @Condition eventAbility == Button.ABILITY_2
-    
-    heal(healee, healer, eventHealing * 1.111 - eventHealing)

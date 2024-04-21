@@ -19,6 +19,8 @@ rule "Junker Queen":
     removeTankPassive()
     eventPlayer.setHealingDealt(74.29)
     eventPlayer.setDamageDealt(87.5)
+    
+    removePassiveHealing()
 
 
 rule "Correct Commanding Shout overhealth while outside spawn rooms":
