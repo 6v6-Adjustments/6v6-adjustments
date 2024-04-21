@@ -35,6 +35,7 @@ rule "D.va (pilot)":
     #resetUltCharge()
     #enableAllAbilities()
     removeTankPassive()
+    removeSelfHealing()
     #Reset ultimate charge when DVa pops out of Mech
     if eventPlayer.isUsingUltimate():
         return
