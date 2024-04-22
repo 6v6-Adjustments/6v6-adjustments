@@ -16,6 +16,7 @@ rule "D.va (mech)":
     resetStatuses()
     enableAllAbilities()
     removeTankPassive()
+    removeSelfHealing()
     if eventPlayer.getMaxHealth() != (450 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 550):
         goto RULE_START
 
