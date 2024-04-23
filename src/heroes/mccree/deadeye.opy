@@ -3,7 +3,7 @@
 
 rule "[mccree/deadeye.opy]: Remove damage reduction during deadeye":
     @Event eachPlayer
-    @Hero mccree
+    @Condition eventPlayer.hero_setup == Hero.MCCREE
     @Condition eventPlayer.isUsingUltimate()
 
     # eventPlayer.setDamageDealt(percent(OW1_MCCREE_DEADEYE_DAMAGE/OW2_MCCREE_DEADEYE_DAMAGE))
