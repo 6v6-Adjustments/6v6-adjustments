@@ -55,14 +55,14 @@ settings {
     "heroes": {
         "allTeams": {
             "ana": {
-                "ability1Cooldown%": 85,
+                "ability1Cooldown%": percent(ADJ_ANA_SLEEP_DART_COOLDOWN_TIME/OW2_ANA_SLEEP_DART_COOLDOWN_TIME),
                 "ultGen%": 106
             },
             "ashe": {
                 "ultGen%": 111
             },
             "baptiste": {
-                "ability1Cooldown%": 86,
+                "ability1Cooldown%": percent(ADJ_BAPTISTE_REGEN_BURST_COOLDOWN/OW2_BAPTISTE_REGEN_BURST_COOLDOWN),
                 "ultGen%": 98
             },
             "bastion": {
