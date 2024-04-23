@@ -13,7 +13,7 @@ rule "Roadhog":
     eventPlayer.setMaxAmmo(0, 5)
     eventPlayer.setMaxHealth(100)
     resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 499 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 599, true, true)
+    eventPlayer.addHealthPool(Health.NORMAL, 599 if not eventPlayer.isDuplicatingAHero() or FULL_ECHO_TANK_HP else 499, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()

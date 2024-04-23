@@ -10,14 +10,14 @@ rule "D.va (mech)":
     eventPlayer.removeAllHealthPools()
     eventPlayer.setMaxHealth(100)
     resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 299 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 349, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 150 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 200, true, true)
+    eventPlayer.addHealthPool(Health.NORMAL, 349 if not eventPlayer.isDuplicatingAHero() or FULL_ECHO_TANK_HP else 299, true, true)
+    eventPlayer.addHealthPool(Health.ARMOR, 200 if not eventPlayer.isDuplicatingAHero() or FULL_ECHO_TANK_HP else 150, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()
     removeTankPassive()
     removeSelfHealing()
-    if eventPlayer.getMaxHealth() != (450 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 550):
+    if eventPlayer.getMaxHealth() != (550 if not eventPlayer.isDuplicatingAHero() or FULL_ECHO_TANK_HP else 450):
         goto RULE_START
 
 

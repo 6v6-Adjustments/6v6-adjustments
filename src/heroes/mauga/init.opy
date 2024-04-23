@@ -9,7 +9,7 @@ rule "Mauga":
     eventPlayer.removeAllHealthPools()
     eventPlayer.setMaxHealth(100)
     resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 299 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 399, true, true)
+    eventPlayer.addHealthPool(Health.NORMAL, 399 if not eventPlayer.isDuplicatingAHero() or FULL_ECHO_TANK_HP else 299, true, true)
     eventPlayer.addHealthPool(Health.ARMOR, 100, true, true)
     eventPlayer.overhealth_check = false
     eventPlayer.balance_change_check = false

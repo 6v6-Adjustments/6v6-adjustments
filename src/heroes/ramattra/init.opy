@@ -15,7 +15,7 @@ rule "Ramattra":
     eventPlayer.removeAllHealthPools()
     eventPlayer.setMaxHealth(65)
     resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 349 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 399, true, true)
+    eventPlayer.addHealthPool(Health.NORMAL, 399 if not eventPlayer.isDuplicatingAHero() or FULL_ECHO_TANK_HP else 349, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()
