@@ -44,4 +44,4 @@ rule "[baptiste/regen_burst.opy]: Correct regenerative burst ally hps":
     heal(
         healee, 
         healer, 
-        ((eventHealing/eventPlayer._base_healing_scalar)*(ADJ_BAPTISTE_REGEN_BURST_ALLY_HPS/OW2_BAPTISTE_REGEN_BURST_ALLY_HPS) - eventHealing)/eventPlayer._base_healing_scalar)
+        ((eventHealing/eventPlayer._base_healing_scalar)*(ADJ_BAPTISTE_REGEN_BURST_ALLY_HPS/OW2_BAPTISTE_REGEN_BURST_ALLY_HPS) - eventHealing))
