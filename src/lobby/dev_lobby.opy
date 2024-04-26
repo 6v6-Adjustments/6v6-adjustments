@@ -28,28 +28,28 @@ settings {
     "heroes": {
         "allTeams": {
             "ana": {
-                "ability1Cooldown%": 85,
+                "ability1Cooldown%": percent(ADJ_ANA_SLEEP_DART_COOLDOWN_TIME/OW2_ANA_SLEEP_DART_COOLDOWN_TIME),
                 "ultGen%": 106
             },
             "ashe": {
                 "ultGen%": 111
             },
             "baptiste": {
-                "ability1Cooldown%": 86,
+                "ability1Cooldown%": percent(ADJ_BAPTISTE_REGEN_BURST_COOLDOWN/OW2_BAPTISTE_REGEN_BURST_COOLDOWN),
                 "ultGen%": 98
             },
             "bastion": {
                 "ultGen%": 111
             },
             "brigitte": {
-                "ability2Cooldown%": 120,
+                "ability2Cooldown%": percent(ADJ_BRIGITTE_REPAIR_PACK_COOLDOWN/OW2_BRIGITTE_REPAIR_PACK_COOLDOWN),
                 "ultGen%": 93
             },
             "mccree": {
                 "ultGen%": 111
             },
             "dva": {
-                "secondaryFireMaximumTime%": 66
+                "secondaryFireMaximumTime%": percent(ADJ_DVA_MATRIX_DURATION/OW2_DVA_MATRIX_DURATION)
             },
             "doomfist": {
                 "ability1Cooldown%": percent(ADJ_DOOMFIST_SLAM_CD/OW2_DOOMFIST_SLAM_CD),
@@ -64,19 +64,19 @@ settings {
                 "ultGen%": 110
             },
             "hanzo": {
-                "ability2Cooldown%": 125,
-                "ability2Quantity%": 4,
+                "ability2Cooldown%": percent(ADJ_HANZO_STORM_COOLDOWN/OW2_HANZO_STORM_COOLDOWN),
+                "ability2Quantity%": ADJ_HANZO_STORM_QUANTITY,
                 "ultGen%": 110
             },
             "illari": {
-                "ability2Cooldown%": 133,
+                "ability2Cooldown%": percent(ADJ_ILLARI_PYLON_COOLDOWN/OW2_ILLARI_PYLON_COOLDOWN),
                 "ultGen%": 106
             },
             "junkerQueen": {
                 "ultGen%": 107
             },
             "junkrat": {
-                "ability1Cooldown%": 114,
+                "ability1Cooldown%": percent(ADJ_JUNKRAT_CONCUSSION_MINE_COOLDOWN/OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN),
                 "ultGen%": 110
             },
             "kiriko": {
@@ -107,19 +107,19 @@ settings {
                 "ultGen%": 116
             },
             "pharah": {
-                "ability2Cooldown%": 114,
+                "ability2Cooldown%": percent(ADJ_PHARAH_CONCUSSIVE_BLAST_COOLDOWN/OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN),
                 "ultGen%": 110
             },
             "ramattra": {
-                "ability1Cooldown%": 129
+                "ability1Cooldown%": percent(ADJ_RAMATTRA_NEMESIS_COOLDOWN/OW2_RAMATTRA_NEMESIS_COOLDOWN)
             },
             "reaper": {
-                "ability2Cooldown%": 80,
+                "ability2Cooldown%": percent(ADJ_REAPER_SHADOW_STEP_COOLDOWN/OW2_REAPER_SHADOW_STEP_COOLDOWN),
                 "ultGen%": 103
             },
             "reinhardt": {
-                "secondaryFireRechargeRate%": 139,
-                "ability1Cooldown%": 142,
+                "secondaryFireRechargeRate%": percent(ADJ_REINHARDT_BARRIER_REGEN/OW2_REINHARDT_BARRIER_REGEN),
+                "ability1Cooldown%": percent(ADJ_REINHARDT_CHARGE_COOLDOWN_TIME/OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
                 "ultGen%": 107
             },
             "roadhog": {
