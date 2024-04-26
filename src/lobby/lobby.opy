@@ -45,7 +45,7 @@ settings {
         },
         "general": {
             "heroLimit": "1PerTeam",
-            "roleLimit": "off",
+            "roleLimit": "2OfEachRolePerTeam",
             "gamemodeStartTrigger": "allSlotsFilled",
             "tankPassiveHealthBonus": "disabled",
             "randomHeroRoleLimitPerTeam": 2,
@@ -79,10 +79,10 @@ settings {
                 "secondaryFireMaximumTime%": 66
             },
             "doomfist": {
-                "ability1Cooldown%": 128,
-                "ability2Cooldown%": 116,
+                "ability1Cooldown%": percent(ADJ_DOOMFIST_SLAM_CD/OW2_DOOMFIST_SLAM_CD),
+                "ability2Cooldown%": percent(ADJ_DOOMFIST_POWER_BLOCK_COOLDOWN/OW2_DOOMFIST_POWER_BLOCK_COOLDOWN),
                 "secondaryFireKb%": 0,
-                "ultGen%": 97
+                "ultGen%": percent(OW2_DOOMFIST_ULT_COST/ADJ_DOOMFIST_ULT_COST)
             },
             "echo": {
                 "ultGen%": 96
@@ -105,6 +105,9 @@ settings {
             "junkrat": {
                 "ability1Cooldown%": 114,
                 "ultGen%": 110
+            },
+            "kiriko": {
+                "ultGen%": percent(OW2_KIRIKO_ULT_COST/ADJ_KIRIKO_ULT_COST)
             },
             "lifeweaver": {
                 "secondaryFireCooldown%": 83,

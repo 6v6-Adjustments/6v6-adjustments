@@ -19,7 +19,9 @@ rule "Roadhog":
     enableAllAbilities()
     removeTankPassive()
     removeSelfHealing()
+    
     eventPlayer.setDamageDealt(87.5)
+    eventPlayer.setHealingDealt(percent(ADJ_ROADHOG_BREATHER_HEAL_TOTAL/OW2_ROADHOG_BREATHER_HEAL_TOTAL))
 
 
 rule "Increase Roadhog melee damage":
@@ -81,11 +83,3 @@ rule "Wholehog force autofire":
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == false
     
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-
-
-rule "hog heal":
-    @Event playerDealtHealing
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    
-    heal(eventPlayer, eventPlayer, eventHealing * 65.5)
