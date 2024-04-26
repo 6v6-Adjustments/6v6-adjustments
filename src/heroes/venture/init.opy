@@ -1,5 +1,19 @@
 #!mainFile "../../dev_main.opy"
 
+#!define ADJ_VENTURE_CLOBBER_DAMAGE 65
+#!define ADJ_VENTURE_DRILL_DASH_COOLDOWN 6
+#!define ADJ_VENTURE_DRILL_DASH_DAMAGE 70
+#!define ADJ_VENTURE_EXCAVATOR_DAMAGE 65
+#!define ADJ_VENTURE_EXPLOERER_SHIELDS 25
+#!define ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE 120
+
+#!define OW2_VENTURE_CLOBBER_DAMAGE 70
+#!define OW2_VENTURE_DRILL_DASH_COOLDOWN 6
+#!define OW2_VENTURE_DRILL_DASH_DAMAGE 100
+#!define OW2_VENTURE_EXCAVATOR_DAMAGE 70
+#!define OW2_VENTURE_EXPLOERER_SHIELDS 40
+#!define OW2_VENTURE_TECTONIC_SHOCK_DAMAGE 130
+
 
 rule "Venture":
     @Event eachPlayer
@@ -7,14 +21,16 @@ rule "Venture":
     
     eventPlayer.ult_change_check = 1.13
     eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(62.5)
+    eventPlayer.setMaxHealth(percent(ADJ_VENTURE_EXPLOERER_SHIELDS/OW2_VENTURE_EXPLOERER_SHIELDS))
     resetHealth()
     eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()
-    eventPlayer.setDamageDealt(75)
+    setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE/OW2_VENTURE_DRILL_DASH_DAMAGE)
     removeSelfHealing()
+
+    eventPlayer.setKnockbackDealt(70)
 
 
 rule "Correct Venture bonus shields":
@@ -32,7 +48,7 @@ rule "Increase Venture melee damage":
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventAbility == Button.MELEE
     
-    damage(victim, attacker, eventDamage * 1.325 - eventDamage)
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_CLOBBER_DAMAGE/OW2_VENTURE_CLOBBER_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 rule "Increase Smart Excavator damage":
@@ -43,7 +59,7 @@ rule "Increase Smart Excavator damage":
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.isUsingAbility2() == false
     @Condition eventPlayer.isUsingUltimate() == false
-    
+
     damage(victim, attacker, eventDamage * 1.107 - eventDamage)
 
 
