@@ -3,11 +3,12 @@
 #!define ADJ_VENTURE_BURROW_DAMAGE 80
 #!define ADJ_VENTURE_CLOBBER_DAMAGE 65
 #!define ADJ_VENTURE_DRILL_DASH_COOLDOWN 6
-#!define ADJ_VENTURE_DRILL_DASH_DAMAGE 70
+#!define ADJ_VENTURE_DRILL_DASH_DAMAGE 60
 #!define ADJ_VENTURE_EXCAVATOR_DAMAGE 65
 #!define ADJ_VENTURE_EXPLORER_SHIELDS 25
 #!define ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE 110
-#!define ADJ_VENTURE_TECTONIC_SHOCK_CRIT 165
+#!define ADJ_VENTURE_TECTONIC_SHOCK_CRIT_BONUS 55
+#!define ADJ_VENTURE_TECTONIC_SHOCK_CRIT_RADIUS 2.5
 
 #!define OW2_VENTURE_BURROW_DAMAGE 110
 #!define OW2_VENTURE_CLOBBER_DAMAGE 70
@@ -50,12 +51,15 @@ rule "Correct Venture bonus shields":
     removeHealthPool(getLastCreatedHealthPool())
 
 
-# rule "Increase Venture melee damage":
-#     @Event playerDealtDamage
-#     @Condition eventPlayer.hero_setup == Hero.VENTURE
-#     @Condition eventAbility == Button.MELEE
+rule "Increase Venture melee damage":
+    @Event playerDealtDamage
+    @Condition eventPlayer.hero_setup == Hero.VENTURE
+    @Condition eventAbility == Button.MELEE
     
-#     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_CLOBBER_DAMAGE / OW2_VENTURE_CLOBBER_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_CLOBBER_DAMAGE / OW2_VENTURE_CLOBBER_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+    setBaseDamage(eventPlayer, ADJ_VENTURE_CLOBBER_DAMAGE / OW2_VENTURE_CLOBBER_DAMAGE)
+    waitUntil(not eventPlayer.isMeleeing(), Math.INFINITY)
+    setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE)
 
 
 #This rule checks for when Venture uses primary fire, then we pass this variable onto the next rule to make sure Drill Dash doesn't receive bonus damage from the increases to Smart Excavator's damage
@@ -103,13 +107,14 @@ rule "Increase Tectonic Shock damage":
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE)
 
-# rule "Tectonic Shock critical damage bonus":
-#     @Event playerDealtDamage
-#     @Condition eventPlayer.hero_setup == Hero.VENTURE
-#     @Condition eventPlayer.isUsingUltimate() == true
-#     # @Condition getPlayersInRadius(victim, 3, getOppositeTeam(eventPlayer.getTeam()), LosCheck.OFF)
+rule "Tectonic Shock critical damage bonus":
+    @Event playerDealtDamage
+    @Condition eventPlayer.hero_setup == Hero.VENTURE
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.balance_change_check == false
+    @Condition distance(attacker.getPosition(), victim.getPosition()) < ADJ_VENTURE_TECTONIC_SHOCK_CRIT_RADIUS
 
-#     eventPlayer.balance_change_check = true
-#     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_TECTONIC_SHOCK_CRIT / ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
-#     wait(0.20)
-#     eventPlayer.balance_change_check = false
+    eventPlayer.balance_change_check = true
+    damage(victim, attacker, (ADJ_VENTURE_TECTONIC_SHOCK_CRIT_BONUS / eventPlayer._base_damage_scalar))
+    wait(0.20)
+    eventPlayer.balance_change_check = false

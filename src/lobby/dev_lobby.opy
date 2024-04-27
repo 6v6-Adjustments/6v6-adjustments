@@ -152,6 +152,9 @@ settings {
                 "ability2Cooldown%": 92,
                 "ultGen%": 110
             },
+            "venture": {
+                "secondaryFireCooldown%": 75
+            },
             "widowmaker": {
                 "ultGen%": 110
             },
