@@ -153,7 +153,7 @@ settings {
                 "ultGen%": 110
             },
             "venture": {
-                "secondaryFireCooldown%": 75
+                "secondaryFireCooldown%": percent(ADJ_VENTURE_DRILL_DASH_COOLDOWN/OW2_VENTURE_DRILL_DASH_COOLDOWN)
             },
             "widowmaker": {
                 "ultGen%": 110
