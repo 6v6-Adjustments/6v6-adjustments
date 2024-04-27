@@ -23,5 +23,5 @@ rule "hacked health packs":
     @Condition eventPlayer.hero_setup == Hero.SOMBRA
     @Condition eventWasHealthPack == true
     
-    heal(eventPlayer, eventPlayer, eventHealing/unpercent(eventPlayer._self_healing_percent))
+    heal(eventPlayer, eventPlayer, eventHealing/unpercent(eventPlayer._self_healing_percent) - eventHealing)
  
