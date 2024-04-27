@@ -7,12 +7,13 @@
 #!define ADJ_VENTURE_EXCAVATOR_DAMAGE 65
 #!define ADJ_VENTURE_EXPLOERER_SHIELDS 25
 #!define ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE 110
+#!define ADJ_VENTURE_TECTONIC_SHOCK_CRIT 165
 
 #!define OW2_VENTURE_BURROW_DAMAGE 110
 #!define OW2_VENTURE_CLOBBER_DAMAGE 70
 #!define OW2_VENTURE_DRILL_DASH_COOLDOWN 6
 #!define OW2_VENTURE_DRILL_DASH_DAMAGE 100
-#!define OW2_VENTURE_EXCAVATOR_DAMAGE 70
+#!define OW2_VENTURE_EXCAVATOR_DAMAGE 80
 #!define OW2_VENTURE_EXPLOERER_SHIELDS 40
 #!define OW2_VENTURE_TECTONIC_SHOCK_DAMAGE 130
 
@@ -51,21 +52,22 @@ rule "Increase Venture melee damage":
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventAbility == Button.MELEE
     
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_CLOBBER_DAMAGE/OW2_VENTURE_CLOBBER_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_CLOBBER_DAMAGE / OW2_VENTURE_CLOBBER_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 rule "Increase Smart Excavator damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.VENTURE
-    @Condition eventPlayer.isMeleeing() == false
-    @Condition eventPlayer.isFiringSecondaryFire() == false
-    @Condition eventPlayer.isUsingAbility1() == false
-    @Condition eventPlayer.isUsingAbility2() == false
-    @Condition eventPlayer.isUsingUltimate() == false
-    @Condition eventPlayer.balance_change_check == false
+    # @Condition eventPlayer.isMeleeing() == false
+    # @Condition eventPlayer.isFiringSecondaryFire() == false
+    # @Condition eventPlayer.isUsingAbility1() == false
+    # @Condition eventPlayer.isUsingAbility2() == false
+    # @Condition eventPlayer.isUsingUltimate() == false
+    # @Condition eventPlayer.balance_change_check == false
+    @Condition eventPlayer.isFiringPrimaryFire() == true
 
     eventPlayer.balance_change_check = true
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_EXCAVATOR_DAMAGE/OW2_VENTURE_EXCAVATOR_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_EXCAVATOR_DAMAGE / OW2_VENTURE_EXCAVATOR_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
     wait(0.20)
     eventPlayer.balance_change_check = false
 
@@ -91,3 +93,14 @@ rule "Increase Tectonic Shock damage":
     eventPlayer.setDamageDealt(percent(ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE / OW2_VENTURE_TECTONIC_SHOCK_DAMAGE))
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     eventPlayer.setDamageDealt(percent(ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE))
+
+# rule "Tectonic Shock critical damage bonus":
+#     @Event playerDealtDamage
+#     @Condition eventPlayer.hero_setup == Hero.VENTURE
+#     @Condition eventPlayer.isUsingUltimate() == true
+#     # @Condition getPlayersInRadius(victim, 3, getOppositeTeam(eventPlayer.getTeam()), LosCheck.OFF)
+
+#     eventPlayer.balance_change_check = true
+#     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_TECTONIC_SHOCK_CRIT / ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+#     wait(0.20)
+#     eventPlayer.balance_change_check = false
