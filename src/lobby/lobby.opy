@@ -10,8 +10,7 @@ settings {
         "spectatorSlots": 12,
         "team1Slots": 6,
         "team2Slots": 6,
-        "pauseGameOnDisconnect": true,
-        "teamBalancing": "afterGame"
+        "pauseGameOnDisconnect": true
     },
     "gamemodes": {
         "assault": {
