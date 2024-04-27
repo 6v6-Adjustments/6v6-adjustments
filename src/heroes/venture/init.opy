@@ -1,12 +1,14 @@
 #!mainFile "../../dev_main.opy"
 
+#!define ADJ_VENTURE_BURROW_DAMAGE 80
 #!define ADJ_VENTURE_CLOBBER_DAMAGE 65
 #!define ADJ_VENTURE_DRILL_DASH_COOLDOWN 6
 #!define ADJ_VENTURE_DRILL_DASH_DAMAGE 70
 #!define ADJ_VENTURE_EXCAVATOR_DAMAGE 65
 #!define ADJ_VENTURE_EXPLOERER_SHIELDS 25
-#!define ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE 120
+#!define ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE 110
 
+#!define OW2_VENTURE_BURROW_DAMAGE 110
 #!define OW2_VENTURE_CLOBBER_DAMAGE 70
 #!define OW2_VENTURE_DRILL_DASH_COOLDOWN 6
 #!define OW2_VENTURE_DRILL_DASH_DAMAGE 100
@@ -27,8 +29,9 @@ rule "Venture":
     resetStats()
     resetStatuses()
     enableAllAbilities()
-    setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE/OW2_VENTURE_DRILL_DASH_DAMAGE)
+    setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE)
     removeSelfHealing()
+    eventPlayer.balance_change_check = false
 
     eventPlayer.setKnockbackDealt(70)
 
@@ -59,8 +62,12 @@ rule "Increase Smart Excavator damage":
     @Condition eventPlayer.isUsingAbility1() == false
     @Condition eventPlayer.isUsingAbility2() == false
     @Condition eventPlayer.isUsingUltimate() == false
+    @Condition eventPlayer.balance_change_check == false
 
-    damage(victim, attacker, eventDamage * 1.107 - eventDamage)
+    eventPlayer.balance_change_check = true
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_EXCAVATOR_DAMAGE/OW2_VENTURE_EXCAVATOR_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+    wait(0.20)
+    eventPlayer.balance_change_check = false
 
 
 rule "Reduce Burrow damage":
@@ -68,12 +75,12 @@ rule "Reduce Burrow damage":
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventPlayer.isUsingAbility1() == true
     
-    eventPlayer.setDamageDealt(72.73)
-    waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
+    eventPlayer.setDamageDealt(percent(ADJ_VENTURE_BURROW_DAMAGE / OW2_VENTURE_BURROW_DAMAGE))
+    waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)
     if not eventPlayer.isUsingUltimate():
-        eventPlayer.setDamageDealt(75)
+        eventPlayer.setDamageDealt(percent(ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE))
     elif eventPlayer.isUsingUltimate():
-        eventPlayer.setDamageDealt(84.62)
+        eventPlayer.setDamageDealt(percent(ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE / OW2_VENTURE_TECTONIC_SHOCK_DAMAGE))
 
 
 rule "Increase Tectonic Shock damage":
@@ -81,6 +88,6 @@ rule "Increase Tectonic Shock damage":
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventPlayer.isUsingUltimate() == true
     
-    eventPlayer.setDamageDealt(84.62)
-    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
-    eventPlayer.setDamageDealt(75)
+    eventPlayer.setDamageDealt(percent(ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE / OW2_VENTURE_TECTONIC_SHOCK_DAMAGE))
+    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
+    eventPlayer.setDamageDealt(percent(ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE))
