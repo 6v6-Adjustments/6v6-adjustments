@@ -179,6 +179,9 @@ settings {
                 "ability2Cooldown%": 95,
                 "ultGen%": 110
             },
+            "venture": {
+                "secondaryFireCooldown%": percent(ADJ_VENTURE_DRILL_DASH_COOLDOWN/OW2_VENTURE_DRILL_DASH_COOLDOWN)
+            },
             "widowmaker": {
                 "ultGen%": 110
             },
