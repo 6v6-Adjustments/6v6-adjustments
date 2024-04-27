@@ -13,13 +13,15 @@ rule "Sombra":
     resetStats()
     resetStatuses()
     enableAllAbilities()
-    eventPlayer.setHealingDealt(1)
-    # removeSelfHealing()
+
+    removeSelfHealing()
+    eventPlayer._self_healing_percent = 0.1 # set self healing to 0.1% such that 75hp healthpack becomes 0.075hp
 
 
 rule "hacked health packs":
     @Event playerReceivedHealing
+    @Condition eventPlayer.hero_setup == Hero.SOMBRA
     @Condition eventWasHealthPack == true
-    @Condition eventHealing <= 70
     
-    heal(eventPlayer, eventPlayer, eventHealing * 99)
+    heal(eventPlayer, eventPlayer, eventHealing/unpercent(eventPlayer._self_healing_percent) - eventHealing)
+ 
