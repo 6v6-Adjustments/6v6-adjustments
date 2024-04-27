@@ -7,6 +7,7 @@
 #!define ADJ_VENTURE_EXCAVATOR_DAMAGE 65
 #!define OW2_VENTURE_EXCAVATOR_BALANCE_DURATION 0.2
 #!define ADJ_VENTURE_EXPLORER_SHIELDS 25
+#!define OW2_VENTURE_TECTONIC_SHOCK_BALANCE_DURATION 0.2
 #!define ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE 110
 #!define ADJ_VENTURE_TECTONIC_SHOCK_CRIT_BONUS 55
 #!define ADJ_VENTURE_TECTONIC_SHOCK_CRIT_RADIUS 2.5
@@ -120,5 +121,5 @@ rule "[venture/init.opy]: Tectonic Shock critical damage bonus":
 
     eventPlayer.balance_change_check = true
     damage(victim, attacker, (ADJ_VENTURE_TECTONIC_SHOCK_CRIT_BONUS / eventPlayer._base_damage_scalar))
-    wait(0.20)
+    wait(OW2_VENTURE_TECTONIC_SHOCK_BALANCE_DURATION)
     eventPlayer.balance_change_check = false
