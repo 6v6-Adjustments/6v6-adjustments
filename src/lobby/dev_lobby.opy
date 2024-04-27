@@ -10,7 +10,6 @@ settings {
         "team1Slots": 6,
         "team2Slots": 0,
         "pauseGameOnDisconnect": true,
-        "teamBalancing": "afterGame"
     },
     "gamemodes": {
         "practiceRange": {
