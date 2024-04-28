@@ -150,20 +150,20 @@ settings {
                 "ultGen%": 107
             },
             "roadhog": {
-                "secondaryFireMaximumTime%": 43,
-                "secondaryFireRechargeRate%": 50,
+                "secondaryFireMaximumTime%": percent(ADJ_ROADHOG_BREATHER_DURATION/OW2_ROADHOG_BREATHER_DURATION),
+                "secondaryFireRechargeRate%": percent(ADJ_ROADHOG_BREATHER_RECHARGE_DURATION/OW2_ROADHOG_BREATHER_RECHARGE_DURATION),
                 "ultGen%": 107
             },
             "sigma": {
-                "secondaryFireRechargeRate%": 94,
-                "ability1Cooldown%": 108,
+                "secondaryFireRechargeRate%": percent(ADJ_SIGMA_BARRIER_REGEN/OW2_SIGMA_BARRIER_REGEN),
+                "ability1Cooldown%": percent(ADJ_SIGMA_KINETIC_GRASP_COOLDOWN/OW2_SIGMA_KINETIC_GRASP_COOLDOWN),
                 "ultGen%": 107
             },
             "sojourn": {
                 "ultGen%": 110
             },
             "soldier": {
-                "ability2Cooldown%": 83,
+                "ability2Cooldown%": percent(ADJ_SOLDIER_BIOTIC_FIELD_COOLDOWN/OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN),
                 "ultGen%": 111
             },
             "sombra": {
@@ -176,7 +176,7 @@ settings {
                 "ultGen%": 110
             },
             "tracer": {
-                "ability2Cooldown%": 95,
+                "ability2Cooldown%": percent(ADJ_TRACER_RECALL_COOLDOWN/OW2_TRACER_RECALL_COOLDOWN),
                 "ultGen%": 110
             },
             "venture": {
@@ -189,8 +189,8 @@ settings {
                 "ultGen%": 113
             },
             "hammond": {
-                "ability1Kb%": 85,
-                "ability3Cooldown%": 125,
+                "ability1Kb%": percent(ADJ_WRECKING_BALL_FIREBALL_KB/OW2_WRECKING_BALL_FIREBALL_KB),
+                "ability3Cooldown%": percent(ADJ_WRECKING_BALL_PILEDRIVER_COOLDOWN_TIME/OW2_WRECKING_BALL_PILEDRIVER_COOLDOWN_TIME),
                 "ultGen%": 109
             },
             "general": {
