@@ -98,7 +98,7 @@
 #!define ADJ_DOOMFIST_ROCKET_PUNCH_IMPACT_DAMAGE_MAX 100
 #!define ADJ_DOOMFIST_ROCKET_PUNCH_WALL_SLAM_DAMAGE_MIN 50
 #!define ADJ_DOOMFIST_ROCKET_PUNCH_WALL_SLAM_DAMAGE_MAX 150
-#!define ADJ_DOOMFIST_SLAM_CD 6
+#!define ADJ_DOOMFIST_SEISMIC_SLAM_COOLDOWN 6
 # Slamming on flat ground should deal 49 damage
 # Frame by frame analysis of Youtube videos indicate that slam damage increases at a rate of 100 damage/second
 #!define ADJ_DOOMFIST_SEISMIC_SLAM_DAMAGE_RATE 100
