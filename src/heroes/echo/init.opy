@@ -55,83 +55,83 @@ rule "Check health when exiting Duplicate":
     eventPlayer.duplicate_leftover_health = 0
 
 
-rule "(Duplicate) Seismic Slam cooldown":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.getHeroOfDuplication() == Hero.DOOMFIST
-    @Condition eventPlayer.isUsingAbility1() == true
+# rule "(Duplicate) Seismic Slam cooldown":
+#     @Event eachPlayer
+#     @Hero echo
+#     @Condition eventPlayer.getHeroOfDuplication() == Hero.DOOMFIST
+#     @Condition eventPlayer.isUsingAbility1() == true
     
-    waitUntil(not eventPlayer.isUsingAbility1(), 99999)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 7)
+#     waitUntil(not eventPlayer.isUsingAbility1(), 99999)
+#     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 7)
 
 
-rule "(Duplicate) Power Block cooldown":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.getHeroOfDuplication() == Hero.DOOMFIST
-    @Condition eventPlayer.isUsingAbility2() == true
+# rule "(Duplicate) Power Block cooldown":
+#     @Event eachPlayer
+#     @Hero echo
+#     @Condition eventPlayer.getHeroOfDuplication() == Hero.DOOMFIST
+#     @Condition eventPlayer.isUsingAbility2() == true
     
-    waitUntil(not eventPlayer.isUsingAbility2(), 99999)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 9)
+#     waitUntil(not eventPlayer.isUsingAbility2(), 99999)
+#     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 9)
 
 
-rule "(Duplicate) Cardiac Overdrive cooldown":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.getHeroOfDuplication() == Hero.MAUGA
-    @Condition eventPlayer.isUsingAbility2() == true
+# rule "(Duplicate) Cardiac Overdrive cooldown":
+#     @Event eachPlayer
+#     @Hero echo
+#     @Condition eventPlayer.getHeroOfDuplication() == Hero.MAUGA
+#     @Condition eventPlayer.isUsingAbility2() == true
     
-    waitUntil(not eventPlayer.isUsingAbility2(), 99999)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 16)
+#     waitUntil(not eventPlayer.isUsingAbility2(), 99999)
+#     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 16)
 
 
-rule "(Duplicate) Overrun cooldown":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.getHeroOfDuplication() == Hero.MAUGA
-    @Condition eventPlayer.isUsingAbility1() == true
+# rule "(Duplicate) Overrun cooldown":
+#     @Event eachPlayer
+#     @Hero echo
+#     @Condition eventPlayer.getHeroOfDuplication() == Hero.MAUGA
+#     @Condition eventPlayer.isUsingAbility1() == true
     
-    waitUntil(not eventPlayer.isUsingAbility1(), 99999)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 10)
+#     waitUntil(not eventPlayer.isUsingAbility1(), 99999)
+#     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 10)
 
 
-rule "(Duplicate) Charge cooldown":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.getHeroOfDuplication() == Hero.REINHARDT
-    @Condition eventPlayer.isUsingAbility1() == true
+# rule "(Duplicate) Charge cooldown":
+#     @Event eachPlayer
+#     @Hero echo
+#     @Condition eventPlayer.getHeroOfDuplication() == Hero.REINHARDT
+#     @Condition eventPlayer.isUsingAbility1() == true
     
-    waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 10)
+#     waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
+#     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 10)
 
 
-rule "(Duplicate) Kinetic Grasp cooldown":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.getHeroOfDuplication() == Hero.SIGMA
-    @Condition eventPlayer.isUsingAbility1() == true
+# rule "(Duplicate) Kinetic Grasp cooldown":
+#     @Event eachPlayer
+#     @Hero echo
+#     @Condition eventPlayer.getHeroOfDuplication() == Hero.SIGMA
+#     @Condition eventPlayer.isUsingAbility1() == true
     
-    waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_1) != 0, 99999)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 13)
+#     waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_1) != 0, 99999)
+#     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 13)
 
 
-rule "(Duplicate) Storm Arrow cooldown":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.getHeroOfDuplication() == Hero.HANZO
-    @Condition eventPlayer.isUsingAbility2() == true
+# rule "(Duplicate) Storm Arrow cooldown":
+#     @Event eachPlayer
+#     @Hero echo
+#     @Condition eventPlayer.getHeroOfDuplication() == Hero.HANZO
+#     @Condition eventPlayer.isUsingAbility2() == true
     
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 10)
+#     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 10)
 
 
-rule "(Duplicate) Concussion Mine cooldown":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.getHeroOfDuplication() == Hero.JUNKRAT
-    @Condition eventPlayer.isUsingAbility1() == true
+# rule "(Duplicate) Concussion Mine cooldown":
+#     @Event eachPlayer
+#     @Hero echo
+#     @Condition eventPlayer.getHeroOfDuplication() == Hero.JUNKRAT
+#     @Condition eventPlayer.isUsingAbility1() == true
     
-    waitUntil(not eventPlayer.isUsingAbility1(), 99999)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 8)
+#     waitUntil(not eventPlayer.isUsingAbility1(), 99999)
+#     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 8)
 
 
 /*
@@ -144,29 +144,29 @@ rule "(Duplicate) Shadow Step cooldown":
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 8)
 */
 
-rule "(Duplicate) Biotic Field cooldown":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.getHeroOfDuplication() == Hero.SOLDIER
-    @Condition eventPlayer.isUsingAbility2() == true
+# rule "(Duplicate) Biotic Field cooldown":
+#     @Event eachPlayer
+#     @Hero echo
+#     @Condition eventPlayer.getHeroOfDuplication() == Hero.SOLDIER
+#     @Condition eventPlayer.isUsingAbility2() == true
     
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 15)
+#     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 15)
 
 
-rule "(Duplicate) Recall cooldown":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.getHeroOfDuplication() == Hero.TRACER
-    @Condition eventPlayer.isUsingAbility2() == true
+# rule "(Duplicate) Recall cooldown":
+#     @Event eachPlayer
+#     @Hero echo
+#     @Condition eventPlayer.getHeroOfDuplication() == Hero.TRACER
+#     @Condition eventPlayer.isUsingAbility2() == true
     
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 12)
+#     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 12)
 
 
-rule "(Duplicate) Sleep Dart cooldown":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.getHeroOfDuplication() == Hero.ANA
-    @Condition eventPlayer.isUsingAbility1() == true
+# rule "(Duplicate) Sleep Dart cooldown":
+#     @Event eachPlayer
+#     @Hero echo
+#     @Condition eventPlayer.getHeroOfDuplication() == Hero.ANA
+#     @Condition eventPlayer.isUsingAbility1() == true
     
-    waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_1) != 0, 99999)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 12)
+#     waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_1) != 0, 99999)
+#     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 12)

@@ -32,17 +32,17 @@ rule "Correct Fortify overhealth while outside spawn rooms":
     eventPlayer.overhealth_check = false
 
 
-rule "Correct Fortify overhealth while inside spawn rooms":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ORISA
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventPlayer.isInSpawnRoom() == true
-    @Condition eventPlayer.overhealth_check == false
+# rule "Correct Fortify overhealth while inside spawn rooms":
+#     @Event eachPlayer
+#     @Condition eventPlayer.hero_setup == Hero.ORISA
+#     @Condition eventPlayer.isUsingAbility1() == true
+#     @Condition eventPlayer.isInSpawnRoom() == true
+#     @Condition eventPlayer.overhealth_check == false
     
-    eventPlayer.setHealth(eventPlayer.getMaxHealth() - 100)
-    eventPlayer.overhealth_check = true
-    waitUntil(eventPlayer.isUsingAbility1() == false, 99999)
-    eventPlayer.overhealth_check = false
+#     eventPlayer.setHealth(eventPlayer.getMaxHealth() - 100)
+#     eventPlayer.overhealth_check = true
+#     waitUntil(eventPlayer.isUsingAbility1() == false, 99999)
+#     eventPlayer.overhealth_check = false
 
 
 rule "Reduce Terra Surge damage":
