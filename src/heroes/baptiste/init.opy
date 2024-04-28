@@ -18,19 +18,19 @@ rule "Baptiste":
     resetStats()
     resetStatuses()
     enableAllAbilities()
-    eventPlayer.setDamageDealt(100)
+    eventPlayer.setDamageDealt(96)
     setBaseHealing(eventPlayer, 0.7)
     eventPlayer.balance_change_check = true
 
     removeSelfHealing()
 
 
-# rule "Increase Baptiste melee damage":
-#     @Event playerDealtDamage
-#     @Condition eventPlayer.hero_setup == Hero.BAPTISTE
-#     @Condition eventAbility == Button.MELEE
+rule "Increase Baptiste melee damage":
+    @Event playerDealtDamage
+    @Condition eventPlayer.hero_setup == Hero.BAPTISTE
+    @Condition eventAbility == Button.MELEE
     
-#     damage(victim, attacker, eventDamage * 1.045 - eventDamage)
+    damage(victim, attacker, eventDamage * 1.045 - eventDamage)
 
 
 rule "Increase Biotic Launcher healing":
