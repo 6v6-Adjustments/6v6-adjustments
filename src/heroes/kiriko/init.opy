@@ -5,7 +5,7 @@ rule "Kiriko":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
     
-    eventPlayer.ult_change_check = 1
+    eventPlayer.ult_change_check = 0.9
     eventPlayer.removeAllHealthPools()
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 5)
     eventPlayer.setAmmo(1, 12)
@@ -26,7 +26,7 @@ rule "Heal when using Swift Step":
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
     @Condition eventPlayer.isUsingAbility1() == true
     
-    eventPlayer.startHoT(eventPlayer, 0.25, 200)
+    eventPlayer.startHoT(eventPlayer, 0.25, 160)
 
 
 /*
