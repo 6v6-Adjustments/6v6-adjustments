@@ -16,7 +16,14 @@ rule "Doomfist":
     resetStatuses()
     enableAllAbilities()
     removeTankPassive()
-    eventPlayer.setHealingDealt(0)
-    eventPlayer.setKnockbackDealt(80)
-    
     removeSelfHealing()
+
+    setBaseDamage(eventPlayer, ADJ_DOOMFIST_HAND_CANNON_DAMAGE/OW2_DOOMFIST_HAND_CANNON_DAMAGE)
+
+
+rule "[doomfist/init.opy]: Correct Rocket Punch and Meteor Strike damage":
+    @Event playerDealtDamage
+    @Condition eventPlayer.hero_setup == Hero.DOOMFIST
+    @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ULTIMATE]
+
+    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
