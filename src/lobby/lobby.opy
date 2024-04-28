@@ -6,11 +6,11 @@ settings {
         "description": GAMDMODE_DESCRIPTION,
     },
     "lobby": {
+        "dataCenterPreference": "usSouthwest",
         "spectatorSlots": 12,
         "team1Slots": 6,
         "team2Slots": 6,
-        "pauseGameOnDisconnect": true,
-        "teamBalancing": "afterGame"
+        "pauseGameOnDisconnect": true
     },
     "gamemodes": {
         "assault": {
@@ -178,6 +178,9 @@ settings {
             "tracer": {
                 "ability2Cooldown%": 95,
                 "ultGen%": 110
+            },
+            "venture": {
+                "secondaryFireCooldown%": percent(ADJ_VENTURE_DRILL_DASH_COOLDOWN/OW2_VENTURE_DRILL_DASH_COOLDOWN)
             },
             "widowmaker": {
                 "ultGen%": 110

@@ -10,7 +10,6 @@ settings {
         "team1Slots": 6,
         "team2Slots": 0,
         "pauseGameOnDisconnect": true,
-        "teamBalancing": "afterGame"
     },
     "gamemodes": {
         "practiceRange": {
@@ -151,6 +150,9 @@ settings {
             "tracer": {
                 "ability2Cooldown%": 95,
                 "ultGen%": 110
+            },
+            "venture": {
+                "secondaryFireCooldown%": percent(ADJ_VENTURE_DRILL_DASH_COOLDOWN/OW2_VENTURE_DRILL_DASH_COOLDOWN)
             },
             "widowmaker": {
                 "ultGen%": 110
