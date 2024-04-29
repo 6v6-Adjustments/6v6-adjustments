@@ -12,8 +12,7 @@ rule "[utilities/hero_switch]: Check for hero setup":
     @Condition eventPlayer.isAlive()
     
     #This wait time may be needed for some gameodes 
-    if eventPlayer.ult_change_check == null:
-        wait(0.024)
+    wait(0.024)
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
 
 
