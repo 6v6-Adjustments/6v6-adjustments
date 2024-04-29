@@ -236,7 +236,7 @@ settings {
 
 #Global variables
 
-globalvar MaxRoles 0
+globalvar max_roles 0
 globalvar Setting_echo_tank_hp 1
 
 
@@ -295,7 +295,7 @@ rule "Workshop Setting: Echo Tank Hp":
 
 /*
 rule "Workshop Setting: Set Role Limits":
-    MaxRoles = [createWorkshopSetting(int[0:5], "Role limits", "Tank Role Cap", 0, 0), createWorkshopSetting(int[0:5], "Role limits", "Damage Role Cap", 0, 1), createWorkshopSetting(int[0:5], "Role limits", "Support Role Cap", 0, 2)]
+    max_roles = [createWorkshopSetting(int[0:5], "Role limits", "Tank Role Cap", 0, 0), createWorkshopSetting(int[0:5], "Role limits", "Damage Role Cap", 0, 1), createWorkshopSetting(int[0:5], "Role limits", "Support Role Cap", 0, 2)]
 */
 
 /*
@@ -315,12 +315,12 @@ rule "Initialize Role Limits":
 /*
 rule "Lock/Unlock Tank heroes at role limit":
     @Event eachPlayer
-    @Condition len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getTankHeroes()]).exclude(eventPlayer)) >= MaxRoles[0]
-    @Condition MaxRoles[0] > 0
+    @Condition len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getTankHeroes()]).exclude(eventPlayer)) >= max_roles[0]
+    @Condition max_roles[0] > 0
     
     eventPlayer.AllowedHeroes.remove(getTankHeroes())
     eventPlayer.setAllowedHeroes(eventPlayer.AllowedHeroes)
-    waitUntil(len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getTankHeroes()]).exclude(eventPlayer)) < MaxRoles[0], 99999)
+    waitUntil(len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getTankHeroes()]).exclude(eventPlayer)) < max_roles[0], 99999)
     eventPlayer.AllowedHeroes.append(getTankHeroes())
     eventPlayer.setAllowedHeroes(eventPlayer.AllowedHeroes)
 */
@@ -328,12 +328,12 @@ rule "Lock/Unlock Tank heroes at role limit":
 /*
 rule "Lock/Unlock Damage heroes at role limit":
     @Event eachPlayer
-    @Condition len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getDamageHeroes()]).exclude(eventPlayer)) >= MaxRoles[1]
-    @Condition MaxRoles[1] > 0
+    @Condition len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getDamageHeroes()]).exclude(eventPlayer)) >= max_roles[1]
+    @Condition max_roles[1] > 0
     
     eventPlayer.AllowedHeroes.remove(getDamageHeroes())
     eventPlayer.setAllowedHeroes(eventPlayer.AllowedHeroes)
-    waitUntil(len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getDamageHeroes()]).exclude(eventPlayer)) < MaxRoles[1], 99999)
+    waitUntil(len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getDamageHeroes()]).exclude(eventPlayer)) < max_roles[1], 99999)
     eventPlayer.AllowedHeroes.append(getDamageHeroes())
     eventPlayer.setAllowedHeroes(eventPlayer.AllowedHeroes)
 */
@@ -341,12 +341,12 @@ rule "Lock/Unlock Damage heroes at role limit":
 /*
 rule "Lock/Unlock Support heroes at role limit":
     @Event eachPlayer
-    @Condition len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getSupportHeroes()]).exclude(eventPlayer)) >= MaxRoles[2]
-    @Condition MaxRoles[2] > 0
+    @Condition len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getSupportHeroes()]).exclude(eventPlayer)) >= max_roles[2]
+    @Condition max_roles[2] > 0
     
     eventPlayer.AllowedHeroes.remove(getSupportHeroes())
     eventPlayer.setAllowedHeroes(eventPlayer.AllowedHeroes)
-    waitUntil(len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getSupportHeroes()]).exclude(eventPlayer)) < MaxRoles[2], 99999)
+    waitUntil(len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getSupportHeroes()]).exclude(eventPlayer)) < max_roles[2], 99999)
     eventPlayer.AllowedHeroes.append(getSupportHeroes())
     eventPlayer.setAllowedHeroes(eventPlayer.AllowedHeroes)
 */
