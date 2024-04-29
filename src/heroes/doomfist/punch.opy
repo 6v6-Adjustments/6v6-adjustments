@@ -29,7 +29,7 @@ rule "[doomfist/punch.opy]: Find wall impacted victims":
 
 # DO NOT switch the order of this rule with the previous rule
 # The order is functionally significant
-rule "[doomfist/punch.opy]: Find punched victims":
+rule "[doomfist/punch.opy]: Best Defense for punched victims":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.DOOMFIST
     @Condition eventAbility == Button.SECONDARY_FIRE

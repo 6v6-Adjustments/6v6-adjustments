@@ -1,6 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 #!include "heroes/doomfist/punch.opy"
+#!include "heroes/doomfist/slam.opy"
 
 
 rule "Doomfist":
