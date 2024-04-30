@@ -132,7 +132,8 @@ settings {
                 "ultGen%": 95
             },
             "orisa": {
-                "ultGen%": 116
+                "ability2Cooldown%": percent(ADJ_ORISA_JAVELIN_SPIN_COOLDOWN/OW2_ORISA_JAVELIN_SPIN_COOLDOWN),
+                "ultGen%": percent(OW2_ORISA_ULT_COST/ADJ_ORISA_ULT_COST)
             },
             "pharah": {
                 "ability2Cooldown%": percent(ADJ_PHARAH_CONCUSSIVE_BLAST_COOLDOWN/OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN),
@@ -181,7 +182,8 @@ settings {
                 "ultGen%": 110
             },
             "venture": {
-                "secondaryFireCooldown%": percent(ADJ_VENTURE_DRILL_DASH_COOLDOWN/OW2_VENTURE_DRILL_DASH_COOLDOWN)
+                "secondaryFireCooldown%": percent(ADJ_VENTURE_DRILL_DASH_COOLDOWN/OW2_VENTURE_DRILL_DASH_COOLDOWN),
+                "ultGen%": percent(OW2_VENTURE_ULT_COST/ADJ_VENTURE_ULT_COST)
             },
             "widowmaker": {
                 "ultGen%": 110
