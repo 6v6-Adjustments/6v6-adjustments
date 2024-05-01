@@ -23,6 +23,7 @@ rule "[venture/tectonic_shock.opy]: Tectonic Shock critical damage bonus":
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventPlayer.isUsingUltimate()
     @Condition not eventPlayer.balance_change_check
+    @Condition eventDamage > (ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE - 1)
     @Condition distance(attacker.getPosition(), victim.getPosition()) < ADJ_VENTURE_TECTONIC_SHOCK_CRIT_RADIUS
 
     eventPlayer.balance_change_check = true
