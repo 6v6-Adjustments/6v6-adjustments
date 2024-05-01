@@ -38,7 +38,7 @@ jobs:
              export NEXT_VERSION=v$(semantic-release --dry-run | grep 'The next release version is' | sed -E 's/.* ([[:alnum:].\-]+)$/\1/')
              node build.js
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           SEMANTIC_RELEASE_PACKAGE: ${{ github.event.repository.name }}
       - name: Upload artifacts
@@ -76,6 +76,6 @@ jobs:
              git config --global --add safe.directory '*'
              semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           SEMANTIC_RELEASE_PACKAGE: ${{ github.event.repository.name }}
