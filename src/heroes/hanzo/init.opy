@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Hanzo":
@@ -14,6 +14,8 @@ rule "Hanzo":
     resetStatuses()
     enableAllAbilities()
     eventPlayer.setDamageDealt(93.333)
+    
+    removeSelfHealing()
 
 
 rule "Increase Storm Bow and Hanzo melee damage":

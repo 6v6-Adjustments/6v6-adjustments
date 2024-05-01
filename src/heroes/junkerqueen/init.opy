@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Junker Queen":
@@ -12,14 +12,15 @@ rule "Junker Queen":
     eventPlayer.overhealth_check = false
     eventPlayer.setMaxHealth(100)
     resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 349 if eventPlayer.isDuplicatingAHero() or Setting_echo_tank_hp else 399, true, true)
+    eventPlayer.addHealthPool(Health.NORMAL, 349 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 399, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()
     removeTankPassive()
     eventPlayer.setHealingDealt(74.29)
     eventPlayer.setDamageDealt(87.5)
-    eventPlayer.heal_state = 1
+    
+    removePassiveHealing()
 
 
 rule "Correct Commanding Shout overhealth while outside spawn rooms":
@@ -35,17 +36,17 @@ rule "Correct Commanding Shout overhealth while outside spawn rooms":
     eventPlayer.overhealth_check = false
 
 
-rule "Correct Commanding Shout overhealth while inside spawn rooms":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventPlayer.isInSpawnRoom() == true
-    @Condition eventPlayer.overhealth_check == false
+# rule "Correct Commanding Shout overhealth while inside spawn rooms":
+#     @Event eachPlayer
+#     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
+#     @Condition eventPlayer.isUsingAbility1() == true
+#     @Condition eventPlayer.isInSpawnRoom() == true
+#     @Condition eventPlayer.overhealth_check == false
     
-    eventPlayer.setHealth(eventPlayer.getMaxHealth() - 50)
-    eventPlayer.overhealth_check = true
-    waitUntil(eventPlayer.isUsingAbility1() == false, 99999)
-    eventPlayer.overhealth_check = false
+#     eventPlayer.setHealth(eventPlayer.getMaxHealth() - 50)
+#     eventPlayer.overhealth_check = true
+#     waitUntil(eventPlayer.isUsingAbility1() == false, 99999)
+#     eventPlayer.overhealth_check = false
 
 
 rule "Reduce Rampage Damage":

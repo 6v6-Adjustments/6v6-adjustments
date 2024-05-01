@@ -1,4 +1,6 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
+
+#!include "heroes/ana/nade.opy"
 
 playervar ana_damage_check
 
@@ -6,7 +8,7 @@ subroutine startHealPassiveBackUp
 subroutine endHealPassiveBackUp
 
 
-rule "Ana":
+rule "[ana/init.opy]: Ana":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ANA
     
@@ -21,45 +23,15 @@ rule "Ana":
     resetStats()
     resetStatuses()
     enableAllAbilities()
-    eventPlayer.setDamageDealt(66.667)
+    setBaseDamage(eventPlayer, ADJ_ANA_BIOTIC_GRENADE_DAMAGE/OW2_ANA_BIOTIC_GRENADE_DAMAGE)
     eventPlayer.setHealingDealt(100)
-    eventPlayer.heal_state = 1
+
+    removeSelfHealing()
 
 
-rule "Increase Ana melee damage":
+rule "[ana/init.opy]: Correct Biotic Rifle, Sleep Dart, Melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ANA
-    @Condition eventAbility == Button.MELEE
-    
-    damage(victim, attacker, eventDamage * 1.778 - eventDamage)
+    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_1, Button.MELEE]
 
-
-rule "Increase Biotic Rifle damage":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.ANA
-    @Condition eventAbility == Button.PRIMARY_FIRE
-    @Condition eventPlayer.ana_damage_check == false
-    
-    eventPlayer.ana_damage_check = true
-    victim.startDoT(attacker, 0.55, 64.404)
-    wait(0.6)
-    eventPlayer.ana_damage_check = false
-
-
-rule "Increase Biotic Grenade healing":
-    @Event playerDealtHealing
-    @Condition eventPlayer.hero_setup == Hero.ANA
-    @Condition eventAbility == Button.ABILITY_2
-    
-    heal(healee, healer, eventHealing * 1.111 - eventHealing)
-
-
-rule "Sleep Dart self-heal backup":
-    @Event eachPlayer
-    @Condition eventPlayer.hasStatusEffect(Status.ASLEEP) == true
-    
-    healPassiveReset()
-    startHealPassiveBackUp()
-    waitUntil(eventPlayer.hasStatusEffect(Status.ASLEEP) == false, 99999)
-    endHealPassiveBackUp()
-    healPassiveReset()
+    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

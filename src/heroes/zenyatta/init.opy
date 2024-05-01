@@ -1,4 +1,6 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
+
+#!include "heroes/zenyatta/transc.opy"
 
 
 rule "Zenyatta":
@@ -11,11 +13,11 @@ rule "Zenyatta":
     eventPlayer.setMaxAmmo(0, 20)
     eventPlayer.setMaxHealth(100)
     resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 99, true, true)
-    eventPlayer.addHealthPool(Health.SHIELDS, 100, true, true)
+    eventPlayer.addHealthPool(Health.NORMAL, 49, true, true)
+    eventPlayer.addHealthPool(Health.SHIELDS, 150, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()
     eventPlayer.setKnockbackDealt(7)
     eventPlayer.setHealingDealt(100)
-    eventPlayer.heal_state = 1
+    removeSelfHealing()

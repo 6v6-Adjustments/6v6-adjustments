@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Sojourn":
@@ -13,3 +13,5 @@ rule "Sojourn":
     resetStats()
     resetStatuses()
     enableAllAbilities()
+    
+    removeSelfHealing()

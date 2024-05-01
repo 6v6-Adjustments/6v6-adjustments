@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Tracer":
@@ -16,6 +16,7 @@ rule "Tracer":
     enableAllAbilities()
     eventPlayer.setDamageDealt(91.667)
     eventPlayer.startScalingSize(0.96, true)
+    removeSelfHealing()
 
 
 rule "Increase Tracer melee damage":

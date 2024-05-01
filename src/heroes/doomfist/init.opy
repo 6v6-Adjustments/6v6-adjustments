@@ -1,4 +1,7 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
+
+#!include "heroes/doomfist/punch.opy"
+#!include "heroes/doomfist/slam.opy"
 
 
 rule "Doomfist":
@@ -9,35 +12,19 @@ rule "Doomfist":
     eventPlayer.removeAllHealthPools()
     eventPlayer.setMaxHealth(100)
     resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 349 if eventPlayer.isDuplicatingAHero() or Setting_echo_tank_hp else 399, true, true)
+    eventPlayer.addHealthPool(Health.NORMAL, 349 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 399, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()
     removeTankPassive()
-    eventPlayer.setHealingDealt(0)
-    eventPlayer.setKnockbackDealt(80)
-    eventPlayer.setDamageDealt(90)
+    removeSelfHealing()
+
+    setBaseDamage(eventPlayer, ADJ_DOOMFIST_HAND_CANNON_DAMAGE/OW2_DOOMFIST_HAND_CANNON_DAMAGE)
 
 
-rule "Increase Doomfist melee damage":
+rule "[doomfist/init.opy]: Correct Rocket Punch and Meteor Strike damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.DOOMFIST
-    @Condition eventAbility == Button.MELEE
-    
-    damage(victim, attacker, eventDamage * 1.128 - eventDamage)
+    @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ULTIMATE]
 
-
-rule "Increase Rocket Punch damage":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.DOOMFIST
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    
-    damage(victim, attacker, eventDamage * 1.128 - eventDamage)
-
-
-rule "Increase Meteor Strike damage":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.DOOMFIST
-    @Condition eventAbility == Button.ULTIMATE
-    
-    damage(victim, attacker, eventDamage * 1.126 - eventDamage)
+    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

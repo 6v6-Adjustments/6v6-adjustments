@@ -1,10 +1,10 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "[brigitte/inspire.opy]: Inspire self healing logic":
     @Event playerDealtDamage
-    @Hero brigitte
+    @Condition eventPlayer.hero_setup == Hero.BRIGITTE
 
     pushSelfHealing(Button.MELEE)
-    wait(OW1_BRIGITTE_INSPIRE_DURATION, Wait.RESTART_WHEN_TRUE)
+    wait(OW2_BRIGITTE_INSPIRE_DURATION, Wait.RESTART_WHEN_TRUE)
     popSelfHealing(Button.MELEE)

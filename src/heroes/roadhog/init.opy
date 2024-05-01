@@ -1,4 +1,6 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
+
+#!include "heroes/roadhog/breather.opy"
 
 
 rule "Roadhog":
@@ -11,12 +13,15 @@ rule "Roadhog":
     eventPlayer.setMaxAmmo(0, 5)
     eventPlayer.setMaxHealth(100)
     resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 499 if eventPlayer.isDuplicatingAHero() or Setting_echo_tank_hp else 599, true, true)
+    eventPlayer.addHealthPool(Health.NORMAL, 499 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 599, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()
     removeTankPassive()
+    removeSelfHealing()
+    
     eventPlayer.setDamageDealt(87.5)
+    eventPlayer.setHealingDealt(percent(ADJ_ROADHOG_BREATHER_HEAL_TOTAL/OW2_ROADHOG_BREATHER_HEAL_TOTAL))
 
 
 rule "Increase Roadhog melee damage":
@@ -78,25 +83,3 @@ rule "Wholehog force autofire":
     @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == false
     
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-
-
-rule "hog backup":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
-    @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) == true
-    @Condition eventPlayer.heal_state == 0
-    
-    eventPlayer.heal_state = 1
-    eventPlayer.setHealingDealt(1)
-    waitUntil(eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) != 0, 9999999)
-    waitUntil(eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == 0, 9999999)
-    eventPlayer.setHealingDealt(0)
-    eventPlayer.heal_state = 0
-
-
-rule "hog heal":
-    @Event playerDealtHealing
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    
-    heal(eventPlayer, eventPlayer, eventHealing * 65.5)

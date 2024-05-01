@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Bastion":
@@ -14,3 +14,5 @@ rule "Bastion":
     resetStats()
     resetStatuses()
     enableAllAbilities()
+
+    removeSelfHealing()

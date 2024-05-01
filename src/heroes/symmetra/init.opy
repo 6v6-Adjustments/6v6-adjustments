@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Symmetra":
@@ -15,3 +15,4 @@ rule "Symmetra":
     resetStatuses()
     enableAllAbilities()
     startHealingModification(eventPlayer, eventPlayer, 0, HealingReeval.RECEIVERS_HEALERS_AND_HEALPERCENT)
+    removeSelfHealing()

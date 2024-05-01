@@ -1,4 +1,4 @@
-#!mainFile "../main.opy"
+#!mainFile "../dev_main.opy"
 
 # Macro function for retrieving id of hero
 #!define heroID(h) (getAllHeroes().index(h))
@@ -8,6 +8,9 @@
 
 # Macro function for converting decimal to percent
 #!define percent(p) (100*p)
+
+# Macro function for converting percent to decimal 
+#!define unpercent(p) (p/100)
 
 # Macro function for converting decimal to percent
 #!define roundedPercent(p) (round(percent(p)))

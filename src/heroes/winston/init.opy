@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Winston":
@@ -9,12 +9,13 @@ rule "Winston":
     eventPlayer.removeAllHealthPools()
     eventPlayer.setMaxHealth(100)
     resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 299 if eventPlayer.isDuplicatingAHero() or Setting_echo_tank_hp else 399, true, true)
+    eventPlayer.addHealthPool(Health.NORMAL, 299 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 399, true, true)
     eventPlayer.addHealthPool(Health.ARMOR, 100, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()
     removeTankPassive()
+    removeSelfHealing()
     eventPlayer.setDamageDealt(80)
 
 

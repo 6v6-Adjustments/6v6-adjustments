@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Widowmaker":
@@ -13,3 +13,4 @@ rule "Widowmaker":
     resetStats()
     resetStatuses()
     enableAllAbilities()
+    removeSelfHealing()

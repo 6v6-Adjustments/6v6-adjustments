@@ -1,4 +1,6 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
+
+#!include "heroes/baptiste/regen_burst.opy"
 
 
 rule "Baptiste":
@@ -16,20 +18,20 @@ rule "Baptiste":
     resetStats()
     resetStatuses()
     enableAllAbilities()
-    eventPlayer.setDamageDealt(100)
-    eventPlayer.setHealingDealt(70)
-    eventPlayer.heal_state = 1
+    eventPlayer.setDamageDealt(96)
+    setBaseHealing(eventPlayer, 0.7)
     eventPlayer.balance_change_check = true
 
+    removeSelfHealing()
 
-/*
+
 rule "Increase Baptiste melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE
     @Condition eventAbility == Button.MELEE
     
     damage(victim, attacker, eventDamage * 1.045 - eventDamage)
-*/
+
 
 rule "Increase Biotic Launcher healing":
     @Event playerDealtHealing
@@ -42,33 +44,3 @@ rule "Increase Biotic Launcher healing":
     heal(healee, healer, eventHealing * 2.857 - eventHealing)
     wait(0.25)
     eventPlayer.balance_change_check = true
-
-
-rule "Remove initial burst healing from Regenerative Burst and set cooldown for duplicate":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.BAPTISTE
-    @Condition eventPlayer.isUsingAbility1() == true
-    
-    eventPlayer.setHealingDealt(0)
-    waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
-    eventPlayer.setHealingDealt(70)
-    if eventPlayer.getHeroOfDuplication() == Hero.BAPTISTE:
-        eventPlayer.setAbilityCooldown(Button.ABILITY_1, 13)
-
-
-rule "Increase Regenerative Burst self healing":
-    @Event playerDealtHealing
-    @Condition eventPlayer.hero_setup == Hero.BAPTISTE
-    @Condition healee == healer
-    @Condition eventAbility == Button.ABILITY_1
-    
-    heal(healee, healer, eventHealing * 5.357 - eventHealing)
-
-
-rule "Increase Regenerative Burst ally healing":
-    @Event playerDealtHealing
-    @Condition eventPlayer.hero_setup == Hero.BAPTISTE
-    @Condition eventAbility == Button.ABILITY_1
-    @Condition healee != healer
-    
-    heal(healee, healer, eventHealing * 2.67 - eventHealing)

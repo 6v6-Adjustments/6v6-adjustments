@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Sigma":
@@ -9,12 +9,13 @@ rule "Sigma":
     eventPlayer.removeAllHealthPools()
     eventPlayer.setMaxHealth(100)
     resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 249 if eventPlayer.isDuplicatingAHero() or Setting_echo_tank_hp else 299, true, true)
+    eventPlayer.addHealthPool(Health.NORMAL, 249 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 299, true, true)
     eventPlayer.addHealthPool(Health.SHIELDS, 150, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()
     removeTankPassive()
+    removeSelfHealing()
     eventPlayer.balance_change_check = 0
 
 

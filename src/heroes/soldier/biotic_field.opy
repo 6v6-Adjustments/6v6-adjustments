@@ -1,9 +1,9 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "[soldier/biotic_field.opy]: Allow self healing during Biotic Field":
     @Event eachPlayer
-    @Hero soldier
+    @Condition eventPlayer.hero_setup == Hero.SOLDIER
     @Condition eventPlayer.isUsingAbility2()
 
     pushSelfHealing(Button.ABILITY_2)

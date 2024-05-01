@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Junkrat":
@@ -21,3 +21,5 @@ rule "Junkrat":
     resetStats()
     resetStatuses()
     enableAllAbilities()
+    
+    removeSelfHealing()

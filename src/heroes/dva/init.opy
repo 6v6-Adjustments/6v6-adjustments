@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "D.va (mech)":
@@ -10,13 +10,14 @@ rule "D.va (mech)":
     eventPlayer.removeAllHealthPools()
     eventPlayer.setMaxHealth(100)
     resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 299 if eventPlayer.isDuplicatingAHero() or Setting_echo_tank_hp else 349, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 150 if eventPlayer.isDuplicatingAHero() or Setting_echo_tank_hp else 200, true, true)
+    eventPlayer.addHealthPool(Health.NORMAL, 299 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 349, true, true)
+    eventPlayer.addHealthPool(Health.ARMOR, 150 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 200, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()
     removeTankPassive()
-    if eventPlayer.getMaxHealth() != (450 if eventPlayer.isDuplicatingAHero() or Setting_echo_tank_hp else 550):
+    removeSelfHealing()
+    if eventPlayer.getMaxHealth() != (450 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 550):
         goto RULE_START
 
 
@@ -35,6 +36,7 @@ rule "D.va (pilot)":
     #resetUltCharge()
     #enableAllAbilities()
     removeTankPassive()
+    removeSelfHealing()
     #Reset ultimate charge when DVa pops out of Mech
     if eventPlayer.isUsingUltimate():
         return

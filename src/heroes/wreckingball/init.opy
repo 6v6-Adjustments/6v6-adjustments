@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Wrecking Ball":
@@ -9,12 +9,13 @@ rule "Wrecking Ball":
     eventPlayer.removeAllHealthPools()
     eventPlayer.setMaxHealth(75)
     resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 399 if eventPlayer.isDuplicatingAHero() or Setting_echo_tank_hp else 449, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 50 if eventPlayer.isDuplicatingAHero() or Setting_echo_tank_hp else 100, true, true)
+    eventPlayer.addHealthPool(Health.NORMAL, 399 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 449, true, true)
+    eventPlayer.addHealthPool(Health.ARMOR, 50 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 100, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()
     removeTankPassive()
+    removeSelfHealing()
     #eventPlayer.startScalingSize(0.9, true)
     #eventPlayer.setJumpVerticalSpeed(104)
 

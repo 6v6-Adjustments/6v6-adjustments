@@ -1,17 +1,21 @@
 #!include "env/env.opy"
 
 # Useful constants
-# !include "constants/ow1_constants.opy"
-# !include "constants/ow2_constants.opy"
+#!include "constants/ow1_constants.opy"
+#!include "constants/ow2_constants.opy"
+#!include "constants/adj_constants.opy"
+
+# Remove support passive
+#!include "passives/support/self_heal.opy"
 
 # Useful functions
-# !include "utilities/macro_functions.opy"
-# !include "utilities/stat_helper.opy"
+#!include "utilities/macro_functions.opy"
+#!include "utilities/stat_helper.opy"
 # !include "utilities/custom_hp.opy"
 #!include "utilities/reset.opy"
 #!include "utilities/hero_switch.opy"
 # !include "utilities/hero_roster.opy"
-# !include "utilities/role_lock.opy"
+#!include "utilities/role_lock.opy"
 # !include "utilities/ready.opy"
 # !include "utilities/hit_detection.opy"
 #!include "utilities/anti_crash.opy"
@@ -25,8 +29,6 @@
 # Remove tank passive
 # !include "passives/tank/ult_charge.opy"
 #!include "passives/tank/knockback.opy"
-# Remove support passive
-#!include "passives/support/self_heal.opy"
 
 # Include for global scoping
 # !include "heroes/sombra/hack.opy"

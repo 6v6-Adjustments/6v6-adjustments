@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Ashe":
@@ -13,3 +13,5 @@ rule "Ashe":
     resetStats()
     resetStatuses()
     enableAllAbilities()
+    
+    removeSelfHealing()

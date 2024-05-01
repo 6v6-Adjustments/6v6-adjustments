@@ -1,69 +1,57 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
+
+#!define ADJ_VENTURE_CLOBBER_DAMAGE 65
+#!define ADJ_VENTURE_DRILL_DASH_COOLDOWN 6
+#!define ADJ_VENTURE_DRILL_DASH_DAMAGE 60
+#!define ADJ_VENTURE_EXPLORER_SHIELDS 25
+
+#!define OW2_VENTURE_CLOBBER_DAMAGE 70
+#!define OW2_VENTURE_DRILL_DASH_COOLDOWN 6
+#!define OW2_VENTURE_DRILL_DASH_DAMAGE 90
+#!define OW2_VENTURE_EXPLORER_SHIELDS 40
+
+#!include "heroes/venture/excavator.opy"
+#!include "heroes/venture/tectonic_shock.opy"
+#!include "heroes/venture/burrow.opy"
 
 
-rule "Venture":
+rule "[venture/init.opy]: Venture":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     
     eventPlayer.ult_change_check = 1.13
     eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(62.5)
+    eventPlayer.setMaxHealth(percent(ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS))
     resetHealth()
     eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
     resetStats()
     resetStatuses()
     enableAllAbilities()
-    eventPlayer.setDamageDealt(75)
+    removeSelfHealing()
+
+    setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE)
+    eventPlayer.setKnockbackDealt(70)
+
+    eventPlayer.balance_change_check = false
+    eventPlayer.is_firing_excavator = false
 
 
-rule "Correct Venture bonus shields":
+rule "[venture/init.opy]: Correct Venture bonus shields":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventPlayer.getMaxHealthOfType(Health.SHIELDS) >= 46
     
     eventPlayer.addHealthPool(Health.SHIELDS, 3.125, true, true)
-    waitUntil(eventPlayer.getMaxHealthOfType(Health.SHIELDS) < 49, 99999)
+    waitUntil(eventPlayer.getMaxHealthOfType(Health.SHIELDS) < 49, Math.INFINITY)
     removeHealthPool(getLastCreatedHealthPool())
 
 
-rule "Increase Venture melee damage":
+rule "[venture/init.opy]: Increase Venture melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventAbility == Button.MELEE
     
-    damage(victim, attacker, eventDamage * 1.325 - eventDamage)
-
-
-rule "Increase Smart Excavator damage":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.VENTURE
-    @Condition eventPlayer.isMeleeing() == false
-    @Condition eventPlayer.isFiringSecondaryFire() == false
-    @Condition eventPlayer.isUsingAbility1() == false
-    @Condition eventPlayer.isUsingAbility2() == false
-    @Condition eventPlayer.isUsingUltimate() == false
-    
-    damage(victim, attacker, eventDamage * 1.107 - eventDamage)
-
-
-rule "Reduce Burrow damage":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.VENTURE
-    @Condition eventPlayer.isUsingAbility1() == true
-    
-    eventPlayer.setDamageDealt(72.73)
-    waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
-    if not eventPlayer.isUsingUltimate():
-        eventPlayer.setDamageDealt(75)
-    elif eventPlayer.isUsingUltimate():
-        eventPlayer.setDamageDealt(84.62)
-
-
-rule "Increase Tectonic Shock damage":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.VENTURE
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    eventPlayer.setDamageDealt(84.62)
-    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
-    eventPlayer.setDamageDealt(75)
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_CLOBBER_DAMAGE / OW2_VENTURE_CLOBBER_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+    setBaseDamage(eventPlayer, ADJ_VENTURE_CLOBBER_DAMAGE / OW2_VENTURE_CLOBBER_DAMAGE)
+    waitUntil(not eventPlayer.isMeleeing(), Math.INFINITY)
+    setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE)

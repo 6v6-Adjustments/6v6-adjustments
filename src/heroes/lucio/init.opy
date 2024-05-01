@@ -1,4 +1,6 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
+
+#!include "heroes/lucio/aura.opy"
 
 
 rule "Lucio":
@@ -16,7 +18,8 @@ rule "Lucio":
     eventPlayer.setKnockbackDealt(89.286)
     eventPlayer.setHealingDealt(100)
     eventPlayer.setDamageDealt(66.667)
-    eventPlayer.heal_state = 1
+
+    removeSelfHealing()
 
 
 rule "Increase Lucio melee damage":

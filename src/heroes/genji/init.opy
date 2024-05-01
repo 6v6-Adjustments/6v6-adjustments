@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Genji":
@@ -13,6 +13,8 @@ rule "Genji":
     resetStats()
     resetStatuses()
     enableAllAbilities()
+    
+    removeSelfHealing()
 
 
 rule "Increase Shurikens damage":

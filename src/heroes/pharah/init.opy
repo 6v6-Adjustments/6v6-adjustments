@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Pharah":
@@ -14,6 +14,7 @@ rule "Pharah":
     resetStatuses()
     enableAllAbilities()
     eventPlayer.setProjectileSpeed(87.5)
+    removeSelfHealing()
 
 
 rule "Reset projectile speed for Barrage":

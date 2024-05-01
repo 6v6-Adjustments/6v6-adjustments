@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../dev_main.opy"
 
 
 rule "Lifeweaver":
@@ -20,7 +20,7 @@ rule "Lifeweaver":
     enableAllAbilities()
     eventPlayer.setDamageDealt(120)
     eventPlayer.setHealingDealt(100)
-    eventPlayer.heal_state = 1
+    removePassiveHealing()
 
 
 rule "Reduce Lifeweaver melee damage":
