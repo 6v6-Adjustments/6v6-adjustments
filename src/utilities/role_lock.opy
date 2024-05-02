@@ -8,18 +8,21 @@ globalvar max_roles = [
 
 
 rule "[utilities/role_lock.opy]: Skip Hero Assembly Phase":
+    @Disabled
     @Condition isAssemblingHeroes() == true
 
     setMatchTime(0.1)
 
 
 rule "[utilities/role_lock.opy]: Initialize Role Limits":
+    @Disabled
     @Event eachPlayer
 
     eventPlayer.allowed_heroes = getAllHeroes()
 
 
 rule "[utilities/role_lock.opy]: Lock/Unlock Tank heroes at role limit":
+    @Disabled
     @Event eachPlayer
     @Condition len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getTankHeroes()]).exclude(eventPlayer)) >= max_roles[0]
     @Condition max_roles[0] > 0
@@ -32,6 +35,7 @@ rule "[utilities/role_lock.opy]: Lock/Unlock Tank heroes at role limit":
 
 
 rule "[utilities/role_lock.opy]: Lock/Unlock Damage heroes at role limit":
+    @Disabled
     @Event eachPlayer
     @Condition len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getDamageHeroes()]).exclude(eventPlayer)) >= max_roles[1]
     @Condition max_roles[1] > 0
@@ -44,6 +48,7 @@ rule "[utilities/role_lock.opy]: Lock/Unlock Damage heroes at role limit":
 
 
 rule "[utilities/role_lock.opy]: Lock/Unlock Support heroes at role limit":
+    @Disabled
     @Event eachPlayer
     @Condition len(([player for player in getPlayers(eventPlayer.getTeam()) if player.getCurrentHero() in getSupportHeroes()]).exclude(eventPlayer)) >= max_roles[2]
     @Condition max_roles[2] > 0
