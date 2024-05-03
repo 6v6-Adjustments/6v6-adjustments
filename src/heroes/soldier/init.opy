@@ -3,7 +3,7 @@
 #!include "heroes/soldier/biotic_field.opy"
 
 
-rule "Soldier 76":
+rule "[soldier/init.opy]: Soldier 76":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.SOLDIER
     
@@ -20,7 +20,7 @@ rule "Soldier 76":
     removeSelfHealing()
 
 
-rule "Increase Heavy Pulse Rifle damage":
+rule "[soldier/init.opy]: Increase Heavy Pulse Rifle damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.SOLDIER
     @Condition eventAbility == Button.PRIMARY_FIRE

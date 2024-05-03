@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Widowmaker":
+rule "[widowmaker/init.opy]: Widowmaker":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.WIDOWMAKER
     

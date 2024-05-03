@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Reaper":
+rule "[reaper/init.opy]: Reaper":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.REAPER
     
@@ -17,7 +17,7 @@ rule "Reaper":
     removePassiveHealing()
 
 
-rule "Increase Hellfire Shotgun damage":
+rule "[reaper/init.opy]: Increase Hellfire Shotgun damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.REAPER
     @Condition eventAbility == Button.PRIMARY_FIRE
@@ -26,7 +26,7 @@ rule "Increase Hellfire Shotgun damage":
     damage(victim, attacker, eventDamage * 1.094 - eventDamage)
 
 
-rule "Reduce Death Blossom damage":
+rule "[reaper/init.opy]: Reduce Death Blossom damage":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.REAPER
     @Condition eventPlayer.isUsingUltimate() == true

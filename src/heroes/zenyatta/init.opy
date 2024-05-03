@@ -3,7 +3,7 @@
 #!include "heroes/zenyatta/transc.opy"
 
 
-rule "Zenyatta":
+rule "[zenyatta/init.opy]: Zenyatta":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ZENYATTA
     

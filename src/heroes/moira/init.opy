@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Moira":
+rule "[moira/init.opy]: Moira":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MOIRA
     
@@ -18,7 +18,7 @@ rule "Moira":
     removePassiveHealing()
 
 
-rule "Prevent fading during coalescence":
+rule "[moira/init.opy]: Prevent fading during coalescence":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MOIRA
     @Condition eventPlayer.isUsingUltimate() == true

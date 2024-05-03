@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Orisa":
+rule "[orisa/init.opy]: Orisa":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ORISA
     
@@ -18,12 +18,12 @@ rule "Orisa":
     removeSelfHealing()
 
 
-rule "Correct Fortify overhealth while outside spawn rooms":
+rule "[orisa/init.opy]: Correct Fortify overhealth while outside spawn rooms":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ORISA
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventPlayer.isInSpawnRoom() == false
-    @Condition eventPlayer.overhealth_check == false
+    @Condition eventPlayer.isUsingAbility1()
+    @Condition not eventPlayer.isInSpawnRoom()
+    @Condition not eventPlayer.overhealth_check
     #@Condition eventPlayer.getHealthOfType(Health.ARMOR) >= 0.1
     
     damage(eventPlayer, null, 181.8)
@@ -45,10 +45,10 @@ rule "Correct Fortify overhealth while outside spawn rooms":
 #     eventPlayer.overhealth_check = false
 
 
-rule "Reduce Terra Surge damage":
+rule "[orisa/init.opy]: Reduce Terra Surge damage":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ORISA
-    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setDamageDealt(80)
     waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)

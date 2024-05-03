@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Reinhardt":
+rule "[reinhardt/init.opy]: Reinhardt":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     
@@ -20,7 +20,7 @@ rule "Reinhardt":
     removeSelfHealing()
 
 
-rule "Force single Firestrike":
+rule "[reinhardt/init.opy]: Force single Firestrike":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     @Condition eventPlayer.isUsingAbility2() == true
@@ -45,7 +45,7 @@ rule "Increase Firestrike damage":
 */
 
 
-rule "Increase Charge damage":
+rule "[reinhardt/init.opy]: Increase Charge damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     @Condition eventAbility == Button.ABILITY_1
@@ -55,7 +55,7 @@ rule "Increase Charge damage":
     damage(victim, attacker, eventDamage * 1.321 - eventDamage)
 
 
-rule "Reduce Charge radius":
+rule "[reinhardt/init.opy]: Reduce Charge radius":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     @Condition eventPlayer.isUsingAbility1() == true
@@ -65,7 +65,7 @@ rule "Reduce Charge radius":
     eventPlayer.stopForcingThrottle()
 
 
-rule "Increase Earthshatter damage":
+rule "[reinhardt/init.opy]: Increase Earthshatter damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     @Condition eventAbility == Button.ULTIMATE
@@ -74,7 +74,7 @@ rule "Increase Earthshatter damage":
     damage(victim, attacker, eventDamage * 1.708 - eventDamage)
 
 
-rule "Increase Firestrike damage (early animation)":
+rule "[reinhardt/init.opy]: Increase Firestrike damage (early animation)":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     @Condition eventPlayer.isUsingAbility2() == true

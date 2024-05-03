@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Bastion":
+rule "[bastion/init.opy]: Bastion":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.BASTION
     

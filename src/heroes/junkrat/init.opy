@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Junkrat":
+rule "[junkrat/init.opy]: Junkrat":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.JUNKRAT
     

@@ -3,7 +3,7 @@
 #!include "heroes/mei/cryo_freeze.opy"
 
 
-rule "Mei":
+rule "[mei/init.opy]: Mei":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MEI
     

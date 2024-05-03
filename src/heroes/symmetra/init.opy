@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Symmetra":
+rule "[symmetra/init.opy]: Symmetra":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.SYMMETRA
     

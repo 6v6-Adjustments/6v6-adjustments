@@ -7,7 +7,7 @@ subroutine showRamattraBlockCD
 subroutine hideRamattraBlockCD
 
 
-rule "Ramattra":
+rule "[ramattra/init.opy]: Ramattra":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     
@@ -25,7 +25,7 @@ rule "Ramattra":
     removeSelfHealing()
 
 
-rule "Correct Nemesis Form armor, movement speed, and cooldown for duplicate":
+rule "[ramattra/init.opy]: Correct Nemesis Form armor, movement speed, and cooldown for duplicate":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
@@ -42,7 +42,7 @@ rule "Correct Nemesis Form armor, movement speed, and cooldown for duplicate":
     #eventPlayer.setAbilityCooldown(Button.ABILITY_1, 9)
 
 
-rule "Increase Pummel damage":
+rule "[ramattra/init.opy]: Increase Pummel damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
@@ -52,7 +52,7 @@ rule "Increase Pummel damage":
     damage(victim, attacker, eventDamage * 1.169 - eventDamage)
 
 
-rule "Set Ramattra Block Cooldown when not in Nemesis":
+rule "[ramattra/init.opy]: Set Ramattra Block Cooldown when not in Nemesis":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
@@ -66,7 +66,7 @@ rule "Set Ramattra Block Cooldown when not in Nemesis":
     chase(eventPlayer.ramattra_block_cooldown, 0, rate=1, ChaseReeval.NONE)
 
 
-rule "Show Ramattra Block Cooldown":
+rule "[ramattra/init.opy]: Show Ramattra Block Cooldown":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.ramattra_block_cooldown > 0
@@ -74,7 +74,7 @@ rule "Show Ramattra Block Cooldown":
     showRamattraBlockCD()
 
 
-rule "Hide Ramattra Block Cooldown":
+rule "[ramattra/init.opy]: Hide Ramattra Block Cooldown":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.ramattra_block_cooldown <= 0
@@ -84,7 +84,7 @@ rule "Hide Ramattra Block Cooldown":
     eventPlayer.allowButton(Button.SECONDARY_FIRE)
 
 
-rule "Enable Shield when out of Nemesis":
+rule "[ramattra/init.opy]: Enable Shield when out of Nemesis":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == false or eventPlayer.isUsingUltimate()
@@ -95,33 +95,33 @@ rule "Enable Shield when out of Nemesis":
 
 
 def initRamattraBlock():
-    @Name "initRamattraBlock()"
+    @Name "[ramattra/init.opy]: initRamattraBlock()"
     
     eventPlayer.ramattra_block_cooldown = 0
 
 
 def showRamattraBlockCD():
-    @Name "showRamattraBlockCD()"
+    @Name "[ramattra/init.opy]: showRamattraBlockCD()"
     
     createInWorldText(eventPlayer, "{0}".format(ceil(eventPlayer.ramattra_block_cooldown)), updateEveryTick(eventPlayer.getEyePosition() + (100 * (2.5 * worldVector(Vector.RIGHT, eventPlayer, Transform.ROTATION) + (-1.66 * (angleToDirection(horizontalAngleOfDirection(eventPlayer.getFacingDirection()), verticalAngleOfDirection(eventPlayer.getFacingDirection()) - 90))) + 3 * eventPlayer.getFacingDirection()))), 3, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_STRING_AND_COLOR, Color.WHITE, SpecVisibility.DEFAULT)
     eventPlayer.ramattra_block_cd_text = getLastCreatedText()
 
 
 def hideRamattraBlockCD():
-    @Name "hideRamattraBlockCD()"
+    @Name "[ramattra/init.opy]: hideRamattraBlockCD()"
     
     destroyInWorldText(eventPlayer.ramattra_block_cd_text)
     eventPlayer.ramattra_block_cooldown = 0
 
 
-rule "Clean up Ramattra":
+rule "[ramattra/init.opy]: Clean up Ramattra":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup != Hero.RAMATTRA
     
     hideRamattraBlockCD()
 
 
-rule "Disable Block after use":
+rule "[ramattra/init.opy]: Disable Block after use":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
@@ -137,7 +137,7 @@ rule "Disable Block after use":
     eventPlayer.setSecondaryFireEnabled(true)
 
 
-rule "Set Ravenous Vortex cooldown":
+rule "[ramattra/init.opy]: Set Ravenous Vortex cooldown":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.isUsingAbility2() == true
@@ -146,7 +146,7 @@ rule "Set Ravenous Vortex cooldown":
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 12)
 
 
-rule "Bonus Annihilation movement speed":
+rule "[ramattra/init.opy]: Bonus Annihilation movement speed":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.isUsingUltimate() == true

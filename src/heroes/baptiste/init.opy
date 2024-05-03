@@ -3,7 +3,7 @@
 #!include "heroes/baptiste/regen_burst.opy"
 
 
-rule "Baptiste":
+rule "[baptiste/init.opy]: Baptiste":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE
     
@@ -25,7 +25,7 @@ rule "Baptiste":
     removeSelfHealing()
 
 
-rule "Increase Baptiste melee damage":
+rule "[baptiste/init.opy]: Increase Baptiste melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE
     @Condition eventAbility == Button.MELEE
@@ -33,7 +33,7 @@ rule "Increase Baptiste melee damage":
     damage(victim, attacker, eventDamage * 1.045 - eventDamage)
 
 
-rule "Increase Biotic Launcher healing":
+rule "[baptiste/init.opy]: Increase Biotic Launcher healing":
     @Event playerDealtHealing
     @Condition eventPlayer.balance_change_check == true
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE

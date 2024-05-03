@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Genji":
+rule "[genji/init.opy]: Genji":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.GENJI
     
@@ -17,7 +17,7 @@ rule "Genji":
     removeSelfHealing()
 
 
-rule "Increase Shurikens damage":
+rule "[genji/init.opy]: Increase Shurikens damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.GENJI
     @Condition (eventAbility == Button.PRIMARY_FIRE or eventAbility == Button.SECONDARY_FIRE) == true

@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Sigma":
+rule "[sigma/init.opy]: Sigma":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.SIGMA
     
@@ -19,7 +19,7 @@ rule "Sigma":
     eventPlayer.balance_change_check = 0
 
 
-rule "Remove Kinetic Grasp overhealth":
+rule "[sigma/init.opy]: Remove Kinetic Grasp overhealth":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.SIGMA
     @Condition eventPlayer.isUsingAbility1() == true
@@ -35,7 +35,7 @@ rule "Remove Kinetic Grasp overhealth":
         eventPlayer.setHealth(eventPlayer.getMaxHealth() - eventPlayer.balance_change_check)
 
 
-rule "Increase Accretion damage":
+rule "[sigma/init.opy]: Increase Accretion damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.SIGMA
     @Condition eventAbility == Button.ABILITY_2

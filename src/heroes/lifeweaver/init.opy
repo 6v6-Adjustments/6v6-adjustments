@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Lifeweaver":
+rule "[lifeweaver/init.opy]: Lifeweaver":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
     
@@ -23,7 +23,7 @@ rule "Lifeweaver":
     removePassiveHealing()
 
 
-rule "Reduce Lifeweaver melee damage":
+rule "[lifeweaver/init.opy]: Reduce Lifeweaver melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
     @Condition eventAbility == Button.MELEE
@@ -33,7 +33,7 @@ rule "Reduce Lifeweaver melee damage":
     heal(victim, null, 8)
 
 
-rule "Reduce Tree of Life healing":
+rule "[lifeweaver/init.opy]: Reduce Tree of Life healing":
     @Event playerDealtHealing
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
     @Condition eventPlayer.isUsingUltimate() == true
@@ -43,7 +43,7 @@ rule "Reduce Tree of Life healing":
     eventPlayer.setHealingDealt(100)
 
 
-rule "Reduce Tree of Life duration":
+rule "[lifeweaver/init.opy]: Reduce Tree of Life duration":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
     @Condition eventPlayer.isUsingUltimate() == true

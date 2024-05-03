@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Wrecking Ball":
+rule "[wreckingball/init.opy]: Wrecking Ball":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.HAMMOND
     
@@ -20,7 +20,7 @@ rule "Wrecking Ball":
     #eventPlayer.setJumpVerticalSpeed(104)
 
 
-rule "Force Grappling Hook cooldown":
+rule "[wreckingball/init.opy]: Force Grappling Hook cooldown":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.HAMMOND
     @Condition eventPlayer.isFiringSecondaryFire() == true
@@ -75,14 +75,14 @@ rule "Disable Adaptive Shields when not near enemy players":
     eventPlayer.setAbility2Enabled(false)
 */
 
-rule "Remove Adaptive Shields overhealth transfer":
+rule "[wreckingball/init.opy]: Remove Adaptive Shields overhealth transfer":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.HAMMOND
-    @Condition eventPlayer.isUsingAbility2() == true
+    @Condition eventPlayer.isUsingAbility2()
     
     eventPlayer.disallowButton(Button.ABILITY_2)
     eventPlayer.setAbility2Enabled(false)
-    waitUntil(not eventPlayer.isUsingAbility2(), 999999986991104)
+    waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)
     enableAllAbilities()
     eventPlayer.allowButton(Button.ABILITY_2)
 

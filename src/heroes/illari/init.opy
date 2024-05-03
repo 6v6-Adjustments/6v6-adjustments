@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Illari":
+rule "[illari/init.opy]: Illari":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ILLARI
     
@@ -21,7 +21,7 @@ rule "Illari":
     removePassiveHealing()
 
 
-rule "Increase Illari melee damage":
+rule "[illari/init.opy]: Increase Illari melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ILLARI
     @Condition eventAbility == Button.MELEE
@@ -29,7 +29,7 @@ rule "Increase Illari melee damage":
     damage(victim, attacker, eventDamage * 1.34 - eventDamage)
 
 
-rule "Increase Solar Rifle damage":
+rule "[illari/init.opy]: Increase Solar Rifle damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ILLARI
     @Condition eventWasCriticalHit == false
@@ -39,7 +39,7 @@ rule "Increase Solar Rifle damage":
     damage(victim, attacker, eventDamage * 1.267 - eventDamage)
 
 
-rule "Increase Solar Rifle critical hit damage":
+rule "[illari/init.opy]: Increase Solar Rifle critical hit damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ILLARI
     @Condition eventWasCriticalHit == true
@@ -47,7 +47,7 @@ rule "Increase Solar Rifle critical hit damage":
     damage(victim, attacker, eventDamage * 1.327 - eventDamage)
 
 
-rule "Reduce Solar Rifle healing":
+rule "[illari/init.opy]: Reduce Solar Rifle healing":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ILLARI
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) == true

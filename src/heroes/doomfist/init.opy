@@ -4,7 +4,7 @@
 #!include "heroes/doomfist/slam.opy"
 
 
-rule "Doomfist":
+rule "[doomfist/init.opy]: Doomfist":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.DOOMFIST
     

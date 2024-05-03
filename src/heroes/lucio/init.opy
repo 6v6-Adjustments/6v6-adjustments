@@ -3,7 +3,7 @@
 #!include "heroes/lucio/aura.opy"
 
 
-rule "Lucio":
+rule "[lucio/init.opy]: Lucio":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.LUCIO
     
@@ -22,7 +22,7 @@ rule "Lucio":
     removeSelfHealing()
 
 
-rule "Increase Lucio melee damage":
+rule "[lucio/init.opy]: Increase Lucio melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.LUCIO
     @Condition eventAbility == Button.MELEE
@@ -30,7 +30,7 @@ rule "Increase Lucio melee damage":
     damage(victim, attacker, eventDamage * 1.778 - eventDamage)
 
 
-rule "Increase Sonic Amplifier damage":
+rule "[lucio/init.opy]: Increase Sonic Amplifier damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.LUCIO
     @Condition eventAbility == Button.PRIMARY_FIRE

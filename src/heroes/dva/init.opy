@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "D.va (mech)":
+rule "[dva/init.opy]: D.va (mech)":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.DVA
     @Condition eventPlayer.isInAlternateForm() == false
@@ -21,7 +21,7 @@ rule "D.va (mech)":
         goto RULE_START
 
 
-rule "D.va (pilot)":
+rule "[dva/init.opy]: D.va (pilot)":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.DVA
     @Condition eventPlayer.isInAlternateForm() == true

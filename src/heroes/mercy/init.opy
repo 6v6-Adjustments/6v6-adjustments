@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Mercy":
+rule "[mercy/init.opy]: Mercy":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MERCY
     
@@ -18,10 +18,10 @@ rule "Mercy":
     eventPlayer.setHealingDealt(109.1)
 
 
-rule "Reduce Valkyrie healing":
+rule "[mercy/init.opy]: Reduce Valkyrie healing":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MERCY
-    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setHealingDealt(100)
     waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)

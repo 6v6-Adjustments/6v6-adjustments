@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Junker Queen":
+rule "[junkerqueen/init.opy]: Junker Queen":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
     
@@ -23,7 +23,7 @@ rule "Junker Queen":
     removePassiveHealing()
 
 
-rule "Correct Commanding Shout overhealth while outside spawn rooms":
+rule "[junkerqueen/init.opy]: Correct Commanding Shout overhealth while outside spawn rooms":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
     @Condition eventPlayer.isUsingAbility1() == true
@@ -49,7 +49,7 @@ rule "Correct Commanding Shout overhealth while outside spawn rooms":
 #     eventPlayer.overhealth_check = false
 
 
-rule "Reduce Rampage Damage":
+rule "[junkerqueen/init.opy]: Reduce Rampage Damage":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
     @Condition eventPlayer.isUsingUltimate() == true

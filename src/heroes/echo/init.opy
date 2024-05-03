@@ -5,7 +5,7 @@ globalvar setting_echo_tank_hp = createWorkshopSetting(bool, "General Changes", 
 playervar duplicate_leftover_health
 
 
-rule "Echo":
+rule "[echo/init.opy]: Echo":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ECHO
     
@@ -26,7 +26,7 @@ rule "Echo":
     removeSelfHealing()
 
 
-rule "Increase Tri-Shot and Echo melee damage":
+rule "[echo/init.opy]: Increase Tri-Shot and Echo melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ECHO
     @Condition (eventAbility == Button.PRIMARY_FIRE or eventAbility == Button.MELEE) == true
@@ -34,7 +34,7 @@ rule "Increase Tri-Shot and Echo melee damage":
     damage(victim, attacker, eventDamage * 1.064 - eventDamage)
 
 
-rule "Bonus Ultimate charge while in Duplicate":
+rule "[echo/init.opy]: Bonus Ultimate charge while in Duplicate":
     @Event eachPlayer
     @Hero echo
     @Condition eventPlayer.isDuplicatingAHero() == true
@@ -44,7 +44,7 @@ rule "Bonus Ultimate charge while in Duplicate":
     eventPlayer.setUltCharge(4 + (16 * (eventPlayer.ult_change_check - 1)))
 
 
-rule "Check health when exiting Duplicate":
+rule "[echo/init.opy]: Check health when exiting Duplicate":
     @Event eachPlayer
     @Hero echo
     @Condition eventPlayer.isDuplicatingAHero() == true

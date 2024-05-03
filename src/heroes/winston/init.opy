@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Winston":
+rule "[winston/init.opy]: Winston":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.WINSTON
     
@@ -19,7 +19,7 @@ rule "Winston":
     eventPlayer.setDamageDealt(80)
 
 
-rule "Increase Winston other forms of damage":
+rule "[winston/init.opy]: Increase Winston other forms of damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.WINSTON
     @Condition eventAbility != Button.PRIMARY_FIRE
@@ -28,7 +28,7 @@ rule "Increase Winston other forms of damage":
     damage(victim, attacker, eventDamage * 1.25 - eventDamage)
 
 
-rule "Set default Leap cooldown":
+rule "[winston/init.opy]: Set default Leap cooldown":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.WINSTON
     @Condition eventPlayer.isUsingAbility1() == true
@@ -37,7 +37,7 @@ rule "Set default Leap cooldown":
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 6)
 
 
-rule "Reset Leap cooldown after Primal Rage":
+rule "[winston/init.opy]: Reset Leap cooldown after Primal Rage":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.WINSTON
     @Condition eventPlayer.isUsingUltimate() == true

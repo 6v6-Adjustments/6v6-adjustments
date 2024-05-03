@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Tracer":
+rule "[tracer/init.opy]: Tracer":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.TRACER
     
@@ -19,7 +19,7 @@ rule "Tracer":
     removeSelfHealing()
 
 
-rule "Increase Tracer melee damage":
+rule "[tracer/init.opy]: Increase Tracer melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.TRACER
     @Condition eventAbility == Button.MELEE
@@ -27,7 +27,7 @@ rule "Increase Tracer melee damage":
     damage(victim, attacker, eventDamage * 1.117 - eventDamage)
 
 
-rule "Increase Pulse Bomb damage":
+rule "[tracer/init.opy]: Increase Pulse Bomb damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.TRACER
     @Condition eventAbility == Button.ULTIMATE

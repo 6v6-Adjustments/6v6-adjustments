@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Ashe":
+rule "[ashe/init.opy]: Ashe":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ASHE
     

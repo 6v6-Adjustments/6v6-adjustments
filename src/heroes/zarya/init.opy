@@ -4,7 +4,7 @@
 #!include "heroes/zarya/ally_bubble.opy"
 
 
-rule "Zarya":
+rule "[zarya/init.opy]: Zarya":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     
@@ -33,7 +33,7 @@ rule "[zarya/init.opy]: Clean up Zarya":
     hideAllyBubbleCD()
 
 
-rule "Increase Zarya Alternate Fire and melee damage":
+rule "[zarya/init.opy]: Increase Zarya Alternate Fire and melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition (eventAbility == Button.MELEE or eventAbility == Button.SECONDARY_FIRE) == true

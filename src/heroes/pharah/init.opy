@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Pharah":
+rule "[pharah/init.opy]: Pharah":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.PHARAH
     
@@ -17,10 +17,10 @@ rule "Pharah":
     removeSelfHealing()
 
 
-rule "Reset projectile speed for Barrage":
+rule "[pharah/init.opy]: Reset projectile speed for Barrage":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.PHARAH
-    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setProjectileSpeed(100)
     waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)

@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Torbjorn":
+rule "[torbjorn/init.opy]: Torbjorn":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.TORBJORN
     
@@ -20,7 +20,7 @@ rule "Torbjorn":
     removeSelfHealing()
 
 
-rule "Increase Rivet Gun alternate fire ammo cost":
+rule "[torbjorn/init.opy]: Increase Rivet Gun alternate fire ammo cost":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.TORBJORN
     @Condition eventPlayer.isFiringSecondaryFire() == true

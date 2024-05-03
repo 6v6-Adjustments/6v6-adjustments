@@ -4,7 +4,7 @@
 #!include "heroes/mccree/deadeye.opy"
 
 
-rule "Cassidy":
+rule "[mccree/init.opy]: Cassidy":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MCCREE
     

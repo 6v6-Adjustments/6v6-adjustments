@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Kiriko":
+rule "[kiriko/init.opy]: Kiriko":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
     
@@ -21,7 +21,7 @@ rule "Kiriko":
     removePassiveHealing()
 
 
-rule "Heal when using Swift Step":
+rule "[kiriko/init.opy]: Heal when using Swift Step":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
     @Condition eventPlayer.isUsingAbility1() == true

@@ -3,7 +3,7 @@
 #!include "heroes/roadhog/breather.opy"
 
 
-rule "Roadhog":
+rule "[roadhog/init.opy]: Roadhog":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     
@@ -24,7 +24,7 @@ rule "Roadhog":
     eventPlayer.setHealingDealt(percent(ADJ_ROADHOG_BREATHER_HEAL_TOTAL/OW2_ROADHOG_BREATHER_HEAL_TOTAL))
 
 
-rule "Increase Roadhog melee damage":
+rule "[roadhog/init.opy]: Increase Roadhog melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventAbility == Button.MELEE
@@ -32,7 +32,7 @@ rule "Increase Roadhog melee damage":
     damage(victim, attacker, eventDamage * 1.138 - eventDamage)
 
 
-rule "Increase Chain Hook damage":
+rule "[roadhog/init.opy]: Increase Chain Hook damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventAbility == Button.ABILITY_1
@@ -40,7 +40,7 @@ rule "Increase Chain Hook damage":
     damage(victim, attacker, eventDamage * 3.91 - eventDamage)
 
 
-rule "Force Chain Hook cooldown":
+rule "[roadhog/init.opy]: Force Chain Hook cooldown":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventPlayer.isUsingAbility1() == true
@@ -49,7 +49,7 @@ rule "Force Chain Hook cooldown":
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 7)
 
 
-rule "Increase Pigpen damage":
+rule "[roadhog/init.opy]: Increase Pigpen damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventAbility == Button.ABILITY_2
@@ -58,7 +58,7 @@ rule "Increase Pigpen damage":
     damage(victim, attacker, eventDamage * 1.333 - eventDamage)
 
 
-rule "Wholehog abilities check":
+rule "[roadhog/init.opy]: Wholehog abilities check":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventPlayer.isUsingUltimate() == true
@@ -76,7 +76,7 @@ rule "Wholehog abilities check":
     eventPlayer.setKnockbackDealt(35)
 
 
-rule "Wholehog force autofire":
+rule "[roadhog/init.opy]: Wholehog force autofire":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventPlayer.isUsingUltimate() == true
