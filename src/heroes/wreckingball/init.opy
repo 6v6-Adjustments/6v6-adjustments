@@ -4,20 +4,17 @@
 rule "[wreckingball/init.opy]: Wrecking Ball":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.HAMMOND
-    
-    eventPlayer.ult_change_check = 1.05
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(75)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 399 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 449, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 50 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 100, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+
+    newHero(
+        400 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 450, 
+        50 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 100, 
+        0)
     removeTankPassive()
     removeSelfHealing()
     #eventPlayer.startScalingSize(0.9, true)
     #eventPlayer.setJumpVerticalSpeed(104)
+
+    eventPlayer.ult_change_check = 1.05
 
 
 rule "[wreckingball/init.opy]: Force Grappling Hook cooldown":

@@ -4,19 +4,14 @@
 rule "[winston/init.opy]: Winston":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.WINSTON
-    
-    eventPlayer.ult_change_check = 1.13
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 299 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 399, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 100, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+
+    newHero(300 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 400, 100, 0)
     removeTankPassive()
     removeSelfHealing()
+
     eventPlayer.setDamageDealt(80)
+
+    eventPlayer.ult_change_check = 1.13
 
 
 rule "[winston/init.opy]: Increase Winston other forms of damage":

@@ -5,17 +5,11 @@ rule "[hanzo/init.opy]: Hanzo":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.HANZO
     
-    eventPlayer.ult_change_check = 1.21
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
-    eventPlayer.setDamageDealt(93.333)
-    
+    newHero(200, 0, 0)
     removeSelfHealing()
+    eventPlayer.setDamageDealt(93.333)
+
+    eventPlayer.ult_change_check = 1.21
 
 
 rule "[hanzo/init.opy]: Increase Storm Bow and Hanzo melee damage":

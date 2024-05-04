@@ -4,21 +4,16 @@
 rule "[kiriko/init.opy]: Kiriko":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
-    
-    eventPlayer.ult_change_check = 0.9
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 5)
+
+    newHero(200, 0, 0)
+    removePassiveHealing()
+
     eventPlayer.setAmmo(1, 12)
     eventPlayer.setMaxAmmo(1, 12)
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
-    eventPlayer.setHealingDealt(100)
-    
-    removePassiveHealing()
+
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 5)
+
+    eventPlayer.ult_change_check = 0.9
 
 
 rule "[kiriko/init.opy]: Heal when using Swift Step":

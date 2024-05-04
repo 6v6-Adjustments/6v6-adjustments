@@ -8,20 +8,14 @@
 rule "[brigitte/init.opy]: Brigitte":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.BRIGITTE
-    
-    eventPlayer.ult_change_check = 1
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 149, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 50, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+
+    newHero(ADJ_BRIGITTE_HEALTH, ADJ_BRIGITTE_ARMOR, 0)
+    removeSelfHealing()
+
     setBaseDamage(eventPlayer, ADJ_BRIGITTE_FLAIL_DAMAGE/OW2_BRIGITTE_FLAIL_DAMAGE)
     eventPlayer.setHealingDealt(80)
 
-    removeSelfHealing()
+    eventPlayer.ult_change_check = 1
 
 
 rule "[brigitte/init.opy]: Increase Inspire self healing":

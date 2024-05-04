@@ -7,19 +7,13 @@ rule "[lucio/init.opy]: Lucio":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.LUCIO
     
-    eventPlayer.ult_change_check = 1.02
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+    newHero(200, 0, 0)
+    removeSelfHealing()
+
     eventPlayer.setKnockbackDealt(89.286)
-    eventPlayer.setHealingDealt(100)
     eventPlayer.setDamageDealt(66.667)
 
-    removeSelfHealing()
+    eventPlayer.ult_change_check = 1.02
 
 
 rule "[lucio/init.opy]: Increase Lucio melee damage":

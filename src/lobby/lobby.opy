@@ -64,6 +64,7 @@ settings {
             },
             "baptiste": {
                 "ability1Cooldown%": percent(ADJ_BAPTISTE_REGEN_BURST_COOLDOWN/OW2_BAPTISTE_REGEN_BURST_COOLDOWN),
+                "health%": percent(ADJ_BAPTISTE_LAMP_HP/OW2_BAPTISTE_LAMP_HP),
                 "ultGen%": percent(OW2_BAPTISTE_ULT_COST/ADJ_BAPTISTE_ULT_COST)
             },
             "bastion": {
@@ -127,6 +128,7 @@ settings {
             },
             "mei": {
                 "ultFreezeMinimum%": 30,
+                "health%": percent(ADJ_MEI_ICEWALL_HP/OW2_MEI_ICEWALL_HP),
                 "ultGen%": 110
             },
             "moira": {
@@ -141,7 +143,8 @@ settings {
                 "ultGen%": 110
             },
             "ramattra": {
-                "ability1Cooldown%": percent(ADJ_RAMATTRA_NEMESIS_COOLDOWN/OW2_RAMATTRA_NEMESIS_COOLDOWN)
+                "ability1Cooldown%": percent(ADJ_RAMATTRA_NEMESIS_COOLDOWN/OW2_RAMATTRA_NEMESIS_COOLDOWN),
+                "health%": percent(ADJ_RAMATTRA_BARRIER_HEALTH/OW2_RAMATTRA_BARRIER_HEALTH),
             },
             "reaper": {
                 "ability2Cooldown%": percent(ADJ_REAPER_SHADOW_STEP_COOLDOWN/OW2_REAPER_SHADOW_STEP_COOLDOWN),
@@ -150,6 +153,7 @@ settings {
             "reinhardt": {
                 "secondaryFireRechargeRate%": percent(ADJ_REINHARDT_BARRIER_REGEN/OW2_REINHARDT_BARRIER_REGEN),
                 "ability1Cooldown%": percent(ADJ_REINHARDT_CHARGE_COOLDOWN_TIME/OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
+                "health%": percent(ADJ_REINHARDT_BARRIER_HEALTH/OW2_REINHARDT_BARRIER_HEALTH),
                 "ultGen%": 107
             },
             "roadhog": {
@@ -173,6 +177,7 @@ settings {
                 "ultGen%": 95
             },
             "symmetra": {
+                "health%": percent(ADJ_SYMMETRA_TURRET_HEALTH/OW2_SYMMETRA_TURRET_HEALTH),
                 "ultGen%": 112
             },
             "torbjorn": {
@@ -180,10 +185,12 @@ settings {
             },
             "tracer": {
                 "ability2Cooldown%": percent(ADJ_TRACER_RECALL_COOLDOWN/OW2_TRACER_RECALL_COOLDOWN),
+                "health%": percent(ADJ_TRACER_HEALTH/OW2_TRACER_HEALTH),
                 "ultGen%": 110
             },
             "venture": {
                 "secondaryFireCooldown%": percent(ADJ_VENTURE_DRILL_DASH_COOLDOWN/OW2_VENTURE_DRILL_DASH_COOLDOWN),
+                "health%": percent(ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS),
                 "ultGen%": percent(OW2_VENTURE_ULT_COST/ADJ_VENTURE_ULT_COST)
             },
             "widowmaker": {
@@ -195,6 +202,7 @@ settings {
             "hammond": {
                 "ability1Kb%": percent(ADJ_WRECKING_BALL_FIREBALL_KB/OW2_WRECKING_BALL_FIREBALL_KB),
                 "ability3Cooldown%": percent(ADJ_WRECKING_BALL_PILEDRIVER_COOLDOWN_TIME/OW2_WRECKING_BALL_PILEDRIVER_COOLDOWN_TIME),
+                "health%": percent(ADJ_WRECKING_BALL_SHIELD_PER_TARGET/OW2_WRECKING_BALL_SHIELD_PER_TARGET),
                 "ultGen%": 109
             },
             "general": {

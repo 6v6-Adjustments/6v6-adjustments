@@ -6,6 +6,8 @@ globalvar max_roles = [
     createWorkshopSetting(int[0:5], "Role limits", "Support Role Cap", 2, 2)
 ]
 
+playervar allowed_heroes
+
 
 rule "[utilities/role_lock.opy]: Skip Hero Assembly Phase":
     @Disabled

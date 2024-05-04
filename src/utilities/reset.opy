@@ -3,18 +3,18 @@
 playervar ult_change_check
 playervar overhealth_check
 playervar balance_change_check
-playervar allowed_heroes
 
+#!define defaultHero() \
+    newHero(0, 0, 0)
 
-def resetHealth():
-    @Name "[utilities/reset.opy]: resethealth()"
-    
-    eventPlayer.setHealingReceived(0)
-    eventPlayer.setHealth(1)
-    eventPlayer.addHealthPool(Health.NORMAL, 1, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 1, true, true)
-    eventPlayer.addHealthPool(Health.SHIELDS, 1, true, true)
-    eventPlayer.removeAllHealthPools()
+# newHero(0, 0, 0) creates default OW2 hero
+#!define newHero(health, armor, shields) \
+    clearCustomHp() \
+    setCustomHp(health, armor, shields) \
+    resetStats() \
+    resetStatuses() \
+    resetSelfHealing() \
+    enableAllAbilities() \
 
 
 def enableAllAbilities():
@@ -74,7 +74,7 @@ def disableAllAbilities():
 def resetStats():
     @Name "[utilities/reset.opy]: resetStats()"
 
-    eventPlayer.setDamageDealt(100)
+    setBaseDamage(eventPlayer, 1)
     eventPlayer.setDamageReceived(100)
     eventPlayer.setProjectileSpeed(100)
     eventPlayer.setProjectileGravity(100)
@@ -113,3 +113,10 @@ def resetUltCharge():
     
     wait(eventPlayer.getUltCharge() > 0)
     eventPlayer.setUltCharge(0)
+
+
+rule "[utilities/reset.opy]: reset ult charge on hero switch":
+    @Event eachPlayer
+    @Condition switchedHero(eventPlayer)
+
+    resetUltCharge()

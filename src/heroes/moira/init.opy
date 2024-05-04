@@ -4,18 +4,11 @@
 rule "[moira/init.opy]: Moira":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MOIRA
-    
-    eventPlayer.ult_change_check = 0.95
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
-    eventPlayer.setHealingDealt(100)
 
+    newHero(200, 0, 0)
     removePassiveHealing()
+
+    eventPlayer.ult_change_check = 0.95
 
 
 rule "[moira/init.opy]: Prevent fading during coalescence":

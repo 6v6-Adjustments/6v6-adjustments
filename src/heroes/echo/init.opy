@@ -14,16 +14,13 @@ rule "[echo/init.opy]: Echo":
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
     eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
-    eventPlayer.setDamageDealt(94.444)
-    if eventPlayer.isInSpawnRoom() == false:
-        damage(eventPlayer, null, eventPlayer.duplicate_leftover_health)
-    
+
+    newHero(ADJ_ECHO_HEALTH, 0, 0)
     removeSelfHealing()
+
+    eventPlayer.setDamageDealt(94.444)
+    if not eventPlayer.isInSpawnRoom():
+        damage(eventPlayer, null, eventPlayer.duplicate_leftover_health)
 
 
 rule "[echo/init.opy]: Increase Tri-Shot and Echo melee damage":

@@ -5,19 +5,17 @@ rule "[dva/init.opy]: D.va (mech)":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.DVA
     @Condition eventPlayer.isInAlternateForm() == false
-    
-    eventPlayer.ult_change_check = 1
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 299 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 349, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 150 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 200, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+
+    newHero(
+        ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else ADJ_DVA_HEALTH,
+        ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else ADJ_DVA_ARMOR,
+        0)
     removeTankPassive()
     removeSelfHealing()
-    if eventPlayer.getMaxHealth() != (450 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 550):
+
+    eventPlayer.ult_change_check = 1
+
+    if eventPlayer.getMaxHealth() != ((ADJ_DVA_HEALTH_DUPLICATE + ADJ_DVA_ARMOR) if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else (ADJ_DVA_HEALTH + ADJ_DVA_ARMOR)):
         goto RULE_START
 
 

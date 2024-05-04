@@ -4,19 +4,13 @@
 rule "[sigma/init.opy]: Sigma":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.SIGMA
-    
-    eventPlayer.ult_change_check = 1.07
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 249 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 299, true, true)
-    eventPlayer.addHealthPool(Health.SHIELDS, 150, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+
+    newHero(250 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 300, 0, 150)
     removeTankPassive()
     removeSelfHealing()
+
     eventPlayer.balance_change_check = 0
+    eventPlayer.ult_change_check = 1.07
 
 
 rule "[sigma/init.opy]: Remove Kinetic Grasp overhealth":

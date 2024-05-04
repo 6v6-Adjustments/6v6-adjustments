@@ -8,21 +8,21 @@ rule "[zarya/init.opy]: Zarya":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     
-    eventPlayer.ult_change_check = 1
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    eventPlayer.addHealthPool(Health.SHIELDS, 150 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 200, true, true)
-    initSelfBubble()
-    initAllyBubble()
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+    newHero(
+        200,
+        0,
+        150 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 200
+    )
     removeTankPassive()
     removeSelfHealing()
+
     eventPlayer.setKnockbackDealt(73.607)
     eventPlayer.setDamageDealt(84.211)
+
+    initSelfBubble()
+    initAllyBubble()
+
+    eventPlayer.ult_change_check = 1
 
 
 rule "[zarya/init.opy]: Clean up Zarya":
