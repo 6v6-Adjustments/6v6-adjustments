@@ -3,17 +3,22 @@
 # Environment Variables
 #!define GAMEMODE_VERSION "Dev Build"
 #!define GAMEMODE_NAME "6v6 Adjustments"
-#!define GAMDMODE_DESCRIPTION ("Intended for 6v6 gameplay, by Toastie#11770" + "\n" + \
+#!define GAMDMODE_DESCRIPTION (GAMEMODE_NAME + " " + GAMEMODE_VERSION + "\n" + \
+                               "\n" + \
+                               "Intended for 6v6 gameplay, by Toastie#11770" + "\n" + \
                                "\n" + \
                                "Primary workshop development provided" + "\n" + \
-                               "by LemonHead#11820" + "\n" + \
+                               "by LemonHead#11820 and ecksdee#11729" + "\n" + \
                                "\n" + \
                                "Gamemode originally forked from" + "\n" + \
                                "Overwatch 1 Emulator v1.12.2 (KHTG0)" + "\n" + \
                                "\n" + \
                                "Come join the discord server! We host 6v6" + "\n" + \
                                "custom lobbies every weekend! (6v6.info)" + "\n" + \
-                               "https://discord.gg/uzFUQu7G4s")
+                               DISCORD_LONG_LINK + "\n" + \
+                               "\n" + \
+                               "Source Code:" + "\n" + \
+                               SOURCE_CODE_LINK)
 #!define GAMEMODE_CODE "7HSKW"
 #!define DEV_CODE ""
 #!define DISCORD_SHORT_LINK "dsc.gg/todo"
