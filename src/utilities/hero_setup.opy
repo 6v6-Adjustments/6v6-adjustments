@@ -3,15 +3,12 @@
 playervar hero_setup
 
 
-rule "[utilities/hero_setup.opy]: Check for hero setup":
+rule "[utilities/hero_setup.opy]: Assign hero setup on hero switch":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup != eventPlayer.getCurrentHero()
-    @Condition not eventPlayer.isDuplicatingAHero()
-    @Condition not isMatchBetweenRounds()
-    @Condition eventPlayer.isAlive()
+    @Condition switchedHero(eventPlayer)
     
     #This wait time may be needed for some gameodes 
-    wait(0.024)
+    # wait(0.024)
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
 
 

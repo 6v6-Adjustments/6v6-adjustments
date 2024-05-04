@@ -1,9 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
-globalvar setting_echo_tank_hp = createWorkshopSetting(bool, "General Changes", "Full Echo Tank HP", false, 0)
-
 playervar duplicate_leftover_health
 
+#!include "heroes/echo/duplicate.opy"
+
+globalvar setting_echo_tank_hp = createWorkshopSetting(bool, "General Changes", "Full Echo Tank HP", false, 0)
 
 rule "[echo/init.opy]: Echo":
     @Event eachPlayer
@@ -39,17 +40,6 @@ rule "[echo/init.opy]: Bonus Ultimate charge while in Duplicate":
     
     wait()
     eventPlayer.setUltCharge(4 + (16 * (eventPlayer.ult_change_check - 1)))
-
-
-rule "[echo/init.opy]: Check health when exiting Duplicate":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.isDuplicatingAHero() == true
-    
-    eventPlayer.hero_setup = eventPlayer.getHeroOfDuplication()
-    eventPlayer.duplicate_leftover_health = 100
-    wait(15)
-    eventPlayer.duplicate_leftover_health = 0
 
 
 # rule "(Duplicate) Seismic Slam cooldown":
