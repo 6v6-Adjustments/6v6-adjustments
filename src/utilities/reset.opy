@@ -89,8 +89,6 @@ def resetStats():
     eventPlayer.stopScalingSize()
     eventPlayer.stopScalingBarriers()
 
-    resetSelfHealing()
-
 
 def resetStatuses():
     @Name "[utilities/reset.opy]: resetStatuses()"

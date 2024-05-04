@@ -5,9 +5,6 @@
 #!include "constants/ow2_constants.opy"
 #!include "constants/adj_constants.opy"
 
-# Remove support passive
-#!include "passives/support/self_heal.opy"
-
 # Useful functions
 #!include "utilities/macro_functions.opy"
 #!include "utilities/hero_switch.opy"
@@ -30,6 +27,8 @@
 # Remove tank passive
 # !include "passives/tank/ult_charge.opy"
 #!include "passives/tank/knockback.opy"
+# Remove support passive
+#!include "passives/support/self_heal.opy"
 
 # Include for global scoping
 # !include "heroes/sombra/hack.opy"
