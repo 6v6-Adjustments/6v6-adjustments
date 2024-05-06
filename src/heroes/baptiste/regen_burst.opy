@@ -19,7 +19,7 @@ rule "[baptiste/regen_burst.opy]: Allow self healing during regenerative burst":
     @Condition eventPlayer.isUsingAbility1()
 
     pushSelfHealing(Button.ABILITY_1)
-    wait(OW1_BAPTISTE_REGEN_BURST_DURATION, Wait.RESTART_WHEN_TRUE)
+    wait(ADJ_BAPTISTE_REGEN_BURST_DURATION, Wait.RESTART_WHEN_TRUE)
     popSelfHealing(Button.ABILITY_1)
 
 

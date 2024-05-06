@@ -6,7 +6,7 @@ rule "[ana/nade.opy]: Increase Biotic Grenade healing":
     @Condition eventPlayer.hero_setup == Hero.ANA
     @Condition eventAbility == Button.ABILITY_2
 
-    heal(healee, healer, eventHealing*(OW1_ANA_BIOTIC_GRENADE_HEALING/OW2_ANA_BIOTIC_GRENADE_HEALING)-eventHealing)
+    heal(healee, healer, eventHealing*(ADJ_ANA_BIOTIC_GRENADE_HEALING/OW2_ANA_BIOTIC_GRENADE_HEALING)-eventHealing)
 
 
 rule "[ana/nade.opy]: Allow self healing during Biotic Grenade":
