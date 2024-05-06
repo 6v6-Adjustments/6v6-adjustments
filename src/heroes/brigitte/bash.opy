@@ -10,7 +10,7 @@
 #     @Condition eventAbility == Button.PRIMARY_FIRE
 #     # @Condition not attacker.shield_bash_through_barrier
     
-#     victim.setStatusEffect(attacker, Status.STUNNED, OW1_BRIGITTE_SHIELD_BASH_STUN_DURATION)
+#     victim.setStatusEffect(attacker, Status.STUNNED, ADJ_BRIGITTE_SHIELD_BASH_STUN_DURATION)
 
 
 # rule "[brigitte/bash.opy]: Reduce shield bash distance":
@@ -23,7 +23,7 @@
 #     eventPlayer.setMoveSpeed(77.8) # arbitrarily decided based on trial and error
 #     waitUntil(eventPlayer.getAbilityCooldown(Button.PRIMARY_FIRE) > 0, Math.INFINITY)
 #     if eventPlayer.isUsingUltimate():
-#         eventPlayer.setMoveSpeed(percent(OW1_BRIGITTE_RALLY_SPEED_BUFF/OW2_BRIGITTE_RALLY_SPEED_BUFF))
+#         eventPlayer.setMoveSpeed(percent(ADJ_BRIGITTE_RALLY_SPEED_BUFF/OW2_BRIGITTE_RALLY_SPEED_BUFF))
 #     else:
 #         eventPlayer.setMoveSpeed(100)
 

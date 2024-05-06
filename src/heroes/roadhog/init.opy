@@ -1,6 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 #!include "heroes/roadhog/breather.opy"
+#!include "heroes/roadhog/wholehog.opy"
 
 
 rule "[roadhog/init.opy]: Roadhog":
@@ -20,66 +21,36 @@ rule "[roadhog/init.opy]: Roadhog":
     removeTankPassive()
     removeSelfHealing()
     
-    eventPlayer.setDamageDealt(87.5)
+    setBaseDamage(eventPlayer, ADJ_ROADHOG_SCRAP_GUN_DAMAGE/OW2_ROADHOG_SCRAP_GUN_DAMAGE)
     eventPlayer.setHealingDealt(percent(ADJ_ROADHOG_BREATHER_HEAL_TOTAL/OW2_ROADHOG_BREATHER_HEAL_TOTAL))
 
 
-rule "[roadhog/init.opy]: Increase Roadhog melee damage":
+rule "[roadhog/init.opy]: Correct melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventAbility == Button.MELEE
-    
-    damage(victim, attacker, eventDamage * 1.138 - eventDamage)
+
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
-rule "[roadhog/init.opy]: Increase Chain Hook damage":
+rule "[roadhog/init.opy]: Correct Chain Hook damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventAbility == Button.ABILITY_1
-    
-    damage(victim, attacker, eventDamage * 3.91 - eventDamage)
+
+    damage(
+        victim, 
+        attacker, 
+        ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_ROADHOG_HOOK_DAMAGE/OW2_ROADHOG_HOOK_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
-rule "[roadhog/init.opy]: Force Chain Hook cooldown":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
-    @Condition eventPlayer.isUsingAbility1() == true
-    
-    waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 7)
-
-
-rule "[roadhog/init.opy]: Increase Pigpen damage":
+rule "[roadhog/init.opy]: Correct Pigpen damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventAbility == Button.ABILITY_2
-    @Condition eventPlayer.isUsingUltimate() == false
-    
-    damage(victim, attacker, eventDamage * 1.333 - eventDamage)
+    @Condition not eventPlayer.isUsingUltimate()
 
-
-rule "[roadhog/init.opy]: Wholehog abilities check":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    eventPlayer.setMeleeEnabled(false)
-    eventPlayer.setSecondaryFireEnabled(false)
-    eventPlayer.setAbility1Enabled(false)
-    eventPlayer.setAbility2Enabled(false)
-    eventPlayer.setDamageDealt(100)
-    eventPlayer.setKnockbackDealt(100)
-    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
-    enableAllAbilities()
-    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
-    eventPlayer.setDamageDealt(90.625)
-    eventPlayer.setKnockbackDealt(35)
-
-
-rule "[roadhog/init.opy]: Wholehog force autofire":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
-    @Condition eventPlayer.isUsingUltimate() == true
-    @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == false
-    
-    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    damage(
+        victim, 
+        attacker, 
+        ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_ROADHOG_PIGPEN_DAMAGE/OW2_ROADHOG_PIGPEN_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)

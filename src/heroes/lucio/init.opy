@@ -15,24 +15,24 @@ rule "[lucio/init.opy]: Lucio":
     resetStats()
     resetStatuses()
     enableAllAbilities()
-    eventPlayer.setKnockbackDealt(89.286)
-    eventPlayer.setHealingDealt(100)
-    eventPlayer.setDamageDealt(66.667)
-
     removeSelfHealing()
 
+    setBaseDamage(eventPlayer, ADJ_LUCIO_SOUNDWAVE_DAMAGE/OW2_LUCIO_SOUNDWAVE_DAMAGE)
+    eventPlayer.setHealingDealt(100)
+    eventPlayer.setKnockbackDealt(89.286)
 
-rule "[lucio/init.opy]: Increase Lucio melee damage":
+
+rule "[lucio/init.opy]: Correct Lucio melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.LUCIO
     @Condition eventAbility == Button.MELEE
-    
-    damage(victim, attacker, eventDamage * 1.778 - eventDamage)
+
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
-rule "[lucio/init.opy]: Increase Sonic Amplifier damage":
+rule "[lucio/init.opy]: Correct Sonic Amplifier damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.LUCIO
     @Condition eventAbility == Button.PRIMARY_FIRE
-    
-    damage(victim, attacker, eventDamage * 2.018 - eventDamage)
+
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_LUCIO_SOUND_GUN_DAMAGE/OW2_LUCIO_SOUND_GUN_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)

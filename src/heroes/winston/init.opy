@@ -16,31 +16,12 @@ rule "[winston/init.opy]: Winston":
     enableAllAbilities()
     removeTankPassive()
     removeSelfHealing()
-    eventPlayer.setDamageDealt(80)
+    setBaseDamage(eventPlayer, ADJ_WINSTON_TESLA_DAMAGE/OW2_WINSTON_TESLA_DAMAGE)
 
 
-rule "[winston/init.opy]: Increase Winston other forms of damage":
+rule "[winston/init.opy]: Correct Jump Pack, Melee, Primal Rage damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.WINSTON
-    @Condition eventAbility != Button.PRIMARY_FIRE
-    @Condition eventAbility != Button.ULTIMATE
-    
-    damage(victim, attacker, eventDamage * 1.25 - eventDamage)
+    @Condition eventAbility in [Button.ABILITY_1, Button.MELEE, Button.SECONDARY_FIRE]
 
-
-rule "[winston/init.opy]: Set default Leap cooldown":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.WINSTON
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventPlayer.isUsingUltimate() == false
-    
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 6)
-
-
-rule "[winston/init.opy]: Reset Leap cooldown after Primal Rage":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.WINSTON
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
+    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

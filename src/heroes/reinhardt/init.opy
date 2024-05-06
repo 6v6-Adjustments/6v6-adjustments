@@ -1,10 +1,14 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/reinhardt/firestrike.opy"
+#!include "heroes/reinhardt/charge.opy"
+#!include "heroes/reinhardt/shatter.opy"
+
 
 rule "[reinhardt/init.opy]: Reinhardt":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
-    
+
     eventPlayer.ult_change_check = 1.07
     eventPlayer.removeAllHealthPools()
     eventPlayer.setMaxHealth(114.3)
@@ -16,69 +20,5 @@ rule "[reinhardt/init.opy]: Reinhardt":
     enableAllAbilities()
     eventPlayer.setKnockbackReceived(115)
     eventPlayer.stopForcingThrottle()
-    eventPlayer.setDamageDealt(80)
+    setBaseDamage(eventPlayer, ADJ_REINHARDT_HAMMER_DAMAGE/OW2_REINHARDT_HAMMER_DAMAGE)
     removeSelfHealing()
-
-
-rule "[reinhardt/init.opy]: Force single Firestrike":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.REINHARDT
-    @Condition eventPlayer.isUsingAbility2() == true
-    
-    eventPlayer.setDamageDealt(83.4)
-    waitUntil(not eventPlayer.isUsingAbility2(), 1)
-    eventPlayer.setDamageDealt(80)
-    #Every time rein uses firestrike, reset the resource to 0
-    eventPlayer.setAbilityCharge(Button.ABILITY_2, 0)
-    wait(6)
-    eventPlayer.setAbilityCharge(Button.ABILITY_2, 2)
-
-
-/*
-rule "Increase Firestrike damage":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.REINHARDT
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition (not eventPlayer.isUsingAbility2()) == false
-    
-    damage(victim, attacker, eventDamage * 1.053 - eventDamage)
-*/
-
-
-rule "[reinhardt/init.opy]: Increase Charge damage":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.REINHARDT
-    @Condition eventAbility == Button.ABILITY_1
-    #Checks for pin vs boop damage
-    @Condition eventDamage > 100
-    
-    damage(victim, attacker, eventDamage * 1.321 - eventDamage)
-
-
-rule "[reinhardt/init.opy]: Reduce Charge radius":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.REINHARDT
-    @Condition eventPlayer.isUsingAbility1() == true
-    
-    eventPlayer.startForcingThrottle(0, 0.667, 0, 0.667, 0, 0.667)
-    waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
-    eventPlayer.stopForcingThrottle()
-
-
-rule "[reinhardt/init.opy]: Increase Earthshatter damage":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.REINHARDT
-    @Condition eventAbility == Button.ULTIMATE
-    @Condition eventDamage > 100
-    
-    damage(victim, attacker, eventDamage * 1.708 - eventDamage)
-
-
-rule "[reinhardt/init.opy]: Increase Firestrike damage (early animation)":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.REINHARDT
-    @Condition eventPlayer.isUsingAbility2() == true
-    
-    eventPlayer.setDamageDealt(83.333)
-    wait(1)
-    eventPlayer.setDamageDealt(80)

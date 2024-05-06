@@ -41,21 +41,21 @@ Below HUD is tuned for 16:9 aspect ratio monitors (typical PC Overwatch setup).
 
 rule "[zarya/self_bubble.opy]: OW1 zarya self bubble cooldown":
     @Event eachPlayer
-    @Hero zarya
+    @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.isUsingAbility1()
     
     eventPlayer.disallowButton(Button.ABILITY_1)
     eventPlayer.setAbilityCharge(Button.ABILITY_1, 2)
-    waitUntil(not eventPlayer.isUsingAbility1(), OW1_ZARYA_BUBBLE_DURATION) # wait bubble duration
+    waitUntil(not eventPlayer.isUsingAbility1(), ADJ_ZARYA_BUBBLE_DURATION) # wait bubble duration
     eventPlayer.setAbility1Enabled(false)
-    eventPlayer.self_bubble_cooldown = OW1_ZARYA_PARTICLE_BARRIER_COOLDOWN_TIME
+    eventPlayer.self_bubble_cooldown = ADJ_ZARYA_PARTICLE_BARRIER_COOLDOWN_TIME
     eventPlayer.allowButton(Button.ABILITY_1)
     chase(eventPlayer.self_bubble_cooldown, 0, rate=1, ChaseReeval.NONE)
 
 
 rule "[zarya/self_bubble.opy]: Disable self bubble if on cooldown":
     @Event eachPlayer
-    @Hero zarya
+    @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.self_bubble_cooldown > 0
 
     eventPlayer.setAbility1Enabled(false)
@@ -63,7 +63,7 @@ rule "[zarya/self_bubble.opy]: Disable self bubble if on cooldown":
 
 rule "[zarya/self_bubble.opy]: Enable self bubble if not on cooldown":
     @Event eachPlayer
-    @Hero zarya
+    @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.self_bubble_cooldown <= 0
 
     eventPlayer.setAbility1Enabled(true)
