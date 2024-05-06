@@ -22,7 +22,7 @@
                                SOURCE_CODE_LINK)
 #!define GAMEMODE_CODE "7HSKW"
 #!define DEV_CODE "NSQSSS"
-#!define DISCORD_SHORT_LINK "6V6.info"
+#!define DISCORD_SHORT_LINK "6v6.info"
 #!define DISCORD_LONG_LINK "https://discord.gg/uzFUQu7G4s"
 #!define SOURCE_CODE_LINK "github.com/6v6-Adjustments/6v6-adjustments"
 
