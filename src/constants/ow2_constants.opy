@@ -1,5 +1,9 @@
 #!mainFile "../dev_main.opy"
 
+# Misc
+#!define MIN_DAMAGE 0.000001
+#!define TICK_DURATION 0.016
+
 # Universal
 #!define OW2_ARMOR_DAMAGE_REDUCTION 0.3
 #!define OW2_DAMAGE_PASSIVE_DURATION 2

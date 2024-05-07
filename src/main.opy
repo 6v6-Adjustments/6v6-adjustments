@@ -1,7 +1,6 @@
 #!include "env/env.opy"
 
 # Useful constants
-#!include "constants/ow1_constants.opy"
 #!include "constants/ow2_constants.opy"
 #!include "constants/adj_constants.opy"
 
