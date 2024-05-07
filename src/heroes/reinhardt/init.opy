@@ -12,7 +12,7 @@ rule "[reinhardt/init.opy]: Reinhardt":
     
     newHero(
         250,
-        150 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 250,
+        150 if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else 250,
         0)
     removeSelfHealing()
 

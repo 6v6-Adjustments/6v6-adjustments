@@ -6,7 +6,7 @@ rule "[mauga/init.opy]: Mauga":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MAUGA
 
-    newHero(300 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 400, 100, 0)
+    newHero(300 if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else 400, 100, 0)
     removeTankPassive()
     removePassiveHealing()
 

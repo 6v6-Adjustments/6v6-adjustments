@@ -7,8 +7,8 @@ rule "[wreckingball/init.opy]: Wrecking Ball":
     @Condition eventPlayer.hero_setup == Hero.HAMMOND
 
     newHero(
-        400 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 450, 
-        50 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 100, 
+        400 if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else 450, 
+        50 if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else 100, 
         0)
     removeTankPassive()
     removeSelfHealing()

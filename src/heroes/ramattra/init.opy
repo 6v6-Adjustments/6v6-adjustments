@@ -12,7 +12,7 @@ rule "[ramattra/init.opy]: Ramattra":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     
-    newHero(350 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 400, 0, 0)
+    newHero(350 if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else 400, 0, 0)
     removeTankPassive()
     removeSelfHealing()
 

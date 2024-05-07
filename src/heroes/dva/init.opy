@@ -8,13 +8,13 @@ rule "[dva/init.opy]: D.va (mech)":
     @Condition not eventPlayer.isInAlternateForm()
 
     newHero(
-        ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else ADJ_DVA_HEALTH,
-        ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else ADJ_DVA_ARMOR,
+        ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_HEALTH,
+        ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_ARMOR,
         0)
     removeTankPassive()
     removeSelfHealing()
 
-    if eventPlayer.getMaxHealth() != ((ADJ_DVA_HEALTH_DUPLICATE + ADJ_DVA_ARMOR) if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else (ADJ_DVA_HEALTH + ADJ_DVA_ARMOR)):
+    if eventPlayer.getMaxHealth() != ((ADJ_DVA_HEALTH_DUPLICATE + ADJ_DVA_ARMOR) if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else (ADJ_DVA_HEALTH + ADJ_DVA_ARMOR)):
         goto RULE_START
 
     eventPlayer.call_init = false

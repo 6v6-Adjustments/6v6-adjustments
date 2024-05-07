@@ -51,6 +51,7 @@
 #!define ADJ_DVA_ULT_COST 1540
 
 # Echo
+globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", "Full Echo Tank HP", false, 0)
 #!define ADJ_ECHO_DUPLICATE_EXIT_HEALTH 100
 #!define ADJ_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER 6.5
 #!define ADJ_ECHO_HEALTH 200

@@ -10,7 +10,7 @@ rule "[roadhog/init.opy]: Roadhog":
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     
     newHero(
-        500 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 600,
+        500 if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else 600,
         0,
         0)
     removeTankPassive()

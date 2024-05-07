@@ -2,9 +2,6 @@
 
 #!include "heroes/echo/duplicate.opy"
 
-globalvar setting_echo_tank_hp = createWorkshopSetting(bool, "General Changes", "Full Echo Tank HP", false, 0)
-
-
 rule "[echo/init.opy]: Echo":
     @Event eachPlayer
     @Condition eventPlayer.call_init

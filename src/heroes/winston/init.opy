@@ -6,7 +6,7 @@ rule "[winston/init.opy]: Winston":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.WINSTON
 
-    newHero(300 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 400, 100, 0)
+    newHero(300 if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else 400, 100, 0)
     removeTankPassive()
     removeSelfHealing()
     setBaseDamage(eventPlayer, ADJ_WINSTON_TESLA_DAMAGE/OW2_WINSTON_TESLA_DAMAGE)

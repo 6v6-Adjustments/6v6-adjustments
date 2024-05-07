@@ -12,7 +12,7 @@ rule "[zarya/init.opy]: Zarya":
     newHero(
         200,
         0,
-        150 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 200
+        150 if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else 200
     )
     removeTankPassive()
     removeSelfHealing()

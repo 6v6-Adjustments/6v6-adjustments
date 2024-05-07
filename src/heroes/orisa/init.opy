@@ -7,8 +7,8 @@ rule "[orisa/init.opy]: Orisa":
     @Condition eventPlayer.hero_setup == Hero.ORISA
     
     newHero(
-        250 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 300, 
-        150 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 200, 
+        250 if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else 300, 
+        150 if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else 200, 
         0)
     removeTankPassive()
     removeSelfHealing()
