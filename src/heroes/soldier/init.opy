@@ -5,6 +5,7 @@
 
 rule "[soldier/init.opy]: Soldier 76":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.SOLDIER
     
     newHero(200, 0, 0)
@@ -12,7 +13,7 @@ rule "[soldier/init.opy]: Soldier 76":
 
     eventPlayer.setHealingDealt(86.4)
 
-    eventPlayer.ult_change_check = 1.2
+    eventPlayer.call_init = false
 
 
 rule "[soldier/init.opy]: Increase Heavy Pulse Rifle damage":

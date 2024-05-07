@@ -5,6 +5,7 @@
 
 rule "[mei/init.opy]: Mei":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MEI
 
     newHero(250, 0, 0)
@@ -13,4 +14,4 @@ rule "[mei/init.opy]: Mei":
     eventPlayer.setMaxAmmo(0, 120)
     eventPlayer.setAmmo(0, 120)
 
-    eventPlayer.ult_change_check = 1.18
+    eventPlayer.call_init = false

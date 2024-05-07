@@ -3,6 +3,7 @@
 
 rule "[pharah/init.opy]: Pharah":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.PHARAH
     
     newHero(200, 0, 0)
@@ -10,7 +11,7 @@ rule "[pharah/init.opy]: Pharah":
 
     eventPlayer.setProjectileSpeed(87.5)
 
-    eventPlayer.ult_change_check = 1.19
+    eventPlayer.call_init = false
 
 
 rule "[pharah/init.opy]: Reset projectile speed for Barrage":

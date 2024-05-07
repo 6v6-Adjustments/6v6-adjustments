@@ -1,13 +1,13 @@
 #!mainFile "../../dev_main.opy"
 
-playervar duplicate_leftover_health
-
 #!include "heroes/echo/duplicate.opy"
 
 globalvar setting_echo_tank_hp = createWorkshopSetting(bool, "General Changes", "Full Echo Tank HP", false, 0)
 
+
 rule "[echo/init.opy]: Echo":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ECHO
     
     eventPlayer.removeAllHealthPools()
@@ -20,8 +20,8 @@ rule "[echo/init.opy]: Echo":
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_ECHO_STICKY_BOMBS_DAMAGE/OW2_ECHO_STICKY_BOMBS_DAMAGE)
-    if not eventPlayer.isInSpawnRoom():
-        damage(eventPlayer, null, eventPlayer.duplicate_leftover_health)
+
+    eventPlayer.call_init = false
 
 
 rule "[echo/init.opy]: Correct Tri-Shot and Echo melee damage":
@@ -30,16 +30,6 @@ rule "[echo/init.opy]: Correct Tri-Shot and Echo melee damage":
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.MELEE]
 
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
-
-
-rule "[echo/init.opy]: Bonus Ultimate charge while in Duplicate":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.isDuplicatingAHero() == true
-    @Condition eventPlayer.getUltCharge() == 0
-    
-    wait()
-    eventPlayer.setUltCharge(4 + (16 * (eventPlayer.ult_change_check - 1)))
 
 
 # rule "(Duplicate) Seismic Slam cooldown":

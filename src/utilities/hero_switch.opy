@@ -17,3 +17,18 @@ rule "[utilities/hero_switch.opy]: detect hero switch":
     eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
     # eventPlayer._hero_id = heroID(eventPlayer._last_hero_played)
     eventPlayer._hero_switched = false
+
+
+rule "[utilities/hero_setup.opy]: Assign hero setup on hero switch":
+    @Event eachPlayer
+    @Condition switchedHero(eventPlayer)
+    
+    eventPlayer.hero_setup = eventPlayer.getCurrentHero()
+    eventPlayer.call_init = true
+
+
+rule "[utilities/reset.opy]: reset ult charge on hero switch":
+    @Event eachPlayer
+    @Condition switchedHero(eventPlayer)
+
+    resetUltCharge()

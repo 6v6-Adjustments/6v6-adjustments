@@ -15,6 +15,7 @@
 
 rule "[venture/init.opy]: Venture":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.VENTURE
 
     newHero(200, 0, 0)
@@ -25,7 +26,7 @@ rule "[venture/init.opy]: Venture":
 
     eventPlayer.balance_change_check = false
     eventPlayer.is_firing_excavator = false
-    eventPlayer.ult_change_check = 1.13
+    eventPlayer.call_init = false
 
 
 rule "[venture/init.opy]: Correct Venture bonus shields":

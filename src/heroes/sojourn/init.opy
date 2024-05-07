@@ -3,9 +3,10 @@
 
 rule "[sojourn/init.opy]: Sojourn":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.SOJOURN
     
     newHero(200, 0, 0)
     removeSelfHealing()
 
-    eventPlayer.ult_change_check = 1.1
+    eventPlayer.call_init = false

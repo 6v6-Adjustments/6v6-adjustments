@@ -3,6 +3,7 @@
 
 rule "[mercy/init.opy]: Mercy":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MERCY
 
     newHero(200, 0, 0)
@@ -12,7 +13,7 @@ rule "[mercy/init.opy]: Mercy":
     eventPlayer.setAmmo(0, 20)
     eventPlayer.setMaxAmmo(0, 20)
 
-    eventPlayer.ult_change_check = 1.04
+    eventPlayer.call_init = false
 
 
 rule "[mercy/init.opy]: Reduce Valkyrie healing":

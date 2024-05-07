@@ -3,8 +3,9 @@
 
 rule "[dva/init.opy]: D.va (mech)":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.DVA
-    @Condition eventPlayer.isInAlternateForm() == false
+    @Condition not eventPlayer.isInAlternateForm()
 
     newHero(
         ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else ADJ_DVA_HEALTH,
@@ -13,16 +14,17 @@ rule "[dva/init.opy]: D.va (mech)":
     removeTankPassive()
     removeSelfHealing()
 
-    eventPlayer.ult_change_check = 1
-
     if eventPlayer.getMaxHealth() != ((ADJ_DVA_HEALTH_DUPLICATE + ADJ_DVA_ARMOR) if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else (ADJ_DVA_HEALTH + ADJ_DVA_ARMOR)):
         goto RULE_START
+
+    eventPlayer.call_init = false
 
 
 rule "[dva/init.opy]: D.va (pilot)":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.DVA
-    @Condition eventPlayer.isInAlternateForm() == true
+    @Condition eventPlayer.isInAlternateForm()
     
     eventPlayer.removeAllHealthPools()
     eventPlayer.setMaxHealth(85.714)
@@ -39,6 +41,9 @@ rule "[dva/init.opy]: D.va (pilot)":
     if eventPlayer.isUsingUltimate():
         return
     resetUltCharge()
+
+    eventPlayer.call_init = false
+
 
 /*
 rule "(Duplicate) d.va dm fix a":

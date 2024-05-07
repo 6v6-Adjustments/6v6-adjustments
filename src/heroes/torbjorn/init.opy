@@ -3,6 +3,7 @@
 
 rule "[torbjorn/init.opy]: Torbjorn":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.TORBJORN
 
     newHero(200, 50, 0)
@@ -12,7 +13,7 @@ rule "[torbjorn/init.opy]: Torbjorn":
     eventPlayer.setMaxAmmo(0, 15)
 
     eventPlayer.overhealth_check = false
-    eventPlayer.ult_change_check = 1.17
+    eventPlayer.call_init = false
 
 
 rule "[torbjorn/init.opy]: Increase Rivet Gun alternate fire ammo cost":

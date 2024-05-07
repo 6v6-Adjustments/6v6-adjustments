@@ -2,7 +2,16 @@
 
 # globalvar health_pool
 
-# playervar hero_id_duplicated
+playervar hp_before_duplicate
+
+
+rule "[echo/duplicate.opy]: Remember hp before duplicate":
+    @Event eachPlayer
+    @Condition eventPlayer.hero_setup == Hero.ECHO
+    @Condition eventPlayer.isHoldingButton(Button.ULTIMATE)
+    @Condition eventPlayer.getUltCharge() >= 100
+
+    eventPlayer.hp_before_duplicate = eventPlayer.getHealth()
 
 
 rule "[echo/duplicate.opy]: Override hero setup during duplicate":
@@ -11,7 +20,7 @@ rule "[echo/duplicate.opy]: Override hero setup during duplicate":
     @Condition eventPlayer.isDuplicatingAHero()
     
     eventPlayer.hero_setup = eventPlayer.getHeroOfDuplication()
-    eventPlayer.duplicate_leftover_health = 100
+    eventPlayer.call_init = true
 
 
 rule "[echo/duplicate.opy]: Revert hero setup when exiting Duplicate":
@@ -20,7 +29,20 @@ rule "[echo/duplicate.opy]: Revert hero setup when exiting Duplicate":
     @Condition not eventPlayer.isDuplicatingAHero()
 
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
-    eventPlayer.duplicate_leftover_health = 0
+    eventPlayer.call_init = true
+
+    waitUntil(not eventPlayer.call_init, Math.INFINITY)
+    damage(eventPlayer, null, ADJ_ECHO_HEALTH - max(eventPlayer.hp_before_duplicate, ADJ_ECHO_DUPLICATE_EXIT_HEALTH))
+
+
+rule "[echo/duplicate.opy]: Correct duplicate ultimate charge rate":
+    @Event eachPlayer
+    @Hero echo
+    @Condition eventPlayer.isDuplicatingAHero()
+    @Condition eventPlayer.getUltCharge() == 0
+
+    wait()
+    eventPlayer.setUltCharge((percent(1 - (OW2_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER/ADJ_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER)))/OW2_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER)
 
 
 # rule "[echo/duplicate.opy]: Table of all heroes with custom hp":

@@ -3,6 +3,7 @@
 
 rule "[kiriko/init.opy]: Kiriko":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
 
     newHero(200, 0, 0)
@@ -13,7 +14,7 @@ rule "[kiriko/init.opy]: Kiriko":
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 5)
 
-    eventPlayer.ult_change_check = 0.9
+    eventPlayer.call_init = false
 
 
 rule "[kiriko/init.opy]: Heal when using Swift Step":

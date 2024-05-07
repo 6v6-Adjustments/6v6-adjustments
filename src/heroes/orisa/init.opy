@@ -3,6 +3,7 @@
 
 rule "[orisa/init.opy]: Orisa":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ORISA
     
     newHero(
@@ -12,7 +13,7 @@ rule "[orisa/init.opy]: Orisa":
     removeTankPassive()
     removeSelfHealing()
 
-    eventPlayer.ult_change_check = 1.12
+    eventPlayer.call_init = false
 
 
 rule "[orisa/init.opy]: Correct Fortify overhealth while outside spawn rooms":

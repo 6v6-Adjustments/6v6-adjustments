@@ -5,6 +5,7 @@
 
 rule "[baptiste/init.opy]: Baptiste":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE
     
     newHero(ADJ_BAPTISTE_HEALTH, 0, 0)
@@ -14,7 +15,7 @@ rule "[baptiste/init.opy]: Baptiste":
     setBaseHealing(eventPlayer, 0.7)
 
     eventPlayer.balance_change_check = true
-    eventPlayer.ult_change_check = 0.93
+    eventPlayer.call_init = false
 
 
 rule "[baptiste/init.opy]: Increase Baptiste melee damage":

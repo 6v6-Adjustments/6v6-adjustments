@@ -3,12 +3,13 @@
 
 rule "[reaper/init.opy]: Reaper":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.REAPER
 
     newHero(250, 0, 0)
     removePassiveHealing()
 
-    eventPlayer.ult_change_check = 1.14
+    eventPlayer.call_init = false
 
 
 rule "[reaper/init.opy]: Increase Hellfire Shotgun damage":

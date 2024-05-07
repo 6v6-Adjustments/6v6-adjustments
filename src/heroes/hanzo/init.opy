@@ -3,6 +3,7 @@
 
 rule "[hanzo/init.opy]: Hanzo":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.HANZO
     
     newHero(200, 0, 0)
@@ -10,7 +11,7 @@ rule "[hanzo/init.opy]: Hanzo":
 
     setBaseDamage(eventPlayer, ADJ_HANZO_STORM_DAMAGE/OW2_HANZO_STORM_DAMAGE)
 
-    eventPlayer.ult_change_check = 1.21
+    eventPlayer.call_init = false
 
 
 rule "[hanzo/init.opy]: Correct Storm Bow, Sonic Arrow and melee damage":

@@ -3,6 +3,7 @@
 
 rule "[winston/init.opy]: Winston":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.WINSTON
 
     newHero(300 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 400, 100, 0)
@@ -10,7 +11,7 @@ rule "[winston/init.opy]: Winston":
     removeSelfHealing()
     setBaseDamage(eventPlayer, ADJ_WINSTON_TESLA_DAMAGE/OW2_WINSTON_TESLA_DAMAGE)
 
-    eventPlayer.ult_change_check = 1.13
+    eventPlayer.call_init = false
 
 
 rule "[winston/init.opy]: Correct Jump Pack, Melee, Primal Rage damage":

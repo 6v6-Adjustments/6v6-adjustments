@@ -6,6 +6,7 @@
 
 rule "[roadhog/init.opy]: Roadhog":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     
     newHero(
@@ -21,7 +22,7 @@ rule "[roadhog/init.opy]: Roadhog":
     eventPlayer.setAmmo(0, 5)
     eventPlayer.setMaxAmmo(0, 5)
 
-    eventPlayer.ult_change_check = 1.07
+    eventPlayer.call_init = false
 
 
 rule "[roadhog/init.opy]: Correct melee damage":

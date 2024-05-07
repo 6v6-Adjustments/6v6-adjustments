@@ -7,6 +7,7 @@
 
 rule "[reinhardt/init.opy]: Reinhardt":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     
     newHero(
@@ -19,4 +20,4 @@ rule "[reinhardt/init.opy]: Reinhardt":
     eventPlayer.stopForcingThrottle()
     setBaseDamage(eventPlayer, ADJ_REINHARDT_HAMMER_DAMAGE/OW2_REINHARDT_HAMMER_DAMAGE)
 
-    eventPlayer.ult_change_check = 1.07
+    eventPlayer.call_init = false

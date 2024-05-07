@@ -3,6 +3,7 @@
 
 rule "[illari/init.opy]: Illari":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ILLARI
     
     newHero(200, 0, 0)
@@ -13,7 +14,7 @@ rule "[illari/init.opy]: Illari":
     eventPlayer.setMaxAmmo(0, 14)
     eventPlayer.setAmmo(0, 14)
 
-    eventPlayer.ult_change_check = 1.04
+    eventPlayer.call_init = false
 
 
 rule "[illari/init.opy]: Increase Illari melee damage":

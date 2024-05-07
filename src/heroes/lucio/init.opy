@@ -5,6 +5,7 @@
 
 rule "[lucio/init.opy]: Lucio":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.LUCIO
     
     newHero(200, 0, 0)
@@ -14,7 +15,7 @@ rule "[lucio/init.opy]: Lucio":
     eventPlayer.setHealingDealt(100)
     eventPlayer.setKnockbackDealt(89.286)
 
-    eventPlayer.ult_change_check = 1.02
+    eventPlayer.call_init = false
 
 
 rule "[lucio/init.opy]: Correct Lucio melee damage":

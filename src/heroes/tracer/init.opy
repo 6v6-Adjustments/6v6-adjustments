@@ -3,6 +3,7 @@
 
 rule "[tracer/init.opy]: Tracer":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.TRACER
     
     defaultHero()
@@ -13,7 +14,7 @@ rule "[tracer/init.opy]: Tracer":
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 5)
 
-    eventPlayer.ult_change_check = 1.18
+    eventPlayer.call_init = false
 
 
 rule "[tracer/init.opy]: Correct melee and Pulse Bomb damage":

@@ -9,6 +9,7 @@ subroutine hideRamattraBlockCD
 
 rule "[ramattra/init.opy]: Ramattra":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     
     newHero(350 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 400, 0, 0)
@@ -18,7 +19,7 @@ rule "[ramattra/init.opy]: Ramattra":
     eventPlayer.startScalingSize(0.94, true)
     eventPlayer.setJumpVerticalSpeed(101)
 
-    eventPlayer.ult_change_check = 1
+    eventPlayer.call_init = false
 
 
 rule "[ramattra/init.opy]: Correct Nemesis Form armor, movement speed, and cooldown for duplicate":

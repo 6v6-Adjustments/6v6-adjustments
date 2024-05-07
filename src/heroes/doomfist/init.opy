@@ -6,6 +6,7 @@
 
 rule "[doomfist/init.opy]: Doomfist":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.DOOMFIST
 
     newHero(ADJ_DOOMFIST_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else ADJ_DOOMFIST_HEALTH, 0, 0)
@@ -14,7 +15,7 @@ rule "[doomfist/init.opy]: Doomfist":
 
     setBaseDamage(eventPlayer, ADJ_DOOMFIST_HAND_CANNON_DAMAGE/OW2_DOOMFIST_HAND_CANNON_DAMAGE)
 
-    eventPlayer.ult_change_check = 0.97
+    eventPlayer.call_init = false
 
 
 rule "[doomfist/init.opy]: Correct Rocket Punch and Meteor Strike damage":

@@ -3,6 +3,7 @@
 
 rule "[junkerqueen/init.opy]: Junker Queen":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
 
     newHero(350 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 400, 0, 0)
@@ -15,8 +16,9 @@ rule "[junkerqueen/init.opy]: Junker Queen":
     eventPlayer.setMaxAmmo(0, 6)
     eventPlayer.setAmmo(0, 6)
 
-    eventPlayer.ult_change_check = 1.07
     eventPlayer.overhealth_check = false
+
+    eventPlayer.call_init = false
 
 
 rule "[junkerqueen/init.opy]: Correct Commanding Shout overhealth while outside spawn rooms":

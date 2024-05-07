@@ -3,6 +3,7 @@
 
 rule "[lifeweaver/init.opy]: Lifeweaver":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
     
     newHero(150, 0, 50)
@@ -15,7 +16,7 @@ rule "[lifeweaver/init.opy]: Lifeweaver":
     eventPlayer.setMaxAmmo(1, 60)
     eventPlayer.setAmmo(1, 60)
 
-    eventPlayer.ult_change_check = 1.04
+    eventPlayer.call_init = false
 
 
 rule "[lifeweaver/init.opy]: Reduce Lifeweaver melee damage":

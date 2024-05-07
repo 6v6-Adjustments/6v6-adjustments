@@ -3,12 +3,13 @@
 
 rule "[genji/init.opy]: Genji":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.GENJI
     
     newHero(ADJ_GENJI_HEALTH, 0, 0)
     removeSelfHealing()
 
-    eventPlayer.ult_change_check = 1.2
+    eventPlayer.call_init = false
 
 
 rule "[genji/init.opy]: Correct Shurikens damage":

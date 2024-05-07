@@ -6,11 +6,10 @@
 
 # Useful functions
 #!include "utilities/macro_functions.opy"
-#!include "utilities/hero_switch.opy"
-#!include "utilities/hero_setup.opy"
 #!include "utilities/stat_helper.opy"
 #!include "utilities/custom_hp.opy"
 #!include "utilities/reset.opy"
+#!include "utilities/hero_switch.opy"
 # !include "utilities/hero_roster.opy"
 #!include "utilities/role_lock.opy"
 # !include "utilities/ready.opy"
@@ -24,7 +23,7 @@
 # Remove damage passive
 #!include "passives/damage/damage_passive.opy"
 # Remove tank passive
-# !include "passives/tank/ult_charge.opy"
+#!include "passives/tank/ult_charge.opy"
 #!include "passives/tank/knockback.opy"
 # Remove support passive
 #!include "passives/support/self_heal.opy"

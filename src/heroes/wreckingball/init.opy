@@ -3,6 +3,7 @@
 
 rule "[wreckingball/init.opy]: Wrecking Ball":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.HAMMOND
 
     newHero(
@@ -14,7 +15,7 @@ rule "[wreckingball/init.opy]: Wrecking Ball":
     #eventPlayer.startScalingSize(0.9, true)
     #eventPlayer.setJumpVerticalSpeed(104)
 
-    eventPlayer.ult_change_check = 1.05
+    eventPlayer.call_init = false
 
 
 rule "[wreckingball/init.opy]: Force Grappling Hook cooldown":

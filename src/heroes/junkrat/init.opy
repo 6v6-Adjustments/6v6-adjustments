@@ -3,6 +3,7 @@
 
 rule "[junkrat/init.opy]: Junkrat":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.JUNKRAT
     
     clearCustomHp()
@@ -21,4 +22,4 @@ rule "[junkrat/init.opy]: Junkrat":
     enableAllAbilities()
     removeSelfHealing()
 
-    eventPlayer.ult_change_check = 1.18
+    eventPlayer.call_init = false

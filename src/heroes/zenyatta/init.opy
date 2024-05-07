@@ -5,6 +5,7 @@
 
 rule "[zenyatta/init.opy]: Zenyatta":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ZENYATTA
 
     newHero(50, 0, 150)
@@ -15,4 +16,4 @@ rule "[zenyatta/init.opy]: Zenyatta":
     eventPlayer.setAmmo(0, 20)
     eventPlayer.setMaxAmmo(0, 20)
 
-    eventPlayer.ult_change_check = 0.97
+    eventPlayer.call_init = false

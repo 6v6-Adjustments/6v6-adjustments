@@ -1,8 +1,9 @@
 #!mainFile "../dev_main.opy"
 
-playervar ult_change_check
 playervar overhealth_check
 playervar balance_change_check
+playervar hero_setup
+playervar call_init
 
 #!define defaultHero() \
     newHero(0, 0, 0)
@@ -19,7 +20,7 @@ playervar balance_change_check
 
 def enableAllAbilities():
     @Name "[utilities/reset.opy]: enableAllAbilities()"
-    
+
     eventPlayer.allowButton(Button.PRIMARY_FIRE)
     eventPlayer.allowButton(Button.SECONDARY_FIRE)
     eventPlayer.allowButton(Button.ABILITY_1)
@@ -46,7 +47,7 @@ def enableAllAbilities():
 
 def disableAllAbilities():
     @Name "[utilities/reset.opy]: disableAllAbilities()"
-    
+
     eventPlayer.disallowButton(Button.PRIMARY_FIRE)
     eventPlayer.disallowButton(Button.SECONDARY_FIRE)
     eventPlayer.disallowButton(Button.ABILITY_1)
@@ -92,7 +93,7 @@ def resetStats():
 
 def resetStatuses():
     @Name "[utilities/reset.opy]: resetStatuses()"
-    
+
     eventPlayer.clearStatusEffect(Status.ASLEEP)
     eventPlayer.clearStatusEffect(Status.BURNING)
     eventPlayer.clearStatusEffect(Status.FROZEN)
@@ -103,7 +104,6 @@ def resetStatuses():
     eventPlayer.clearStatusEffect(Status.ROOTED)
     eventPlayer.clearStatusEffect(Status.STUNNED)
     eventPlayer.clearStatusEffect(Status.UNKILLABLE)
-    eventPlayer.stopScalingSize()
 
 
 def resetUltCharge():
@@ -113,8 +113,10 @@ def resetUltCharge():
     eventPlayer.setUltCharge(0)
 
 
-rule "[utilities/reset.opy]: reset ult charge on hero switch":
+rule "[utilities/reset.opy]: Reinitialize hero on new round":
     @Event eachPlayer
-    @Condition switchedHero(eventPlayer)
+    @Condition getCurrentGamemode() == Gamemode.CONTROL
+    @Condition isMatchBetweenRounds()
 
-    resetUltCharge()
+    waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
+    eventPlayer.call_init = true

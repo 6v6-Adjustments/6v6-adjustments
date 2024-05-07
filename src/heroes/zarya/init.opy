@@ -6,6 +6,7 @@
 
 rule "[zarya/init.opy]: Zarya":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     
     newHero(
@@ -22,7 +23,7 @@ rule "[zarya/init.opy]: Zarya":
     initSelfBubble()
     initAllyBubble()
 
-    eventPlayer.ult_change_check = 1
+    eventPlayer.call_init = false
 
 
 rule "[zarya/init.opy]: Clean up Zarya":
