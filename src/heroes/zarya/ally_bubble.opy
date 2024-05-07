@@ -41,20 +41,20 @@ Below HUD is tuned for 16:9 aspect ratio monitors (typical PC Overwatch setup).
 
 rule "[zarya/ally_bubble.opy]: OW1 zarya ally bubble cooldown":
     @Event eachPlayer
-    @Hero zarya
+    @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.isUsingAbility2()
 
     eventPlayer.setAbilityCharge(Button.ABILITY_2, 2)
     eventPlayer.setAbility2Enabled(false)
-    # waitUntil(not eventPlayer.isUsingAbility2(), OW1_ZARYA_BUBBLE_DURATION) # wait bubble duration
-    wait(OW1_ZARYA_BUBBLE_DURATION) # wait bubble duration
-    eventPlayer.ally_bubble_cooldown = OW1_ZARYA_PROJECTED_BARRIER_COOLDOWN_TIME
+    # waitUntil(not eventPlayer.isUsingAbility2(), ADJ_ZARYA_BUBBLE_DURATION) # wait bubble duration
+    wait(ADJ_ZARYA_BUBBLE_DURATION) # wait bubble duration
+    eventPlayer.ally_bubble_cooldown = ADJ_ZARYA_PROJECTED_BARRIER_COOLDOWN_TIME
     chase(eventPlayer.ally_bubble_cooldown, 0, rate=1, ChaseReeval.NONE)
 
 
 rule "[zarya/ally_bubble.opy]: Disable ally bubble if on cooldown":
     @Event eachPlayer
-    @Hero zarya
+    @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.ally_bubble_cooldown > 0
 
     eventPlayer.setAbility2Enabled(false)
@@ -63,7 +63,7 @@ rule "[zarya/ally_bubble.opy]: Disable ally bubble if on cooldown":
 
 rule "[zarya/ally_bubble.opy]: Enable ally bubble if not on cooldown":
     @Event eachPlayer
-    @Hero zarya
+    @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.ally_bubble_cooldown <= 0
 
     eventPlayer.setAbility2Enabled(true)

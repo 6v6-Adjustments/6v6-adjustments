@@ -11,9 +11,9 @@ rule "[genji/init.opy]: Genji":
     eventPlayer.ult_change_check = 1.2
 
 
-rule "[genji/init.opy]: Increase Shurikens damage":
+rule "[genji/init.opy]: Correct Shurikens damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.GENJI
-    @Condition (eventAbility == Button.PRIMARY_FIRE or eventAbility == Button.SECONDARY_FIRE) == true
-    
-    damage(victim, attacker, eventDamage * 1.074 - eventDamage)
+    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.SECONDARY_FIRE]
+
+    damage(victim, attacker, eventDamage * (ADJ_GENJI_SHURIKEN_DAMAGE/OW2_GENJI_SHURIKEN_DAMAGE) - eventDamage)

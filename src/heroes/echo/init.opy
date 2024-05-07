@@ -19,17 +19,17 @@ rule "[echo/init.opy]: Echo":
     newHero(ADJ_ECHO_HEALTH, 0, 0)
     removeSelfHealing()
 
-    eventPlayer.setDamageDealt(94.444)
+    setBaseDamage(eventPlayer, ADJ_ECHO_STICKY_BOMBS_DAMAGE/OW2_ECHO_STICKY_BOMBS_DAMAGE)
     if not eventPlayer.isInSpawnRoom():
         damage(eventPlayer, null, eventPlayer.duplicate_leftover_health)
 
 
-rule "[echo/init.opy]: Increase Tri-Shot and Echo melee damage":
+rule "[echo/init.opy]: Correct Tri-Shot and Echo melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ECHO
-    @Condition (eventAbility == Button.PRIMARY_FIRE or eventAbility == Button.MELEE) == true
-    
-    damage(victim, attacker, eventDamage * 1.064 - eventDamage)
+    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.MELEE]
+
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 rule "[echo/init.opy]: Bonus Ultimate charge while in Duplicate":
