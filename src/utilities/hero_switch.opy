@@ -19,10 +19,11 @@ rule "[utilities/hero_switch.opy]: detect hero switch":
     eventPlayer._hero_switched = false
 
 
-rule "[utilities/hero_setup.opy]: Assign hero setup on hero switch":
+rule "[utilities/hero_setup.opy]: Initialize hero on hero switch":
     @Event eachPlayer
     @Condition switchedHero(eventPlayer)
-    
+
+    waitUntil(not switchedHero(eventPlayer), Math.INFINITY)
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
     eventPlayer.call_init = true
 

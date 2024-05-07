@@ -37,6 +37,9 @@ rule "[utilities/debug.opy]: player debug (Top Right)":
 
     hudHeader(eventPlayer, "Event Player", HudPosition.RIGHT, 0, Color.WHITE, HudReeval.STRING)
     hudSubheader(eventPlayer, "hero_setup = {}".format(eventPlayer.hero_setup), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    hudSubheader(eventPlayer, "_last_hero_played = {}".format(eventPlayer._last_hero_played), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    hudSubheader(eventPlayer, "call_init = {}".format(eventPlayer.call_init), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    hudSubheader(eventPlayer, "hasSpawned() = {}".format(eventPlayer.hasSpawned()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     hudSubheader(eventPlayer, "getCurrentHero() = {}".format(eventPlayer.getCurrentHero()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     hudSubheader(eventPlayer, "isDuplicatingAHero() = {}".format(eventPlayer.isDuplicatingAHero()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     hudSubheader(eventPlayer, "not isDuplicatingAHero() = {}".format(not eventPlayer.isDuplicatingAHero()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)

@@ -9,7 +9,6 @@ rule "[echo/duplicate.opy]: Remember hp before duplicate":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ECHO
     @Condition eventPlayer.isHoldingButton(Button.ULTIMATE)
-    @Condition eventPlayer.getUltCharge() >= 100
 
     eventPlayer.hp_before_duplicate = eventPlayer.getHealth()
 

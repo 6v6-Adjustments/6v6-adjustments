@@ -11,10 +11,10 @@ playervar call_init
 # newHero(0, 0, 0) creates default OW2 hero
 #!define newHero(health, armor, shields) \
     clearCustomHp() \
-    setCustomHp(health, armor, shields) \
     resetStats() \
     resetStatuses() \
     resetSelfHealing() \
+    setCustomHp(health, armor, shields) \
     enableAllAbilities() \
 
 
@@ -120,3 +120,10 @@ rule "[utilities/reset.opy]: Reinitialize hero on new round":
 
     waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
     eventPlayer.call_init = true
+
+
+# rule "[utilities/reset.opy]: Reinitialize hero on respawn":
+#     @Event playerDied
+
+#     waitUntil(eventPlayer.isAlive(), Math.INFINITY)
+#     eventPlayer.call_init = true
