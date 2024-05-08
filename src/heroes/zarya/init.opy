@@ -6,23 +6,24 @@
 
 rule "[zarya/init.opy]: Zarya":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     
-    eventPlayer.ult_change_check = 1
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    eventPlayer.addHealthPool(Health.SHIELDS, 150 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 200, true, true)
-    initSelfBubble()
-    initAllyBubble()
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+    newHero(
+        ADJ_ZARYA_HEALTH,
+        0,
+        ADJ_ZARYA_SHIELDS_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ZARYA_SHIELDS
+    )
     removeTankPassive()
     removeSelfHealing()
+
     eventPlayer.setKnockbackDealt(73.607)
     setBaseDamage(eventPlayer, ADJ_ZARYA_CANNON_DAMAGE_MAX/OW2_ZARYA_CANNON_DAMAGE_MAX)
+
+    initSelfBubble()
+    initAllyBubble()
+
+    eventPlayer.call_init = false
 
 
 rule "[zarya/init.opy]: Clean up Zarya":

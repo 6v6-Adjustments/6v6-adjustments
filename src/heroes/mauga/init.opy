@@ -3,26 +3,22 @@
 
 rule "[mauga/init.opy]: Mauga":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MAUGA
-    
-    eventPlayer.ult_change_check = 1
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 299 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 399, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 100, true, true)
-    eventPlayer.overhealth_check = false
-    eventPlayer.balance_change_check = false
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+
+    newHero(ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, ADJ_MAUGA_ARMOR, 0)
     removeTankPassive()
+    removePassiveHealing()
+
     eventPlayer.setDamageDealt(87.5)
     eventPlayer.setHealingDealt(72)
     eventPlayer.startScalingSize(0.94, true)
     eventPlayer.setJumpVerticalSpeed(101)
-    
-    removePassiveHealing()
+
+    eventPlayer.overhealth_check = false
+    eventPlayer.balance_change_check = false
+
+    eventPlayer.call_init = false
 
 
 rule "[mauga/init.opy]: Increase Mauga melee damage":

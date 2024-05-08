@@ -6,15 +6,10 @@
 
 rule "[mccree/init.opy]: Cassidy":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MCCREE
     
-    eventPlayer.ult_change_check = 1.22
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 249, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
-    
+    newHero(ADJ_MCCREE_HEALTH, 0, 0)
     removeSelfHealing()
+
+    eventPlayer.call_init = false

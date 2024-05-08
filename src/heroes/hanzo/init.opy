@@ -3,19 +3,15 @@
 
 rule "[hanzo/init.opy]: Hanzo":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.HANZO
     
-    eventPlayer.ult_change_check = 1.21
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
-    setBaseDamage(eventPlayer, ADJ_HANZO_STORM_DAMAGE/OW2_HANZO_STORM_DAMAGE)
-    
+    newHero(ADJ_HANZO_HEALTH, 0, 0)
     removeSelfHealing()
+
+    setBaseDamage(eventPlayer, ADJ_HANZO_STORM_DAMAGE/OW2_HANZO_STORM_DAMAGE)
+
+    eventPlayer.call_init = false
 
 
 rule "[hanzo/init.opy]: Correct Storm Bow, Sonic Arrow and melee damage":

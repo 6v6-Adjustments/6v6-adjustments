@@ -5,24 +5,17 @@
 
 rule "[baptiste/init.opy]: Baptiste":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE
     
-    eventPlayer.ult_change_check = 0.93
-    eventPlayer.removeAllHealthPools()
-    #eventPlayer.setAmmo(1, 10)
-    #eventPlayer.setMaxAmmo(1, 10)
-    eventPlayer.setMaxHealth(80)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    #eventPlayer.addHealthPool(Health.SHIELDS, 25, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+    newHero(ADJ_BAPTISTE_HEALTH, 0, 0)
+    removeSelfHealing()
+
     setBaseDamage(eventPlayer, ADJ_BAPTISTE_PRIMARY_DAMAGE/OW2_BAPTISTE_PRIMARY_DAMAGE)
     setBaseHealing(eventPlayer, 0.7)
-    eventPlayer.balance_change_check = true
 
-    removeSelfHealing()
+    eventPlayer.balance_change_check = true
+    eventPlayer.call_init = false
 
 
 rule "[baptiste/init.opy]: Increase Baptiste melee damage":

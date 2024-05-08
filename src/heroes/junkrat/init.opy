@@ -3,16 +3,15 @@
 
 rule "[junkrat/init.opy]: Junkrat":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.JUNKRAT
     
-    eventPlayer.ult_change_check = 1.18
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
+    clearCustomHp()
     #resetHealth()
     #Version or the "resetHealth" subroutine that keeps tire at 100 hp
     wait()
     eventPlayer.setHealingReceived(0)
-    eventPlayer.setHealth(200)
+    eventPlayer.setHealth(ADJ_JUNKRAT_HEALTH)
     eventPlayer.addHealthPool(Health.NORMAL, 1, true, true)
     eventPlayer.addHealthPool(Health.ARMOR, 1, true, true)
     eventPlayer.addHealthPool(Health.SHIELDS, 1, true, true)
@@ -21,5 +20,6 @@ rule "[junkrat/init.opy]: Junkrat":
     resetStats()
     resetStatuses()
     enableAllAbilities()
-    
     removeSelfHealing()
+
+    eventPlayer.call_init = false

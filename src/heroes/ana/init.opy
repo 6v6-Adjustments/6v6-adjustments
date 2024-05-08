@@ -2,31 +2,21 @@
 
 #!include "heroes/ana/nade.opy"
 
-playervar ana_damage_check
-
-subroutine startHealPassiveBackUp
-subroutine endHealPassiveBackUp
-
-
-rule "[ana/init.opy]: Ana":
+rule "[ana/init.opy]: Initialize Ana":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ANA
     
-    eventPlayer.ult_change_check = 1.06
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    eventPlayer.ana_damage_check = false
+    newHero(ADJ_ANA_HEALTH, 0, 0)
+    setUltCost(ADJ_ANA_ULT_COST)
+    removeSelfHealing()
+
+    setBaseDamage(eventPlayer, ADJ_ANA_BIOTIC_GRENADE_DAMAGE/OW2_ANA_BIOTIC_GRENADE_DAMAGE)
+
     eventPlayer.setMaxAmmo(0, 12)
     eventPlayer.setAmmo(0, 12)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
-    setBaseDamage(eventPlayer, ADJ_ANA_BIOTIC_GRENADE_DAMAGE/OW2_ANA_BIOTIC_GRENADE_DAMAGE)
-    eventPlayer.setHealingDealt(100)
 
-    removeSelfHealing()
+    eventPlayer.call_init = false
 
 
 rule "[ana/init.opy]: Correct Biotic Rifle, Sleep Dart, Melee damage":
