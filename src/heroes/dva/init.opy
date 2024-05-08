@@ -1,46 +1,15 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/dva/hp.opy"
 
-rule "[dva/init.opy]: D.va (mech)":
+
+rule "[dva/init.opy]: Initialize D.Va":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.DVA
-    @Condition not eventPlayer.isInAlternateForm()
 
-    newHero(
-        ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_HEALTH,
-        ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_ARMOR,
-        0)
     removeTankPassive()
     removeSelfHealing()
-
-    if eventPlayer.getMaxHealth() != ((ADJ_DVA_HEALTH_DUPLICATE + ADJ_DVA_ARMOR) if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else (ADJ_DVA_HEALTH + ADJ_DVA_ARMOR)):
-        goto RULE_START
-
-    eventPlayer.call_init = false
-
-
-rule "[dva/init.opy]: D.va (pilot)":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.DVA
-    @Condition eventPlayer.isInAlternateForm()
-    
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(85.714)
-    eventPlayer.removeAllHealthPools()
-    #resetHealth()
-    #eventPlayer.addHealthPool(Health.NORMAL, 149, true, true)
-    #resetStats()
-    #resetStatuses()
-    #resetUltCharge()
-    #enableAllAbilities()
-    removeTankPassive()
-    removeSelfHealing()
-    #Reset ultimate charge when DVa pops out of Mech
-    if eventPlayer.isUsingUltimate():
-        return
-    resetUltCharge()
 
     eventPlayer.call_init = false
 
