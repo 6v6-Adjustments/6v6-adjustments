@@ -8,7 +8,7 @@ rule "[soldier/init.opy]: Soldier 76":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.SOLDIER
     
-    newHero(200, 0, 0)
+    newHero(ADJ_SOLDIER_HEALTH, 0, 0)
     removeSelfHealing()
 
     eventPlayer.setHealingDealt(86.4)

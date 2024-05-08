@@ -10,9 +10,9 @@ rule "[zarya/init.opy]: Zarya":
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     
     newHero(
-        200,
+        ADJ_ZARYA_HEALTH,
         0,
-        150 if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else 200
+        ADJ_ZARYA_SHIELDS_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ZARYA_SHIELDS
     )
     removeTankPassive()
     removeSelfHealing()

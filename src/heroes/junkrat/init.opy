@@ -11,7 +11,7 @@ rule "[junkrat/init.opy]: Junkrat":
     #Version or the "resetHealth" subroutine that keeps tire at 100 hp
     wait()
     eventPlayer.setHealingReceived(0)
-    eventPlayer.setHealth(200)
+    eventPlayer.setHealth(ADJ_JUNKRAT_HEALTH)
     eventPlayer.addHealthPool(Health.NORMAL, 1, true, true)
     eventPlayer.addHealthPool(Health.ARMOR, 1, true, true)
     eventPlayer.addHealthPool(Health.SHIELDS, 1, true, true)

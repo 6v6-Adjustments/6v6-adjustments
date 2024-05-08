@@ -6,7 +6,7 @@ rule "[illari/init.opy]: Illari":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ILLARI
     
-    newHero(200, 0, 0)
+    newHero(ADJ_ILLARI_HEALTH, 0, 0)
     removePassiveHealing()
 
     eventPlayer.setDamageDealt(75)

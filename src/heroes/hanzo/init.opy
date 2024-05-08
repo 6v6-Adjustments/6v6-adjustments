@@ -6,7 +6,7 @@ rule "[hanzo/init.opy]: Hanzo":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.HANZO
     
-    newHero(200, 0, 0)
+    newHero(ADJ_HANZO_HEALTH, 0, 0)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_HANZO_STORM_DAMAGE/OW2_HANZO_STORM_DAMAGE)

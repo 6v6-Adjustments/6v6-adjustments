@@ -7,7 +7,7 @@ rule "[moira/init.opy]: Moira":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MOIRA
 
-    newHero(200, 0, 0)
+    newHero(ADJ_MOIRA_HEALTH, 0, 0)
     removePassiveHealing()
 
     eventPlayer.call_init = false

@@ -6,7 +6,7 @@ rule "[lifeweaver/init.opy]: Lifeweaver":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
     
-    newHero(150, 0, 50)
+    newHero(ADJ_LIFEWEAVER_HEALTH, 0, ADJ_LIFEWEAVER_SHIELDS)
     removePassiveHealing()
 
     eventPlayer.setDamageDealt(120)

@@ -6,7 +6,7 @@ rule "[sojourn/init.opy]: Sojourn":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.SOJOURN
     
-    newHero(200, 0, 0)
+    newHero(ADJ_SOJOURN_HEALTH, 0, 0)
     removeSelfHealing()
 
     eventPlayer.call_init = false
