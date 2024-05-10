@@ -8,7 +8,7 @@
                                "Intended for 6v6 gameplay, by Toastie#11770" + "\n" + \
                                "\n" + \
                                "Primary workshop development provided" + "\n" + \
-                               "by LemonHead#11820" + "\n" + \
+                               "by LemonHead#11820 and ecksdee#11729" + "\n" + \
                                "\n" + \
                                "Gamemode originally forked from" + "\n" + \
                                "Overwatch 1 Emulator v1.12.2 (KHTG0)" + "\n" + \
