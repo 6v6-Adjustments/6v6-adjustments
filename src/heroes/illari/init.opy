@@ -3,22 +3,18 @@
 
 rule "[illari/init.opy]: Illari":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ILLARI
     
-    eventPlayer.ult_change_check = 1.04
-    eventPlayer.removeAllHealthPools()
+    newHero(ADJ_ILLARI_HEALTH, 0, 0)
+    removePassiveHealing()
+
+    eventPlayer.setDamageDealt(75)
+
     eventPlayer.setMaxAmmo(0, 14)
     eventPlayer.setAmmo(0, 14)
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
-    eventPlayer.setDamageDealt(75)
-    eventPlayer.setHealingDealt(100)
 
-    removePassiveHealing()
+    eventPlayer.call_init = false
 
 
 rule "[illari/init.opy]: Increase Illari melee damage":

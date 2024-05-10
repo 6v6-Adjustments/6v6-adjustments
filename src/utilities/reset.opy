@@ -1,25 +1,26 @@
 #!mainFile "../dev_main.opy"
 
-playervar ult_change_check
 playervar overhealth_check
 playervar balance_change_check
-playervar allowed_heroes
+playervar hero_setup
+playervar call_init
 
+#!define defaultHero() \
+    newHero(0, 0, 0)
 
-def resetHealth():
-    @Name "[utilities/reset.opy]: resethealth()"
-    
-    eventPlayer.setHealingReceived(0)
-    eventPlayer.setHealth(1)
-    eventPlayer.addHealthPool(Health.NORMAL, 1, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 1, true, true)
-    eventPlayer.addHealthPool(Health.SHIELDS, 1, true, true)
-    eventPlayer.removeAllHealthPools()
+# newHero(0, 0, 0) creates default OW2 hero
+#!define newHero(health, armor, shields) \
+    clearCustomHp() \
+    resetStats() \
+    resetStatuses() \
+    resetSelfHealing() \
+    setCustomHp(health, armor, shields) \
+    enableAllAbilities() \
 
 
 def enableAllAbilities():
     @Name "[utilities/reset.opy]: enableAllAbilities()"
-    
+
     eventPlayer.allowButton(Button.PRIMARY_FIRE)
     eventPlayer.allowButton(Button.SECONDARY_FIRE)
     eventPlayer.allowButton(Button.ABILITY_1)
@@ -46,7 +47,7 @@ def enableAllAbilities():
 
 def disableAllAbilities():
     @Name "[utilities/reset.opy]: disableAllAbilities()"
-    
+
     eventPlayer.disallowButton(Button.PRIMARY_FIRE)
     eventPlayer.disallowButton(Button.SECONDARY_FIRE)
     eventPlayer.disallowButton(Button.ABILITY_1)
@@ -74,7 +75,7 @@ def disableAllAbilities():
 def resetStats():
     @Name "[utilities/reset.opy]: resetStats()"
 
-    eventPlayer.setDamageDealt(100)
+    setBaseDamage(eventPlayer, 1)
     eventPlayer.setDamageReceived(100)
     eventPlayer.setProjectileSpeed(100)
     eventPlayer.setProjectileGravity(100)
@@ -89,12 +90,10 @@ def resetStats():
     eventPlayer.stopScalingSize()
     eventPlayer.stopScalingBarriers()
 
-    resetSelfHealing()
-
 
 def resetStatuses():
     @Name "[utilities/reset.opy]: resetStatuses()"
-    
+
     eventPlayer.clearStatusEffect(Status.ASLEEP)
     eventPlayer.clearStatusEffect(Status.BURNING)
     eventPlayer.clearStatusEffect(Status.FROZEN)
@@ -105,7 +104,6 @@ def resetStatuses():
     eventPlayer.clearStatusEffect(Status.ROOTED)
     eventPlayer.clearStatusEffect(Status.STUNNED)
     eventPlayer.clearStatusEffect(Status.UNKILLABLE)
-    eventPlayer.stopScalingSize()
 
 
 def resetUltCharge():
@@ -113,3 +111,19 @@ def resetUltCharge():
     
     wait(eventPlayer.getUltCharge() > 0)
     eventPlayer.setUltCharge(0)
+
+
+rule "[utilities/reset.opy]: Reinitialize hero on new round":
+    @Event eachPlayer
+    @Condition getCurrentGamemode() == Gamemode.CONTROL
+    @Condition isMatchBetweenRounds()
+
+    waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
+    eventPlayer.call_init = true
+
+
+# rule "[utilities/reset.opy]: Reinitialize hero on respawn":
+#     @Event playerDied
+
+#     waitUntil(eventPlayer.isAlive(), Math.INFINITY)
+#     eventPlayer.call_init = true

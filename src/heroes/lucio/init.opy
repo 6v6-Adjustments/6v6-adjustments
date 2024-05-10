@@ -5,21 +5,17 @@
 
 rule "[lucio/init.opy]: Lucio":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.LUCIO
     
-    eventPlayer.ult_change_check = 1.02
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+    newHero(ADJ_LUCIO_HEALTH, 0, 0)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_LUCIO_SOUNDWAVE_DAMAGE/OW2_LUCIO_SOUNDWAVE_DAMAGE)
     eventPlayer.setHealingDealt(100)
     eventPlayer.setKnockbackDealt(89.286)
+
+    eventPlayer.call_init = false
 
 
 rule "[lucio/init.opy]: Correct Lucio melee damage":

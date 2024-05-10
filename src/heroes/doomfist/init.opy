@@ -6,20 +6,16 @@
 
 rule "[doomfist/init.opy]: Doomfist":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.DOOMFIST
-    
-    eventPlayer.ult_change_check = 0.97
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 349 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 399, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+
+    newHero(ADJ_DOOMFIST_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DOOMFIST_HEALTH, 0, 0)
     removeTankPassive()
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_DOOMFIST_HAND_CANNON_DAMAGE/OW2_DOOMFIST_HAND_CANNON_DAMAGE)
+
+    eventPlayer.call_init = false
 
 
 rule "[doomfist/init.opy]: Correct Rocket Punch and Meteor Strike damage":

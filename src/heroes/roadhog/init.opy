@@ -6,23 +6,23 @@
 
 rule "[roadhog/init.opy]: Roadhog":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     
-    eventPlayer.ult_change_check = 1.07
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setAmmo(0, 5)
-    eventPlayer.setMaxAmmo(0, 5)
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 499 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 599, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+    newHero(
+        ADJ_ROADHOG_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ROADHOG_HEALTH,
+        0,
+        0)
     removeTankPassive()
     removeSelfHealing()
     
     setBaseDamage(eventPlayer, ADJ_ROADHOG_SCRAP_GUN_DAMAGE/OW2_ROADHOG_SCRAP_GUN_DAMAGE)
     eventPlayer.setHealingDealt(percent(ADJ_ROADHOG_BREATHER_HEAL_TOTAL/OW2_ROADHOG_BREATHER_HEAL_TOTAL))
+
+    eventPlayer.setAmmo(0, 5)
+    eventPlayer.setMaxAmmo(0, 5)
+
+    eventPlayer.call_init = false
 
 
 rule "[roadhog/init.opy]: Correct melee damage":

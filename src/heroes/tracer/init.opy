@@ -3,20 +3,18 @@
 
 rule "[tracer/init.opy]: Tracer":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.TRACER
     
-    eventPlayer.ult_change_check = 1.18
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 5)
-    eventPlayer.setMaxHealth(85.714)
-    #resetHealth()
-    #eventPlayer.addHealthPool(Health.NORMAL, 174, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+    defaultHero()
+    removeSelfHealing()
+
     setBaseDamage(eventPlayer, ADJ_TRACER_PULSE_PISTOL_DAMAGE/OW2_TRACER_PULSE_PISTOL_DAMAGE)
     eventPlayer.startScalingSize(0.96, true)
-    removeSelfHealing()
+
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 5)
+
+    eventPlayer.call_init = false
 
 
 rule "[tracer/init.opy]: Correct melee and Pulse Bomb damage":

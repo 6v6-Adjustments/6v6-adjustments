@@ -3,19 +3,17 @@
 
 rule "[orisa/init.opy]: Orisa":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ORISA
     
-    eventPlayer.ult_change_check = 1.12
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 249 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 299, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 150 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 200, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+    newHero(
+        ADJ_ORISA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ORISA_HEALTH, 
+        ADJ_ORISA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ORISA_ARMOR, 
+        0)
     removeTankPassive()
     removeSelfHealing()
+
+    eventPlayer.call_init = false
 
 
 rule "[orisa/init.opy]: Correct Fortify overhealth while outside spawn rooms":

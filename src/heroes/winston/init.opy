@@ -3,20 +3,15 @@
 
 rule "[winston/init.opy]: Winston":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.WINSTON
-    
-    eventPlayer.ult_change_check = 1.13
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 299 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 399, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 100, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+
+    newHero(ADJ_WINSTON_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_WINSTON_HEALTH, ADJ_WINSTON_ARMOR, 0)
     removeTankPassive()
     removeSelfHealing()
     setBaseDamage(eventPlayer, ADJ_WINSTON_TESLA_DAMAGE/OW2_WINSTON_TESLA_DAMAGE)
+
+    eventPlayer.call_init = false
 
 
 rule "[winston/init.opy]: Correct Jump Pack, Melee, Primal Rage damage":
