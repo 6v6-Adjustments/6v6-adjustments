@@ -8,7 +8,7 @@ rule "[mauga/init.opy]: Mauga":
 
     newHero(ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, ADJ_MAUGA_ARMOR, 0)
     removeTankPassive()
-    removePassiveHealing()
+    removeRegenPassive()
 
     eventPlayer.setDamageDealt(87.5)
     eventPlayer.setHealingDealt(72)

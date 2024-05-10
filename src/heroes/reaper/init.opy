@@ -7,7 +7,7 @@ rule "[reaper/init.opy]: Reaper":
     @Condition eventPlayer.hero_setup == Hero.REAPER
 
     newHero(ADJ_REAPER_HEALTH, 0, 0)
-    removePassiveHealing()
+    removeRegenPassive()
 
     eventPlayer.call_init = false
 

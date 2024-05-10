@@ -7,7 +7,7 @@ rule "[kiriko/init.opy]: Kiriko":
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
 
     newHero(ADJ_KIRIKO_HEALTH, 0, 0)
-    removePassiveHealing()
+    removeRegenPassive()
 
     eventPlayer.setAmmo(1, 12)
     eventPlayer.setMaxAmmo(1, 12)

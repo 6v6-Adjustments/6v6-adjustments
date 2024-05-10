@@ -8,7 +8,7 @@ rule "[junkerqueen/init.opy]: Junker Queen":
 
     newHero(ADJ_JUNKERQUEEN_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_JUNKERQUEEN_HEALTH, 0, 0)
     removeTankPassive()
-    removePassiveHealing()
+    removeRegenPassive()
 
     eventPlayer.setHealingDealt(74.29)
     eventPlayer.setDamageDealt(87.5)
