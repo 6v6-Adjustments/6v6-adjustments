@@ -10,7 +10,7 @@ rule "[mauga/init.opy]: Mauga":
     removeTankPassive()
     removeRegenPassive()
 
-    eventPlayer.setDamageDealt(87.5)
+    setBaseDamage(eventPlayer, ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)
     eventPlayer.setHealingDealt(72)
     eventPlayer.startScalingSize(0.94, true)
     eventPlayer.setJumpVerticalSpeed(101)
@@ -25,26 +25,33 @@ rule "[mauga/init.opy]: Increase Mauga melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.MAUGA
     @Condition eventAbility == Button.MELEE
-    
-    damage(victim, attacker, eventDamage * 1.14 - eventDamage)
+
+    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 rule "[mauga/init.opy]: Remove Cardiac Overdrive allied damage reduction and set cooldown":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MAUGA
-    @Condition eventPlayer.isUsingAbility2() == true
+    @Condition eventPlayer.isUsingAbility2()
     
-    startDamageModification(getPlayersInRadius(eventPlayer, 10.5, eventPlayer.getTeam(), LosCheck.SURFACES).exclude(eventPlayer), getAllPlayers(), 142.8, DamageReeval.RECEIVERS_AND_DAMAGERS)
+    startDamageModification(
+        getPlayersInRadius(
+            eventPlayer, 
+            OW2_MAUGA_CARDIAC_RADIUS, 
+            eventPlayer.getTeam(), 
+            LosCheck.SURFACES).exclude(eventPlayer), 
+        getAllPlayers(), 
+        percent(1/(1-OW2_MAUGA_CARDIAC_DAMAGE_REDUCTION)), 
+        DamageReeval.RECEIVERS_AND_DAMAGERS)
     eventPlayer.balance_change_check = getLastDamageModification()
-    waitUntil(not eventPlayer.isUsingAbility2(), 99999)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 16)
+    waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)
     stopDamageModification(eventPlayer.balance_change_check)
 
 
 rule "[mauga/init.opy]: Reduce Cage Fight duration":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MAUGA
-    @Condition eventPlayer.isUsingUltimate() == true
-    
+    @Condition eventPlayer.isUsingUltimate()
+
     wait(7)
     eventPlayer.forceButtonPress(Button.ULTIMATE)

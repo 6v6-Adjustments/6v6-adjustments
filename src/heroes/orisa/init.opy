@@ -26,7 +26,7 @@ rule "[orisa/init.opy]: Correct Fortify overhealth while outside spawn rooms":
     
     damage(eventPlayer, null, 181.8)
     eventPlayer.overhealth_check = true
-    waitUntil(eventPlayer.isUsingAbility1() == false, 99999)
+    waitUntil(eventPlayer.isUsingAbility1() == false, Math.INFINITY)
     eventPlayer.overhealth_check = false
 
 
@@ -49,5 +49,5 @@ rule "[orisa/init.opy]: Reduce Terra Surge damage":
     @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setDamageDealt(80)
-    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
+    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     eventPlayer.setDamageDealt(100)

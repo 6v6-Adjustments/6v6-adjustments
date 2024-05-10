@@ -10,8 +10,8 @@ rule "[junkerqueen/init.opy]: Junker Queen":
     removeTankPassive()
     removeRegenPassive()
 
+    setBaseDamage(eventPlayer, ADJ_JUNKERQUEEN_SCATTER_GUN_DAMAGE/OW2_JUNKERQUEEN_SCATTER_GUN_DAMAGE)
     eventPlayer.setHealingDealt(74.29)
-    eventPlayer.setDamageDealt(87.5)
 
     eventPlayer.setMaxAmmo(0, 6)
     eventPlayer.setAmmo(0, 6)
@@ -21,37 +21,11 @@ rule "[junkerqueen/init.opy]: Junker Queen":
     eventPlayer.call_init = false
 
 
-rule "[junkerqueen/init.opy]: Correct Commanding Shout overhealth while outside spawn rooms":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventPlayer.isInSpawnRoom() == false
-    @Condition eventPlayer.overhealth_check == false
-    
-    damage(eventPlayer, null, 50)
-    eventPlayer.overhealth_check = true
-    waitUntil(eventPlayer.isUsingAbility1() == false, 99999)
-    eventPlayer.overhealth_check = false
-
-
-# rule "Correct Commanding Shout overhealth while inside spawn rooms":
-#     @Event eachPlayer
-#     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
-#     @Condition eventPlayer.isUsingAbility1() == true
-#     @Condition eventPlayer.isInSpawnRoom() == true
-#     @Condition eventPlayer.overhealth_check == false
-    
-#     eventPlayer.setHealth(eventPlayer.getMaxHealth() - 50)
-#     eventPlayer.overhealth_check = true
-#     waitUntil(eventPlayer.isUsingAbility1() == false, 99999)
-#     eventPlayer.overhealth_check = false
-
-
 rule "[junkerqueen/init.opy]: Reduce Rampage Damage":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
-    @Condition eventPlayer.isUsingUltimate() == true
-    
+    @Condition eventPlayer.isUsingUltimate()
+
     eventPlayer.setDamageDealt(66.777)
-    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
-    eventPlayer.setDamageDealt(87.5)
+    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
+    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))

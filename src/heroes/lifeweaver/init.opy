@@ -9,7 +9,7 @@ rule "[lifeweaver/init.opy]: Lifeweaver":
     newHero(ADJ_LIFEWEAVER_HEALTH, 0, ADJ_LIFEWEAVER_SHIELDS)
     removeRegenPassive()
 
-    eventPlayer.setDamageDealt(120)
+    setBaseDamage(eventPlayer, ADJ_LIFEWEAVER_THORN_VOLLEY_DAMAGE/OW2_LIFEWEAVER_THORN_VOLLEY_DAMAGE)
 
     eventPlayer.setMaxAmmo(0, 14)
     eventPlayer.setAmmo(0, 14)
@@ -23,28 +23,26 @@ rule "[lifeweaver/init.opy]: Reduce Lifeweaver melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
     @Condition eventAbility == Button.MELEE
-    
-    #heal(victim, null, eventDamage / 6 - eventDamage)
-    #heal(victim, null, eventDamage * 0.167 - eventDamage)
-    heal(victim, null, 8)
+
+    heal(victim, null, eventDamage - (eventDamage/eventPlayer._base_damage_scalar))
 
 
 rule "[lifeweaver/init.opy]: Reduce Tree of Life healing":
     @Event playerDealtHealing
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
-    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setHealingDealt(83.333)
-    waitUntil(eventPlayer.getUltCharge() != 0, 99999)
+    waitUntil(eventPlayer.getUltCharge() > 0, Math.INFINITY)
     eventPlayer.setHealingDealt(100)
 
 
 rule "[lifeweaver/init.opy]: Reduce Tree of Life duration":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
-    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.isUsingUltimate()
     
-    wait(12)
+    wait(ADJ_LIFEWEAVER_TREE_OF_LIFE_DURATION)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
 
 
