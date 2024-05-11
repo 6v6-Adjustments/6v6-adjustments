@@ -19,6 +19,7 @@ rule "[echo/duplicate.opy]: Override hero setup during duplicate":
     @Condition eventPlayer.isDuplicatingAHero()
     
     eventPlayer.hero_setup = eventPlayer.getHeroOfDuplication()
+    resetHero()
     eventPlayer.call_init = true
 
 
@@ -28,6 +29,7 @@ rule "[echo/duplicate.opy]: Revert hero setup when exiting Duplicate":
     @Condition not eventPlayer.isDuplicatingAHero()
 
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
+    resetHero()
     eventPlayer.call_init = true
 
     waitUntil(not eventPlayer.call_init, Math.INFINITY)

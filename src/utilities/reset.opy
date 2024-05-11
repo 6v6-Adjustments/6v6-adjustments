@@ -5,16 +5,21 @@ playervar balance_change_check
 playervar hero_setup
 playervar call_init
 
+subroutine resetSelfHealing
+
 #!define defaultHero() \
     newHero(0, 0, 0)
 
 # newHero(0, 0, 0) creates default OW2 hero
 #!define newHero(health, armor, shields) \
+    wait(0.16) \
+    setCustomHp(health, armor, shields) \
+
+#!define resetHero()\
     clearCustomHp() \
     resetStats() \
     resetStatuses() \
     resetSelfHealing() \
-    setCustomHp(health, armor, shields) \
     enableAllAbilities() \
 
 
@@ -115,10 +120,10 @@ def resetUltCharge():
 
 rule "[utilities/reset.opy]: Reinitialize hero on new round":
     @Event eachPlayer
-    @Condition getCurrentGamemode() == Gamemode.CONTROL
     @Condition isMatchBetweenRounds()
 
     waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
+    resetHero()
     eventPlayer.call_init = true
 
 

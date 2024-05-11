@@ -12,14 +12,16 @@ playervar self_heal_pvar
 #!defineMember _suppress_regen_passive self_heal_pvar[5]
 #!defineMember _support_passive_active self_heal_pvar[6]
 
-#!define resetSelfHealing()\
-    stopHealingModification(eventPlayer._self_healing_id)\
-    eventPlayer._self_healing_id = null\
-    eventPlayer._self_healing_source = []\
-    eventPlayer._self_healing_percent = 0\
-    eventPlayer._regen_passive_active = true\
-    eventPlayer._suppress_regen_passive = false\
-    eventPlayer._support_passive_active = true\
+def resetSelfHealing():
+    @Name "[passives/support/self_heal.opy]: resetSelfHealing()"
+
+    stopHealingModification(eventPlayer._self_healing_id)
+    eventPlayer._self_healing_id = null
+    eventPlayer._self_healing_source = []
+    eventPlayer._self_healing_percent = 0
+    eventPlayer._regen_passive_active = true
+    eventPlayer._suppress_regen_passive = false
+    eventPlayer._support_passive_active = true
 
 #!define removeRegenPassive()\
     eventPlayer._suppress_regen_passive = true
