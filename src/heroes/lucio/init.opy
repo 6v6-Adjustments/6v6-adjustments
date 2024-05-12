@@ -8,7 +8,7 @@ rule "[lucio/init.opy]: Lucio":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.LUCIO
     
-    newHero(ADJ_LUCIO_HEALTH, 0, 0)
+    setCustomHp(ADJ_LUCIO_HEALTH, 0, 0)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_LUCIO_SOUNDWAVE_DAMAGE/OW2_LUCIO_SOUNDWAVE_DAMAGE)

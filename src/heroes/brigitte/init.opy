@@ -10,7 +10,7 @@ rule "[brigitte/init.opy]: Brigitte":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.BRIGITTE
 
-    newHero(ADJ_BRIGITTE_HEALTH, ADJ_BRIGITTE_ARMOR, 0)
+    setCustomHp(ADJ_BRIGITTE_HEALTH, ADJ_BRIGITTE_ARMOR, 0)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_BRIGITTE_FLAIL_DAMAGE/OW2_BRIGITTE_FLAIL_DAMAGE)

@@ -6,7 +6,7 @@ rule "[bastion/init.opy]: Bastion":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.BASTION
     
-    newHero(ADJ_BASTION_HEALTH, ADJ_BASTION_ARMOR, 0)
+    setCustomHp(ADJ_BASTION_HEALTH, ADJ_BASTION_ARMOR, 0)
     removeSelfHealing()
 
     eventPlayer.call_init = false

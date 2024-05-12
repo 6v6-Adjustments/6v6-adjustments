@@ -7,13 +7,10 @@ rule "[dva/hp.opy]: Correct DVa mech health":
     @Condition not eventPlayer.isInAlternateForm()
     @Condition not eventPlayer.call_init
 
-    newHero(
+    setCustomHp(
         ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_HEALTH,
         ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_ARMOR,
         0)
-    wait()
-    if eventPlayer.getMaxHealth() != ((ADJ_DVA_HEALTH_DUPLICATE + ADJ_DVA_ARMOR_DUPLICATE) if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else (ADJ_DVA_HEALTH + ADJ_DVA_ARMOR)):
-        goto RULE_START
 
 
 rule "[dva/hp.opy]: Correct DVa pilot health":

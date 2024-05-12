@@ -5,8 +5,7 @@ rule "[tracer/init.opy]: Tracer":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.TRACER
-    
-    defaultHero()
+
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_TRACER_PULSE_PISTOL_DAMAGE/OW2_TRACER_PULSE_PISTOL_DAMAGE)

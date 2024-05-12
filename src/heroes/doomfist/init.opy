@@ -9,7 +9,7 @@ rule "[doomfist/init.opy]: Doomfist":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.DOOMFIST
 
-    newHero(ADJ_DOOMFIST_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DOOMFIST_HEALTH, 0, 0)
+    setCustomHp(ADJ_DOOMFIST_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DOOMFIST_HEALTH, 0, 0)
     removeTankPassive()
     removeSelfHealing()
 

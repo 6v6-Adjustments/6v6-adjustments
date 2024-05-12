@@ -8,7 +8,7 @@ rule "[zenyatta/init.opy]: Zenyatta":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ZENYATTA
 
-    newHero(ADJ_ZENYATTA_HEALTH, 0, ADJ_ZENYATTA_SHIELDS)
+    setCustomHp(ADJ_ZENYATTA_HEALTH, 0, ADJ_ZENYATTA_SHIELDS)
     removeSelfHealing()
 
     eventPlayer.setKnockbackDealt(7)

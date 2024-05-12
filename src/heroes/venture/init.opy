@@ -18,7 +18,7 @@ rule "[venture/init.opy]: Venture":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.VENTURE
 
-    newHero(ADJ_VENTURE_HEALTH, 0, 0)
+    setCustomHp(ADJ_VENTURE_HEALTH, 0, 0)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE)

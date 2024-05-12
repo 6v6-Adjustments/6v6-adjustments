@@ -7,14 +7,6 @@ playervar call_init
 
 subroutine resetSelfHealing
 
-#!define defaultHero() \
-    newHero(0, 0, 0)
-
-# newHero(0, 0, 0) creates default OW2 hero
-#!define newHero(health, armor, shields) \
-    wait(0.16) \
-    setCustomHp(health, armor, shields) \
-
 #!define resetHero()\
     clearCustomHp() \
     resetStats() \

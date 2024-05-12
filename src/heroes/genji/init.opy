@@ -6,7 +6,7 @@ rule "[genji/init.opy]: Genji":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.GENJI
     
-    newHero(ADJ_GENJI_HEALTH, 0, 0)
+    setCustomHp(ADJ_GENJI_HEALTH, 0, 0)
     removeSelfHealing()
 
     eventPlayer.call_init = false

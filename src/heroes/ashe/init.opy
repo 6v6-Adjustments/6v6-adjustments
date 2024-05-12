@@ -6,7 +6,7 @@ rule "[ashe/init.opy]: Ashe":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ASHE
 
-    newHero(ADJ_ASHE_HEALTH, 0, 0)
+    setCustomHp(ADJ_ASHE_HEALTH, 0, 0)
     removeSelfHealing()
 
     eventPlayer.call_init = false

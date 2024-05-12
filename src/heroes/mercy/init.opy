@@ -6,7 +6,7 @@ rule "[mercy/init.opy]: Mercy":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MERCY
 
-    newHero(ADJ_MERCY_HEALTH, 0, 0)
+    setCustomHp(ADJ_MERCY_HEALTH, 0, 0)
 
     eventPlayer.setHealingDealt(109.1)
 

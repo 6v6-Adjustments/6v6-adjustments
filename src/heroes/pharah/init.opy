@@ -6,7 +6,7 @@ rule "[pharah/init.opy]: Pharah":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.PHARAH
     
-    newHero(ADJ_PHARAH_HEALTH, 0, 0)
+    setCustomHp(ADJ_PHARAH_HEALTH, 0, 0)
     removeSelfHealing()
 
     eventPlayer.setProjectileSpeed(87.5)

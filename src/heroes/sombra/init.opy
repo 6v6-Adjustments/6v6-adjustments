@@ -6,7 +6,7 @@ rule "[sombra/init.opy]: Sombra":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.SOMBRA
 
-    newHero(ADJ_SOMBRA_HEALTH, 0, 0)
+    setCustomHp(ADJ_SOMBRA_HEALTH, 0, 0)
     removeSelfHealing()
 
     eventPlayer._self_healing_percent = 0.1 # set self healing to 0.1% such that 75hp healthpack becomes 0.075hp

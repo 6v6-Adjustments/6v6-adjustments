@@ -6,7 +6,7 @@ rule "[mauga/init.opy]: Mauga":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MAUGA
 
-    newHero(ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, ADJ_MAUGA_ARMOR, 0)
+    setCustomHp(ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, ADJ_MAUGA_ARMOR, 0)
     removeTankPassive()
     removeRegenPassive()
 

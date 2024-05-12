@@ -8,7 +8,7 @@ rule "[mei/init.opy]: Mei":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MEI
 
-    newHero(ADJ_MEI_HEALTH, 0, 0)
+    setCustomHp(ADJ_MEI_HEALTH, 0, 0)
     removeSelfHealing()
 
     eventPlayer.setMaxAmmo(0, 120)

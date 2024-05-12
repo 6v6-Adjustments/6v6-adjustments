@@ -7,7 +7,7 @@ rule "[ana/init.opy]: Initialize Ana":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ANA
     
-    newHero(ADJ_ANA_HEALTH, 0, 0)
+    setCustomHp(ADJ_ANA_HEALTH, 0, 0)
     setUltCost(ADJ_ANA_ULT_COST)
     removeSelfHealing()
 

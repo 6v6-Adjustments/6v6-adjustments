@@ -10,7 +10,7 @@ rule "[reinhardt/init.opy]: Reinhardt":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     
-    newHero(
+    setCustomHp(
         ADJ_REINHARDT_HEALTH,
         ADJ_REINHARDT_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_REINHARDT_ARMOR,
         0)

@@ -13,7 +13,7 @@ rule "[echo/init.opy]: Echo":
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
     eventPlayer.setMaxHealth(100)
 
-    newHero(ADJ_ECHO_HEALTH, 0, 0)
+    setCustomHp(ADJ_ECHO_HEALTH, 0, 0)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_ECHO_STICKY_BOMBS_DAMAGE/OW2_ECHO_STICKY_BOMBS_DAMAGE)

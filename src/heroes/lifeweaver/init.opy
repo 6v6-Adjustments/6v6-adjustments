@@ -6,7 +6,7 @@ rule "[lifeweaver/init.opy]: Lifeweaver":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
     
-    newHero(ADJ_LIFEWEAVER_HEALTH, 0, ADJ_LIFEWEAVER_SHIELDS)
+    setCustomHp(ADJ_LIFEWEAVER_HEALTH, 0, ADJ_LIFEWEAVER_SHIELDS)
     removeRegenPassive()
 
     setBaseDamage(eventPlayer, ADJ_LIFEWEAVER_THORN_VOLLEY_DAMAGE/OW2_LIFEWEAVER_THORN_VOLLEY_DAMAGE)

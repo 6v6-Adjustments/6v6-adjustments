@@ -6,7 +6,7 @@ rule "[torbjorn/init.opy]: Torbjorn":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.TORBJORN
 
-    newHero(ADJ_TORBJORN_HEALTH, ADJ_TORBJORN_ARMOR, 0)
+    setCustomHp(ADJ_TORBJORN_HEALTH, ADJ_TORBJORN_ARMOR, 0)
     removeSelfHealing()
 
     eventPlayer.setAmmo(0, 15)

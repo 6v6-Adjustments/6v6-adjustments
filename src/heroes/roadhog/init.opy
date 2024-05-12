@@ -9,7 +9,7 @@ rule "[roadhog/init.opy]: Roadhog":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     
-    newHero(
+    setCustomHp(
         ADJ_ROADHOG_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ROADHOG_HEALTH,
         0,
         0)
