@@ -3,16 +3,18 @@
 # Environment Variables
 #!define GAMEMODE_VERSION "Internal Build"
 #!define GAMEMODE_NAME "6v6 Adjustments"
-#!define GAMDMODE_DESCRIPTION (GAMEMODE_NAME + " " + GAMEMODE_VERSION + " " + "(" + GAMEMODE_CODE + ")" + "\n" + \
+#!define GAMDMODE_DESCRIPTION (GAMEMODE_NAME + " " + GAMEMODE_VERSION + " " + "(" + DEV_CODE + ")" + "\n" + \
                                "\n" + \
                                "Intended for 6v6 gameplay, by Toastie#11770" + "\n" + \
                                "\n" + \
-                               "Primary workshop development provided" + "\n" + \
-                               "by LemonHead#11820 and ecksdee#11729" + "\n" + \
-                               "\n" + \
-                               "Gamemode originally forked from" + "\n" + \
+                               "Gamemode forked from" + "\n" + \
                                "Overwatch 1 Emulator v1.12.2 (KHTG0)" + "\n" + \
                                "by ecksdee#11729" + "\n" + \
+                               "\n" + \
+                               "Developers:" + "\n" + \
+                               "Toastie#11770" + "\n" + \
+                               "LemonHead#11820" + "\n" + \
+                               "ecksdee#11729" + "\n" + \
                                "\n" + \
                                "Come join the discord server!" + "\n" + \
                                "We host 6v6 custom lobbies every weekend!" + "\n" + \
