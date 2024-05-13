@@ -9,6 +9,7 @@ playervar custom_hp_pvar
 #!defineMember _hp_iter_count custom_hp_pvar[3]
 
 #!define MIN_HP 1
+#!define HP_ROUNDING_ERROR_MARGIN 0.01
 #!define MAX_HP_ITER_COUNT 10
 
 subroutine clearCustomHp
@@ -38,9 +39,9 @@ def applyCustomHp():
     eventPlayer._hp_iter_count = 0
 
     # loop MAX_HP_ITER_COUNT times if hp is incorrect
-    while (((eventPlayer.getMaxHealthOfType(Health.NORMAL) != eventPlayer._hp_health)\
-         or (eventPlayer.getMaxHealthOfType(Health.ARMOR) != eventPlayer._hp_armor)\
-         or (eventPlayer.getMaxHealthOfType(Health.SHIELDS) != eventPlayer._hp_shields))\
+    while (((abs(eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer._hp_health) > HP_ROUNDING_ERROR_MARGIN)\
+         or (abs(eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer._hp_armor) > HP_ROUNDING_ERROR_MARGIN)\
+         or (abs(eventPlayer.getMaxHealthOfType(Health.SHIELDS) - eventPlayer._hp_shields) > HP_ROUNDING_ERROR_MARGIN))\
        and (eventPlayer._hp_iter_count < MAX_HP_ITER_COUNT)):
     
         eventPlayer.setHealingReceived(0)
