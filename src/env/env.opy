@@ -3,7 +3,7 @@
 # Environment Variables
 #!define GAMEMODE_VERSION "Internal Build"
 #!define GAMEMODE_NAME "6v6 Adjustments"
-#!define GAMDMODE_DESCRIPTION (GAMEMODE_NAME + " " + GAMEMODE_VERSION + " " + "(" + DEV_CODE + ")" + "\n" + \
+#!define GAMDMODE_DESCRIPTION (GAMEMODE_NAME + " " + GAMEMODE_VERSION + " " + "(" + GAMEMODE_CODE + ")" + "\n" + \
                                "\n" + \
                                "Intended for 6v6 gameplay, by Toastie#11770" + "\n" + \
                                "\n" + \
