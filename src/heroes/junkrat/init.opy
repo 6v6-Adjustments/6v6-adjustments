@@ -22,4 +22,14 @@ rule "[junkrat/init.opy]: Junkrat":
     enableAllAbilities()
     removeSelfHealing()
 
+    setBaseDamage(eventPlayer, ADJ_JUNKRAT_FRAG_DAMAGE/OW2_JUNKRAT_FRAG_DAMAGE)
+
     eventPlayer.call_init = false
+
+
+rule "[junkrat/init.opy]: Correct Mine, Trap, Tire, Melee damage":
+    @Event playerDealtDamage
+    @Condition eventPlayer.hero_setup == Hero.WINSTON
+    @Condition eventAbility in [Button.ABILITY_1, Button.ABILITY_2, Button.ULTIMATE, Button.MELEE]
+
+    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

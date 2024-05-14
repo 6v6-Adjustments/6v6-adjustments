@@ -90,6 +90,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Junkrat
 #!define ADJ_JUNKRAT_CONCUSSION_MINE_COOLDOWN 8
+#!define ADJ_JUNKRAT_FRAG_DAMAGE 120
 #!define ADJ_JUNKRAT_HEALTH 200
 #!define ADJ_JUNKRAT_ULT_COST 1925
 
