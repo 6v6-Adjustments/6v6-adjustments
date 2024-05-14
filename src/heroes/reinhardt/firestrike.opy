@@ -12,14 +12,24 @@ rule "[reinhardt/firestrike.opy]: Force single firestrike":
     eventPlayer.setAbilityCharge(Button.ABILITY_2, 2)
 
 
-rule "[reinhardt/firestrike.opy]: Correct Firestrike damage":
-    @Event playerDealtDamage
+rule "[reinhardt/firestrike.opy]: Increase Firestrike damage (early animation)":
+    @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
-    @Condition eventAbility == Button.ABILITY_2
+    @Condition eventPlayer.isUsingAbility2()
 
-    damage(
-        victim, 
-        attacker, 
-        ((ADJ_REINHARDT_FIRESTRIKE_DAMAGE/OW2_REINHARDT_FIRESTRIKE_DAMAGE) \
-        * (eventDamage/eventPlayer._base_damage_scalar) \
-        - eventDamage)/eventPlayer._base_damage_scalar)
+    eventPlayer.setDamageDealt(percent(ADJ_REINHARDT_FIRESTRIKE_DAMAGE/OW2_REINHARDT_FIRESTRIKE_DAMAGE))
+    wait(OW2_REINHARDT_FIRESTRIKE_CAST_TIME)
+    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
+
+
+# rule "[reinhardt/firestrike.opy]: Correct Firestrike damage":
+#     @Event playerDealtDamage
+#     @Condition eventPlayer.hero_setup == Hero.REINHARDT
+#     @Condition eventAbility == Button.ABILITY_2
+
+#     damage(
+#         victim, 
+#         attacker, 
+#         ((ADJ_REINHARDT_FIRESTRIKE_DAMAGE/OW2_REINHARDT_FIRESTRIKE_DAMAGE) \
+#         * (eventDamage/eventPlayer._base_damage_scalar) \
+#         - eventDamage)/eventPlayer._base_damage_scalar)
