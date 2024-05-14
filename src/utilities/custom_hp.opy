@@ -46,24 +46,24 @@ def applyCustomHp():
     
         eventPlayer.setHealingReceived(0)
 
-        waitUntil(eventPlayer.hasSpawned(), Math.INFINITY)
-        waitUntil(not (eventPlayer.hasStatusEffect(Status.INVINCIBLE) \
-                    or eventPlayer.hasStatusEffect(Status.UNKILLABLE)), Math.INFINITY)
+        # waitUntil(eventPlayer.hasSpawned(), Math.INFINITY)
+        # waitUntil(not (eventPlayer.hasStatusEffect(Status.INVINCIBLE) \
+        #             or eventPlayer.hasStatusEffect(Status.UNKILLABLE)), Math.INFINITY)
 
-        wait()
+        # wait()
 
         eventPlayer.setHealth(MIN_HP)
         eventPlayer.addHealthPool(Health.NORMAL, MIN_HP, true, true)
         eventPlayer.addHealthPool(Health.ARMOR, MIN_HP, true, true)
         eventPlayer.addHealthPool(Health.SHIELDS, MIN_HP, true, true)
         # Apply an unkillable status so we don't accidentally kill the player
-        eventPlayer.setStatusEffect(eventPlayer, Status.UNKILLABLE, Math.INFINITY)
+        # eventPlayer.setStatusEffect(eventPlayer, Status.UNKILLABLE, Math.INFINITY)
 
         eventPlayer.removeAllHealthPools()
 
         # wait(0.064)
-        wait()
-        waitUntil(eventPlayer.getMaxHealth() <= MIN_HP, 1)
+        # wait()
+        # waitUntil(eventPlayer.getMaxHealth() <= MIN_HP, 1)
 
         # Apply custom health pool to player
         if eventPlayer._hp_health > 0:
@@ -74,7 +74,7 @@ def applyCustomHp():
             eventPlayer.addHealthPool(Health.SHIELDS, max(1, eventPlayer._hp_shields), true, true)
         eventPlayer.setHealingReceived(100)
         heal(eventPlayer, null, Math.INFINITY)
-        eventPlayer.clearStatusEffect(Status.UNKILLABLE)
+        # eventPlayer.clearStatusEffect(Status.UNKILLABLE)
 
         wait()
         eventPlayer._hp_iter_count += 1
