@@ -95,6 +95,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Kiriko
 #!define ADJ_KIRIKO_HEALTH 200
+#!define ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN 5
 #!define ADJ_KIRIKO_ULT_COST 2400
 
 # Lifeweaver

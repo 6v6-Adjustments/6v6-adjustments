@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/kiriko/swift_step.opy"
+
 
 rule "[kiriko/init.opy]: Kiriko":
     @Event eachPlayer
@@ -12,17 +14,9 @@ rule "[kiriko/init.opy]: Kiriko":
     eventPlayer.setAmmo(1, 12)
     eventPlayer.setMaxAmmo(1, 12)
 
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 5)
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN)
 
     eventPlayer.call_init = false
-
-
-rule "[kiriko/init.opy]: Heal when using Swift Step":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.KIRIKO
-    @Condition eventPlayer.isUsingAbility1() == true
-    
-    eventPlayer.startHoT(eventPlayer, 0.25, 160)
 
 
 /*
