@@ -62,8 +62,8 @@ def applyCustomHp():
         eventPlayer.removeAllHealthPools()
 
         # wait(0.064)
-        # wait()
-        # waitUntil(eventPlayer.getMaxHealth() <= MIN_HP, 1)
+        wait()
+        waitUntil(eventPlayer.getMaxHealth() <= MIN_HP, 1)
 
         # Apply custom health pool to player
         if eventPlayer._hp_health > 0:
