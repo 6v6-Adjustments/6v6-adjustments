@@ -121,7 +121,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Mccree
 #!define ADJ_MCCREE_COMBAT_ROLL_DAMAGE_REDUCTION 50
-#!define ADJ_MCCREE_HEALTH 250
+#!define ADJ_MCCREE_HEALTH 225
 #!define ADJ_MCCREE_ULT_COST 1680
 
 # Mei
