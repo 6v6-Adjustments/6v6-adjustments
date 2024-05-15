@@ -15,3 +15,4 @@ rule "[mccree/deadeye.opy]: Remove damage reduction during deadeye":
     # eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
     eventPlayer.setDamageReceived(100)
     eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
+ 
