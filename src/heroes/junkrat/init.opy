@@ -30,6 +30,6 @@ rule "[junkrat/init.opy]: Junkrat":
 rule "[junkrat/init.opy]: Correct Junkrat other forms of damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.JUNKRAT
-    @Condition eventAbility in [Button.MELEE, Button.ABILITY_1, Button.ULTIMATE]
-    
+    @Condition eventAbility in [Button.MELEE, Button.ABILITY_1, Button.ABILITY_2, Button.ULTIMATE]
+
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
