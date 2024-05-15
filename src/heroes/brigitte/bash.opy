@@ -35,3 +35,14 @@ rule "[brigitte/bash.opy]: Correct Shield Bash damage":
     @Condition eventAbility == Button.PRIMARY_FIRE
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
+
+
+# rule "[brigitte/bash.opy]: Restrict Shield Bash to single use in Rally":
+#     @Event eachPlayer
+#     @Condition eventPlayer.hero_setup == Hero.BRIGITTE
+#     @Condition eventPlayer.isUsingUltimate()
+    
+#     waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0, 9999)
+#     eventPlayer.setAbility2Enabled(false)
+#     waitUntil(not eventPlayer.isUsingUltimate(), 9999)
+#     eventPlayer.setAbility2Enabled(true)

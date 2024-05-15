@@ -4,4 +4,4 @@
 def removeTankPassive():
     @Name "[passives/tank/knockback.opy]: removeTankPassive()"
     
-    eventPlayer.setKnockbackReceived(135.857)
+    eventPlayer.setKnockbackReceived(percent(1/(1-OW2_TANK_KNOCKBACK_REDUCTION)))

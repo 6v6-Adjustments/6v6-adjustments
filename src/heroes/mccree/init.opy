@@ -12,4 +12,14 @@ rule "[mccree/init.opy]: Cassidy":
     setCustomHp(ADJ_MCCREE_HEALTH, 0, 0)
     removeSelfHealing()
 
+    setBaseDamage(eventPlayer, ADJ_MCCREE_FANTHEHAMMER_DAMAGE/OW2_MCCREE_FANTHEHAMMER_DAMAGE)
+
     eventPlayer.call_init = false
+
+
+rule "[mccree/init.opy]: Correct Cassidy other forms of damage":
+    @Event playerDealtDamage
+    @Condition eventPlayer.hero_setup == Hero.MCCREE
+    @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ABILITY_2]
+        
+    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

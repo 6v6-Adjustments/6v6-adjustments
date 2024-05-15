@@ -2,6 +2,7 @@
 
 #!include "heroes/doomfist/punch.opy"
 #!include "heroes/doomfist/slam.opy"
+#!include "heroes/doomfist/powerblock.opy"
 
 
 rule "[doomfist/init.opy]: Doomfist":
