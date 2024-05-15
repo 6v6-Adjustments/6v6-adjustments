@@ -43,7 +43,7 @@ rule "[echo/duplicate.opy]: Correct duplicate ultimate charge rate":
     @Condition eventPlayer.getUltCharge() == 0
 
     wait()
-    eventPlayer.setUltCharge((percent(1 - (OW2_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER/ADJ_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER)))/OW2_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER)
+    eventPlayer.setUltCharge(max((percent(1 - (OW2_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER/ADJ_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER)))/OW2_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER, 0))
 
 
 # rule "[echo/duplicate.opy]: Table of all heroes with custom hp":
