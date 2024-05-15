@@ -34,9 +34,9 @@ rule "[zarya/init.opy]: Clean up Zarya":
     hideAllyBubbleCD()
 
 
-rule "[zarya/init.opy]: Correct Alternate Fire, melee, Graviton damage":
+rule "[zarya/init.opy]: Correct Alternate Fire and Melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ZARYA
-    @Condition eventAbility in [Button.SECONDARY_FIRE, Button.MELEE, Button.ULTIMATE]
+    @Condition eventAbility in [Button.SECONDARY_FIRE, Button.MELEE]
     
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
