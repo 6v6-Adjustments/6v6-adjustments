@@ -31,6 +31,41 @@ rule "[wreckingball/init.opy]: Correct primary fire, fireball, pile driver, mele
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
 
+rule "[wreckingball/init.opy]: Increase Piledriver damage":
+    @Event playerDealtDamage
+    @Condition eventPlayer.hero_setup == Hero.HAMMOND
+    @Condition eventAbility == Button.CROUCH
+
+    damage(
+        victim, 
+        attacker, 
+        ((ADJ_WRECKING_BALL_PILEDRIVER_DAMAGE/OW2_WRECKING_BALL_PILEDRIVER_DAMAGE) \
+        * (eventDamage/eventPlayer._base_damage_scalar) \
+        - eventDamage)/eventPlayer._base_damage_scalar)
+
+
+rule "[wreckingball/init.opy]: Increase Fireball impact damage":
+    @Event playerDealtDamage
+    @Condition eventPlayer.hero_setup == Hero.HAMMOND
+    @Condition eventAbility == Button.SECONDARY_FIRE
+        
+        damage(
+            victim, 
+            attacker, 
+            ((ADJ_WRECKING_BALL_FIREBALL_DAMAGE/OW2_WRECKING_BALL_FIREBALL_DAMAGE) \
+            * (eventDamage/eventPlayer._base_damage_scalar) \
+            - eventDamage)/eventPlayer._base_damage_scalar)
+
+
+rule "[wreckingball/init.opy]: Increase Quad Cannons and Melee damage":
+        @Event eachPlayer
+        @Condition eventPlayer.hero_setup == Hero.HAMMOND
+        @Condition eventPlayer.isUsingAbility1()
+            
+        eventPlayer.setDamageDealt(percent(ADJ_WRECKING_BALL_MINEFIELD_DAMAGE/OW2_WRECKING_BALL_MINEFIELD_DAMAGE))
+        waitUntil(not eventPlayer.isUsingAbility1(), 99999)
+        eventPlayer.setDamageDealt(100)
+
 /*
 rule "Correct Adaptive Shields overhealth while outside spawn rooms":
     @Event eachPlayer

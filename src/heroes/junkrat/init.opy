@@ -27,9 +27,9 @@ rule "[junkrat/init.opy]: Junkrat":
     eventPlayer.call_init = false
 
 
-rule "[junkrat/init.opy]: Correct Mine, Trap, Tire, Melee damage":
+rule "[junkrat/init.opy]: Correct Junkrat other forms of damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.WINSTON
-    @Condition eventAbility in [Button.ABILITY_1, Button.ABILITY_2, Button.ULTIMATE, Button.MELEE]
-
+    @Condition eventPlayer.hero_setup == Hero.JUNKRAT
+    @Condition eventAbility in [Button.MELEE, Button.ABILITY_1, Button.ULTIMATE]
+    
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
