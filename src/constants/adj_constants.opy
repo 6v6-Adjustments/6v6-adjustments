@@ -1,5 +1,8 @@
 #!mainFile "../dev_main.opy"
 
+# Universal
+#!define ADJ_TANK_KNOCKBACK_REDUCTION 0.12
+
 # Ana
 #!define ADJ_ANA_BIOTIC_GRENADE_DAMAGE 60
 #!define ADJ_ANA_BIOTIC_GRENADE_HEALING 100
