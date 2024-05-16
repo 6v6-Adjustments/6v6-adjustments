@@ -147,12 +147,12 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_MOIRA_ULT_COST 2800
 
 # Orisa
-#!define ADJ_ORISA_ARMOR 250
-#!define ADJ_ORISA_ARMOR_DUPLICATE 175
-#!define ADJ_ORISA_HEALTH 200
+#!define ADJ_ORISA_ARMOR 200
+#!define ADJ_ORISA_ARMOR_DUPLICATE 125
+#!define ADJ_ORISA_HEALTH 250
 #!define ADJ_ORISA_HEALTH_DUPLICATE 200
 #!define ADJ_ORISA_JAVELIN_SPIN_COOLDOWN 7
-#!define ADJ_ORISA_ULT_COST 1680
+#!define ADJ_ORISA_ULT_COST 1814
 
 # Pharah
 #!define ADJ_PHARAH_CONCUSSIVE_BLAST_COOLDOWN 8
@@ -212,6 +212,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # Sojourn
 #!define ADJ_SOJOURN_HEALTH 200
 #!define ADJ_SOJOURN_ULT_COST 2100
+#!define ADJ_SOJOURN_SLIDE_COOLDOWN 9
 
 # Soldier 76
 #!define ADJ_SOLDIER_BIOTIC_FIELD_COOLDOWN 15
@@ -221,7 +222,8 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Sombra
 #!define ADJ_SOMBRA_HEALTH 200
-#!define ADJ_SOMBRA_ULT_COST 1400
+#!define ADJ_SOMBRA_VIRUS_COOLDOWN 8
+#!define ADJ_SOMBRA_ULT_COST 1512
 
 # Symmetra
 #!define ADJ_SYMMETRA_HEALTH 100
