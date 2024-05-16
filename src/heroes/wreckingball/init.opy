@@ -20,7 +20,7 @@ rule "[wreckingball/init.opy]: Wrecking Ball":
     #eventPlayer.setJumpVerticalSpeed(104)
 
     setBaseDamage(eventPlayer, ADJ_WRECKING_BALL_MINEFIELD_DAMAGE/OW2_WRECKING_BALL_MINEFIELD_DAMAGE)
-    eventPlayer.setKnockbackDealt(50)
+    eventPlayer.setKnockbackDealt(percent(ADJ_WRECKING_BALL_MINEFIELD_KNOCKBACK/OW2_WRECKING_BALL_MINEFIELD_KNOCKBACK))
 
     eventPlayer.call_init = false
 
