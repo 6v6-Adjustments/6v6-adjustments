@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+playervar bash_cooldown
+
 # Credit to oreoslurpee for Brigitte shield bash logic
 # see https://workshop.codes/MR5QJ for oreslurpee's 2018 brig implementation
 
@@ -37,12 +39,20 @@ rule "[brigitte/bash.opy]: Correct Shield Bash damage":
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
 
-# rule "[brigitte/bash.opy]: Restrict Shield Bash to single use in Rally":
-#     @Event eachPlayer
-#     @Condition eventPlayer.hero_setup == Hero.BRIGITTE
-#     @Condition eventPlayer.isUsingUltimate()
+rule "[brigitte/bash.opy]: Track Bash cooldown":
+    @Event eachPlayer
+    @Condition eventPlayer.hero_setup == Hero.BRIGITTE
+    @Condition eventPlayer.isFiringPrimaryFire()
+    @Condition eventPlayer.isFiringSecondaryFire()
+        
+    wait(ADJ_BRIGITTE_BASH_DURATION)
+    eventPlayer.bash_cooldown = ADJ_BRIGITTE_BASH_COOLDOWN
+    chase(eventPlayer.bash_cooldown, 0, rate=1, ChaseReeval.NONE)
+
+
+rule "[brigitte/bash.opy]: Force cooldown for Bash in Rally":
+    @Event eachPlayer
+    @Condition eventPlayer.hero_setup == Hero.BRIGITTE
+    @Condition eventPlayer.isUsingUltimate()
     
-#     waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0, 9999)
-#     eventPlayer.setAbility2Enabled(false)
-#     waitUntil(not eventPlayer.isUsingUltimate(), 9999)
-#     eventPlayer.setAbility2Enabled(true)
+    eventPlayer.setAbilityCooldown(Button.PRIMARY_FIRE, eventPlayer.bash_cooldown)
