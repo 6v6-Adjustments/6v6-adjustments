@@ -1,49 +1,36 @@
 #!mainFile "../dev_main.opy"
 
-playervar hero_setup
-playervar hero_check
+playervar hero_switch_pvar
+#!defineMember _last_hero_played hero_switch_pvar[0]
+#!defineMember _hero_switched hero_switch_pvar[1]
+#!defineMember _hero_id hero_switch_pvar[2]
+
+#!define switchedHero(player) player._hero_switched
 
 
-rule "[utilities/hero_switch]: Check for hero setup":
+rule "[utilities/hero_switch.opy]: detect hero switch":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup != eventPlayer.getCurrentHero()
-    @Condition not eventPlayer.isDuplicatingAHero()
-    @Condition not isMatchBetweenRounds()
-    @Condition eventPlayer.isAlive()
+    @Condition eventPlayer._last_hero_played != eventPlayer.getCurrentHero()
     
-    #This wait time may be needed for some gameodes 
-    wait(0.024)
+    eventPlayer._hero_switched = true
+    wait()
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    # eventPlayer._hero_id = heroID(eventPlayer._last_hero_played)
+    eventPlayer._hero_switched = false
+
+
+rule "[utilities/hero_switch.opy]: Initialize hero on hero switch":
+    @Event eachPlayer
+    @Condition switchedHero(eventPlayer)
+
+    waitUntil(not switchedHero(eventPlayer), Math.INFINITY)
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
+    resetHero()
+    eventPlayer.call_init = true
 
 
-rule "[utilities/hero_switch]: Check for hero change":
+rule "[utilities/hero_switch.opy]: reset ult charge on hero switch":
     @Event eachPlayer
-    @Condition eventPlayer.hero_check != eventPlayer.getCurrentHero()
-    
-    #This wait time may be needed for some gameodes 
-    #wait(0.024)
-    eventPlayer.hero_check = eventPlayer.getCurrentHero()
+    @Condition switchedHero(eventPlayer)
+
     resetUltCharge()
-
-
-rule "[utilities/reset.opy]: Hero reset on death":
-    @Event playerDied
-    
-    waitUntil(eventPlayer.isAlive(), Math.INFINITY)
-    eventPlayer.hero_setup = -1
-
-
-rule "[utilities/reset.opy]: Hero reset after round":
-    @Event eachPlayer
-    @Condition isMatchBetweenRounds() == true
-    
-    eventPlayer.hero_setup = -1
-
-
-/*
-rule "Hero reset after game starts (needed for gamemodes with no hero select/bots)":
-    @Event eachPlayer
-    @Condition isInSetup() == true
-    
-    eventPlayer.hero_setup = -1
-*/

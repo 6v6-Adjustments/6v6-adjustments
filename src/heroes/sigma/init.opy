@@ -1,25 +1,20 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Sigma":
+rule "[sigma/init.opy]: Sigma":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.SIGMA
-    
-    eventPlayer.ult_change_check = 1.07
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 249 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 299, true, true)
-    eventPlayer.addHealthPool(Health.SHIELDS, 150, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+
+    setCustomHp(ADJ_SIGMA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_SIGMA_HEALTH, 0, ADJ_SIGMA_SHIELDS)
     removeTankPassive()
     removeSelfHealing()
+
     eventPlayer.balance_change_check = 0
+    eventPlayer.call_init = false
 
 
-rule "Remove Kinetic Grasp overhealth":
+rule "[sigma/init.opy]: Remove Kinetic Grasp overhealth":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.SIGMA
     @Condition eventPlayer.isUsingAbility1() == true
@@ -35,7 +30,7 @@ rule "Remove Kinetic Grasp overhealth":
         eventPlayer.setHealth(eventPlayer.getMaxHealth() - eventPlayer.balance_change_check)
 
 
-rule "Increase Accretion damage":
+rule "[sigma/init.opy]: Increase Accretion damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.SIGMA
     @Condition eventAbility == Button.ABILITY_2

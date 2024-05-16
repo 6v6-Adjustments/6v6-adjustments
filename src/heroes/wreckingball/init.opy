@@ -1,32 +1,35 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/wreckingball/grapple.opy"
+#!include "heroes/wreckingball/shields.opy"
+#!include "heroes/wreckingball/piledriver.opy"
 
-rule "Wrecking Ball":
+
+rule "[wreckingball/init.opy]: Wrecking Ball":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.HAMMOND
-    
-    eventPlayer.ult_change_check = 1.05
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(75)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 399 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 449, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 50 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 100, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+
+    setCustomHp(
+        ADJ_WRECKING_BALL_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_WRECKING_BALL_HEALTH, 
+        ADJ_WRECKING_BALL_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_WRECKING_BALL_ARMOR, 
+        0)
     removeTankPassive()
     removeSelfHealing()
     #eventPlayer.startScalingSize(0.9, true)
     #eventPlayer.setJumpVerticalSpeed(104)
 
+    setBaseDamage(eventPlayer, ADJ_WRECKING_BALL_MINEFIELD_DAMAGE/OW2_WRECKING_BALL_MINEFIELD_DAMAGE)
 
-rule "Force Grappling Hook cooldown":
-    @Event eachPlayer
+    eventPlayer.call_init = false
+
+
+rule "[wreckingball/init.opy]: Correct primary fire, fireball, melee damage":
+    @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.HAMMOND
-    @Condition eventPlayer.isFiringSecondaryFire() == true
-    
-    waitUntil(eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0.1, 999999986991104)
-    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 5)
+    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_1, Button.MELEE]
+
+    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 /*
@@ -74,17 +77,6 @@ rule "Disable Adaptive Shields when not near enemy players":
     
     eventPlayer.setAbility2Enabled(false)
 */
-
-rule "Remove Adaptive Shields overhealth transfer":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.HAMMOND
-    @Condition eventPlayer.isUsingAbility2() == true
-    
-    eventPlayer.disallowButton(Button.ABILITY_2)
-    eventPlayer.setAbility2Enabled(false)
-    waitUntil(not eventPlayer.isUsingAbility2(), 999999986991104)
-    enableAllAbilities()
-    eventPlayer.allowButton(Button.ABILITY_2)
 
 
 /*

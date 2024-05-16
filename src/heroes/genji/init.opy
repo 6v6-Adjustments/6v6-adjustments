@@ -1,25 +1,20 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Genji":
+rule "[genji/init.opy]: Genji":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.GENJI
     
-    eventPlayer.ult_change_check = 1.2
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
-    
+    setCustomHp(ADJ_GENJI_HEALTH, 0, 0)
     removeSelfHealing()
 
+    eventPlayer.call_init = false
 
-rule "Increase Shurikens damage":
+
+rule "[genji/init.opy]: Correct Shurikens damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.GENJI
-    @Condition (eventAbility == Button.PRIMARY_FIRE or eventAbility == Button.SECONDARY_FIRE) == true
-    
-    damage(victim, attacker, eventDamage * 1.074 - eventDamage)
+    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.SECONDARY_FIRE]
+
+    damage(victim, attacker, eventDamage * (ADJ_GENJI_SHURIKEN_DAMAGE/OW2_GENJI_SHURIKEN_DAMAGE) - eventDamage)

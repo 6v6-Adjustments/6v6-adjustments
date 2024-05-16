@@ -1,12 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
-globalvar setting_echo_tank_hp = createWorkshopSetting(bool, "General Changes", "Full Echo Tank HP", false, 0)
+#!include "heroes/echo/duplicate.opy"
 
-playervar duplicate_leftover_health
-
-
-rule "Echo":
+rule "[echo/init.opy]: Echo":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ECHO
     
     eventPlayer.removeAllHealthPools()
@@ -14,45 +12,21 @@ rule "Echo":
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
     eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
-    eventPlayer.setDamageDealt(94.444)
-    if eventPlayer.isInSpawnRoom() == false:
-        damage(eventPlayer, null, eventPlayer.duplicate_leftover_health)
-    
+
+    setCustomHp(ADJ_ECHO_HEALTH, 0, 0)
     removeSelfHealing()
 
+    setBaseDamage(eventPlayer, ADJ_ECHO_STICKY_BOMBS_DAMAGE/OW2_ECHO_STICKY_BOMBS_DAMAGE)
 
-rule "Increase Tri-Shot and Echo melee damage":
+    eventPlayer.call_init = false
+
+
+rule "[echo/init.opy]: Correct Tri-Shot and Echo melee damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ECHO
-    @Condition (eventAbility == Button.PRIMARY_FIRE or eventAbility == Button.MELEE) == true
-    
-    damage(victim, attacker, eventDamage * 1.064 - eventDamage)
+    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.MELEE]
 
-
-rule "Bonus Ultimate charge while in Duplicate":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.isDuplicatingAHero() == true
-    @Condition eventPlayer.getUltCharge() == 0
-    
-    wait()
-    eventPlayer.setUltCharge(4 + (16 * (eventPlayer.ult_change_check - 1)))
-
-
-rule "Check health when exiting Duplicate":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.isDuplicatingAHero() == true
-    
-    eventPlayer.hero_setup = eventPlayer.getHeroOfDuplication()
-    eventPlayer.duplicate_leftover_health = 100
-    wait(15)
-    eventPlayer.duplicate_leftover_health = 0
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 # rule "(Duplicate) Seismic Slam cooldown":

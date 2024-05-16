@@ -1,16 +1,12 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Widowmaker":
+rule "[widowmaker/init.opy]: Widowmaker":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.WIDOWMAKER
     
-    eventPlayer.ult_change_check = 1.19
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 174, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+    setCustomHp(ADJ_WIDOWMAKER_HEALTH, 0, 0)
     removeSelfHealing()
+
+    eventPlayer.call_init = false

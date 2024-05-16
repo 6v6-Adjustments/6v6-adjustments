@@ -1,14 +1,17 @@
 #!mainFile "../../dev_main.opy"
 
-playervar swift_step_pvar
-#!defineMember _hp_before_step swift_step_pvar[0]
-
 
 rule "[kiriko/swift_step.opy]: Heal when using Swift Step":
     @Event eachPlayer
-    @Hero kiriko
-    @Condition eventPlayer.isUsingAbility1()
+    @Condition eventPlayer.hero_setup == Hero.KIRIKO
+    @Condition eventPlayer.isUsingAbility1() == true
+    
+    eventPlayer.startHoT(eventPlayer, 0.25, 160)
 
-    eventPlayer._hp_before_step = eventPlayer.getHealth()
-    heal(eventPlayer, eventPlayer, OW1_KIRIKO_SWIFT_STEP_HEALING)
-    eventPlayer._missing_ult_points += eventPlayer.getHealth()-eventPlayer._hp_before_step
+
+rule "[kiriko/swift_step.opy]: Force swift step cooldown after spawning":
+    @Event playerDied
+    @Condition eventPlayer.hero_setup == Hero.KIRIKO
+
+    waitUntil(eventPlayer.isAlive() and eventPlayer.isInSpawnRoom(), Math.INFINITY)
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN)

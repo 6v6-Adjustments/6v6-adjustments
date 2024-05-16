@@ -30,23 +30,23 @@ rule "[utilities/watermark.opy]: Create watermark HUD":
                      HudReeval.VISIBILITY)
         eventPlayer.info_id[0] = getLastCreatedText()
 
-    if eventPlayer.info_id[1] == null:
-        hudSubheader(eventPlayer if infoVisible(eventPlayer) else null, 
-                     "dsc.gg/ow1", 
-                     HudPosition.LEFT, 
-                     Math.INFINITY, 
-                     rgb(eventPlayer.rgb_vect.x, eventPlayer.rgb_vect.y, eventPlayer.rgb_vect.z), 
-                     HudReeval.VISIBILITY_AND_COLOR)
-        eventPlayer.info_id[1] = getLastCreatedText()
+    # if eventPlayer.info_id[1] == null:
+    #     hudSubheader(eventPlayer if infoVisible(eventPlayer) else null, 
+    #                  DISCORD_SHORT_LINK, 
+    #                  HudPosition.LEFT, 
+    #                  Math.INFINITY, 
+    #                  rgb(eventPlayer.rgb_vect.x, eventPlayer.rgb_vect.y, eventPlayer.rgb_vect.z), 
+    #                  HudReeval.VISIBILITY_AND_COLOR)
+    #     eventPlayer.info_id[1] = getLastCreatedText()
     
-    eventPlayer.rgb_i = 0
-    eventPlayer.rgb_vect = rgb_list[eventPlayer.rgb_i]
+    # eventPlayer.rgb_i = 0
+    # eventPlayer.rgb_vect = rgb_list[eventPlayer.rgb_i]
 
 
 # rule "[utilities/watermark.opy]: Cycle RGB":
 #     @Event eachPlayer
 #     @Condition infoVisible(eventPlayer)
-#     @Condition not DEBUG_MODE
+#     # @Condition not DEBUG_MODE
 
 #     do:
 #         eventPlayer.rgb_i = (eventPlayer.rgb_i + 1)%(len(rgb_list))

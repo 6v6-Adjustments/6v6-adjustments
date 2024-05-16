@@ -1,18 +1,12 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Bastion":
+rule "[bastion/init.opy]: Bastion":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.BASTION
     
-    eventPlayer.ult_change_check = 1.21
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 100, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
-
+    setCustomHp(ADJ_BASTION_HEALTH, ADJ_BASTION_ARMOR, 0)
     removeSelfHealing()
+
+    eventPlayer.call_init = false

@@ -1,34 +1,32 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Orisa":
+rule "[orisa/init.opy]: Orisa":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ORISA
     
-    eventPlayer.ult_change_check = 1.12
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 249 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 299, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, 150 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 200, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+    setCustomHp(
+        ADJ_ORISA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ORISA_HEALTH, 
+        ADJ_ORISA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ORISA_ARMOR, 
+        0)
     removeTankPassive()
     removeSelfHealing()
 
+    eventPlayer.call_init = false
 
-rule "Correct Fortify overhealth while outside spawn rooms":
+
+rule "[orisa/init.opy]: Correct Fortify overhealth while outside spawn rooms":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ORISA
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventPlayer.isInSpawnRoom() == false
-    @Condition eventPlayer.overhealth_check == false
+    @Condition eventPlayer.isUsingAbility1()
+    @Condition not eventPlayer.isInSpawnRoom()
+    @Condition not eventPlayer.overhealth_check
     #@Condition eventPlayer.getHealthOfType(Health.ARMOR) >= 0.1
     
     damage(eventPlayer, null, 181.8)
     eventPlayer.overhealth_check = true
-    waitUntil(eventPlayer.isUsingAbility1() == false, 99999)
+    waitUntil(eventPlayer.isUsingAbility1() == false, Math.INFINITY)
     eventPlayer.overhealth_check = false
 
 
@@ -45,11 +43,11 @@ rule "Correct Fortify overhealth while outside spawn rooms":
 #     eventPlayer.overhealth_check = false
 
 
-rule "Reduce Terra Surge damage":
+rule "[orisa/init.opy]: Reduce Terra Surge damage":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ORISA
-    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setDamageDealt(80)
-    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
+    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     eventPlayer.setDamageDealt(100)

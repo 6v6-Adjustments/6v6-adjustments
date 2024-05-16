@@ -2,13 +2,11 @@
 
 #!define ADJ_VENTURE_CLOBBER_DAMAGE 65
 #!define ADJ_VENTURE_DRILL_DASH_COOLDOWN 6
-#!define ADJ_VENTURE_DRILL_DASH_DAMAGE 60
-#!define ADJ_VENTURE_EXPLORER_SHIELDS 25
+#!define ADJ_VENTURE_DRILL_DASH_DAMAGE 65
 
 #!define OW2_VENTURE_CLOBBER_DAMAGE 70
 #!define OW2_VENTURE_DRILL_DASH_COOLDOWN 6
 #!define OW2_VENTURE_DRILL_DASH_DAMAGE 90
-#!define OW2_VENTURE_EXPLORER_SHIELDS 40
 
 #!include "heroes/venture/excavator.opy"
 #!include "heroes/venture/tectonic_shock.opy"
@@ -17,16 +15,10 @@
 
 rule "[venture/init.opy]: Venture":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.VENTURE
-    
-    eventPlayer.ult_change_check = 1.13
-    eventPlayer.removeAllHealthPools()
-    eventPlayer.setMaxHealth(percent(ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS))
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
+
+    setCustomHp(ADJ_VENTURE_HEALTH, 0, 0)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE)
@@ -34,6 +26,7 @@ rule "[venture/init.opy]: Venture":
 
     eventPlayer.balance_change_check = false
     eventPlayer.is_firing_excavator = false
+    eventPlayer.call_init = false
 
 
 rule "[venture/init.opy]: Correct Venture bonus shields":

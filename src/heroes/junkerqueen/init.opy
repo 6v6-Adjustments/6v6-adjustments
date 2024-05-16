@@ -1,59 +1,31 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "Junker Queen":
+rule "[junkerqueen/init.opy]: Junker Queen":
     @Event eachPlayer
+    @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
-    
-    eventPlayer.ult_change_check = 1.07
-    eventPlayer.removeAllHealthPools()
+
+    setCustomHp(ADJ_JUNKERQUEEN_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_JUNKERQUEEN_HEALTH, 0, 0)
+    removeTankPassive()
+    removeRegenPassive()
+
+    setBaseDamage(eventPlayer, ADJ_JUNKERQUEEN_SCATTER_GUN_DAMAGE/OW2_JUNKERQUEEN_SCATTER_GUN_DAMAGE)
+    eventPlayer.setHealingDealt(74.29)
+
     eventPlayer.setMaxAmmo(0, 6)
     eventPlayer.setAmmo(0, 6)
-    eventPlayer.overhealth_check = false
-    eventPlayer.setMaxHealth(100)
-    resetHealth()
-    eventPlayer.addHealthPool(Health.NORMAL, 349 if eventPlayer.isDuplicatingAHero() or setting_echo_tank_hp else 399, true, true)
-    resetStats()
-    resetStatuses()
-    enableAllAbilities()
-    removeTankPassive()
-    eventPlayer.setHealingDealt(74.29)
-    eventPlayer.setDamageDealt(87.5)
-    
-    removePassiveHealing()
 
-
-rule "Correct Commanding Shout overhealth while outside spawn rooms":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventPlayer.isInSpawnRoom() == false
-    @Condition eventPlayer.overhealth_check == false
-    
-    damage(eventPlayer, null, 50)
-    eventPlayer.overhealth_check = true
-    waitUntil(eventPlayer.isUsingAbility1() == false, 99999)
     eventPlayer.overhealth_check = false
 
-
-# rule "Correct Commanding Shout overhealth while inside spawn rooms":
-#     @Event eachPlayer
-#     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
-#     @Condition eventPlayer.isUsingAbility1() == true
-#     @Condition eventPlayer.isInSpawnRoom() == true
-#     @Condition eventPlayer.overhealth_check == false
-    
-#     eventPlayer.setHealth(eventPlayer.getMaxHealth() - 50)
-#     eventPlayer.overhealth_check = true
-#     waitUntil(eventPlayer.isUsingAbility1() == false, 99999)
-#     eventPlayer.overhealth_check = false
+    eventPlayer.call_init = false
 
 
-rule "Reduce Rampage Damage":
+rule "[junkerqueen/init.opy]: Reduce Rampage Damage":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
-    @Condition eventPlayer.isUsingUltimate() == true
-    
+    @Condition eventPlayer.isUsingUltimate()
+
     eventPlayer.setDamageDealt(66.777)
-    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
-    eventPlayer.setDamageDealt(87.5)
+    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
+    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
