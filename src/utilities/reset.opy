@@ -23,11 +23,11 @@ def enableAllAbilities():
     eventPlayer.allowButton(Button.ABILITY_2)
     eventPlayer.allowButton(Button.ULTIMATE)
 
-    #eventPlayer.allowButton(Button.MELEE)
-    #eventPlayer.allowButton(Button.JUMP)
-    #eventPlayer.allowButton(Button.CROUCH)
-    #eventPlayer.allowButton(Button.RELOAD)
-    #eventPlayer.allowButton(Button.INTERACT)
+    # eventPlayer.allowButton(Button.MELEE)
+    # eventPlayer.allowButton(Button.JUMP)
+    # eventPlayer.allowButton(Button.CROUCH)
+    # eventPlayer.allowButton(Button.RELOAD)
+    # eventPlayer.allowButton(Button.INTERACT)
 
     eventPlayer.setPrimaryFireEnabled(true)
     eventPlayer.setSecondaryFireEnabled(true)
@@ -35,10 +35,10 @@ def enableAllAbilities():
     eventPlayer.setAbility2Enabled(true)
     eventPlayer.setUltEnabled(true)
 
-    #eventPlayer.setMeleeEnabled(true)
-    #eventPlayer.setJumpEnabled(true)
-    #eventPlayer.setCrouchEnabled(true)
-    #eventPlayer.setReloadEnabled(true)
+    # eventPlayer.setMeleeEnabled(true)
+    # eventPlayer.setJumpEnabled(true)
+    # eventPlayer.setCrouchEnabled(true)
+    # eventPlayer.setReloadEnabled(true)
 
 
 def disableAllAbilities():
@@ -50,11 +50,11 @@ def disableAllAbilities():
     eventPlayer.disallowButton(Button.ABILITY_2)
     eventPlayer.disallowButton(Button.ULTIMATE)
 
-    #eventPlayer.disallowButton(Button.MELEE)
-    #eventPlayer.disallowButton(Button.JUMP)
-    #eventPlayer.disallowButton(Button.CROUCH)
-    #eventPlayer.disallowButton(Button.RELOAD)
-    #eventPlayer.disallowButton(Button.INTERACT)
+    # eventPlayer.disallowButton(Button.MELEE)
+    # eventPlayer.disallowButton(Button.JUMP)
+    # eventPlayer.disallowButton(Button.CROUCH)
+    # eventPlayer.disallowButton(Button.RELOAD)
+    # eventPlayer.disallowButton(Button.INTERACT)
 
     eventPlayer.setPrimaryFireEnabled(false)
     eventPlayer.setSecondaryFireEnabled(false)
@@ -62,10 +62,10 @@ def disableAllAbilities():
     eventPlayer.setAbility2Enabled(false)
     eventPlayer.setUltEnabled(false)
 
-    #eventPlayer.setMeleeEnabled(false)
-    #eventPlayer.setJumpEnabled(false)
-    #eventPlayer.setCrouchEnabled(false)
-    #eventPlayer.setReloadEnabled(false)
+    # eventPlayer.setMeleeEnabled(false)
+    # eventPlayer.setJumpEnabled(false)
+    # eventPlayer.setCrouchEnabled(false)
+    # eventPlayer.setReloadEnabled(false)
 
 
 def resetStats():
@@ -84,7 +84,7 @@ def resetStats():
     eventPlayer.setMoveSpeed(100)
 
     eventPlayer.stopScalingSize()
-    eventPlayer.stopScalingBarriers()
+    # eventPlayer.stopScalingBarriers()
 
 
 def resetStatuses():
