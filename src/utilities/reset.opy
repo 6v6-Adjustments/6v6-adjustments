@@ -23,11 +23,11 @@ def enableAllAbilities():
     eventPlayer.allowButton(Button.ABILITY_2)
     eventPlayer.allowButton(Button.ULTIMATE)
 
-    # eventPlayer.allowButton(Button.MELEE)
-    # eventPlayer.allowButton(Button.JUMP)
-    # eventPlayer.allowButton(Button.CROUCH)
-    # eventPlayer.allowButton(Button.RELOAD)
-    # eventPlayer.allowButton(Button.INTERACT)
+    eventPlayer.allowButton(Button.MELEE)
+    eventPlayer.allowButton(Button.JUMP)
+    eventPlayer.allowButton(Button.CROUCH)
+    eventPlayer.allowButton(Button.RELOAD)
+    eventPlayer.allowButton(Button.INTERACT)
 
     eventPlayer.setPrimaryFireEnabled(true)
     eventPlayer.setSecondaryFireEnabled(true)
@@ -35,10 +35,10 @@ def enableAllAbilities():
     eventPlayer.setAbility2Enabled(true)
     eventPlayer.setUltEnabled(true)
 
-    # eventPlayer.setMeleeEnabled(true)
-    # eventPlayer.setJumpEnabled(true)
-    # eventPlayer.setCrouchEnabled(true)
-    # eventPlayer.setReloadEnabled(true)
+    eventPlayer.setMeleeEnabled(true)
+    eventPlayer.setJumpEnabled(true)
+    eventPlayer.setCrouchEnabled(true)
+    eventPlayer.setReloadEnabled(true)
 
 
 def disableAllAbilities():
