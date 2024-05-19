@@ -11,8 +11,10 @@ settings {
         "spectatorSlots": 12,
         "team1Slots": 6,
         "team2Slots": 6,
+        "minimumLatencyInNs": 7000000,
         "pauseGameOnDisconnect": true,
         "returnToLobby": "afterGame",
+        "swapTeamsAfterMatch": false,
         "teamBalancing": "afterGame"
     },
     "gamemodes": {
@@ -41,11 +43,7 @@ settings {
                 "kingsRowWinter"
             ],
         },
-        "push": {
-            "disabledMaps": [
-                "colosseo"
-            ],
-        },
+        "push": {},
         "general": {
             "heroLimit": "1PerTeam",
             "roleLimit": "2OfEachRolePerTeam",

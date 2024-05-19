@@ -22,7 +22,7 @@ rule "[ramattra/init.opy]: Ramattra":
     eventPlayer.call_init = false
 
 
-rule "[ramattra/init.opy]: Correct Nemesis Form armor, movement speed, and cooldown for duplicate":
+rule "[ramattra/init.opy]: Correct Nemesis Form armor and movement speed":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
