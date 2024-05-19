@@ -115,7 +115,7 @@ rule "[utilities/reset.opy]: Reinitialize hero on new round":
     @Condition isMatchBetweenRounds()
 
     waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
-    # wait(10 * TICK_DURATION)
+    wait(10 * TICK_DURATION)
     resetHero()
     eventPlayer.call_init = true
 
