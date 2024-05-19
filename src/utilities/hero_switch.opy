@@ -24,14 +24,7 @@ rule "[utilities/hero_switch.opy]: Initialize hero on hero switch":
     @Condition switchedHero(eventPlayer)
 
     waitUntil(not switchedHero(eventPlayer), Math.INFINITY)
-    wait(10 * TICK_DURATION)
+    # wait(10 * TICK_DURATION)
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
     resetHero()
     eventPlayer.call_init = true
-
-
-rule "[utilities/hero_switch.opy]: reset ult charge on hero switch":
-    @Event eachPlayer
-    @Condition switchedHero(eventPlayer)
-
-    resetUltCharge()
