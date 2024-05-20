@@ -171,7 +171,8 @@
 #!define OW2_LUCIO_SOUND_GUN_DAMAGE 18
 #!define OW2_LUCIO_SOUNDWAVE_DAMAGE 45
 #!define OW2_LUCIO_SOUNDWAVE_COOLDOWN 4
-#!define OW2_LUCIO_SOUNDWAVE_KNOCKBACK 1.12
+#!define OW2_LUCIO_SOUNDWAVE_KNOCKBACK 8
+# changed lucio soundwave knockback to be distance in meters instead of a scaler (was previously 1.12)
 #!define OW2_LUCIO_ULT_COST 2650
 
 # Mauga

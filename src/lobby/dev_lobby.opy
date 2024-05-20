@@ -9,7 +9,7 @@ settings {
         "spectatorSlots": 12,
         "team1Slots": 6,
         "team2Slots": 0,
-        "minimumLatencyInNs": 7000000,
+        "minimumLatencyInNs": 10000000,
         "pauseGameOnDisconnect": true,
     },
     "gamemodes": {
@@ -96,6 +96,7 @@ settings {
             },
             "lucio": {
                 "secondaryFireCooldown%": percent(ADJ_LUCIO_SOUNDWAVE_COOLDOWN/OW2_LUCIO_SOUNDWAVE_COOLDOWN),
+                "secondaryFireKb%": percent(ADJ_LUCIO_SOUNDWAVE_KNOCKBACK/OW2_LUCIO_SOUNDWAVE_KNOCKBACK),
                 "ultGen%": percent(OW2_LUCIO_ULT_COST/ADJ_LUCIO_ULT_COST)
             },
             "mauga": {
