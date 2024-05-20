@@ -188,7 +188,7 @@ settings {
                 "ultGen%": percent(OW2_SOLDIER_ULT_COST/ADJ_SOLDIER_ULT_COST)
             },
             "sombra": {
-                "ability1Cooldown%": percent(OW2_SOMBRA_VIRUS_COOLDOWN/ADJ_SOMBRA_VIRUS_COOLDOWN),
+                "ability1Cooldown%": percent(ADJ_SOMBRA_VIRUS_COOLDOWN/OW2_SOMBRA_VIRUS_COOLDOWN),
                 "ultGen%": percent(OW2_SOMBRA_ULT_COST/ADJ_SOMBRA_ULT_COST)
             },
             "symmetra": {
