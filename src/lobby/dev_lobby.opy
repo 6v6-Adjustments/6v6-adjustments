@@ -89,9 +89,9 @@ settings {
                 "ultGen%": percent(OW2_KIRIKO_ULT_COST/ADJ_KIRIKO_ULT_COST)
             },
             "lifeweaver": {
-                "secondaryFireCooldown%": 83,
-                "secondaryFireHealth%": 75,
-                "ultHealth%": 75,
+                "secondaryFireCooldown%": percent(ADJ_LIFEWEAVER_PLATFORM_COOLDOWN/OW2_LIFEWEAVER_PLATFORM_COOLDOWN),
+                "secondaryFireHealth%": percent(ADJ_LIFEWEAVER_PLATFORM_HEALTH/OW2_LIFEWEAVER_PLATFORM_HEALTH),
+                "ultHealth%": percent(ADJ_LIFEWEAVER_TREE_HEALTH/OW2_LIFEWEAVER_TREE_HEALTH),
                 "ultGen%": percent(OW2_LIFEWEAVER_ULT_COST/ADJ_LIFEWEAVER_ULT_COST)
             },
             "lucio": {
@@ -101,13 +101,12 @@ settings {
             },
             "mauga": {
                 "primaryFireIgniteDamage": percent(ADJ_MAUGA_BURN_DPS/((ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)*OW2_MAUGA_BURN_DPS)),
-                "primaryFireIgniteRate": 125,
-                "ability1Cooldown%": 166,
+                "primaryFireIgniteRate": percent(OW2_MAUGA_BURN_RATE/ADJ_MAUGA_BURN_RATE),
+                "ability1Cooldown%": percent(ADJ_MAUGA_OVERRUN_COOLDOWN/OW2_MAUGA_OVERRUN_COOLDOWN),
                 "ability2Cooldown%": percent((ADJ_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)/(OW2_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)),
                 "ultGen%": percent(OW2_MAUGA_ULT_COST/ADJ_MAUGA_ULT_COST)
             },
             "mei": {
-                "ultFreezeMinimum%": 30,
                 "health%": percent(ADJ_MEI_ICEWALL_HP/OW2_MEI_ICEWALL_HP),
                 "ultGen%": percent(OW2_MEI_ULT_COST/ADJ_MEI_ULT_COST)
             },
