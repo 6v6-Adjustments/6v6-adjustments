@@ -28,10 +28,10 @@ def clearCustomHp():
 
     eventPlayer.removeAllHealthPools()
     wait()
-    eventPlayer.setMaxHealth(100.001)
-    wait()
+    eventPlayer.setMaxHealth(100.001) # DO NOT REMOVE THIS LINE
+    wait() # DO NOT REMOVE THIS LINE
     eventPlayer.setMaxHealth(100)
-    heal(eventPlayer, null, Math.INFINITY)
+
 
 def applyCustomHp():
     @Name "[utilities/custom_hp.opy]: applyCustomHp()"

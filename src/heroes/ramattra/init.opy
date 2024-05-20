@@ -22,7 +22,7 @@ rule "[ramattra/init.opy]: Ramattra":
     eventPlayer.call_init = false
 
 
-rule "[ramattra/init.opy]: Correct Nemesis Form armor, movement speed, and cooldown for duplicate":
+rule "[ramattra/init.opy]: Correct Nemesis Form armor and movement speed":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
@@ -31,8 +31,8 @@ rule "[ramattra/init.opy]: Correct Nemesis Form armor, movement speed, and coold
     eventPlayer.addHealthPool(Health.ARMOR, 28, true, true)
     waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 29, 99999)
     eventPlayer.setMoveSpeed(100)
-    if not RULE_CONDITION:
-        return
+    # if not RULE_CONDITION:
+    #     return
     removeHealthPool(getLastCreatedHealthPool())
     #if eventPlayer.getHeroOfDuplication() == Hero.RAMATTRA:
     #waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_1) != 0, 99999)

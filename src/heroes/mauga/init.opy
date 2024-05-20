@@ -13,9 +13,7 @@ rule "[mauga/init.opy]: Mauga":
     setBaseDamage(eventPlayer, ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)
     eventPlayer.setHealingDealt(72)
     eventPlayer.startScalingSize(0.94, true)
-    eventPlayer.setJumpVerticalSpeed(101)
 
-    eventPlayer.overhealth_check = false
     eventPlayer.balance_change_check = false
 
     eventPlayer.call_init = false
@@ -29,7 +27,7 @@ rule "[mauga/init.opy]: Increase Mauga melee damage":
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
 
-rule "[mauga/init.opy]: Remove Cardiac Overdrive allied damage reduction and set cooldown":
+rule "[mauga/init.opy]: Remove Cardiac Overdrive allied damage reduction":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MAUGA
     @Condition eventPlayer.isUsingAbility2()
