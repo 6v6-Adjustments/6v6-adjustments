@@ -45,6 +45,7 @@
 
 
 rule "[roadhog/breather.opy]: Allow self healing during Breather":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventPlayer.isFiringSecondaryFire()

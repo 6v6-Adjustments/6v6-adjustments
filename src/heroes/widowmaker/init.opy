@@ -2,6 +2,7 @@
 
 
 rule "[widowmaker/init.opy]: Widowmaker":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.WIDOWMAKER

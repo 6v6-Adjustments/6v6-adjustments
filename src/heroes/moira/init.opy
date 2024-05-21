@@ -3,6 +3,7 @@
 #!include "heroes/moira/coalescence.opy"
 
 rule "[moira/init.opy]: Moira":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MOIRA

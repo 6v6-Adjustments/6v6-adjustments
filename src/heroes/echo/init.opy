@@ -3,6 +3,7 @@
 #!include "heroes/echo/duplicate.opy"
 
 rule "[echo/init.opy]: Echo":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ECHO
@@ -23,6 +24,7 @@ rule "[echo/init.opy]: Echo":
 
 rule "[echo/init.opy]: Correct Tri-Shot and Echo melee damage":
     @Event playerDealtDamage
+    @Team 1
     @Condition eventPlayer.hero_setup == Hero.ECHO
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.MELEE]
 

@@ -5,6 +5,7 @@
 
 
 rule "[roadhog/init.opy]: Roadhog":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
@@ -26,6 +27,7 @@ rule "[roadhog/init.opy]: Roadhog":
 
 
 rule "[roadhog/init.opy]: Correct melee damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventAbility == Button.MELEE
@@ -34,6 +36,7 @@ rule "[roadhog/init.opy]: Correct melee damage":
 
 
 rule "[roadhog/init.opy]: Correct Chain Hook damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventAbility == Button.ABILITY_1
@@ -45,6 +48,7 @@ rule "[roadhog/init.opy]: Correct Chain Hook damage":
 
 
 rule "[roadhog/init.opy]: Correct Pigpen damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventAbility == Button.ABILITY_2

@@ -2,6 +2,7 @@
 
 
 rule "[pharah/init.opy]: Pharah":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.PHARAH
@@ -15,6 +16,7 @@ rule "[pharah/init.opy]: Pharah":
 
 
 rule "[pharah/init.opy]: Reset projectile speed for Barrage":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.PHARAH
     @Condition eventPlayer.isUsingUltimate()

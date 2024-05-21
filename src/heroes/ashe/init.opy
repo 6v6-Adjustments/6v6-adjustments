@@ -2,6 +2,7 @@
 
 
 rule "[ashe/init.opy]: Ashe":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ASHE

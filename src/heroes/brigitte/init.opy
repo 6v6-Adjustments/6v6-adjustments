@@ -6,6 +6,7 @@
 
 
 rule "[brigitte/init.opy]: Brigitte":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.BRIGITTE
@@ -20,6 +21,7 @@ rule "[brigitte/init.opy]: Brigitte":
 
 
 rule "[brigitte/init.opy]: Increase Inspire self healing":
+    @Team 1
     @Event playerDealtHealing
     @Condition eventPlayer.hero_setup == Hero.BRIGITTE
     @Condition healee == healer
@@ -28,6 +30,7 @@ rule "[brigitte/init.opy]: Increase Inspire self healing":
 
 
 rule "[brigitte/init.opy]: Increase Repair Pack healing":
+    @Team 1
     @Event playerDealtHealing
     @Condition eventPlayer.hero_setup == Hero.BRIGITTE
     @Condition eventAbility == Button.ABILITY_2
@@ -36,6 +39,7 @@ rule "[brigitte/init.opy]: Increase Repair Pack healing":
 
 
 rule "[brigitte/init.opy]: Extra Repair Pack burst healing":
+    @Team 1
     @Event playerDealtHealing
     @Condition eventPlayer.hero_setup == Hero.BRIGITTE
     @Condition eventAbility == Button.ABILITY_2

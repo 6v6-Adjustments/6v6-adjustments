@@ -6,6 +6,7 @@
 
 
 rule "[reinhardt/init.opy]: Reinhardt":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.REINHARDT

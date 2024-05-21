@@ -13,6 +13,7 @@ playervar is_firing_excavator
 
 #This rule checks for when Venture uses primary fire, then we pass this variable onto the next rule to make sure Drill Dash doesn't receive bonus damage from the increases to Smart Excavator's damage
 rule "[venture/excavator.opy]: Prepare Smart Excavator damage increase":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventPlayer.isFiringPrimaryFire()
@@ -23,6 +24,7 @@ rule "[venture/excavator.opy]: Prepare Smart Excavator damage increase":
 
 
 rule "[venture/excavator.opy]: Increase Smart Excavator damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventPlayer.isFiringPrimaryFire() or eventPlayer.is_firing_excavator

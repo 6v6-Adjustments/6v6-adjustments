@@ -2,6 +2,7 @@
 
 
 rule "[winston/init.opy]: Winston":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.WINSTON

@@ -2,6 +2,7 @@
 
 
 rule "[doomfist/powerblock.opy]: Reduce Power Block active duration":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.DOOMFIST
     @Condition eventPlayer.isUsingAbility2()

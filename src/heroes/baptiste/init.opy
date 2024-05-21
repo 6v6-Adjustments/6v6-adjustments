@@ -4,6 +4,7 @@
 
 
 rule "[baptiste/init.opy]: Baptiste":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE
@@ -19,6 +20,7 @@ rule "[baptiste/init.opy]: Baptiste":
 
 
 rule "[baptiste/init.opy]: Increase Baptiste melee damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE
     @Condition eventAbility in [Button.MELEE]
@@ -27,6 +29,7 @@ rule "[baptiste/init.opy]: Increase Baptiste melee damage":
 
 
 rule "[baptiste/init.opy]: Increase Biotic Launcher healing":
+    @Team 1
     @Event playerDealtHealing
     @Condition eventPlayer.balance_change_check == true
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE

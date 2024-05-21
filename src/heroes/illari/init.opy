@@ -4,6 +4,7 @@
 
 
 rule "[illari/init.opy]: Illari":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ILLARI
@@ -20,6 +21,7 @@ rule "[illari/init.opy]: Illari":
 
 
 rule "[illari/init.opy]: Correct Outburst and melee damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ILLARI
     @Condition eventAbility in [Button.MELEE, Button.ABILITY_1]

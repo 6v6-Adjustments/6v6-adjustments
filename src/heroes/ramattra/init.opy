@@ -8,6 +8,7 @@ subroutine hideRamattraBlockCD
 
 
 rule "[ramattra/init.opy]: Ramattra":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
@@ -23,6 +24,7 @@ rule "[ramattra/init.opy]: Ramattra":
 
 
 rule "[ramattra/init.opy]: Correct Nemesis Form armor, movement speed, and cooldown for duplicate":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
@@ -40,6 +42,7 @@ rule "[ramattra/init.opy]: Correct Nemesis Form armor, movement speed, and coold
 
 
 rule "[ramattra/init.opy]: Increase Pummel damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true

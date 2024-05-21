@@ -1,11 +1,11 @@
 #!mainFile "../main.opy"
 
 # Environment Variables
-#!define GAMEMODE_VERSION "Internal Build"
-#!define GAMEMODE_NAME "6v6 Adjustments"
+#!define GAMEMODE_VERSION "69420"
+#!define GAMEMODE_NAME "5v6 ReAdjustments"
 #!define GAMDMODE_DESCRIPTION (GAMEMODE_NAME + " " + GAMEMODE_VERSION + " " + "(" + GAMEMODE_CODE + ")" + "\n" + \
                                "\n" + \
-                               "Intended for 6v6 gameplay, by Toastie#11770" + "\n" + \
+                               "Intended for 5v6 gameplay, by Sulack#11941" + "\n" + \
                                "\n" + \
                                "Gamemode forked from" + "\n" + \
                                "Overwatch 1 Emulator v1.12.2 (KHTG0)" + "\n" + \
@@ -22,8 +22,8 @@
                                DISCORD_SHORT_LINK + "\n" + \
                                DISCORD_LONG_LINK + "\n" + \
                                SOURCE_CODE_LINK)
-#!define GAMEMODE_CODE "7HSKW"
-#!define DEV_CODE "NSQSSS"
+#!define GAMEMODE_CODE "TBA"
+#!define DEV_CODE "TBA"
 #!define DISCORD_SHORT_LINK "6v6.info"
 #!define DISCORD_LONG_LINK "https://discord.gg/uzFUQu7G4s"
 #!define SOURCE_CODE_LINK "github.com/6v6-Adjustments/6v6-adjustments"

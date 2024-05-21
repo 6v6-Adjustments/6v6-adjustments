@@ -5,6 +5,7 @@
 
 
 rule "[zarya/init.opy]: Zarya":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ZARYA
@@ -27,6 +28,7 @@ rule "[zarya/init.opy]: Zarya":
 
 
 rule "[zarya/init.opy]: Clean up Zarya":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup != Hero.ZARYA
 
@@ -35,6 +37,7 @@ rule "[zarya/init.opy]: Clean up Zarya":
 
 
 rule "[zarya/init.opy]: Correct Alternate Fire and Melee damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventAbility in [Button.SECONDARY_FIRE, Button.MELEE]

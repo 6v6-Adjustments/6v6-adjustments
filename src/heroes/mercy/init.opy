@@ -2,6 +2,7 @@
 
 
 rule "[mercy/init.opy]: Mercy":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MERCY
@@ -17,6 +18,7 @@ rule "[mercy/init.opy]: Mercy":
 
 
 rule "[mercy/init.opy]: Reduce Valkyrie healing":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MERCY
     @Condition eventPlayer.isUsingUltimate()

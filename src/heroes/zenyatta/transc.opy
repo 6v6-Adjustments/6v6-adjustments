@@ -2,6 +2,7 @@
 
 
 rule "[zenyatta/transc.opy]: Allow self healing during Transcendence":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ZENYATTA
     @Condition eventPlayer.isUsingUltimate()

@@ -40,6 +40,7 @@ Below HUD is tuned for 16:9 aspect ratio monitors (typical PC Overwatch setup).
 
 
 rule "[zarya/self_bubble.opy]: OW1 zarya self bubble cooldown":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.isUsingAbility1()
@@ -55,6 +56,7 @@ rule "[zarya/self_bubble.opy]: OW1 zarya self bubble cooldown":
 
 rule "[zarya/self_bubble.opy]: Disable self bubble if on cooldown":
     @Event eachPlayer
+    @Team 1
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.self_bubble_cooldown > 0
 
@@ -62,6 +64,7 @@ rule "[zarya/self_bubble.opy]: Disable self bubble if on cooldown":
     showSelfBubbleCD()
 
 rule "[zarya/self_bubble.opy]: Enable self bubble if not on cooldown":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.self_bubble_cooldown <= 0

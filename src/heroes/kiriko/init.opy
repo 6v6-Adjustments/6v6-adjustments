@@ -4,6 +4,7 @@
 
 
 rule "[kiriko/init.opy]: Kiriko":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.KIRIKO

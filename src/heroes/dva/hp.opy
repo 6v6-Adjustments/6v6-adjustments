@@ -2,6 +2,7 @@
 
 
 rule "[dva/hp.opy]: Correct DVa mech health":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.DVA
     @Condition not eventPlayer.isInAlternateForm()
@@ -14,6 +15,7 @@ rule "[dva/hp.opy]: Correct DVa mech health":
 
 
 rule "[dva/hp.opy]: Correct DVa pilot health":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.DVA
     @Condition eventPlayer.isInAlternateForm()

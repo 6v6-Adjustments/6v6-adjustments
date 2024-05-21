@@ -2,6 +2,7 @@
 
 
 rule "[moira/coalescence.opy]: Prevent fading during coalescence":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MOIRA
     @Condition eventPlayer.isUsingUltimate()

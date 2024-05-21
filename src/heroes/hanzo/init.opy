@@ -2,6 +2,7 @@
 
 
 rule "[hanzo/init.opy]: Hanzo":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.HANZO
@@ -15,6 +16,7 @@ rule "[hanzo/init.opy]: Hanzo":
 
 
 rule "[hanzo/init.opy]: Correct Storm Bow, Sonic Arrow and melee damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.HANZO
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.MELEE, Button.ABILITY_1]

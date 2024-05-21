@@ -6,6 +6,7 @@
 
 
 rule "[venture/burrow.opy]: Reduce Burrow damage":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventPlayer.isUsingAbility1()

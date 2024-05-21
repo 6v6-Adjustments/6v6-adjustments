@@ -9,7 +9,7 @@ settings {
         "dataCenterPreference": "usSouthwest",
         "spectatorSlots": 12,
         "team1Slots": 6,
-        "team2Slots": 6,
+        "team2Slots": 5,
         "pauseGameOnDisconnect": true
     },
     "gamemodes": {
@@ -54,7 +54,7 @@ settings {
         }
     },
     "heroes": {
-        "allTeams": {
+        "team1": {
             "ana": {
                 "ability1Cooldown%": percent(ADJ_ANA_SLEEP_DART_COOLDOWN_TIME/OW2_ANA_SLEEP_DART_COOLDOWN_TIME),
                 "ultGen%": percent(OW2_ANA_ULT_COST/ADJ_ANA_ULT_COST)

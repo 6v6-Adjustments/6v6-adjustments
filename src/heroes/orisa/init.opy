@@ -2,6 +2,7 @@
 
 
 rule "[orisa/init.opy]: Orisa":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ORISA
@@ -17,6 +18,7 @@ rule "[orisa/init.opy]: Orisa":
 
 
 rule "[orisa/init.opy]: Correct Fortify overhealth while outside spawn rooms":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ORISA
     @Condition eventPlayer.isUsingAbility1()

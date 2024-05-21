@@ -2,6 +2,7 @@
 
 
 rule "[junkerqueen/init.opy]: Junker Queen":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
@@ -22,6 +23,7 @@ rule "[junkerqueen/init.opy]: Junker Queen":
 
 
 rule "[junkerqueen/init.opy]: Reduce Rampage Damage":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
     @Condition eventPlayer.isUsingUltimate()

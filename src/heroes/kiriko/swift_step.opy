@@ -2,6 +2,7 @@
 
 
 rule "[kiriko/swift_step.opy]: Heal when using Swift Step":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
     @Condition eventPlayer.isUsingAbility1() == true
@@ -10,6 +11,7 @@ rule "[kiriko/swift_step.opy]: Heal when using Swift Step":
 
 
 rule "[kiriko/swift_step.opy]: Force swift step cooldown after spawning":
+    @Team 1
     @Event playerDied
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
 

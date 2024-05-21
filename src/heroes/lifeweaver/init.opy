@@ -2,6 +2,7 @@
 
 
 rule "[lifeweaver/init.opy]: Lifeweaver":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
@@ -20,6 +21,7 @@ rule "[lifeweaver/init.opy]: Lifeweaver":
 
 
 rule "[lifeweaver/init.opy]: Reduce Lifeweaver melee damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
     @Condition eventAbility == Button.MELEE
@@ -28,6 +30,7 @@ rule "[lifeweaver/init.opy]: Reduce Lifeweaver melee damage":
 
 
 rule "[lifeweaver/init.opy]: Reduce Tree of Life healing":
+    @Team 1
     @Event playerDealtHealing
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
     @Condition eventPlayer.isUsingUltimate()
@@ -38,6 +41,7 @@ rule "[lifeweaver/init.opy]: Reduce Tree of Life healing":
 
 
 rule "[lifeweaver/init.opy]: Reduce Tree of Life duration":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
     @Condition eventPlayer.isUsingUltimate()

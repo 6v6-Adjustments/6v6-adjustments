@@ -2,6 +2,7 @@
 
 
 rule "[junkrat/init.opy]: Junkrat":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.JUNKRAT
@@ -28,6 +29,7 @@ rule "[junkrat/init.opy]: Junkrat":
 
 
 rule "[junkrat/init.opy]: Correct Junkrat other forms of damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.JUNKRAT
     @Condition eventAbility in [Button.MELEE, Button.ABILITY_1, Button.ABILITY_2, Button.ULTIMATE]

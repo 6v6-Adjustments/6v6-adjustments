@@ -2,6 +2,7 @@
 
 
 rule "[mauga/init.opy]: Mauga":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MAUGA
@@ -22,6 +23,7 @@ rule "[mauga/init.opy]: Mauga":
 
 
 rule "[mauga/init.opy]: Increase Mauga melee damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.MAUGA
     @Condition eventAbility == Button.MELEE
@@ -30,6 +32,7 @@ rule "[mauga/init.opy]: Increase Mauga melee damage":
 
 
 rule "[mauga/init.opy]: Remove Cardiac Overdrive allied damage reduction and set cooldown":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MAUGA
     @Condition eventPlayer.isUsingAbility2()
@@ -49,6 +52,7 @@ rule "[mauga/init.opy]: Remove Cardiac Overdrive allied damage reduction and set
 
 
 rule "[mauga/init.opy]: Reduce Cage Fight duration":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MAUGA
     @Condition eventPlayer.isUsingUltimate()

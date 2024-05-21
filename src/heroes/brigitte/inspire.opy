@@ -2,6 +2,7 @@
 
 
 rule "[brigitte/inspire.opy]: Inspire self healing logic":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.BRIGITTE
 

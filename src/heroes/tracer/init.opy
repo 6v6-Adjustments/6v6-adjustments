@@ -2,6 +2,7 @@
 
 
 rule "[tracer/init.opy]: Tracer":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.TRACER
@@ -17,6 +18,7 @@ rule "[tracer/init.opy]: Tracer":
 
 
 rule "[tracer/init.opy]: Correct melee and Pulse Bomb damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.TRACER
     @Condition eventAbility in [Button.MELEE, Button.ULTIMATE]

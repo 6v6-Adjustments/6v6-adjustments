@@ -14,6 +14,7 @@
 
 
 rule "[venture/init.opy]: Venture":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.VENTURE
@@ -30,6 +31,7 @@ rule "[venture/init.opy]: Venture":
 
 
 rule "[venture/init.opy]: Correct Venture bonus shields":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventPlayer.getMaxHealthOfType(Health.SHIELDS) >= 46
@@ -40,6 +42,7 @@ rule "[venture/init.opy]: Correct Venture bonus shields":
 
 
 rule "[venture/init.opy]: Increase Venture melee damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventAbility == Button.MELEE

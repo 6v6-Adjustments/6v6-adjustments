@@ -40,6 +40,7 @@ Below HUD is tuned for 16:9 aspect ratio monitors (typical PC Overwatch setup).
 
 
 rule "[zarya/ally_bubble.opy]: OW1 zarya ally bubble cooldown":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.isUsingAbility2()
@@ -53,6 +54,7 @@ rule "[zarya/ally_bubble.opy]: OW1 zarya ally bubble cooldown":
 
 
 rule "[zarya/ally_bubble.opy]: Disable ally bubble if on cooldown":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.ally_bubble_cooldown > 0
@@ -62,6 +64,7 @@ rule "[zarya/ally_bubble.opy]: Disable ally bubble if on cooldown":
 
 
 rule "[zarya/ally_bubble.opy]: Enable ally bubble if not on cooldown":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.ally_bubble_cooldown <= 0

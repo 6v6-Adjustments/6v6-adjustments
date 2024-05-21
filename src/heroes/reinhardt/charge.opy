@@ -2,6 +2,7 @@
 
 
 rule "[reinhardt/charge.opy]: Correct Charge damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     @Condition eventAbility == Button.ABILITY_1
@@ -13,6 +14,7 @@ rule "[reinhardt/charge.opy]: Correct Charge damage":
 
 
 rule "[reinhardt/charge.opy]: Reduce Charge radius":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     @Condition eventPlayer.isUsingAbility1()

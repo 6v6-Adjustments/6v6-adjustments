@@ -6,6 +6,7 @@
 
 
 rule "[doomfist/init.opy]: Doomfist":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.DOOMFIST
@@ -20,6 +21,7 @@ rule "[doomfist/init.opy]: Doomfist":
 
 
 rule "[doomfist/init.opy]: Correct Rocket Punch and Meteor Strike damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.DOOMFIST
     @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ULTIMATE]

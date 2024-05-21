@@ -2,6 +2,7 @@
 
 
 rule "[reaper/init.opy]: Reaper":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.REAPER
@@ -13,6 +14,7 @@ rule "[reaper/init.opy]: Reaper":
 
 
 rule "[reaper/init.opy]: Increase Hellfire Shotgun damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.REAPER
     @Condition eventAbility == Button.PRIMARY_FIRE
@@ -22,6 +24,7 @@ rule "[reaper/init.opy]: Increase Hellfire Shotgun damage":
 
 
 rule "[reaper/init.opy]: Reduce Death Blossom damage":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.REAPER
     @Condition eventPlayer.isUsingUltimate()

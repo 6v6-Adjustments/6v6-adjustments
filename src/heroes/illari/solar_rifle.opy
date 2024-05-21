@@ -2,6 +2,7 @@
 
 # Use 1 rule with if/else inside instead of 2 rules for performance
 rule "[illari/solar_rifle.opy]: Correct Solar Rifle damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ILLARI
     @Condition eventAbility == Button.PRIMARY_FIRE
@@ -13,6 +14,7 @@ rule "[illari/solar_rifle.opy]: Correct Solar Rifle damage":
 
 
 rule "[illari/solar_rifle.opy]: Reduce Solar Rifle healing":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ILLARI
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)

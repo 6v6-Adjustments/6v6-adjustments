@@ -12,6 +12,7 @@
 
 
 rule "[mei/cryo_freeze.opy]: Allow self healing during Cryo-Freeze":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MEI
     @Condition eventPlayer.isUsingAbility1()

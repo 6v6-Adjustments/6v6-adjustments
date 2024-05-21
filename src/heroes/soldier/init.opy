@@ -4,6 +4,7 @@
 
 
 rule "[soldier/init.opy]: Soldier 76":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.SOLDIER
@@ -17,6 +18,7 @@ rule "[soldier/init.opy]: Soldier 76":
 
 
 rule "[soldier/init.opy]: Increase Heavy Pulse Rifle damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.SOLDIER
     @Condition eventAbility == Button.PRIMARY_FIRE

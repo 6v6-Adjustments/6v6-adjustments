@@ -6,6 +6,7 @@ playervar hp_before_duplicate
 
 
 rule "[echo/duplicate.opy]: Remember hp before duplicate":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ECHO
     @Condition eventPlayer.isHoldingButton(Button.ULTIMATE)
@@ -14,6 +15,7 @@ rule "[echo/duplicate.opy]: Remember hp before duplicate":
 
 
 rule "[echo/duplicate.opy]: Override hero setup during duplicate":
+    @Team 1
     @Event eachPlayer
     @Hero echo
     @Condition eventPlayer.isDuplicatingAHero()
@@ -24,6 +26,7 @@ rule "[echo/duplicate.opy]: Override hero setup during duplicate":
 
 
 rule "[echo/duplicate.opy]: Revert hero setup when exiting Duplicate":
+    @Team 1
     @Event eachPlayer
     @Hero echo
     @Condition not eventPlayer.isDuplicatingAHero()
@@ -37,6 +40,7 @@ rule "[echo/duplicate.opy]: Revert hero setup when exiting Duplicate":
 
 
 rule "[echo/duplicate.opy]: Correct duplicate ultimate charge rate":
+    @Team 1
     @Event eachPlayer
     @Hero echo
     @Condition eventPlayer.isDuplicatingAHero()

@@ -2,6 +2,7 @@
 
 
 rule "[sombra/init.opy]: Sombra":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.SOMBRA
@@ -14,6 +15,7 @@ rule "[sombra/init.opy]: Sombra":
 
 
 rule "[sombra/init.opy]: hacked health packs":
+    @Team 1
     @Event playerReceivedHealing
     @Condition eventPlayer.hero_setup == Hero.SOMBRA
     @Condition eventWasHealthPack == true

@@ -2,6 +2,7 @@
 
 
 rule "[reinhardt/shatter.opy]: Correct Earthshatter damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     @Condition eventAbility == Button.ULTIMATE

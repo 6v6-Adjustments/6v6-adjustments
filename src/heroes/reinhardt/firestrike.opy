@@ -2,6 +2,7 @@
 
 
 rule "[reinhardt/firestrike.opy]: Force single firestrike":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     @Condition eventPlayer.isUsingAbility2()
@@ -13,6 +14,7 @@ rule "[reinhardt/firestrike.opy]: Force single firestrike":
 
 
 rule "[reinhardt/firestrike.opy]: Increase Firestrike damage (early animation)":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     @Condition eventPlayer.isUsingAbility2()

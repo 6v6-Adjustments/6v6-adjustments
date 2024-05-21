@@ -2,6 +2,7 @@
 
 
 rule "[winston/leap.opy]: Override leap cooldown during primal":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.WINSTON
     @Condition eventPlayer.isUsingUltimate()

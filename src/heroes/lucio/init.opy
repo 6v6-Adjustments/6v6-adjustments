@@ -4,6 +4,7 @@
 
 
 rule "[lucio/init.opy]: Lucio":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.LUCIO
@@ -19,6 +20,7 @@ rule "[lucio/init.opy]: Lucio":
 
 
 rule "[lucio/init.opy]: Correct Lucio melee damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.LUCIO
     @Condition eventAbility == Button.MELEE
@@ -27,6 +29,7 @@ rule "[lucio/init.opy]: Correct Lucio melee damage":
 
 
 rule "[lucio/init.opy]: Correct Sonic Amplifier damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.LUCIO
     @Condition eventAbility == Button.PRIMARY_FIRE

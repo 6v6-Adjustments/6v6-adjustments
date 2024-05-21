@@ -5,6 +5,7 @@
 
 
 rule "[mccree/init.opy]: Cassidy":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MCCREE
@@ -18,6 +19,7 @@ rule "[mccree/init.opy]: Cassidy":
 
 
 rule "[mccree/init.opy]: Correct Cassidy other forms of damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.MCCREE
     @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ABILITY_2]

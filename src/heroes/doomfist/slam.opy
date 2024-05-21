@@ -2,6 +2,7 @@
 
 
 rule "[doomfist/slam.opy]: Best Defense for slammed victims":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.DOOMFIST
     @Condition eventAbility == Button.ABILITY_1 # Ability used to damage player is Seismic Slam

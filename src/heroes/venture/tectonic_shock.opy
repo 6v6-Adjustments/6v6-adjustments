@@ -9,6 +9,7 @@
 
 
 rule "[venture/tectonic_shock.opy]: Increase Tectonic Shock damage":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventPlayer.isUsingUltimate()
@@ -19,6 +20,7 @@ rule "[venture/tectonic_shock.opy]: Increase Tectonic Shock damage":
 
 
 rule "[venture/tectonic_shock.opy]: Tectonic Shock critical damage bonus":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventPlayer.isUsingUltimate()

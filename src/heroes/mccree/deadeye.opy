@@ -2,6 +2,7 @@
 
 
 rule "[mccree/deadeye.opy]: Remove damage reduction and set damage during deadeye":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MCCREE
     @Condition eventPlayer.isUsingUltimate()

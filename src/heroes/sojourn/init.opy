@@ -2,6 +2,7 @@
 
 
 rule "[sojourn/init.opy]: Sojourn":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.SOJOURN

@@ -2,6 +2,7 @@
 
 
 rule "[wreckingball/shields.opy]: Remove Adaptive Shields overhealth transfer":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.HAMMOND
     @Condition eventPlayer.isUsingAbility2()

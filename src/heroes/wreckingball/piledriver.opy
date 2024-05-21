@@ -2,6 +2,7 @@
 
 
 rule "[wreckingball/piledriver.opy]: Increase Piledriver damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.HAMMOND
     @Condition eventAbility == Button.CROUCH

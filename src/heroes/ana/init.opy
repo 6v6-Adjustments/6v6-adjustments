@@ -3,6 +3,7 @@
 #!include "heroes/ana/nade.opy"
 
 rule "[ana/init.opy]: Initialize Ana":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ANA
@@ -20,6 +21,7 @@ rule "[ana/init.opy]: Initialize Ana":
 
 
 rule "[ana/init.opy]: Correct Biotic Rifle, Sleep Dart, Melee damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ANA
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_1, Button.MELEE]

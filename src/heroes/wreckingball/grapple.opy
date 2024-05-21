@@ -2,6 +2,7 @@
 
 
 rule "[wreckingball/grapple.opy]: Force Grappling Hook cooldown":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.HAMMOND
     @Condition eventPlayer.isFiringSecondaryFire()

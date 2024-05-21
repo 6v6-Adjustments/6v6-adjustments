@@ -2,6 +2,7 @@
 
 
 rule "[mccree/roll.opy]: Reduce damage reduction during roll":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MCCREE
     @Condition eventPlayer.isUsingAbility1()

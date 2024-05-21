@@ -2,6 +2,7 @@
 
 
 rule "[sigma/init.opy]: Sigma":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.SIGMA
@@ -15,6 +16,7 @@ rule "[sigma/init.opy]: Sigma":
 
 
 rule "[sigma/init.opy]: Remove Kinetic Grasp overhealth":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.SIGMA
     @Condition eventPlayer.isUsingAbility1() == true
@@ -31,6 +33,7 @@ rule "[sigma/init.opy]: Remove Kinetic Grasp overhealth":
 
 
 rule "[sigma/init.opy]: Increase Accretion damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.SIGMA
     @Condition eventAbility == Button.ABILITY_2

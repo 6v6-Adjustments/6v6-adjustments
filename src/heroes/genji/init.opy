@@ -2,6 +2,7 @@
 
 
 rule "[genji/init.opy]: Genji":
+    @Team 1
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.GENJI
@@ -13,6 +14,7 @@ rule "[genji/init.opy]: Genji":
 
 
 rule "[genji/init.opy]: Correct Shurikens damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.GENJI
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.SECONDARY_FIRE]

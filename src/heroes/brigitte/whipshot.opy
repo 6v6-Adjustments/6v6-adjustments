@@ -2,6 +2,7 @@
 
 
 rule "[brigitte/init.opy]: Correct Whipshot damage":
+    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.BRIGITTE
     @Condition eventAbility == Button.ABILITY_1
