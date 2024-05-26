@@ -8,8 +8,6 @@ playervar call_init
 subroutine resetSelfHealing
 
 #!define resetHero()\
-    clearCustomHp() \
-    wait(0.1) \
     resetStats() \
     resetUltCharge() \
     resetSelfHealing() \

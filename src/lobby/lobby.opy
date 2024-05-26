@@ -11,20 +11,13 @@ settings {
         "spectatorSlots": 12,
         "team1Slots": 6,
         "team2Slots": 6,
-        "minimumLatencyInNs": 10000000,
+        # "minimumLatencyInNs": 10000000,
         "pauseGameOnDisconnect": true,
         "returnToLobby": "afterGame",
         "swapTeamsAfterMatch": false,
         "teamBalancing": "afterGame"
     },
     "gamemodes": {
-        "assault": {
-            "disabledMaps": [
-                "horizonLunarColony",
-                "paris"
-            ],
-            "captureSpeed%": 110,
-        },
         "control": {
             "disabledMaps": [
                 "lijiangTowerLny"

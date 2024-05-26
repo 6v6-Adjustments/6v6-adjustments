@@ -20,4 +20,8 @@ rule "[dva/hp.opy]: Correct DVa pilot health":
     @Condition eventPlayer.getMaxHealthOfType(Health.NORMAL) != ADJ_DVA_PILOT_HEALTH
     @Condition not eventPlayer.call_init
 
-    clearCustomHp()
+    eventPlayer.removeAllHealthPools()
+    wait()
+    eventPlayer.setMaxHealth(100.001) # DO NOT REMOVE THIS LINE
+    wait() # DO NOT REMOVE THIS LINE
+    eventPlayer.setMaxHealth(100)
