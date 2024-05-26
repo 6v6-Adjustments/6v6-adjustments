@@ -17,7 +17,6 @@ rule "[ramattra/init.opy]: Ramattra":
     removeSelfHealing()
 
     eventPlayer.startScalingSize(0.94, true)
-    eventPlayer.setJumpVerticalSpeed(101)
 
     eventPlayer.call_init = false
 

@@ -11,6 +11,7 @@ rule "[mauga/init.opy]: Mauga":
     removeRegenPassive()
 
     setBaseDamage(eventPlayer, ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)
+    eventPlayer.setMaxHealth(100)
     eventPlayer.setHealingDealt(72)
     eventPlayer.startScalingSize(0.94, true)
 

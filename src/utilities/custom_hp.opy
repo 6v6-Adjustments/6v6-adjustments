@@ -23,18 +23,24 @@ subroutine applyCustomHp
     applyCustomHp()
 
 
-def clearCustomHp():
-    @Name "[utilities/custom_hp.opy]: clearCustomHp()"
+# def clearCustomHp():
+#     @Name "[utilities/custom_hp.opy]: clearCustomHp()"
+
+#     eventPlayer.removeAllHealthPools()
+#     wait()
+#     eventPlayer.setMaxHealth(100.001) # DO NOT REMOVE THIS LINE
+#     wait() # DO NOT REMOVE THIS LINE
+#     eventPlayer.setMaxHealth(100)
+
+
+def applyCustomHp():
+    @Name "[utilities/custom_hp.opy]: applyCustomHp()"
 
     eventPlayer.removeAllHealthPools()
     wait()
     eventPlayer.setMaxHealth(100.001) # DO NOT REMOVE THIS LINE
     wait() # DO NOT REMOVE THIS LINE
     eventPlayer.setMaxHealth(100)
-
-
-def applyCustomHp():
-    @Name "[utilities/custom_hp.opy]: applyCustomHp()"
 
     eventPlayer._hp_iter_count = 0
 
