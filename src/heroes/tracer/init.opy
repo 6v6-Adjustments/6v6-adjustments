@@ -7,9 +7,9 @@ rule "[tracer/init.opy]: Tracer":
     @Condition eventPlayer.hero_setup == Hero.TRACER
 
     eventPlayer.removeAllHealthPools()
-    wait()
+    wait(0.1)
     eventPlayer.setMaxHealth(100.001) # DO NOT REMOVE THIS LINE
-    wait() # DO NOT REMOVE THIS LINE
+    wait(0.1) # DO NOT REMOVE THIS LINE
     eventPlayer.setMaxHealth(100)
 
     removeSelfHealing()

@@ -2,15 +2,15 @@
 
 # globalvar health_pool
 
-playervar hp_before_duplicate
+# playervar hp_before_duplicate
 
 
-rule "[echo/duplicate.opy]: Remember hp before duplicate":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ECHO
-    @Condition eventPlayer.isHoldingButton(Button.ULTIMATE)
+# rule "[echo/duplicate.opy]: Remember hp before duplicate":
+#     @Event eachPlayer
+#     @Condition eventPlayer.hero_setup == Hero.ECHO
+#     @Condition eventPlayer.isHoldingButton(Button.ULTIMATE)
 
-    eventPlayer.hp_before_duplicate = eventPlayer.getHealth()
+#     eventPlayer.hp_before_duplicate = eventPlayer.getHealth()
 
 
 rule "[echo/duplicate.opy]: Override hero setup during duplicate":
@@ -32,8 +32,18 @@ rule "[echo/duplicate.opy]: Revert hero setup when exiting Duplicate":
     resetHero()
     eventPlayer.call_init = true
 
-    waitUntil(not eventPlayer.call_init, Math.INFINITY)
-    damage(eventPlayer, null, ADJ_ECHO_HEALTH - max(eventPlayer.hp_before_duplicate, ADJ_ECHO_DUPLICATE_EXIT_HEALTH))
+    # waitUntil(not eventPlayer.call_init, Math.INFINITY)
+    # damage(eventPlayer, null, ADJ_ECHO_HEALTH - max(eventPlayer.hp_before_duplicate, ADJ_ECHO_DUPLICATE_EXIT_HEALTH))
+
+
+rule "[echo/duplicate.opy]: Death in Duplicate":
+    @Event playerDied
+    @Hero echo
+
+    waitUntil(eventPlayer.isInSpawnRoom() == true, Math.INFINITY)
+    eventPlayer.hero_setup = eventPlayer.getCurrentHero()
+    resetHero()
+    eventPlayer.call_init = true
 
 
 rule "[echo/duplicate.opy]: Correct duplicate ultimate charge rate":

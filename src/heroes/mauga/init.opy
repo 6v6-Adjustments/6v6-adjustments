@@ -6,14 +6,14 @@ rule "[mauga/init.opy]: Mauga":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MAUGA
 
-    setCustomHp(ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, ADJ_MAUGA_ARMOR, 0)
+    setCustomHp(ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, 
+                ADJ_MAUGA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_ARMOR, 0)
     removeTankPassive()
     removeRegenPassive()
 
     setBaseDamage(eventPlayer, ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)
     eventPlayer.setHealingDealt(72)
     eventPlayer.startScalingSize(0.94, true)
-    # wait()
     eventPlayer.setMaxHealth(100)
 
     eventPlayer.balance_change_check = false
