@@ -27,8 +27,8 @@ rule "[ramattra/init.opy]: Correct Nemesis Form armor and movement speed":
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
     
     eventPlayer.setMoveSpeed(83.4)
-    eventPlayer.addHealthPool(Health.ARMOR, 53, true, true)
-    waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 54, 99999)
+    eventPlayer.addHealthPool(Health.ARMOR, 53.75, true, true)
+    waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 54.75, 99999)
     eventPlayer.setMoveSpeed(100)
     # if not RULE_CONDITION:
     #     return

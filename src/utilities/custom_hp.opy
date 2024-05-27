@@ -46,10 +46,10 @@ def applyCustomHp():
     eventPlayer._hp_iter_count = 0
 
     # loop MAX_HP_ITER_COUNT times if hp is incorrect
-    while (((abs(eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer._hp_health) > HP_ROUNDING_ERROR_MARGIN)\
-         or (abs(eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer._hp_armor) > HP_ROUNDING_ERROR_MARGIN)\
-         or (abs(eventPlayer.getMaxHealthOfType(Health.SHIELDS) - eventPlayer._hp_shields) > HP_ROUNDING_ERROR_MARGIN))\
-       and (eventPlayer._hp_iter_count < MAX_HP_ITER_COUNT)):
+    # while (((abs(eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer._hp_health) > HP_ROUNDING_ERROR_MARGIN)\
+    #      or (abs(eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer._hp_armor) > HP_ROUNDING_ERROR_MARGIN)\
+    #      or (abs(eventPlayer.getMaxHealthOfType(Health.SHIELDS) - eventPlayer._hp_shields) > HP_ROUNDING_ERROR_MARGIN))\
+    #    and (eventPlayer._hp_iter_count < MAX_HP_ITER_COUNT)):
     
         eventPlayer.setHealingReceived(0)
 
@@ -77,4 +77,4 @@ def applyCustomHp():
         eventPlayer.clearStatusEffect(Status.INVINCIBLE)
 
         wait()
-        eventPlayer._hp_iter_count += 1
+        # eventPlayer._hp_iter_count += 1
