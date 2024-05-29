@@ -9,7 +9,7 @@ settings {
         "spectatorSlots": 12,
         "team1Slots": 6,
         "team2Slots": 0,
-        "minimumLatencyInNs": 10000000,
+        # "minimumLatencyInNs": 10000000,
         "pauseGameOnDisconnect": true,
     },
     "gamemodes": {

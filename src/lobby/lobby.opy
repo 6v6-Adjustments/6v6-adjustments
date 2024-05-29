@@ -11,20 +11,13 @@ settings {
         "spectatorSlots": 12,
         "team1Slots": 6,
         "team2Slots": 6,
-        "minimumLatencyInNs": 10000000,
+        # "minimumLatencyInNs": 10000000,
         "pauseGameOnDisconnect": true,
         "returnToLobby": "afterGame",
         "swapTeamsAfterMatch": false,
         "teamBalancing": "afterGame"
     },
     "gamemodes": {
-        "assault": {
-            "disabledMaps": [
-                "horizonLunarColony",
-                "paris"
-            ],
-            "captureSpeed%": 110,
-        },
         "control": {
             "disabledMaps": [
                 "lijiangTowerLny"
@@ -48,7 +41,7 @@ settings {
             "heroLimit": "1PerTeam",
             "roleLimit": "2OfEachRolePerTeam",
             "randomHeroRoleLimitPerTeam": 2,
-            "gamemodeStartTrigger": "allSlotsFilled",
+            "gamemodeStartTrigger": "immediately",
             "tankPassiveHealthBonus": "disabled",
             "randomHeroRoleLimitPerTeam": 2,
             "enableCompetitiveRules": true,
