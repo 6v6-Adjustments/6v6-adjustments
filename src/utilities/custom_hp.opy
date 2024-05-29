@@ -23,33 +23,27 @@ subroutine applyCustomHp
     applyCustomHp()
 
 
-# def clearCustomHp():
-#     @Name "[utilities/custom_hp.opy]: clearCustomHp()"
+def clearCustomHp():
+    @Name "[utilities/custom_hp.opy]: clearCustomHp()"
 
-#     eventPlayer.removeAllHealthPools()
-#     wait()
-#     eventPlayer.setMaxHealth(100.001) # DO NOT REMOVE THIS LINE
-#     wait() # DO NOT REMOVE THIS LINE
-#     eventPlayer.setMaxHealth(100)
+    eventPlayer.removeAllHealthPools()
+    wait()
+    eventPlayer.setMaxHealth(100.001) # DO NOT REMOVE THIS LINE
+    wait() # DO NOT REMOVE THIS LINE
+    eventPlayer.setMaxHealth(100)
 
 
+# Assume hero's at default hp values before setting custom hp
 def applyCustomHp():
     @Name "[utilities/custom_hp.opy]: applyCustomHp()"
 
-    eventPlayer.removeAllHealthPools()
-    wait(0.064)
-    eventPlayer.setMaxHealth(100.001) # DO NOT REMOVE THIS LINE
-    wait(0.064) # DO NOT REMOVE THIS LINE
-    eventPlayer.setMaxHealth(100)
-
-    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, Math.INFINITY)
     eventPlayer._hp_iter_count = 0
 
     # loop MAX_HP_ITER_COUNT times if hp is incorrect
-    # while (((abs(eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer._hp_health) > HP_ROUNDING_ERROR_MARGIN)\
-    #      or (abs(eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer._hp_armor) > HP_ROUNDING_ERROR_MARGIN)\
-    #      or (abs(eventPlayer.getMaxHealthOfType(Health.SHIELDS) - eventPlayer._hp_shields) > HP_ROUNDING_ERROR_MARGIN))\
-    #    and (eventPlayer._hp_iter_count < MAX_HP_ITER_COUNT)):
+    while (((abs(eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer._hp_health) > HP_ROUNDING_ERROR_MARGIN)\
+         or (abs(eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer._hp_armor) > HP_ROUNDING_ERROR_MARGIN)\
+         or (abs(eventPlayer.getMaxHealthOfType(Health.SHIELDS) - eventPlayer._hp_shields) > HP_ROUNDING_ERROR_MARGIN))\
+       and (eventPlayer._hp_iter_count < MAX_HP_ITER_COUNT)):
     
         eventPlayer.setHealingReceived(0)
 
@@ -77,4 +71,4 @@ def applyCustomHp():
         eventPlayer.clearStatusEffect(Status.INVINCIBLE)
 
         wait()
-        # eventPlayer._hp_iter_count += 1
+        eventPlayer._hp_iter_count += 1

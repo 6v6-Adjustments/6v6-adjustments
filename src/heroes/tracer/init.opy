@@ -6,12 +6,6 @@ rule "[tracer/init.opy]: Tracer":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.TRACER
 
-    eventPlayer.removeAllHealthPools()
-    wait(0.1)
-    eventPlayer.setMaxHealth(100.001) # DO NOT REMOVE THIS LINE
-    wait(0.1) # DO NOT REMOVE THIS LINE
-    eventPlayer.setMaxHealth(100)
-
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_TRACER_PULSE_PISTOL_DAMAGE/OW2_TRACER_PULSE_PISTOL_DAMAGE)
