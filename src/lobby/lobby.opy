@@ -11,20 +11,13 @@ settings {
         "spectatorSlots": 12,
         "team1Slots": 6,
         "team2Slots": 6,
-        "minimumLatencyInNs": 10000000,
+        # "minimumLatencyInNs": 10000000,
         "pauseGameOnDisconnect": true,
         "returnToLobby": "afterGame",
         "swapTeamsAfterMatch": false,
         "teamBalancing": "afterGame"
     },
     "gamemodes": {
-        "assault": {
-            "disabledMaps": [
-                "horizonLunarColony",
-                "paris"
-            ],
-            "captureSpeed%": 110,
-        },
         "control": {
             "disabledMaps": [
                 "lijiangTowerLny"
@@ -48,7 +41,7 @@ settings {
             "heroLimit": "1PerTeam",
             "roleLimit": "2OfEachRolePerTeam",
             "randomHeroRoleLimitPerTeam": 2,
-            "gamemodeStartTrigger": "allSlotsFilled",
+            "gamemodeStartTrigger": "immediately",
             "tankPassiveHealthBonus": "disabled",
             "randomHeroRoleLimitPerTeam": 2,
             "enableCompetitiveRules": true,
@@ -187,7 +180,7 @@ settings {
                 "ultGen%": percent(OW2_SOLDIER_ULT_COST/ADJ_SOLDIER_ULT_COST)
             },
             "sombra": {
-                "ability1Cooldown%": percent(OW2_SOMBRA_VIRUS_COOLDOWN/ADJ_SOMBRA_VIRUS_COOLDOWN),
+                "ability1Cooldown%": percent(ADJ_SOMBRA_VIRUS_COOLDOWN/OW2_SOMBRA_VIRUS_COOLDOWN),
                 "ultGen%": percent(OW2_SOMBRA_ULT_COST/ADJ_SOMBRA_ULT_COST)
             },
             "symmetra": {
