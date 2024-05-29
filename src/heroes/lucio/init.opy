@@ -13,7 +13,6 @@ rule "[lucio/init.opy]: Lucio":
 
     setBaseDamage(eventPlayer, ADJ_LUCIO_SOUNDWAVE_DAMAGE/OW2_LUCIO_SOUNDWAVE_DAMAGE)
     eventPlayer.setHealingDealt(100)
-    eventPlayer.setKnockbackDealt(89.286)
 
     eventPlayer.call_init = false
 
