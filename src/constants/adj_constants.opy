@@ -238,6 +238,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_SOLDIER_BIOTIC_FIELD_COOLDOWN 15
 #!define ADJ_SOLDIER_BIOTIC_FIELD_DURATION 5
 #!define ADJ_SOLDIER_HEALTH 200
+#!define ADJ_SOLDIER_PULSE_RIFLE_DAMAGE 19.5
 #!define ADJ_SOLDIER_ULT_COST 2310
 
 # Sombra

@@ -21,4 +21,4 @@ rule "[soldier/init.opy]: Increase Heavy Pulse Rifle damage":
     @Condition eventPlayer.hero_setup == Hero.SOLDIER
     @Condition eventAbility == Button.PRIMARY_FIRE
     
-    damage(victim, attacker, eventDamage * 1.026 - eventDamage)
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar)*(ADJ_SOLDIER_PULSE_RIFLE_DAMAGE/OW2_SOLDIER_PULSE_RIFLE_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
