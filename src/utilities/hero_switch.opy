@@ -23,7 +23,7 @@ rule "[utilities/hero_switch.opy]: Initialize hero on hero switch":
     @Event eachPlayer
     @Condition switchedHero(eventPlayer)
 
-    # waitUntil(eventPlayer.isInSpawnRoom(), Math.INFINITY)
+    waitUntil(eventPlayer.hasSpawned(), Math.INFINITY)
     waitUntil(not switchedHero(eventPlayer), Math.INFINITY)
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
     resetHero()
