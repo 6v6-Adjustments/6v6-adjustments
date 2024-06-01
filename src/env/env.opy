@@ -1,20 +1,23 @@
 #!mainFile "../main.opy"
 
 # Environment Variables
-#!define GAMEMODE_VERSION "Internal Build"
+#!define GAMEMODE_VERSION "Staging Build"
 #!define GAMEMODE_NAME "6v6 Adjustments"
 #!define GAMDMODE_DESCRIPTION (GAMEMODE_NAME + " " + GAMEMODE_VERSION + " " + "(" + GAMEMODE_CODE + ")" + "\n" + \
                                "\n" + \
                                "Intended for 6v6 gameplay, by Toastie#11770" + "\n" + \
                                "\n" + \
-                               "Gamemode forked from" + "\n" + \
-                               "Overwatch 1 Emulator v1.12.2 (KHTG0)" + "\n" + \
-                               "by ecksdee#11729" + "\n" + \
-                               "\n" + \
                                "Developers:" + "\n" + \
                                "Toastie#11770" + "\n" + \
                                "LemonHead#11820" + "\n" + \
                                "ecksdee#11729" + "\n" + \
+                               "\n" + \
+                               "Main Build: " + GAMEMODE_CODE + "\n" + \
+                               "Staging Build: " + STAGING_CODE + "\n" + \
+                               "\n" + \
+                               "This gamemode is forked from" + "\n" + \
+                               "Overwatch 1 Emulator v1.12.2 (KHTG0)" + "\n" + \
+                               "by ecksdee#11729" + "\n" + \
                                "\n" + \
                                "Come join the discord server!" + "\n" + \
                                "We host 6v6 custom lobbies every weekend!" + "\n" + \
@@ -23,7 +26,7 @@
                                DISCORD_LONG_LINK + "\n" + \
                                SOURCE_CODE_LINK)
 #!define GAMEMODE_CODE "7HSKW"
-#!define DEV_CODE "NSQSSS"
+#!define STAGING_CODE "NSQSSS"
 #!define DISCORD_SHORT_LINK "6v6.info"
 #!define DISCORD_LONG_LINK "https://discord.gg/uzFUQu7G4s"
 #!define SOURCE_CODE_LINK "github.com/6v6-Adjustments/6v6-adjustments"
