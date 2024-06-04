@@ -26,7 +26,6 @@ rule "[baptiste/regen_burst.opy]: Allow self healing during regenerative burst":
 rule "[baptiste/regen_burst.opy]: Correct regenerative burst hps":
     @Event playerDealtHealing
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE
-    @Condition healee == healer
     @Condition eventAbility == Button.ABILITY_1
     
     if healee == healer: # self healing
