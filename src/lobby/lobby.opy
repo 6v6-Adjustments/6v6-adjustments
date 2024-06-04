@@ -43,7 +43,6 @@ settings {
             "randomHeroRoleLimitPerTeam": 2,
             "gamemodeStartTrigger": "immediately",
             "tankPassiveHealthBonus": "disabled",
-            "randomHeroRoleLimitPerTeam": 2,
             "enableCompetitiveRules": true,
         }
     },
