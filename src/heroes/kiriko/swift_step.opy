@@ -6,7 +6,7 @@ rule "[kiriko/swift_step.opy]: Heal when using Swift Step":
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
     @Condition eventPlayer.isUsingAbility1() == true
     
-    eventPlayer.startHoT(eventPlayer, 0.25, 160)
+    eventPlayer.startHoT(eventPlayer, ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL_DURATION, ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL/ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL_DURATION)
 
 
 rule "[kiriko/swift_step.opy]: Force swift step cooldown after spawning":

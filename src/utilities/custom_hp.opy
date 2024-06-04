@@ -33,6 +33,7 @@ def clearCustomHp():
     eventPlayer.setMaxHealth(100)
 
 
+# Assume hero's at default hp values before setting custom hp
 def applyCustomHp():
     @Name "[utilities/custom_hp.opy]: applyCustomHp()"
 
@@ -46,18 +47,11 @@ def applyCustomHp():
     
         eventPlayer.setHealingReceived(0)
 
-        # waitUntil(eventPlayer.hasSpawned(), Math.INFINITY)
-        # waitUntil(not (eventPlayer.hasStatusEffect(Status.INVINCIBLE) \
-        #             or eventPlayer.hasStatusEffect(Status.UNKILLABLE)), Math.INFINITY)
-
-        # wait()
-
         eventPlayer.setHealth(MIN_HP)
         eventPlayer.addHealthPool(Health.NORMAL, MIN_HP, true, true)
         eventPlayer.addHealthPool(Health.ARMOR, MIN_HP, true, true)
         eventPlayer.addHealthPool(Health.SHIELDS, MIN_HP, true, true)
-        # Apply an unkillable status so we don't accidentally kill the player
-        # eventPlayer.setStatusEffect(eventPlayer, Status.UNKILLABLE, Math.INFINITY)
+        eventPlayer.setStatusEffect(null, Status.INVINCIBLE, Math.INFINITY)
 
         eventPlayer.removeAllHealthPools()
 
@@ -74,20 +68,7 @@ def applyCustomHp():
             eventPlayer.addHealthPool(Health.SHIELDS, max(1, eventPlayer._hp_shields), true, true)
         eventPlayer.setHealingReceived(100)
         heal(eventPlayer, null, Math.INFINITY)
-        # eventPlayer.clearStatusEffect(Status.UNKILLABLE)
+        eventPlayer.clearStatusEffect(Status.INVINCIBLE)
 
         wait()
         eventPlayer._hp_iter_count += 1
-
-
-# rule "[custom_hp.opy]: Remove Custom Health Conditions":
-#     @Event eachPlayer
-
-#     # Health pools persist between hero switching, so we remove it when player's switch or duplicate to another hero, or when D.Va switches between forms.
-#     waitUntil(eventPlayer.getCurrentHero() != evalOnce(eventPlayer.getCurrentHero()) or eventPlayer.getHeroOfDuplication() != evalOnce(eventPlayer.getHeroOfDuplication()) or (isHero(eventPlayer, Hero.DVA) and eventPlayer.isInAlternateForm() != evalOnce(eventPlayer.isInAlternateForm())), Math.INFINITY)
-
-#     clearCustomHp()
-
-#     wait()
-
-#     if RULE_CONDITION: goto RULE_START

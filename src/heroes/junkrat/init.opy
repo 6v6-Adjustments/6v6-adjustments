@@ -5,9 +5,7 @@ rule "[junkrat/init.opy]: Junkrat":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.JUNKRAT
-    
-    clearCustomHp()
-    #resetHealth()
+
     #Version or the "resetHealth" subroutine that keeps tire at 100 hp
     wait()
     eventPlayer.setHealingReceived(0)
