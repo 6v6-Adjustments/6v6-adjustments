@@ -9,20 +9,16 @@ settings {
         "spectatorSlots": 12,
         "team1Slots": 6,
         "team2Slots": 0,
-        # "minimumLatencyInNs": 10000000,
-        "pauseGameOnDisconnect": true,
     },
     "gamemodes": {
         "practiceRange": {
             "enabledMaps": [ "practiceRange" ]
         },
         "general": {
-            "heroLimit": "1PerTeam",
-            "roleLimit": "2OfEachRolePerTeam",
-            "randomHeroRoleLimitPerTeam": 2,
+            "heroLimit": "off",
+            "roleLimit": "off",
             "gamemodeStartTrigger": "allSlotsFilled",
             "tankPassiveHealthBonus": "disabled",
-            "randomHeroRoleLimitPerTeam": 2,
             "enableCompetitiveRules": true
         }
     },
