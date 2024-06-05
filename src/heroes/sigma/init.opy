@@ -21,4 +21,4 @@ rule "[sigma/init.opy]: Increase Accretion damage":
     @Condition eventPlayer.hero_setup == Hero.SIGMA
     @Condition eventAbility == Button.ABILITY_2
     
-    damage(victim, attacker, eventDamage * 1.125 - eventDamage)
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_SIGMA_ACCRETION_DAMAGE/OW2_SIGMA_ACCRETION_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)

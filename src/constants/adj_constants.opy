@@ -176,7 +176,6 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # Orisa
 #!define ADJ_ORISA_ARMOR 250
 #!define ADJ_ORISA_ARMOR_DUPLICATE 175
-
 #!define ADJ_ORISA_HEALTH 200
 #!define ADJ_ORISA_HEALTH_DUPLICATE 175
 #!define ADJ_ORISA_JAVELIN_SPIN_COOLDOWN 7
@@ -231,6 +230,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_ROADHOG_ULT_COST 2240
 
 # Sigma
+#!define ADJ_SIGMA_ACCRETION_DAMAGE 90
 #!define ADJ_SIGMA_BARRIER_REGEN 80
 #!define ADJ_SIGMA_HEALTH 300
 #!define ADJ_SIGMA_HEALTH_DUPLICATE 150
