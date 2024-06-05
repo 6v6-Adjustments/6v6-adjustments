@@ -15,6 +15,9 @@ subroutine resetSelfHealing
     resetSelfHealing() \
     enableAllAbilities() \
 
+#!define initHero()\
+    eventPlayer.call_init = true
+
 
 def enableAllAbilities():
     @Name "[utilities/reset.opy]: enableAllAbilities()"
@@ -117,11 +120,11 @@ rule "[utilities/reset.opy]: Reinitialize hero on new round":
 
     waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
     resetHero()
-    eventPlayer.call_init = true
+    initHero()
 
 
 # rule "[utilities/reset.opy]: Reinitialize hero on respawn":
 #     @Event playerDied
 
 #     waitUntil(eventPlayer.isAlive(), Math.INFINITY)
-#     eventPlayer.call_init = true
+#     initHero()

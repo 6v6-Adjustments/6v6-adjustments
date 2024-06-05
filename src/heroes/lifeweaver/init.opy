@@ -11,10 +11,10 @@ rule "[lifeweaver/init.opy]: Lifeweaver":
 
     setBaseDamage(eventPlayer, ADJ_LIFEWEAVER_THORN_VOLLEY_DAMAGE/OW2_LIFEWEAVER_THORN_VOLLEY_DAMAGE)
 
-    eventPlayer.setMaxAmmo(0, 14)
-    eventPlayer.setAmmo(0, 14)
-    eventPlayer.setMaxAmmo(1, 60)
-    eventPlayer.setAmmo(1, 60)
+    eventPlayer.setMaxAmmo(0, ADJ_LIFEWEAVER_HEALING_BLOSSOM_AMMO)
+    eventPlayer.setAmmo(0, ADJ_LIFEWEAVER_HEALING_BLOSSOM_AMMO)
+    eventPlayer.setMaxAmmo(1, ADJ_LIFEWEAVER_THORN_VOLLEY_AMMO)
+    eventPlayer.setAmmo(1, ADJ_LIFEWEAVER_THORN_VOLLEY_AMMO)
 
     eventPlayer.call_init = false
 

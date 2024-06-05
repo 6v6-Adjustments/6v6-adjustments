@@ -19,9 +19,9 @@ rule "[echo/init.opy]: Echo":
     eventPlayer.call_init = false
 
 
-rule "[echo/init.opy]: Correct Tri-Shot and Echo melee damage":
+rule "[echo/init.opy]: Correct Echo other forms of damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.ECHO
-    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.MELEE]
+    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_2, Button.MELEE]
 
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
