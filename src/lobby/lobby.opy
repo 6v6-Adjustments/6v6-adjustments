@@ -42,7 +42,7 @@ settings {
         "description": GAMDMODE_DESCRIPTION,
     },
     "lobby": {
-        "dataCenterPreference": "usSouthwest",
+        # "dataCenterPreference": "usSouthwest",
         "mapRotation": "afterGame",
         "spectatorSlots": 12,
         "team1Slots": 6,
@@ -97,7 +97,8 @@ settings {
                 "ultGen%": percent(OW2_BAPTISTE_ULT_COST/ADJ_BAPTISTE_ULT_COST)
             },
             "bastion": {
-                "ultGen%": percent(OW2_BASTION_ULT_COST/ADJ_BASTION_ULT_COST)
+                "ultGen%": percent(OW2_BASTION_ULT_COST/ADJ_BASTION_ULT_COST),
+                "ability1Cooldown%": percent(ADJ_BASTION_RECONFIGURE_COOLDOWN/OW2_BASTION_RECONFIGURE_COOLDOWN)
             },
             "brigitte": {
                 "ability2Cooldown%": percent(ADJ_BRIGITTE_REPAIR_PACK_COOLDOWN/OW2_BRIGITTE_REPAIR_PACK_COOLDOWN),
