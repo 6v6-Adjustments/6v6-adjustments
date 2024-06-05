@@ -12,7 +12,7 @@ rule "[baptiste/init.opy]: Baptiste":
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_BAPTISTE_PRIMARY_DAMAGE/OW2_BAPTISTE_PRIMARY_DAMAGE)
-    setBaseHealing(eventPlayer, 0.7)
+    setBaseHealing(eventPlayer, ADJ_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH/OW2_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH)
 
     eventPlayer.balance_change_check = true
     eventPlayer.call_init = false
@@ -28,12 +28,11 @@ rule "[baptiste/init.opy]: Increase Baptiste melee damage":
 
 rule "[baptiste/init.opy]: Increase Biotic Launcher healing":
     @Event playerDealtHealing
-    @Condition eventPlayer.balance_change_check == true
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE
     @Condition eventAbility == Button.SECONDARY_FIRE
-    @Condition eventHealing <= 34
-    
+    @Condition eventHealing < ADJ_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH
+
     eventPlayer.balance_change_check = false
-    heal(healee, healer, eventHealing * 2.857 - eventHealing)
-    wait(0.25)
+    heal(healee, healer, eventHealing/eventPlayer._base_healing_scalar * (ADJ_BAPTISTE_BIOTIC_LAUNCHER_HEALING_DIRECT/OW2_BAPTISTE_BIOTIC_LAUNCHER_HEALING_DIRECT) - eventHealing)
+    wait(0.15)
     eventPlayer.balance_change_check = true
