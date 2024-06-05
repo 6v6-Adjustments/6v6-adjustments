@@ -30,12 +30,7 @@ rule "[ramattra/init.opy]: Correct Nemesis Form armor and movement speed":
     eventPlayer.addHealthPool(Health.ARMOR, 53.75, true, true)
     waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 54.75, 99999)
     eventPlayer.setMoveSpeed(100)
-    # if not RULE_CONDITION:
-    #     return
     removeHealthPool(getLastCreatedHealthPool())
-    #if eventPlayer.getHeroOfDuplication() == Hero.RAMATTRA:
-    #waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_1) != 0, 99999)
-    #eventPlayer.setAbilityCooldown(Button.ABILITY_1, 9)
 
 
 rule "[ramattra/init.opy]: Increase Pummel damage":

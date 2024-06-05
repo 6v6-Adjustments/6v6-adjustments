@@ -18,3 +18,12 @@ rule "[genji/init.opy]: Correct Shurikens damage":
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.SECONDARY_FIRE]
 
     damage(victim, attacker, eventDamage * (ADJ_GENJI_SHURIKEN_DAMAGE/OW2_GENJI_SHURIKEN_DAMAGE) - eventDamage)
+
+
+rule "[genji/init.opy]: Reduce Deflect duration":
+    @Event eachPlayer
+    @Condition eventPlayer.hero_setup == Hero.GENJI
+    @Condition eventPlayer.isUsingAbility2()
+
+    wait(ADJ_GENJI_DEFLECT_DURATION)
+    eventPlayer.forceButtonPress(Button.ABILITY_2)
