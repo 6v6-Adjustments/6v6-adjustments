@@ -153,6 +153,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_MAUGA_ULT_COST 2400
 
 # Mei
+#!define ADJ_MEI_CRYO_HEALING 50
 #!define ADJ_MEI_ICEWALL_HP 200
 #!define ADJ_MEI_HEALTH 250
 #!define ADJ_MEI_ULT_COST 1610
