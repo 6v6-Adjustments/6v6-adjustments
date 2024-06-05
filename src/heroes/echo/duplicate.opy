@@ -20,7 +20,7 @@ rule "[echo/duplicate.opy]: Override hero setup during duplicate":
     
     eventPlayer.hero_setup = eventPlayer.getHeroOfDuplication()
     resetHero()
-    eventPlayer.call_init = true
+    initHero()
 
 
 rule "[echo/duplicate.opy]: Revert hero setup when exiting Duplicate":
@@ -30,7 +30,7 @@ rule "[echo/duplicate.opy]: Revert hero setup when exiting Duplicate":
 
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
     resetHero()
-    eventPlayer.call_init = true
+    initHero()
 
     # waitUntil(not eventPlayer.call_init, Math.INFINITY)
     # damage(eventPlayer, null, ADJ_ECHO_HEALTH - max(eventPlayer.hp_before_duplicate, ADJ_ECHO_DUPLICATE_EXIT_HEALTH))
@@ -44,7 +44,7 @@ rule "[echo/duplicate.opy]: Death in Duplicate":
     waitUntil(eventPlayer.isInSpawnRoom() == true, Math.INFINITY)
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
     resetHero()
-    eventPlayer.call_init = true
+    initHero()
 
 
 rule "[echo/duplicate.opy]: Correct duplicate ultimate charge rate":
