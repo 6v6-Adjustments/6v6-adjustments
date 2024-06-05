@@ -31,6 +31,7 @@ rule "[baptiste/init.opy]: Increase Biotic Launcher healing":
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE
     @Condition eventAbility == Button.SECONDARY_FIRE
     @Condition eventHealing < ADJ_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH
+    @Condition eventPlayer.balance_change_check
 
     eventPlayer.balance_change_check = false
     heal(healee, healer, eventHealing/eventPlayer._base_healing_scalar * (ADJ_BAPTISTE_BIOTIC_LAUNCHER_HEALING_DIRECT/OW2_BAPTISTE_BIOTIC_LAUNCHER_HEALING_DIRECT) - eventHealing)
