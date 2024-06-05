@@ -11,7 +11,7 @@ rule "[mei/init.opy]: Mei":
     setCustomHp(ADJ_MEI_HEALTH, 0, 0)
     removeSelfHealing()
 
-    eventPlayer.setMaxAmmo(0, 120)
-    eventPlayer.setAmmo(0, 120)
+    eventPlayer.setMaxAmmo(0, ADJ_MEI_AMMO_COUNT)
+    eventPlayer.setAmmo(0, ADJ_MEI_AMMO_COUNT)
 
     eventPlayer.call_init = false

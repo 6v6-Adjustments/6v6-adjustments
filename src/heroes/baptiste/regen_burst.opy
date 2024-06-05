@@ -10,7 +10,7 @@ rule "[baptiste/regen_burst.opy]: Remove initial burst healing from Regenerative
     waitUntil(eventPlayer.isUsingAbility1() == false, Math.INFINITY)
     eventPlayer.setHealingDealt(percent(eventPlayer._base_healing_scalar))
     if eventPlayer.getHeroOfDuplication() == Hero.BAPTISTE:
-        eventPlayer.setAbilityCooldown(Button.ABILITY_1, 13)
+        eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_BAPTISTE_REGEN_BURST_COOLDOWN)
 
 
 rule "[baptiste/regen_burst.opy]: Allow self healing during regenerative burst":
