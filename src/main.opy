@@ -1,5 +1,3 @@
-#!include "env/env.opy"
-
 # Experiments
 #!include "passives/experiments/knockback.opy"
 
