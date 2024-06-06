@@ -15,6 +15,7 @@
 #!include "utilities/ready.opy"
 #!include "utilities/hit_detection.opy"
 #!include "utilities/anti_crash.opy"
+#!include "utilities/spawn_notes.opy"
 
 # Custom game lobby settings
 #!include "lobby/dev_lobby.opy"
