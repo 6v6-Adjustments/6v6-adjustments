@@ -13,7 +13,7 @@ subroutine cancelWholehog
 rule "[roadhog/wholehog.opy]: OW1 disable abilities during wholehog":
     @Team 1
     @Event eachPlayer
-    @Hero roadhog
+    @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setMeleeEnabled(false)
@@ -27,7 +27,7 @@ rule "[roadhog/wholehog.opy]: OW1 disable abilities during wholehog":
 rule "[roadhog/wholehog.opy]: OW1 enable abilities when not in wholehog":
     @Team 1
     @Event eachPlayer
-    @Hero roadhog
+    @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition not eventPlayer.isUsingUltimate()
 
     eventPlayer.setMeleeEnabled(true)
@@ -42,7 +42,7 @@ rule "[roadhog/wholehog.opy]: OW1 enable abilities when not in wholehog":
 rule "[roadhog/wholehog.opy]: OW1 Wholehog force autofire":
     @Team 1
     @Event eachPlayer
-    @Hero roadhog
+    @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventPlayer.isUsingUltimate()
     @Condition not eventPlayer.isHoldingButton(Button.PRIMARY_FIRE)
     

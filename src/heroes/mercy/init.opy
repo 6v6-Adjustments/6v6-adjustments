@@ -11,8 +11,8 @@ rule "[mercy/init.opy]: Mercy":
 
     eventPlayer.setHealingDealt(109.1)
 
-    eventPlayer.setAmmo(0, 20)
-    eventPlayer.setMaxAmmo(0, 20)
+    eventPlayer.setAmmo(0, ADJ_MERCY_AMMO)
+    eventPlayer.setMaxAmmo(0, ADJ_MERCY_AMMO)
 
     eventPlayer.call_init = false
 

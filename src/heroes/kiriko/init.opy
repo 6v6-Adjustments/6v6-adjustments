@@ -12,8 +12,8 @@ rule "[kiriko/init.opy]: Kiriko":
     setCustomHp(ADJ_KIRIKO_HEALTH, 0, 0)
     removeRegenPassive()
 
-    eventPlayer.setAmmo(1, 12)
-    eventPlayer.setMaxAmmo(1, 12)
+    eventPlayer.setAmmo(1, ADJ_KIRIKO_KUNAI_COUNT)
+    eventPlayer.setMaxAmmo(1, ADJ_KIRIKO_KUNAI_COUNT)
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN)
 

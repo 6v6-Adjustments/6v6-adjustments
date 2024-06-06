@@ -12,14 +12,25 @@ rule "[junkerqueen/init.opy]: Junker Queen":
     removeRegenPassive()
 
     setBaseDamage(eventPlayer, ADJ_JUNKERQUEEN_SCATTER_GUN_DAMAGE/OW2_JUNKERQUEEN_SCATTER_GUN_DAMAGE)
-    eventPlayer.setHealingDealt(74.29)
+    eventPlayer.setHealingDealt(percent(ADJ_JUNKERQUEEN_ADRENALINE_HEAL_MOD/((ADJ_JUNKERQUEEN_SCATTER_GUN_DAMAGE/OW2_JUNKERQUEEN_SCATTER_GUN_DAMAGE)*OW2_JUNKERQUEEN_ADRENALINE_HEAL_MOD)))
+    eventPlayer.setKnockbackDealt(percent(ADJ_JUNKERQUEEN_BLADE_PULL_SCALER))
 
-    eventPlayer.setMaxAmmo(0, 6)
-    eventPlayer.setAmmo(0, 6)
+    eventPlayer.setMaxAmmo(0, ADJ_JUNKERQUEEN_AMMO_COUNT)
+    eventPlayer.setAmmo(0, ADJ_JUNKERQUEEN_AMMO_COUNT)
 
     eventPlayer.overhealth_check = false
 
     eventPlayer.call_init = false
+
+
+rule "[junkerqueen/init.opy]: Reduce Carnage Damage":
+    @Event eachPlayer
+    @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
+    @Condition eventPlayer.isUsingAbility2()
+
+    eventPlayer.setDamageDealt(percent(ADJ_JUNKERQUEEN_CARNAGE_IMPACT_DAMAGE/OW2_JUNKERQUEEN_CARNAGE_IMPACT_DAMAGE))
+    waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)
+    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
 
 
 rule "[junkerqueen/init.opy]: Reduce Rampage Damage":
@@ -28,6 +39,6 @@ rule "[junkerqueen/init.opy]: Reduce Rampage Damage":
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
     @Condition eventPlayer.isUsingUltimate()
 
-    eventPlayer.setDamageDealt(66.777)
+    eventPlayer.setDamageDealt(percent(ADJ_JUNKERQUEEN_RAMPAGE_WOUND_DAMAGE/OW2_JUNKERQUEEN_RAMPAGE_WOUND_DAMAGE))
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))

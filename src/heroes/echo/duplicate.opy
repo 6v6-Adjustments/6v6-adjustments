@@ -2,16 +2,15 @@
 
 # globalvar health_pool
 
-playervar hp_before_duplicate
+# playervar hp_before_duplicate
 
 
-rule "[echo/duplicate.opy]: Remember hp before duplicate":
-    @Team 1
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ECHO
-    @Condition eventPlayer.isHoldingButton(Button.ULTIMATE)
+# rule "[echo/duplicate.opy]: Remember hp before duplicate":
+#     @Event eachPlayer
+#     @Condition eventPlayer.hero_setup == Hero.ECHO
+#     @Condition eventPlayer.isHoldingButton(Button.ULTIMATE)
 
-    eventPlayer.hp_before_duplicate = eventPlayer.getHealth()
+#     eventPlayer.hp_before_duplicate = eventPlayer.getHealth()
 
 
 rule "[echo/duplicate.opy]: Override hero setup during duplicate":
@@ -22,7 +21,7 @@ rule "[echo/duplicate.opy]: Override hero setup during duplicate":
     
     eventPlayer.hero_setup = eventPlayer.getHeroOfDuplication()
     resetHero()
-    eventPlayer.call_init = true
+    initHero()
 
 
 rule "[echo/duplicate.opy]: Revert hero setup when exiting Duplicate":
@@ -33,10 +32,21 @@ rule "[echo/duplicate.opy]: Revert hero setup when exiting Duplicate":
 
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
     resetHero()
-    eventPlayer.call_init = true
+    initHero()
 
-    waitUntil(not eventPlayer.call_init, Math.INFINITY)
-    damage(eventPlayer, null, ADJ_ECHO_HEALTH - max(eventPlayer.hp_before_duplicate, ADJ_ECHO_DUPLICATE_EXIT_HEALTH))
+    # waitUntil(not eventPlayer.call_init, Math.INFINITY)
+    # damage(eventPlayer, null, ADJ_ECHO_HEALTH - max(eventPlayer.hp_before_duplicate, ADJ_ECHO_DUPLICATE_EXIT_HEALTH))
+
+
+rule "[echo/duplicate.opy]: Death in Duplicate":
+    @Event playerDied
+    @Hero echo
+    @Condition eventPlayer.getUltCharge() <= 4 # this is how we have to check if this was a duplicate death, isDuplicatingAHero won't be helpful because it returns false before we can run any actions
+
+    waitUntil(eventPlayer.isInSpawnRoom() == true, Math.INFINITY)
+    eventPlayer.hero_setup = eventPlayer.getCurrentHero()
+    resetHero()
+    initHero()
 
 
 rule "[echo/duplicate.opy]: Correct duplicate ultimate charge rate":

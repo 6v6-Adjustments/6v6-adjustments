@@ -1,34 +1,18 @@
 #!mainFile "../../dev_main.opy"
 
-#!define OW2_VENTURE_TECTONIC_SHOCK_BALANCE_DURATION 0.2
-#!define ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE 110
-#!define ADJ_VENTURE_TECTONIC_SHOCK_CRIT_BONUS 55
-#!define ADJ_VENTURE_TECTONIC_SHOCK_CRIT_RADIUS 2.5
-
-#!define OW2_VENTURE_TECTONIC_SHOCK_DAMAGE 130
-
 
 rule "[venture/tectonic_shock.opy]: Increase Tectonic Shock damage":
-    @Team 1
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.VENTURE
-    @Condition eventPlayer.isUsingUltimate()
-    
-    setBaseDamage(eventPlayer, ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE / OW2_VENTURE_TECTONIC_SHOCK_DAMAGE)
-    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
-    setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE)
-
-
-rule "[venture/tectonic_shock.opy]: Tectonic Shock critical damage bonus":
-    @Team 1
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.VENTURE
-    @Condition eventPlayer.isUsingUltimate()
-    @Condition not eventPlayer.balance_change_check
-    @Condition eventDamage > (ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE - 1)
-    @Condition distance(attacker.getPosition(), victim.getPosition()) < ADJ_VENTURE_TECTONIC_SHOCK_CRIT_RADIUS
+    @Condition eventAbility == Button.ULTIMATE
 
-    eventPlayer.balance_change_check = true
-    damage(victim, attacker, (ADJ_VENTURE_TECTONIC_SHOCK_CRIT_BONUS / eventPlayer._base_damage_scalar))
-    wait(OW2_VENTURE_TECTONIC_SHOCK_BALANCE_DURATION)
-    eventPlayer.balance_change_check = false
+    if distance(attacker, victim) <= ADJ_VENTURE_TECTONIC_SHOCK_CRIT_RADIUS:
+        damage(
+            victim, 
+            attacker, 
+            ((eventDamage/eventPlayer._base_damage_scalar) * ((ADJ_VENTURE_TECTONIC_SHOCK_CRIT_MULTIPLIER*ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE)/OW2_VENTURE_TECTONIC_SHOCK_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+    else:
+        damage(
+            victim, 
+            attacker, 
+            ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_TECTONIC_SHOCK_DAMAGE/OW2_VENTURE_TECTONIC_SHOCK_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)

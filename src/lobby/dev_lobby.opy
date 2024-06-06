@@ -1,5 +1,42 @@
 #!mainFile "../dev_main.opy"
 
+# Environment Variables
+#!define GAMEMODE_VERSION "Dev Build"
+#!define GAMEMODE_NAME "6v6 Adjustments"
+#!define GAMDMODE_DESCRIPTION (GAMEMODE_NAME + " " + GAMEMODE_VERSION + " " + "(" + GAMEMODE_CODE + ")" + "\n" + \
+                               "\n" + \
+                               "Intended for 6v6 gameplay, by Toastie#11770" + "\n" + \
+                               "\n" + \
+                               "Developers:" + "\n" + \
+                               "Toastie#11770" + "\n" + \
+                               "LemonHead#11820" + "\n" + \
+                               "ecksdee#11729" + "\n" + \
+                               "\n" + \
+                               "Main Build: " + GAMEMODE_CODE + "\n" + \
+                               "Staging Build: " + STAGING_CODE + "\n" + \
+                               "\n" + \
+                               "This gamemode is forked from" + "\n" + \
+                               "Overwatch 1 Emulator v1.12.2 (KHTG0)" + "\n" + \
+                               "by ecksdee#11729" + "\n" + \
+                               "\n" + \
+                               "Come join the discord server!" + "\n" + \
+                               "We host 6v6 custom lobbies every weekend!" + "\n" + \
+                               "\n" + \
+                               DISCORD_SHORT_LINK + "\n" + \
+                               DISCORD_LONG_LINK + "\n" + \
+                               SOURCE_CODE_LINK)
+#!define GAMEMODE_CODE "7HSKW"
+#!define STAGING_CODE "NSQSSS"
+#!define DISCORD_SHORT_LINK "6v6.info"
+#!define DISCORD_LONG_LINK "https://discord.gg/uzFUQu7G4s"
+#!define SOURCE_CODE_LINK "github.com/6v6-Adjustments/6v6-adjustments"
+
+
+rule "Copyright (c) 2024 Overwatch 1 Emulator & 6v6 Adjustments. See github.com/6v6-Adjustments/6v6-adjustments for license to use this code.":
+    @Disabled
+    disableInspector()
+
+
 settings {
     "main": {
         "modeName": GAMEMODE_NAME + " " + GAMEMODE_VERSION,
@@ -9,19 +46,16 @@ settings {
         "spectatorSlots": 12,
         "team1Slots": 6,
         "team2Slots": 0,
-        "pauseGameOnDisconnect": true,
     },
     "gamemodes": {
         "practiceRange": {
             "enabledMaps": [ "practiceRange" ]
         },
         "general": {
-            "heroLimit": "1PerTeam",
-            "roleLimit": "2OfEachRolePerTeam",
-            "randomHeroRoleLimitPerTeam": 2,
+            "heroLimit": "off",
+            "roleLimit": "off",
             "gamemodeStartTrigger": "allSlotsFilled",
             "tankPassiveHealthBonus": "disabled",
-            "randomHeroRoleLimitPerTeam": 2,
             "enableCompetitiveRules": true
         }
     },
@@ -40,7 +74,8 @@ settings {
                 "ultGen%": percent(OW2_BAPTISTE_ULT_COST/ADJ_BAPTISTE_ULT_COST)
             },
             "bastion": {
-                "ultGen%": percent(OW2_BASTION_ULT_COST/ADJ_BASTION_ULT_COST)
+                "ultGen%": percent(OW2_BASTION_ULT_COST/ADJ_BASTION_ULT_COST),
+                "ability1Cooldown%": percent(ADJ_BASTION_RECONFIGURE_COOLDOWN/OW2_BASTION_RECONFIGURE_COOLDOWN)
             },
             "brigitte": {
                 "ability2Cooldown%": percent(ADJ_BRIGITTE_REPAIR_PACK_COOLDOWN/OW2_BRIGITTE_REPAIR_PACK_COOLDOWN),
@@ -88,24 +123,24 @@ settings {
                 "ultGen%": percent(OW2_KIRIKO_ULT_COST/ADJ_KIRIKO_ULT_COST)
             },
             "lifeweaver": {
-                "secondaryFireCooldown%": 83,
-                "secondaryFireHealth%": 75,
-                "ultHealth%": 75,
+                "secondaryFireCooldown%": percent(ADJ_LIFEWEAVER_PLATFORM_COOLDOWN/OW2_LIFEWEAVER_PLATFORM_COOLDOWN),
+                "secondaryFireHealth%": percent(ADJ_LIFEWEAVER_PLATFORM_HEALTH/OW2_LIFEWEAVER_PLATFORM_HEALTH),
+                "ultHealth%": percent(ADJ_LIFEWEAVER_TREE_HEALTH/OW2_LIFEWEAVER_TREE_HEALTH),
                 "ultGen%": percent(OW2_LIFEWEAVER_ULT_COST/ADJ_LIFEWEAVER_ULT_COST)
             },
             "lucio": {
                 "secondaryFireCooldown%": percent(ADJ_LUCIO_SOUNDWAVE_COOLDOWN/OW2_LUCIO_SOUNDWAVE_COOLDOWN),
+                "secondaryFireKb%": percent(ADJ_LUCIO_SOUNDWAVE_KNOCKBACK/OW2_LUCIO_SOUNDWAVE_KNOCKBACK),
                 "ultGen%": percent(OW2_LUCIO_ULT_COST/ADJ_LUCIO_ULT_COST)
             },
             "mauga": {
-                "primaryFireIgniteDamage": 152,
-                "primaryFireIgniteRate": 125,
-                "ability1Cooldown%": 166,
+                "primaryFireIgniteDamage": percent(ADJ_MAUGA_BURN_DPS/((ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)*OW2_MAUGA_BURN_DPS)),
+                "primaryFireIgniteRate": percent(OW2_MAUGA_BURN_RATE/ADJ_MAUGA_BURN_RATE),
+                "ability1Cooldown%": percent(ADJ_MAUGA_OVERRUN_COOLDOWN/OW2_MAUGA_OVERRUN_COOLDOWN),
                 "ability2Cooldown%": percent((ADJ_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)/(OW2_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)),
                 "ultGen%": percent(OW2_MAUGA_ULT_COST/ADJ_MAUGA_ULT_COST)
             },
             "mei": {
-                "ultFreezeMinimum%": 30,
                 "health%": percent(ADJ_MEI_ICEWALL_HP/OW2_MEI_ICEWALL_HP),
                 "ultGen%": percent(OW2_MEI_ULT_COST/ADJ_MEI_ULT_COST)
             },
@@ -150,6 +185,7 @@ settings {
                 "ultGen%": percent(OW2_SIGMA_ULT_COST/ADJ_SIGMA_ULT_COST),
             },
             "sojourn": {
+                "ability1Cooldown%": percent(ADJ_SOJOURN_SLIDE_COOLDOWN/OW2_SOJOURN_SLIDE_COOLDOWN),
                 "ultGen%": percent(OW2_SOJOURN_ULT_COST/ADJ_SOJOURN_ULT_COST)
             },
             "soldier": {
@@ -157,6 +193,7 @@ settings {
                 "ultGen%": percent(OW2_SOLDIER_ULT_COST/ADJ_SOLDIER_ULT_COST)
             },
             "sombra": {
+                "ability1Cooldown%": percent(ADJ_SOMBRA_VIRUS_COOLDOWN/OW2_SOMBRA_VIRUS_COOLDOWN),
                 "ultGen%": percent(OW2_SOMBRA_ULT_COST/ADJ_SOMBRA_ULT_COST)
             },
             "symmetra": {

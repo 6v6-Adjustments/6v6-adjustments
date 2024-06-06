@@ -7,16 +7,16 @@ rule "[mauga/init.opy]: Mauga":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MAUGA
 
-    setCustomHp(ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, ADJ_MAUGA_ARMOR, 0)
+    setCustomHp(ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, 
+                ADJ_MAUGA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_ARMOR, 0)
     removeTankPassive()
     removeRegenPassive()
 
     setBaseDamage(eventPlayer, ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)
     eventPlayer.setHealingDealt(72)
     eventPlayer.startScalingSize(0.94, true)
-    eventPlayer.setJumpVerticalSpeed(101)
+    eventPlayer.setMaxHealth(100)
 
-    eventPlayer.overhealth_check = false
     eventPlayer.balance_change_check = false
 
     eventPlayer.call_init = false
@@ -31,7 +31,7 @@ rule "[mauga/init.opy]: Increase Mauga melee damage":
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
 
-rule "[mauga/init.opy]: Remove Cardiac Overdrive allied damage reduction and set cooldown":
+rule "[mauga/init.opy]: Remove Cardiac Overdrive allied damage reduction":
     @Team 1
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MAUGA
@@ -57,5 +57,5 @@ rule "[mauga/init.opy]: Reduce Cage Fight duration":
     @Condition eventPlayer.hero_setup == Hero.MAUGA
     @Condition eventPlayer.isUsingUltimate()
 
-    wait(7)
+    wait(ADJ_MAUGA_CAGE_DURATION)
     eventPlayer.forceButtonPress(Button.ULTIMATE)

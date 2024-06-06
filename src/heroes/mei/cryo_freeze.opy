@@ -1,14 +1,14 @@
 #!mainFile "../../dev_main.opy"
 
 
-# rule "[mei/cryo_freeze.opy]: OW1 Cryo-Freeze healing":
-#     @Event eachPlayer
-#     @Condition eventPlayer.hero_setup == Hero.MEI
-#     @Condition eventPlayer.isUsingAbility1()
+rule "[mei/cryo_freeze.opy]: OW1 Cryo-Freeze healing":
+    @Event eachPlayer
+    @Condition eventPlayer.hero_setup == Hero.MEI
+    @Condition eventPlayer.isUsingAbility1()
 
-#     eventPlayer.setHealingReceived(percent(ADJ_MEI_CRYO_HEALING/OW2_MEI_CRYO_HEALING))
-#     waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)
-#     eventPlayer.setHealingReceived(100)
+    eventPlayer.setHealingReceived(percent(ADJ_MEI_CRYO_HEALING/OW2_MEI_CRYO_HEALING))
+    waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)
+    eventPlayer.setHealingReceived(100)
 
 
 rule "[mei/cryo_freeze.opy]: Allow self healing during Cryo-Freeze":
