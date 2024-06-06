@@ -8,9 +8,9 @@
                                "Intended for 6v6 gameplay, by Toastie#11770" + "\n" + \
                                "\n" + \
                                "Developers:" + "\n" + \
+                               "ecksdee#11729" + "\n" + \
                                "Toastie#11770" + "\n" + \
                                "LemonHead#11820" + "\n" + \
-                               "ecksdee#11729" + "\n" + \
                                "\n" + \
                                "Main Build: " + GAMEMODE_CODE + "\n" + \
                                "Staging Build: " + STAGING_CODE + "\n" + \
