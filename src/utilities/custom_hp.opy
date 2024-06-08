@@ -33,7 +33,7 @@ def clearCustomHp():
     eventPlayer.setMaxHealth(100)
 
 
-# Assume hero is at default hp values before setting custom hp
+# Assume hero's at default hp values before setting custom hp
 def applyCustomHp():
     @Name "[utilities/custom_hp.opy]: applyCustomHp()"
 
@@ -45,16 +45,17 @@ def applyCustomHp():
          or (abs(eventPlayer.getMaxHealthOfType(Health.SHIELDS) - eventPlayer._hp_shields) > HP_ROUNDING_ERROR_MARGIN))\
        and (eventPlayer._hp_iter_count < MAX_HP_ITER_COUNT)):
     
-        # eventPlayer.setHealingReceived(0)
+        eventPlayer.setHealingReceived(0)
 
         eventPlayer.setHealth(MIN_HP)
         eventPlayer.addHealthPool(Health.NORMAL, MIN_HP, true, true)
         eventPlayer.addHealthPool(Health.ARMOR, MIN_HP, true, true)
         eventPlayer.addHealthPool(Health.SHIELDS, MIN_HP, true, true)
-        eventPlayer.setStatusEffect(null, Status.INVINCIBLE, Math.INFINITY) # Invincible status is required for Echo dupe to not end immediately
+        eventPlayer.setStatusEffect(null, Status.INVINCIBLE, Math.INFINITY)
 
         eventPlayer.removeAllHealthPools()
 
+        # wait(0.064)
         wait()
         waitUntil(eventPlayer.getMaxHealth() <= MIN_HP, 1)
 
@@ -65,7 +66,7 @@ def applyCustomHp():
             eventPlayer.addHealthPool(Health.ARMOR, max(1, eventPlayer._hp_armor), true, true)
         if eventPlayer._hp_shields > 0:
             eventPlayer.addHealthPool(Health.SHIELDS, max(1, eventPlayer._hp_shields), true, true)
-        # eventPlayer.setHealingReceived(100)
+        eventPlayer.setHealingReceived(100)
         heal(eventPlayer, null, Math.INFINITY)
         eventPlayer.clearStatusEffect(Status.INVINCIBLE)
 
