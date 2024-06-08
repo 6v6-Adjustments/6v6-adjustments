@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/bastion/reconfigure.opy"
+
 
 rule "[bastion/init.opy]: Bastion":
     @Event eachPlayer
@@ -12,11 +14,9 @@ rule "[bastion/init.opy]: Bastion":
     eventPlayer.call_init = false
 
 
-rule "[bastion/init.opy]: Reduce assault form movement speed":
-    @Event eachPlayer
+rule "[bastion/init.opy]: Reduce grenade self-damage":
+    @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.BASTION
-    @Condition eventPlayer.isUsingAbility1()
+    @Condition attacker == victim
     
-    eventPlayer.setMoveSpeed(percent(ADJ_BASTION_RECONFIGURE_MOVESPEED/OW2_BASTION_RECONFIGURE_MOVESPEED))
-    waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)
-    eventPlayer.setMoveSpeed(100)
+    heal(victim, null, eventDamage - (eventDamage*0.5))

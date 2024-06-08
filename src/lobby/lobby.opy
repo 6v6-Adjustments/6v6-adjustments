@@ -42,7 +42,7 @@ settings {
         "description": GAMDMODE_DESCRIPTION,
     },
     "lobby": {
-        # "dataCenterPreference": "usSouthwest",
+        "dataCenterPreference": "usSouthwest",
         "mapRotation": "afterGame",
         "spectatorSlots": 12,
         "team1Slots": 6,
@@ -51,9 +51,12 @@ settings {
         "pauseGameOnDisconnect": true,
         "returnToLobby": "afterGame",
         "swapTeamsAfterMatch": false,
-        "teamBalancing": "afterGame"
+        # "teamBalancing": "afterGame"
     },
     "gamemodes": {
+        "assault": {
+            "enabledMaps": []
+        },
         "control": {
             "disabledMaps": [
                 "lijiangTowerLny"
@@ -183,6 +186,7 @@ settings {
             },
             "ramattra": {
                 "ability1Cooldown%": percent(ADJ_RAMATTRA_NEMESIS_COOLDOWN/OW2_RAMATTRA_NEMESIS_COOLDOWN),
+                "ability2Cooldown%": percent(ADJ_RAMATTRA_VORTEX_COOLDOWN/OW2_RAMATTRA_VORTEX_COOLDOWN),
                 "health%": percent(ADJ_RAMATTRA_BARRIER_HEALTH/OW2_RAMATTRA_BARRIER_HEALTH),
                 "ultGen%": percent(OW2_RAMATTRA_ULT_COST/ADJ_RAMATTRA_ULT_COST),
             },

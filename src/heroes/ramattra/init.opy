@@ -1,10 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-playervar ramattra_block_cooldown
-playervar ramattra_block_cd_text
-
-subroutine showRamattraBlockCD
-subroutine hideRamattraBlockCD
+#!include "heroes/ramattra/nemesis_form.opy"
 
 
 rule "[ramattra/init.opy]: Ramattra":
@@ -19,55 +15,3 @@ rule "[ramattra/init.opy]: Ramattra":
     eventPlayer.startScalingSize(0.94, true)
 
     eventPlayer.call_init = false
-
-
-rule "[ramattra/init.opy]: Correct Nemesis Form armor and movement speed":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.RAMATTRA
-    @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
-    
-    eventPlayer.setMoveSpeed(83.4)
-    eventPlayer.addHealthPool(Health.ARMOR, 53.75, true, true)
-    waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 54.75, 99999)
-    eventPlayer.setMoveSpeed(100)
-    removeHealthPool(getLastCreatedHealthPool())
-
-
-rule "[ramattra/init.opy]: Increase Pummel damage":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.RAMATTRA
-    @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
-    @Condition eventDamage >= 50 # This condition stops vortex from applying the damage increase
-    @Condition eventAbility != Button.MELEE
-    
-    damage(victim, attacker, eventDamage * (ADJ_RAMATTRA_PUMMEL_DAMAGE/OW2_RAMATTRA_PUMMEL_DAMAGE) - eventDamage)
-
-
-rule "[ramattra/init.opy]: Set Ravenous Vortex cooldown":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.RAMATTRA
-    @Condition eventPlayer.isUsingAbility2() == true
-    
-    waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0, 99999)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 12)
-
-
-rule "[ramattra/init.opy]: Bonus Annihilation movement speed":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.RAMATTRA
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    wait(0.1)
-    eventPlayer.setMoveSpeed(100)
-
-
-/*
-rule "Reset Nemesis bonus armor when going into Annihilation":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.RAMATTRA
-    @Condition eventPlayer.isUsingUltimate() == true
-    @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
-    
-    removeHealthPool(getLastCreatedHealthPool())
-    eventPlayer.addHealthPool(Health.ARMOR, 15, true, true)
-*/
