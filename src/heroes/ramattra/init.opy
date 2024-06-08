@@ -28,7 +28,7 @@ rule "[ramattra/init.opy]: Correct Nemesis Form armor and movement speed":
     
     eventPlayer.setMoveSpeed(83.4)
     eventPlayer.addHealthPool(Health.ARMOR, 53.75, true, true)
-    waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 54.75, 99999)
+    waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 54.75, Math.INFINITY)
     eventPlayer.setMoveSpeed(100)
     removeHealthPool(getLastCreatedHealthPool())
 
@@ -36,7 +36,7 @@ rule "[ramattra/init.opy]: Correct Nemesis Form armor and movement speed":
 rule "[ramattra/init.opy]: Increase Pummel damage":
     @Event playerDealtDamage
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
-    @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
+    @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR)
     @Condition eventDamage >= 50 # This condition stops vortex from applying the damage increase
     @Condition eventAbility != Button.MELEE
     
@@ -46,16 +46,16 @@ rule "[ramattra/init.opy]: Increase Pummel damage":
 rule "[ramattra/init.opy]: Set Ravenous Vortex cooldown":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
-    @Condition eventPlayer.isUsingAbility2() == true
+    @Condition eventPlayer.isUsingAbility2()
     
-    waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0, 99999)
+    waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0, Math.INFINITY)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 12)
 
 
 rule "[ramattra/init.opy]: Bonus Annihilation movement speed":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
-    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.isUsingUltimate()
     
     wait(0.1)
     eventPlayer.setMoveSpeed(100)
