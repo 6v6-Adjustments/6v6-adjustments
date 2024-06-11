@@ -6,21 +6,11 @@ rule "[bastion/reconfigure.opy]: Reduce assault form damage and movement speed":
     @Condition eventPlayer.hero_setup == Hero.BASTION
     @Condition eventPlayer.isUsingAbility1()
     
-    eventPlayer.setDamageDealt(percent(ADJ_BASTION_ASSAULT_CONFIG_DPS/OW2_BASTION_ASSAULT_CONFIG_DPS))
+    eventPlayer.setDamageReceived(percent(ADJ_BASTION_IRONCLAD_RESISTANCE/OW2_BASTION_IRONCLAD_RESISTANCE))
     eventPlayer.setMoveSpeed(percent(ADJ_BASTION_RECONFIGURE_MOVESPEED/OW2_BASTION_RECONFIGURE_MOVESPEED))
     waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)
-    eventPlayer.setDamageDealt(100)
+    eventPlayer.setDamageReceived(100)
     eventPlayer.setMoveSpeed(100)
-
-
-rule "[bastion/reconfigure.opy]: Correct grenade damage while in assault form":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.BASTION
-    @Condition eventPlayer.isUsingAbility1()
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    
-    # This damage formula is incorrect, I am bad at math.
-    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 rule "[bastion/reconfigure.opy]: Increase movement allowed by self-damage grenade":

@@ -22,15 +22,3 @@ rule "[torbjorn/init.opy]: Increase Rivet Gun alternate fire ammo cost":
     @Condition eventPlayer.isFiringSecondaryFire() == true
     
     eventPlayer.setAmmo(0, eventPlayer.getAmmo(0) - 1)
-
-
-rule "Correct Overload overhealth":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.TORBJORN
-    @Condition eventPlayer.isUsingAbility2() == true
-    @Condition eventPlayer.overhealth_check == false
-    
-    # this is where I add overhealth to torbjorn if I knew how
-    eventPlayer.overhealth_check = true
-    waitUntil(eventPlayer.isUsingAbility2() == false, 99999)
-    eventPlayer.overhealth_check = false
