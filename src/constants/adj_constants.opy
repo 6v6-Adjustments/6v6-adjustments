@@ -29,7 +29,7 @@
 
 # Bastion
 #!define ADJ_BASTION_ARMOR 100
-#!define ADJ_BASTION_ASSAULT_CONFIG_DPS 360
+#!define ADJ_BASTION_ASSAULT_CONFIG_DPS 320
 #!define ADJ_BASTION_HEALTH 200
 #!define ADJ_BASTION_SELF_DAMAGE_SCALER 0.5
 #!define ADJ_BASTION_SELF_KNOCKBACK_SCALER 1.3
@@ -167,7 +167,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # Mei
 #!define ADJ_MEI_AMMO_COUNT 120
 #!define ADJ_MEI_CRYO_HEALING 50
-#!define ADJ_MEI_ICEWALL_HP 250
+#!define ADJ_MEI_ICEWALL_HP 300
 #!define ADJ_MEI_HEALTH 250
 #!define ADJ_MEI_ULT_COST 1610
 
@@ -277,8 +277,9 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_SYMMETRA_ULT_COST 1680
 
 # Torbjorn
-#!define ADJ_TORBJORN_HEALTH 200
 #!define ADJ_TORBJORN_ARMOR 50
+#!define ADJ_TORBJORN_HEALTH 200
+#!define ADJ_TORBJORN_TURRET_HEALTH 200
 #!define ADJ_TORBJORN_ULT_COST 2142
 
 # Tracer
