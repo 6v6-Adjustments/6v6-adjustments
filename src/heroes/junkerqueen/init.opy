@@ -22,7 +22,16 @@ rule "[junkerqueen/init.opy]: Junker Queen":
     eventPlayer.call_init = false
 
 
-rule "[junkerqueen/init.opy]: Reduce Carnage Damage":
+rule "[junkerqueen/init.opy]: Bonus Carnage healing":
+    @Event playerDealtDamage
+    @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
+    @Condition eventPlayer.isUsingAbility2()
+    @Condition eventDamage >= (ADJ_JUNKERQUEEN_CARNAGE_IMPACT_DAMAGE - 5)
+
+    heal(eventPlayer, eventPlayer, ADJ_JUNKERQUEEN_CARNAGE_BONUS_HEALING)
+
+
+rule "[junkerqueen/init.opy]: Reduce Carnage damage":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
     @Condition eventPlayer.isUsingAbility2()
@@ -32,7 +41,7 @@ rule "[junkerqueen/init.opy]: Reduce Carnage Damage":
     eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
 
 
-rule "[junkerqueen/init.opy]: Reduce Rampage Damage":
+rule "[junkerqueen/init.opy]: Reduce Rampage damage":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
     @Condition eventPlayer.isUsingUltimate()
