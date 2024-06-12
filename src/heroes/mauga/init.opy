@@ -1,5 +1,9 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/mauga/cage_fight.opy"
+#!include "heroes/mauga/cardiac.opy"
+#!include "heroes/mauga/overrun.opy"
+
 
 rule "[mauga/init.opy]: Mauga":
     @Event eachPlayer
@@ -12,6 +16,7 @@ rule "[mauga/init.opy]: Mauga":
     removeRegenPassive()
 
     setBaseDamage(eventPlayer, ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)
+    
     eventPlayer.setHealingDealt(72)
     eventPlayer.startScalingSize(0.94, true)
     eventPlayer.setMaxHealth(100)
@@ -27,31 +32,3 @@ rule "[mauga/init.opy]: Increase Mauga melee damage":
     @Condition eventAbility == Button.MELEE
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
-
-
-rule "[mauga/init.opy]: Remove Cardiac Overdrive allied damage reduction":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.MAUGA
-    @Condition eventPlayer.isUsingAbility2()
-    
-    startDamageModification(
-        getPlayersInRadius(
-            eventPlayer, 
-            OW2_MAUGA_CARDIAC_RADIUS, 
-            eventPlayer.getTeam(), 
-            LosCheck.SURFACES).exclude(eventPlayer), 
-        getAllPlayers(), 
-        percent(1/(1-OW2_MAUGA_CARDIAC_DAMAGE_REDUCTION)), 
-        DamageReeval.RECEIVERS_AND_DAMAGERS)
-    eventPlayer.balance_change_check = getLastDamageModification()
-    waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)
-    stopDamageModification(eventPlayer.balance_change_check)
-
-
-rule "[mauga/init.opy]: Reduce Cage Fight duration":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.MAUGA
-    @Condition eventPlayer.isUsingUltimate()
-
-    wait(ADJ_MAUGA_CAGE_DURATION)
-    eventPlayer.forceButtonPress(Button.ULTIMATE)

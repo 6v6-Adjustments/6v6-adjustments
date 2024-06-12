@@ -9,7 +9,7 @@
 #!include "utilities/reset.opy"
 #!include "utilities/hero_switch.opy"
 # !include "utilities/hero_roster.opy"
-#!include "utilities/role_lock.opy"
+# !include "utilities/role_lock.opy"
 # !include "utilities/ready.opy"
 # !include "utilities/hit_detection.opy"
 #!include "utilities/anti_crash.opy"
@@ -17,7 +17,7 @@
 # Custom game lobby settings
 #!include "lobby/lobby.opy"
 
-# OW1 logic
+# Passive removal logic
 # Remove damage passive
 #!include "passives/damage/damage_passive.opy"
 # Remove tank passive
