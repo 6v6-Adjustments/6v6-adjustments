@@ -11,6 +11,8 @@ rule "[dva/init.opy]: Initialize D.Va":
     removeTankPassive()
     removeSelfHealing()
 
+    setBaseDamage(eventPlayer, ADJ_DVA_CANNON_DAMAGE/OW2_DVA_CANNON_DAMAGE)
+
     eventPlayer.call_init = false
 
 

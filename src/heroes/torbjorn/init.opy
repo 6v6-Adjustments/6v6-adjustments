@@ -22,29 +22,3 @@ rule "[torbjorn/init.opy]: Increase Rivet Gun alternate fire ammo cost":
     @Condition eventPlayer.isFiringSecondaryFire() == true
     
     eventPlayer.setAmmo(0, eventPlayer.getAmmo(0) - 1)
-
-
-# rule "Correct Overload overhealth while outside spawn rooms":
-#     @Event eachPlayer
-#     @Condition eventPlayer.hero_setup == Hero.TORBJORN
-#     @Condition eventPlayer.isUsingAbility2() == true
-#     @Condition eventPlayer.isInSpawnRoom() == false
-#     @Condition eventPlayer.overhealth_check == false
-    
-#     damage(eventPlayer, null, 12)
-#     eventPlayer.overhealth_check = true
-#     waitUntil(eventPlayer.isUsingAbility2() == false, 99999)
-#     eventPlayer.overhealth_check = false
-
-
-# rule "Correct Overload overhealth while inside spawn rooms":
-#     @Event eachPlayer
-#     @Condition eventPlayer.hero_setup == Hero.TORBJORN
-#     @Condition eventPlayer.isUsingAbility2() == true
-#     @Condition eventPlayer.isInSpawnRoom() == true
-#     @Condition eventPlayer.overhealth_check == false
-    
-#     eventPlayer.setHealth(eventPlayer.getMaxHealth() - 12)
-#     eventPlayer.overhealth_check = true
-#     waitUntil(eventPlayer.isUsingAbility2() == false, 99999)
-#     eventPlayer.overhealth_check = false

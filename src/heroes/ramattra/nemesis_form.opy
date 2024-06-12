@@ -28,5 +28,7 @@ rule "[ramattra/nemesis_form.opy]: Bonus Annihilation movement speed":
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.isUsingUltimate() == true
     
-    wait(0.1)
+    wait(0.064)
+    eventPlayer.setMoveSpeed(percent(ADJ_RAMATTRA_ANNIHILATION_MOVESPEED/OW2_RAMATTRA_NEMESIS_MOVESPEED))
+    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     eventPlayer.setMoveSpeed(100)
