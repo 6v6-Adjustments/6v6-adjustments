@@ -1,5 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/junkerqueen/carnage.opy"
+#!include "heroes/junkerqueen/rampage.opy"
+
 
 rule "[junkerqueen/init.opy]: Junker Queen":
     @Event eachPlayer
@@ -20,32 +23,3 @@ rule "[junkerqueen/init.opy]: Junker Queen":
     eventPlayer.overhealth_check = false
 
     eventPlayer.call_init = false
-
-
-rule "[junkerqueen/init.opy]: Bonus Carnage healing":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
-    @Condition eventPlayer.isUsingAbility2()
-    @Condition eventDamage >= (ADJ_JUNKERQUEEN_CARNAGE_IMPACT_DAMAGE - 5)
-
-    heal(eventPlayer, eventPlayer, ADJ_JUNKERQUEEN_CARNAGE_BONUS_HEALING)
-
-
-rule "[junkerqueen/init.opy]: Reduce Carnage damage":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
-    @Condition eventPlayer.isUsingAbility2()
-
-    eventPlayer.setDamageDealt(percent(ADJ_JUNKERQUEEN_CARNAGE_IMPACT_DAMAGE/OW2_JUNKERQUEEN_CARNAGE_IMPACT_DAMAGE))
-    waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)
-    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
-
-
-rule "[junkerqueen/init.opy]: Reduce Rampage damage":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
-    @Condition eventPlayer.isUsingUltimate()
-
-    eventPlayer.setDamageDealt(percent(ADJ_JUNKERQUEEN_RAMPAGE_WOUND_DAMAGE/OW2_JUNKERQUEEN_RAMPAGE_WOUND_DAMAGE))
-    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
-    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
