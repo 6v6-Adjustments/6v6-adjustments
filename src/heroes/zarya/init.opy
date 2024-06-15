@@ -17,7 +17,6 @@ rule "[zarya/init.opy]: Zarya":
     removeTankPassive()
     removeSelfHealing()
 
-    eventPlayer.setKnockbackDealt(75)
     setBaseDamage(eventPlayer, ADJ_ZARYA_CANNON_DAMAGE_MAX/OW2_ZARYA_CANNON_DAMAGE_MAX)
 
     initSelfBubble()
