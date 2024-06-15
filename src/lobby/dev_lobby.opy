@@ -151,6 +151,7 @@ settings {
                 "ultGen%": percent(OW2_MOIRA_ULT_COST/ADJ_MOIRA_ULT_COST),
             },
             "orisa": {
+                "ability1Cooldown%": percent(ADJ_ORISA_FORTIFY_COOLDOWN/OW2_ORISA_FORTIFY_COOLDOWN),
                 "ability2Cooldown%": percent(ADJ_ORISA_JAVELIN_SPIN_COOLDOWN/OW2_ORISA_JAVELIN_SPIN_COOLDOWN),
                 "ultGen%": percent(OW2_ORISA_ULT_COST/ADJ_ORISA_ULT_COST)
             },
