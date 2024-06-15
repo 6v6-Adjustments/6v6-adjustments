@@ -20,7 +20,6 @@ rule "[dva/init.opy]: Increase Defense Matrix cooldown":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.DVA
     @Condition eventPlayer.isFiringSecondaryFire()
-    @Condition eventPlayer.getAbilityResource(Button.SECONDARY_FIRE) > 66
     
     # Defense Matrix still goes on cooldown visually even when the ability is disabled, so a faux cooldown was not implemented
     waitUntil(eventPlayer.isFiringSecondaryFire() == false, Math.INFINITY)
