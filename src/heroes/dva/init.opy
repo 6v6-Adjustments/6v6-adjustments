@@ -13,6 +13,9 @@ rule "[dva/init.opy]: Initialize D.Va":
 
     setBaseDamage(eventPlayer, ADJ_DVA_CANNON_DAMAGE/OW2_DVA_CANNON_DAMAGE)
 
+    waitUntil(eventPlayer.getUltCharge() > 0, Math.INFINITY)
+    eventPlayer.setUltCharge(0)
+
     eventPlayer.call_init = false
 
 
