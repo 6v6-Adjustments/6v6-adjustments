@@ -108,6 +108,7 @@ settings {
             },
             "illari": {
                 "ability2Cooldown%": percent(ADJ_ILLARI_PYLON_COOLDOWN/OW2_ILLARI_PYLON_COOLDOWN),
+                "health%": percent(ADJ_ILLARI_PYLON_HEALTH/OW2_ILLARI_PYLON_HEALTH), # for pylon hp
                 "ultGen%": percent(OW2_ILLARI_ULT_COST/ADJ_ILLARI_ULT_COST)
             },
             "junkerQueen": {
@@ -120,6 +121,7 @@ settings {
                 "ultGen%": percent(OW2_JUNKRAT_ULT_COST/ADJ_JUNKRAT_ULT_COST)
             },
             "kiriko": {
+                "ability1Cooldown%": percent(ADJ_KIRIKO_SWIFT_STEP_COOLDOWN/OW2_KIRIKO_SWIFT_STEP_COOLDOWN),
                 "ultGen%": percent(OW2_KIRIKO_ULT_COST/ADJ_KIRIKO_ULT_COST)
             },
             "lifeweaver": {
@@ -151,6 +153,7 @@ settings {
                 "ultGen%": percent(OW2_MOIRA_ULT_COST/ADJ_MOIRA_ULT_COST),
             },
             "orisa": {
+                "ability1Cooldown%": percent(ADJ_ORISA_FORTIFY_COOLDOWN/OW2_ORISA_FORTIFY_COOLDOWN),
                 "ability2Cooldown%": percent(ADJ_ORISA_JAVELIN_SPIN_COOLDOWN/OW2_ORISA_JAVELIN_SPIN_COOLDOWN),
                 "ultGen%": percent(OW2_ORISA_ULT_COST/ADJ_ORISA_ULT_COST)
             },

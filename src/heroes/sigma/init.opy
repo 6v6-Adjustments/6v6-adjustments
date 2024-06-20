@@ -1,5 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/sigma/accretion.opy"
 #!include "heroes/sigma/kinetic_grasp.opy"
 
 
@@ -14,11 +15,3 @@ rule "[sigma/init.opy]: Sigma":
 
     eventPlayer.balance_change_check = 0
     eventPlayer.call_init = false
-
-
-rule "[sigma/init.opy]: Increase Accretion damage":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.SIGMA
-    @Condition eventAbility == Button.ABILITY_2
-    
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_SIGMA_ACCRETION_DAMAGE/OW2_SIGMA_ACCRETION_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
