@@ -3,7 +3,7 @@
 
 rule "[ramattra/nemesis_form.opy]: Correct Nemesis Form armor and movement speed":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.RAMATTRA
+    @Hero ramattra
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
     
     eventPlayer.setMoveSpeed(percent(ADJ_RAMATTRA_NEMESIS_MOVESPEED/OW2_RAMATTRA_NEMESIS_MOVESPEED))
@@ -15,7 +15,7 @@ rule "[ramattra/nemesis_form.opy]: Correct Nemesis Form armor and movement speed
 
 rule "[ramattra/nemesis_form.opy]: Increase Pummel damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.RAMATTRA
+    @Hero ramattra
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
     @Condition eventDamage > 50 # This condition stops vortex from applying the damage increase
     @Condition eventAbility != Button.MELEE
@@ -25,7 +25,7 @@ rule "[ramattra/nemesis_form.opy]: Increase Pummel damage":
 
 rule "[ramattra/nemesis_form.opy]: Bonus Annihilation movement speed":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.RAMATTRA
+    @Hero ramattra
     @Condition eventPlayer.isUsingUltimate() == true
     
     wait(0.064)

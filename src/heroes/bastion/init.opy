@@ -6,7 +6,7 @@
 rule "[bastion/init.opy]: Bastion":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.BASTION
+    @Hero bastion
     
     setCustomHp(ADJ_BASTION_HEALTH, ADJ_BASTION_ARMOR, 0)
     removeSelfHealing()
@@ -16,7 +16,7 @@ rule "[bastion/init.opy]: Bastion":
 
 rule "[bastion/init.opy]: Reduce grenade self-damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.BASTION
+    @Hero bastion
     @Condition attacker == victim
     
     heal(victim, null, eventDamage - (eventDamage*0.5))

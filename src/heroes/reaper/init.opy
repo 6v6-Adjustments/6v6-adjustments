@@ -4,7 +4,7 @@
 rule "[reaper/init.opy]: Reaper":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.REAPER
+    @Hero reaper
 
     setCustomHp(ADJ_REAPER_HEALTH, 0, 0)
     removeRegenPassive()
@@ -14,7 +14,7 @@ rule "[reaper/init.opy]: Reaper":
 
 rule "[reaper/init.opy]: Increase Hellfire Shotgun damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.REAPER
+    @Hero reaper
     @Condition eventAbility == Button.PRIMARY_FIRE
     @Condition not eventPlayer.isUsingUltimate()
 
@@ -23,7 +23,7 @@ rule "[reaper/init.opy]: Increase Hellfire Shotgun damage":
 
 rule "[reaper/init.opy]: Reduce Death Blossom damage":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.REAPER
+    @Hero reaper
     @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setDamageDealt(percent(ADJ_REAPER_DEATH_BLOSSON_DAMAGE/OW2_REAPER_DEATH_BLOSSON_DAMAGE))

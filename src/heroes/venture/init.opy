@@ -9,7 +9,7 @@
 rule "[venture/init.opy]: Venture":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.VENTURE
+    @Hero venture
 
     setCustomHp(ADJ_VENTURE_HEALTH, 0, 0)
     removeSelfHealing()
@@ -23,7 +23,7 @@ rule "[venture/init.opy]: Venture":
 
 rule "[venture/init.opy]: Correct Venture bonus shields":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.VENTURE
+    @Hero venture
     @Condition eventPlayer.getMaxHealthOfType(Health.SHIELDS) >= floor(ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS * OW2_VENTURE_EXPLORER_SHIELDS_ULTIMATE)
     
     eventPlayer.addHealthPool(

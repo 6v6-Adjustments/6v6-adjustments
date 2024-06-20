@@ -5,7 +5,7 @@
 rule "[moira/init.opy]: Moira":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.MOIRA
+    @Hero moira
 
     setCustomHp(ADJ_MOIRA_HEALTH, 0, 0)
     removeRegenPassive()

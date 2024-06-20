@@ -3,7 +3,7 @@
 # Use 1 rule with if/else inside instead of 2 rules for performance
 rule "[illari/solar_rifle.opy]: Correct Solar Rifle damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.ILLARI
+    @Hero illari
     @Condition eventAbility == Button.PRIMARY_FIRE
 
     if eventWasCriticalHit:
@@ -14,7 +14,7 @@ rule "[illari/solar_rifle.opy]: Correct Solar Rifle damage":
 
 rule "[illari/solar_rifle.opy]: Reduce Solar Rifle healing":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ILLARI
+    @Hero illari
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)
     
     eventPlayer.setHealingDealt(percent(ADJ_ILLARI_SOLAR_RIFLE_HEALING/OW2_ILLARI_SOLAR_RIFLE_HEALING))

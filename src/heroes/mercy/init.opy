@@ -4,7 +4,7 @@
 rule "[mercy/init.opy]: Mercy":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.MERCY
+    @Hero mercy
 
     setCustomHp(ADJ_MERCY_HEALTH, 0, 0)
 
@@ -18,7 +18,7 @@ rule "[mercy/init.opy]: Mercy":
 
 rule "[mercy/init.opy]: Reduce Valkyrie healing":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.MERCY
+    @Hero mercy
     @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setHealingDealt(100)

@@ -3,7 +3,7 @@
 
 rule "[baptiste/regen_burst.opy]: Remove initial burst healing from Regenerative Burst and set cooldown for duplicate":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.BAPTISTE
+    @Hero baptiste
     @Condition eventPlayer.isUsingAbility1()
 
     eventPlayer.setHealingDealt(0)
@@ -15,7 +15,7 @@ rule "[baptiste/regen_burst.opy]: Remove initial burst healing from Regenerative
 
 rule "[baptiste/regen_burst.opy]: Allow self healing during regenerative burst":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.BAPTISTE
+    @Hero baptiste
     @Condition eventPlayer.isUsingAbility1()
 
     pushSelfHealing(Button.ABILITY_1)
@@ -25,7 +25,7 @@ rule "[baptiste/regen_burst.opy]: Allow self healing during regenerative burst":
 
 rule "[baptiste/regen_burst.opy]: Correct regenerative burst hps":
     @Event playerDealtHealing
-    @Condition eventPlayer.hero_setup == Hero.BAPTISTE
+    @Hero baptiste
     @Condition eventAbility == Button.ABILITY_1
     
     if healee == healer: # self healing

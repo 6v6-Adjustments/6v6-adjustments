@@ -3,7 +3,7 @@
 
 rule "[mauga/init.opy]: Remove Cardiac Overdrive allied damage reduction":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.MAUGA
+    @Hero mauga
     @Condition eventPlayer.isUsingAbility2()
     
     damage(eventPlayer, null, MIN_DAMAGE)

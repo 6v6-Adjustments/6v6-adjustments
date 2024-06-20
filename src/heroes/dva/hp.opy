@@ -3,7 +3,7 @@
 
 rule "[dva/hp.opy]: Correct DVa mech health":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.DVA
+    @Hero dva
     @Condition not eventPlayer.isInAlternateForm()
     @Condition not eventPlayer.call_init
 
@@ -15,7 +15,7 @@ rule "[dva/hp.opy]: Correct DVa mech health":
 
 rule "[dva/hp.opy]: Correct DVa pilot health":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.DVA
+    @Hero dva
     @Condition eventPlayer.isInAlternateForm()
     @Condition eventPlayer.getMaxHealthOfType(Health.NORMAL) != ADJ_DVA_PILOT_HEALTH
     @Condition not eventPlayer.call_init

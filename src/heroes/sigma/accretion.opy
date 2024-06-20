@@ -3,7 +3,7 @@
 
 rule "[sigma/init.opy]: Increase Accretion damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.SIGMA
+    @Hero sigma
     @Condition eventAbility == Button.ABILITY_2
     
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_SIGMA_ACCRETION_DAMAGE/OW2_SIGMA_ACCRETION_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
@@ -11,7 +11,7 @@ rule "[sigma/init.opy]: Increase Accretion damage":
 
 rule "[sigma/init.opy]: Reduce Accretion stun duration":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.SIGMA
+    @Hero sigma
     @Condition victim.hasStatusEffect(Status.KNOCKED_DOWN)
 
     wait(ADJ_SIGMA_ACCRETION_STUN_DURATION)

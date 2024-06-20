@@ -3,7 +3,7 @@
 
 rule "[venture/burrow.opy]: Correct Burrow damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.VENTURE
+    @Hero venture
     @Condition eventAbility == Button.ABILITY_1
     
     damage(

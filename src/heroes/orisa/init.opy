@@ -8,7 +8,7 @@
 rule "[orisa/init.opy]: Orisa":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.ORISA
+    @Hero orisa
     
     setCustomHp(
         ADJ_ORISA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ORISA_HEALTH, 

@@ -3,7 +3,7 @@
 
 rule "[junkerqueen/rampage.opy]: Reduce Rampage damage":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
+    @Hero junkerQueen
     @Condition eventPlayer.isUsingUltimate()
 
     eventPlayer.setDamageDealt(percent(ADJ_JUNKERQUEEN_RAMPAGE_WOUND_DAMAGE/OW2_JUNKERQUEEN_RAMPAGE_WOUND_DAMAGE))

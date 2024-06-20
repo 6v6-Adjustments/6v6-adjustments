@@ -3,7 +3,7 @@
 
 rule "[reinhardt/firestrike.opy]: Force single firestrike":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.REINHARDT
+    @Hero reinhardt
     @Condition eventPlayer.isUsingAbility2()
 
     waitUntil(not eventPlayer.isUsingAbility2(), 1)
@@ -14,7 +14,7 @@ rule "[reinhardt/firestrike.opy]: Force single firestrike":
 
 rule "[reinhardt/firestrike.opy]: Increase Firestrike damage (early animation)":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.REINHARDT
+    @Hero reinhardt
     @Condition eventPlayer.isUsingAbility2()
 
     eventPlayer.setDamageDealt(percent(ADJ_REINHARDT_FIRESTRIKE_DAMAGE/OW2_REINHARDT_FIRESTRIKE_DAMAGE))
@@ -24,7 +24,7 @@ rule "[reinhardt/firestrike.opy]: Increase Firestrike damage (early animation)":
 
 # rule "[reinhardt/firestrike.opy]: Correct Firestrike damage":
 #     @Event playerDealtDamage
-#     @Condition eventPlayer.hero_setup == Hero.REINHARDT
+#     @Hero reinhardt
 #     @Condition eventAbility == Button.ABILITY_2
 
 #     damage(

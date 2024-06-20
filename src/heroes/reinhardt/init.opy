@@ -8,7 +8,7 @@
 rule "[reinhardt/init.opy]: Reinhardt":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.REINHARDT
+    @Hero reinhardt
     
     setCustomHp(
         ADJ_REINHARDT_HEALTH,

@@ -3,7 +3,7 @@
 
 rule "[moira/coalescence.opy]: Prevent fading during coalescence":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.MOIRA
+    @Hero moira
     @Condition eventPlayer.isUsingUltimate()
 
     eventPlayer.setAbility1Enabled(false)
@@ -15,7 +15,7 @@ rule "[moira/coalescence.opy]: Prevent fading during coalescence":
 
 # rule "[moira/coalescence.opy]: Allow self healing during Coalescence":
 #     @Event eachPlayer
-#     @Condition eventPlayer.hero_setup == Hero.MOIRA
+#     @Hero moira
 #     @Condition eventPlayer.isUsingUltimate()
 
 #     pushSelfHealing(Button.ULTIMATE)

@@ -4,7 +4,7 @@
 rule "[symmetra/init.opy]: Symmetra":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.SYMMETRA
+    @Hero symmetra
 
     setCustomHp(ADJ_SYMMETRA_HEALTH, 0, ADJ_SYMMETRA_SHIELDS)
     removeSelfHealing()

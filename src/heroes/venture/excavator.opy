@@ -6,7 +6,7 @@ playervar is_firing_excavator
 # Extends Venture's primary fire signal to be used by damage modification rule
 rule "[venture/excavator.opy]: Prepare Smart Excavator damage increase":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.VENTURE
+    @Hero venture
     @Condition eventPlayer.isFiringPrimaryFire()
 
     eventPlayer.is_firing_excavator = true
@@ -16,7 +16,7 @@ rule "[venture/excavator.opy]: Prepare Smart Excavator damage increase":
 
 rule "[venture/excavator.opy]: Correct Smart Excavator damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.VENTURE
+    @Hero venture
     @Condition eventPlayer.is_firing_excavator
 
     damage(

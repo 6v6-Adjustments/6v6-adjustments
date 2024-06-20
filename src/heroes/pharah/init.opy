@@ -4,7 +4,7 @@
 rule "[pharah/init.opy]: Pharah":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.PHARAH
+    @Hero pharah
     
     setCustomHp(ADJ_PHARAH_HEALTH, 0, 0)
     removeSelfHealing()
@@ -16,7 +16,7 @@ rule "[pharah/init.opy]: Pharah":
 
 rule "[pharah/init.opy]: Reset projectile speed for Barrage":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.PHARAH
+    @Hero pharah
     @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setProjectileSpeed(100)

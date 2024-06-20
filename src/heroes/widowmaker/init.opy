@@ -4,7 +4,7 @@
 rule "[widowmaker/init.opy]: Widowmaker":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.WIDOWMAKER
+    @Hero widowmaker
     
     setCustomHp(ADJ_WIDOWMAKER_HEALTH, 0, 0)
     removeSelfHealing()

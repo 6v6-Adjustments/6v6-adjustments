@@ -8,7 +8,7 @@
 rule "[junkerqueen/init.opy]: Junker Queen":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
+    @Hero junkerQueen
 
     setCustomHp(ADJ_JUNKERQUEEN_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_JUNKERQUEEN_HEALTH, 0, 0)
     removeTankPassive()

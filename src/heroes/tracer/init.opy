@@ -4,7 +4,7 @@
 rule "[tracer/init.opy]: Tracer":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.TRACER
+    @Hero tracer
 
     removeSelfHealing()
 
@@ -16,7 +16,7 @@ rule "[tracer/init.opy]: Tracer":
 
 rule "[tracer/init.opy]: Correct melee and Pulse Bomb damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.TRACER
+    @Hero tracer
     @Condition eventAbility in [Button.MELEE, Button.ULTIMATE]
     
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)

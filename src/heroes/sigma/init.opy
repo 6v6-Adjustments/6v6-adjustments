@@ -7,7 +7,7 @@
 rule "[sigma/init.opy]: Sigma":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.SIGMA
+    @Hero sigma
 
     setCustomHp(ADJ_SIGMA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_SIGMA_HEALTH, 0, ADJ_SIGMA_SHIELDS)
     removeTankPassive()

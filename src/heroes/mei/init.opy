@@ -6,7 +6,7 @@
 rule "[mei/init.opy]: Mei":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.MEI
+    @Hero mei
 
     setCustomHp(ADJ_MEI_HEALTH, 0, 0)
     removeSelfHealing()
@@ -21,7 +21,7 @@ rule "[mei/init.opy]: Mei":
 
 rule "[mei/init.opy]: Increase Mei other forms of damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.MEI
+    @Hero mei
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.MELEE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

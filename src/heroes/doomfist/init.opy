@@ -8,7 +8,7 @@
 rule "[doomfist/init.opy]: Doomfist":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.DOOMFIST
+    @Hero doomfist
 
     setCustomHp(ADJ_DOOMFIST_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DOOMFIST_HEALTH, 0, 0)
     removeTankPassive()
@@ -21,7 +21,7 @@ rule "[doomfist/init.opy]: Doomfist":
 
 rule "[doomfist/init.opy]: Correct Rocket Punch and Meteor Strike damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.DOOMFIST
+    @Hero doomfist
     @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ULTIMATE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

@@ -32,7 +32,7 @@ playervar bash_cooldown
 
 rule "[brigitte/bash.opy]: Correct Shield Bash damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.BRIGITTE
+    @Hero brigitte
     @Condition eventPlayer.isFiringSecondaryFire()
     @Condition eventAbility == Button.PRIMARY_FIRE
 
@@ -41,7 +41,7 @@ rule "[brigitte/bash.opy]: Correct Shield Bash damage":
 
 rule "[brigitte/bash.opy]: Track Bash cooldown":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.BRIGITTE
+    @Hero brigitte
     @Condition eventPlayer.isFiringPrimaryFire()
     @Condition eventPlayer.isFiringSecondaryFire()
         
@@ -52,7 +52,7 @@ rule "[brigitte/bash.opy]: Track Bash cooldown":
 
 rule "[brigitte/bash.opy]: Force cooldown for Bash in Rally":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.BRIGITTE
+    @Hero brigitte
     @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setAbilityCooldown(Button.PRIMARY_FIRE, eventPlayer.bash_cooldown)

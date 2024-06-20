@@ -5,7 +5,7 @@
 rule "[echo/init.opy]: Echo":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.ECHO
+    @Hero echo
 
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
@@ -21,7 +21,7 @@ rule "[echo/init.opy]: Echo":
 
 rule "[echo/init.opy]: Correct Echo other forms of damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.ECHO
+    @Hero echo
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_2, Button.MELEE]
 
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)

@@ -3,7 +3,7 @@
 
 rule "[bastion/reconfigure.opy]: Reduce assault form damage and movement speed":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.BASTION
+    @Hero bastion
     @Condition eventPlayer.isUsingAbility1()
     
     eventPlayer.setDamageReceived(percent(ADJ_BASTION_IRONCLAD_RESISTANCE/OW2_BASTION_IRONCLAD_RESISTANCE))
@@ -15,7 +15,7 @@ rule "[bastion/reconfigure.opy]: Reduce assault form damage and movement speed":
 
 rule "[bastion/reconfigure.opy]: Increase movement allowed by self-damage grenade":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.BASTION
+    @Hero bastion
     @Condition eventPlayer.isUsingAbility1()
     @Condition attacker == victim
     

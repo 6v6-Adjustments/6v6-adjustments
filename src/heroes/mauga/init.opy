@@ -8,7 +8,7 @@
 rule "[mauga/init.opy]: Mauga":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.MAUGA
+    @Hero mauga
 
     setCustomHp(ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, 
                 ADJ_MAUGA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_ARMOR, 0)
@@ -28,7 +28,7 @@ rule "[mauga/init.opy]: Mauga":
 
 rule "[mauga/init.opy]: Increase Mauga melee damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.MAUGA
+    @Hero mauga
     @Condition eventAbility == Button.MELEE
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
