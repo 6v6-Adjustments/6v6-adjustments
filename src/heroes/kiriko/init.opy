@@ -2,6 +2,8 @@
 
 #!include "heroes/kiriko/swift_step.opy"
 
+playervar suzu_flying
+
 
 rule "[kiriko/init.opy]: Kiriko":
     @Event eachPlayer
@@ -24,7 +26,7 @@ rule "[kiriko/init.opy]: Track Protection Suzu healing":
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
     @Condition eventAbility == Button.ABILITY_2
     
-    eventPlayer.suzu_flying = true
+    eventPlayer.suzu_flying = false
 
 
 rule "[kiriko/init.opy]: Allow self healing during Protection Suzu":
@@ -34,9 +36,9 @@ rule "[kiriko/init.opy]: Allow self healing during Protection Suzu":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     
     damage(eventPlayer, null, MIN_DAMAGE)
-    eventPlayer.suzu_flying = false
+    eventPlayer.suzu_flying = true
     pushSelfHealing(Button.ABILITY_2)
-    waitUntil(eventPlayer.suzu_flying, ADJ_THROWABLES_WAIT_TIME)
+    waitUntil(not eventPlayer.suzu_flying, ADJ_THROWABLES_WAIT_TIME)
     wait(0.65)
     popSelfHealing(Button.ABILITY_2)
 

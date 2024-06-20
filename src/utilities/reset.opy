@@ -2,8 +2,6 @@
 
 playervar overhealth_check
 playervar balance_change_check
-playervar biotic_nade_flying
-playervar suzu_flying
 playervar hero_setup
 playervar call_init
 
