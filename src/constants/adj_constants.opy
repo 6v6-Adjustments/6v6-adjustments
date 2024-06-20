@@ -253,6 +253,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Sigma
 #!define ADJ_SIGMA_ACCRETION_DAMAGE 90
+#!define ADJ_SIGMA_ACCRETION_STUN_DURATION 0.7
 #!define ADJ_SIGMA_BARRIER_REGEN 80
 #!define ADJ_SIGMA_HEALTH 250
 #!define ADJ_SIGMA_HEALTH_DUPLICATE 150
