@@ -36,7 +36,7 @@ rule "[utilities/debug.opy]: player debug (Top Right)":
     @Condition DEBUG_MODE == true
 
     hudHeader(eventPlayer, "Event Player", HudPosition.RIGHT, 0, Color.WHITE, HudReeval.STRING)
-    hudSubheader(eventPlayer, "hp_exiting_grasp = {}".format(eventPlayer.hp_exiting_grasp), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    # hudSubheader(eventPlayer, "hp_exiting_grasp = {}".format(eventPlayer.hp_exiting_grasp), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "hero_setup = {}".format(eventPlayer.hero_setup), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "_last_hero_played = {}".format(eventPlayer._last_hero_played), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "call_init = {}".format(eventPlayer.call_init), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
@@ -76,7 +76,7 @@ rule "[utilities/debug.opy]: player debug (Top Right)":
     # hudSubheader(eventPlayer, "isUsingAbility2() = {}".format(eventPlayer.isUsingAbility2()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "Ability 2 Cooldown = {}".format(eventPlayer.getAbilityCooldown(Button.ABILITY_2)), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "getAbilityCharge(ABILITY_2) = {}".format(eventPlayer.getAbilityCharge(Button.ABILITY_2)), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
-    # hudSubheader(eventPlayer, "getSpeed() = {}".format(eventPlayer.getSpeed()), HudPosition.RIGHT, 1, Color.WHITE, Hud Reeval.STRING)
+    hudSubheader(eventPlayer, "getSpeed() = {}".format(eventPlayer.getSpeed()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "_ult_cost = {}".format(eventPlayer._ult_cost), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "_ult_percent_compensated = {}".format(eventPlayer._ult_percent_compensated), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "getMaxHealth() = {}".format(eventPlayer.getMaxHealth()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
