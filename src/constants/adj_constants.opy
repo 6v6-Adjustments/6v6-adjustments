@@ -2,6 +2,7 @@
 
 # Universal
 #!define ADJ_TANK_KNOCKBACK_REDUCTION 0.12
+#!define ADJ_THROWABLES_WAIT_TIME 11
 
 # Ana
 #!define ADJ_ANA_AMMO_COUNT 12
@@ -160,6 +161,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # burn rate needs to be set slightly lower than target variable due to a rounding error
 #!define ADJ_MAUGA_CAGE_DURATION 7
 #!define ADJ_MAUGA_CARDIAC_COOLDOWN 16
+#!define ADJ_MAUGA_CARDIAC_LIFESTEAL 0.5
 #!define ADJ_MAUGA_CHAINGUN_DAMAGE 3.5
 #!define ADJ_MAUGA_HEALTH 350
 #!define ADJ_MAUGA_HEALTH_DUPLICATE 250
