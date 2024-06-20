@@ -11,8 +11,6 @@ rule "[tracer/init.opy]: Tracer":
     setBaseDamage(eventPlayer, ADJ_TRACER_PULSE_PISTOL_DAMAGE/OW2_TRACER_PULSE_PISTOL_DAMAGE)
     eventPlayer.startScalingSize(0.96, true)
 
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 5)
-
     eventPlayer.call_init = false
 
 
