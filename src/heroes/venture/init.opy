@@ -16,6 +16,7 @@ rule "[venture/init.opy]: Venture":
 
     setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE)
     eventPlayer.setKnockbackDealt(70)
+    eventPlayer.setMoveSpeed(percent(ADJ_VENTURE_SPEED/OW2_VENTURE_SPEED))
 
     eventPlayer.call_init = false
 
