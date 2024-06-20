@@ -108,6 +108,7 @@ settings {
             },
             "illari": {
                 "ability2Cooldown%": percent(ADJ_ILLARI_PYLON_COOLDOWN/OW2_ILLARI_PYLON_COOLDOWN),
+                "health%": percent(ADJ_ILLARI_PYLON_HEALTH/OW2_ILLARI_PYLON_HEALTH), # for pylon hp
                 "ultGen%": percent(OW2_ILLARI_ULT_COST/ADJ_ILLARI_ULT_COST)
             },
             "junkerQueen": {
