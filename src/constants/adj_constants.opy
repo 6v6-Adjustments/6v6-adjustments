@@ -268,7 +268,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # Sojourn
 #!define ADJ_SOJOURN_HEALTH 200
 #!define ADJ_SOJOURN_ULT_COST 2100
-#!define ADJ_SOJOURN_RAILGUN_AMMO 35
+#!define ADJ_SOJOURN_RAILGUN_AMMO 45
 #!define ADJ_SOJOURN_SLIDE_COOLDOWN 9
 
 # Soldier 76
