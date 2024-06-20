@@ -2,6 +2,7 @@
 
 playervar overhealth_check
 playervar balance_change_check
+playervar ability_check
 playervar hero_setup
 playervar call_init
 
