@@ -3,10 +3,10 @@
 #!include "heroes/zenyatta/transc.opy"
 
 
-rule "[zenyatta/init.opy]: Zenyatta":
+rule "[zenyatta/init.opy]: Initialize Zenyatta":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero zenyatta
+    @Condition eventPlayer.hero_setup == Hero.ZENYATTA
 
     setCustomHp(ADJ_ZENYATTA_HEALTH, 0, ADJ_ZENYATTA_SHIELDS)
     removeSelfHealing()

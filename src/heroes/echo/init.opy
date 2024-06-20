@@ -2,10 +2,10 @@
 
 #!include "heroes/echo/duplicate.opy"
 
-rule "[echo/init.opy]: Echo":
+rule "[echo/init.opy]: Initialize Echo":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero echo
+    @Condition eventPlayer.hero_setup == Hero.ECHO
 
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)

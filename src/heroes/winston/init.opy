@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[winston/init.opy]: Winston":
+rule "[winston/init.opy]: Initialize Winston":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero winston
+    @Condition eventPlayer.hero_setup == Hero.WINSTON
 
     setCustomHp(ADJ_WINSTON_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_WINSTON_HEALTH, 
                 ADJ_WINSTON_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_WINSTON_ARMOR, 0)

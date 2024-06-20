@@ -5,10 +5,10 @@
 #!include "heroes/doomfist/powerblock.opy"
 
 
-rule "[doomfist/init.opy]: Doomfist":
+rule "[doomfist/init.opy]: Initialize Doomfist":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero doomfist
+    @Condition eventPlayer.hero_setup == Hero.DOOMFIST
 
     setCustomHp(ADJ_DOOMFIST_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DOOMFIST_HEALTH, 0, 0)
     removeTankPassive()

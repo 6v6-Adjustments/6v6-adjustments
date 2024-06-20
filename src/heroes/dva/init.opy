@@ -6,7 +6,7 @@
 rule "[dva/init.opy]: Initialize D.Va":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero dva
+    @Condition eventPlayer.hero_setup == Hero.DVA
 
     removeTankPassive()
     removeSelfHealing()

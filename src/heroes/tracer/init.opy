@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[tracer/init.opy]: Tracer":
+rule "[tracer/init.opy]: Initialize Tracer":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero tracer
+    @Condition eventPlayer.hero_setup == Hero.TRACER
 
     removeSelfHealing()
 

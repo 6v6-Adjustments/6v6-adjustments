@@ -3,10 +3,10 @@
 #!include "heroes/bastion/reconfigure.opy"
 
 
-rule "[bastion/init.opy]: Bastion":
+rule "[bastion/init.opy]: Initialize Bastion":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero bastion
+    @Condition eventPlayer.hero_setup == Hero.BASTION
     
     setCustomHp(ADJ_BASTION_HEALTH, ADJ_BASTION_ARMOR, 0)
     removeSelfHealing()

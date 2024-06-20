@@ -3,10 +3,10 @@
 #!include "heroes/lucio/aura.opy"
 
 
-rule "[lucio/init.opy]: Lucio":
+rule "[lucio/init.opy]: Initialize Lucio":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero lucio
+    @Condition eventPlayer.hero_setup == Hero.LUCIO
     
     setCustomHp(ADJ_LUCIO_HEALTH, 0, 0)
     removeSelfHealing()

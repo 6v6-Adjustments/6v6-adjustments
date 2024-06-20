@@ -4,10 +4,10 @@
 # #!include "heroes/mccree/deadeye.opy"
 
 
-rule "[mccree/init.opy]: Cassidy":
+rule "[mccree/init.opy]: Initialize Cassidy":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero mccree
+    @Condition eventPlayer.hero_setup == Hero.MCCREE
     
     setCustomHp(ADJ_MCCREE_HEALTH, 0, 0)
     removeSelfHealing()

@@ -3,10 +3,10 @@
 #!include "heroes/soldier/biotic_field.opy"
 
 
-rule "[soldier/init.opy]: Soldier 76":
+rule "[soldier/init.opy]: Initialize Soldier 76":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero soldier
+    @Condition eventPlayer.hero_setup == Hero.SOLDIER
     
     setCustomHp(ADJ_SOLDIER_HEALTH, 0, 0)
     removeSelfHealing()

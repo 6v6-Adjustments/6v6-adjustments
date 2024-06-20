@@ -5,10 +5,10 @@
 #!include "heroes/mauga/overrun.opy"
 
 
-rule "[mauga/init.opy]: Mauga":
+rule "[mauga/init.opy]: Initialize Mauga":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero mauga
+    @Condition eventPlayer.hero_setup == Hero.MAUGA
 
     setCustomHp(ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, 
                 ADJ_MAUGA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_ARMOR, 0)

@@ -3,10 +3,10 @@
 #!include "heroes/mei/cryo_freeze.opy"
 
 
-rule "[mei/init.opy]: Mei":
+rule "[mei/init.opy]: Initialize Mei":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero mei
+    @Condition eventPlayer.hero_setup == Hero.MEI
 
     setCustomHp(ADJ_MEI_HEALTH, 0, 0)
     removeSelfHealing()

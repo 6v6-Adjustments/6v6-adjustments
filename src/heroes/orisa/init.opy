@@ -5,10 +5,10 @@
 #!include "heroes/orisa/terra_surge.opy"
 
 
-rule "[orisa/init.opy]: Orisa":
+rule "[orisa/init.opy]: Initialize Orisa":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero orisa
+    @Condition eventPlayer.hero_setup == Hero.ORISA
     
     setCustomHp(
         ADJ_ORISA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ORISA_HEALTH, 

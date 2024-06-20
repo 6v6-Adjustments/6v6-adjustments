@@ -5,10 +5,10 @@
 playervar suzu_flying
 
 
-rule "[kiriko/init.opy]: Kiriko":
+rule "[kiriko/init.opy]: Initialize Kiriko":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero kiriko
+    @Condition eventPlayer.hero_setup == Hero.KIRIKO
 
     setCustomHp(ADJ_KIRIKO_HEALTH, 0, 0)
     removeSelfHealing()

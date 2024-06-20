@@ -6,10 +6,10 @@
 #!include "heroes/venture/tectonic_shock.opy"
 
 
-rule "[venture/init.opy]: Venture":
+rule "[venture/init.opy]: Initialize Venture":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero venture
+    @Condition eventPlayer.hero_setup == Hero.VENTURE
 
     setCustomHp(ADJ_VENTURE_HEALTH, 0, 0)
     removeSelfHealing()

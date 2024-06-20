@@ -4,10 +4,10 @@
 #!include "heroes/zarya/ally_bubble.opy"
 
 
-rule "[zarya/init.opy]: Zarya":
+rule "[zarya/init.opy]: Initialize Zarya":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero zarya
+    @Condition eventPlayer.hero_setup == Hero.ZARYA
     
     setCustomHp(
         ADJ_ZARYA_HEALTH,

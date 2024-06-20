@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[hanzo/init.opy]: Hanzo":
+rule "[hanzo/init.opy]: Initialize Hanzo":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero hanzo
+    @Condition eventPlayer.hero_setup == Hero.HANZO
     
     setCustomHp(ADJ_HANZO_HEALTH, 0, 0)
     removeSelfHealing()

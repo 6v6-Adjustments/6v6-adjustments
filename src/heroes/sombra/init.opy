@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[sombra/init.opy]: Sombra":
+rule "[sombra/init.opy]: Initialize Sombra":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero sombra
+    @Condition eventPlayer.hero_setup == Hero.SOMBRA
 
     setCustomHp(ADJ_SOMBRA_HEALTH, null, null)
     removeSelfHealing()

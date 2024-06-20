@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[sojourn/init.opy]: Sojourn":
+rule "[sojourn/init.opy]: Initialize Sojourn":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero sojourn
+    @Condition eventPlayer.hero_setup == Hero.SOJOURN
     
     setCustomHp(ADJ_SOJOURN_HEALTH, 0, 0)
     removeSelfHealing()

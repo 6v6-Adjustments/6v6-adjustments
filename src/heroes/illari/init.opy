@@ -3,10 +3,10 @@
 #!include "heroes/illari/solar_rifle.opy"
 
 
-rule "[illari/init.opy]: Illari":
+rule "[illari/init.opy]: Initialize Illari":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero illari
+    @Condition eventPlayer.hero_setup == Hero.ILLARI
     
     setCustomHp(ADJ_ILLARI_HEALTH, 0, 0)
     removeRegenPassive()

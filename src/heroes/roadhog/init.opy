@@ -4,10 +4,10 @@
 #!include "heroes/roadhog/wholehog.opy"
 
 
-rule "[roadhog/init.opy]: Roadhog":
+rule "[roadhog/init.opy]: Initialize Roadhog":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero roadhog
+    @Condition eventPlayer.hero_setup == Hero.ROADHOG
     
     setCustomHp(
         ADJ_ROADHOG_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ROADHOG_HEALTH,

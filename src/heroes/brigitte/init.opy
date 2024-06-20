@@ -5,10 +5,10 @@
 #!include "heroes/brigitte/bash.opy"
 
 
-rule "[brigitte/init.opy]: Brigitte":
+rule "[brigitte/init.opy]: Initialize Brigitte":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero brigitte
+    @Condition eventPlayer.hero_setup == Hero.BRIGITTE
 
     setCustomHp(ADJ_BRIGITTE_HEALTH, ADJ_BRIGITTE_ARMOR, 0)
     removeSelfHealing()

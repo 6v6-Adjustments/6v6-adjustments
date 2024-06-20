@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[lifeweaver/init.opy]: Lifeweaver":
+rule "[lifeweaver/init.opy]: Initialize Lifeweaver":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero lifeweaver
+    @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
     
     setCustomHp(ADJ_LIFEWEAVER_HEALTH, 0, ADJ_LIFEWEAVER_SHIELDS)
     removeRegenPassive()

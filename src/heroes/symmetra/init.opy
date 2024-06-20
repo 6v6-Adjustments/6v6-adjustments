@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[symmetra/init.opy]: Symmetra":
+rule "[symmetra/init.opy]: Initialize Symmetra":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero symmetra
+    @Condition eventPlayer.hero_setup == Hero.SYMMETRA
 
     setCustomHp(ADJ_SYMMETRA_HEALTH, 0, ADJ_SYMMETRA_SHIELDS)
     removeSelfHealing()

@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[pharah/init.opy]: Pharah":
+rule "[pharah/init.opy]: Initialize Pharah":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero pharah
+    @Condition eventPlayer.hero_setup == Hero.PHARAH
     
     setCustomHp(ADJ_PHARAH_HEALTH, 0, 0)
     removeSelfHealing()

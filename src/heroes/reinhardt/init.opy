@@ -5,10 +5,10 @@
 #!include "heroes/reinhardt/shatter.opy"
 
 
-rule "[reinhardt/init.opy]: Reinhardt":
+rule "[reinhardt/init.opy]: Initialize Reinhardt":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero reinhardt
+    @Condition eventPlayer.hero_setup == Hero.REINHARDT
     
     setCustomHp(
         ADJ_REINHARDT_HEALTH,

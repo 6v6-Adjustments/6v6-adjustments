@@ -3,10 +3,10 @@
 #!include "heroes/baptiste/regen_burst.opy"
 
 
-rule "[baptiste/init.opy]: Baptiste":
+rule "[baptiste/init.opy]: Initialize Baptiste":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero baptiste
+    @Condition eventPlayer.hero_setup == Hero.BAPTISTE
     
     setCustomHp(ADJ_BAPTISTE_HEALTH, 0, 0)
     removeSelfHealing()

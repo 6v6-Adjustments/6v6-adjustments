@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[torbjorn/init.opy]: Torbjorn":
+rule "[torbjorn/init.opy]: Initialize Torbjorn":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero torbjorn
+    @Condition eventPlayer.hero_setup == Hero.TORBJORN
 
     setCustomHp(ADJ_TORBJORN_HEALTH, ADJ_TORBJORN_ARMOR, 0)
     removeSelfHealing()

@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[mercy/init.opy]: Mercy":
+rule "[mercy/init.opy]: Initialize Mercy":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero mercy
+    @Condition eventPlayer.hero_setup == Hero.MERCY
 
     setCustomHp(ADJ_MERCY_HEALTH, 0, 0)
 

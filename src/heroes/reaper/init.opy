@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[reaper/init.opy]: Reaper":
+rule "[reaper/init.opy]: Initialize Reaper":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero reaper
+    @Condition eventPlayer.hero_setup == Hero.REAPER
 
     setCustomHp(ADJ_REAPER_HEALTH, 0, 0)
     removeRegenPassive()

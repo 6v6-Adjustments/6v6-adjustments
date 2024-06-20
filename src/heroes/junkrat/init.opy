@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[junkrat/init.opy]: Junkrat":
+rule "[junkrat/init.opy]: Initialize Junkrat":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero junkrat
+    @Condition eventPlayer.hero_setup == Hero.JUNKRAT
 
     #Version or the "resetHealth" subroutine that keeps tire at 100 hp
     wait()

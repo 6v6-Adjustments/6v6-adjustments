@@ -5,10 +5,10 @@
 #!include "heroes/wreckingball/piledriver.opy"
 
 
-rule "[wreckingball/init.opy]: Wrecking Ball":
+rule "[wreckingball/init.opy]: Initialize Wrecking Ball":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Hero hammond
+    @Condition eventPlayer.hero_setup == Hero.HAMMOND
 
     setCustomHp(
         ADJ_WRECKING_BALL_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_WRECKING_BALL_HEALTH, 
