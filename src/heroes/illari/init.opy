@@ -25,3 +25,12 @@ rule "[illari/init.opy]: Correct Outburst and melee damage":
     @Condition eventAbility in [Button.MELEE, Button.ABILITY_1]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
+
+
+rule "[illari/init.opy]: Correct Pylon self healing":
+    @Event playerDealtHealing
+    @Condition eventPlayer.hero_setup == Hero.ILLARI
+    @Condition healee == healer
+
+    heal(healer, null, eventHealing)
+    
