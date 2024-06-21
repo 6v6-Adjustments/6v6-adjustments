@@ -30,7 +30,7 @@ rule "[dva/init.opy]: Reduce Boosters damage":
 rule "[dva/init.opy]: Increase D.va other forms of damage":
     @Event playerDealtDamage
     @Hero dva
-    @Condition eventAbility in [Button.MELEE, Button.ABILITY_2]
+    @Condition eventAbility in [Button.MELEE, Button.ABILITY_2, Button.ULTIMATE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
