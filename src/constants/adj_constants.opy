@@ -288,7 +288,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Symmetra
 #!define ADJ_SYMMETRA_HEALTH 100
-#!define ADJ_SYMMETRA_SHIELDS 125
+#!define ADJ_SYMMETRA_SHIELDS 100
 #!define ADJ_SYMMETRA_TURRET_HEALTH 30
 #!define ADJ_SYMMETRA_ULT_COST 1680
 
