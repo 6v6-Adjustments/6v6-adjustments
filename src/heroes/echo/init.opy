@@ -2,6 +2,7 @@
 
 #!include "heroes/echo/duplicate.opy"
 
+
 rule "[echo/init.opy]: Initialize Echo":
     @Event eachPlayer
     @Condition eventPlayer.call_init

@@ -111,7 +111,7 @@ rule "[roadhog/breather.opy]: Enable Breather if not on cooldown":
 
 rule "[roadhog/breather.opy]: Allow self healing during Breather":
     @Event eachPlayer
-    @Hero roadhog
+    @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventPlayer.isFiringSecondaryFire()
 
     damage(eventPlayer, null, MIN_DAMAGE)

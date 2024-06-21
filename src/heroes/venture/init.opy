@@ -14,7 +14,8 @@ rule "[venture/init.opy]: Initialize Venture":
     setCustomHp(ADJ_VENTURE_HEALTH, 0, 0)
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE)
+    if not eventPlayer.isDuplicatingAHero():
+        setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE / OW2_VENTURE_DRILL_DASH_DAMAGE)
     eventPlayer.setKnockbackDealt(70)
     eventPlayer.setMoveSpeed(percent(ADJ_VENTURE_SPEED/OW2_VENTURE_SPEED))
 
