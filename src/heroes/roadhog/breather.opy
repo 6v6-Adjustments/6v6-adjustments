@@ -25,7 +25,7 @@ Below HUD is tuned for 16:9 aspect ratio monitors (typical PC Overwatch setup).
     if eventPlayer.breather_cd_text == null:\
         createInWorldText(eventPlayer,\
                         "{0}".format(ceil(eventPlayer.breather_cooldown)),\
-                        updateEveryTick(eventPlayer.getEyePosition() + (100 * (2.70 * worldVector(Vector.RIGHT, eventPlayer, Transform.ROTATION) + ((-1.29 - 0.2) * (angleToDirection(horizontalAngleOfDirection(eventPlayer.getFacingDirection()),\
+                        updateEveryTick(eventPlayer.getEyePosition() + (100 * (2.71 * worldVector(Vector.RIGHT, eventPlayer, Transform.ROTATION) + ((-1.73 - 0.2) * (angleToDirection(horizontalAngleOfDirection(eventPlayer.getFacingDirection()),\
                         verticalAngleOfDirection(eventPlayer.getFacingDirection()) - 90))) + 3 * eventPlayer.getFacingDirection()))),\
                         3,\
                         Clip.NONE,\
@@ -83,7 +83,7 @@ Below HUD is tuned for 16:9 aspect ratio monitors (typical PC Overwatch setup).
 
 rule "[roadhog/breather.opy]: Breather cooldown logic":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
+    @Hero roadhog
     @Condition eventPlayer.isFiringSecondaryFire()
     
     waitUntil(not eventPlayer.isFiringSecondaryFire(), Math.INFINITY)
@@ -93,7 +93,7 @@ rule "[roadhog/breather.opy]: Breather cooldown logic":
 
 rule "[roadhog/breather.opy]: Disable Breather if on cooldown":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
+    @Hero roadhog
     @Condition eventPlayer.breather_cooldown > 0
 
     eventPlayer.setSecondaryFireEnabled(false)
@@ -102,7 +102,7 @@ rule "[roadhog/breather.opy]: Disable Breather if on cooldown":
 
 rule "[roadhog/breather.opy]: Enable Breather if not on cooldown":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
+    @Hero roadhog
     @Condition eventPlayer.breather_cooldown <= 0
 
     eventPlayer.setSecondaryFireEnabled(true)
@@ -114,6 +114,7 @@ rule "[roadhog/breather.opy]: Allow self healing during Breather":
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventPlayer.isFiringSecondaryFire()
 
+    damage(eventPlayer, null, MIN_DAMAGE)
     pushSelfHealing(Button.ABILITY_2)
     waitUntil(not eventPlayer.isFiringSecondaryFire(), Math.INFINITY)
     popSelfHealing(Button.ABILITY_2)

@@ -6,6 +6,8 @@ rule "[mauga/init.opy]: Remove Cardiac Overdrive allied damage reduction":
     @Condition eventPlayer.hero_setup == Hero.MAUGA
     @Condition eventPlayer.isUsingAbility2()
     
+    damage(eventPlayer, null, MIN_DAMAGE)
+    pushSelfHealing(Button.ABILITY_2)
     startDamageModification(
         getPlayersInRadius(
             eventPlayer, 
@@ -18,3 +20,4 @@ rule "[mauga/init.opy]: Remove Cardiac Overdrive allied damage reduction":
     eventPlayer.balance_change_check = getLastDamageModification()
     waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)
     stopDamageModification(eventPlayer.balance_change_check)
+    popSelfHealing(Button.ABILITY_2)

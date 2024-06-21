@@ -5,7 +5,7 @@ playervar hp_exiting_grasp
 
 rule "[sigma/kinetic_grasp.opy]: Reduce Kinetic Grasp overhealth":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.SIGMA
+    @Hero sigma
     @Condition eventPlayer.isUsingAbility1()
     
     wait(OW2_SIGMA_KINETIC_GRASP_DURATION - 50 * TICK_DURATION, Wait.ABORT_WHEN_FALSE)

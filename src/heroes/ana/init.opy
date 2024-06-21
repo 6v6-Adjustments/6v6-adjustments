@@ -8,7 +8,6 @@ rule "[ana/init.opy]: Initialize Ana":
     @Condition eventPlayer.hero_setup == Hero.ANA
     
     setCustomHp(ADJ_ANA_HEALTH, 0, 0)
-    setUltCost(ADJ_ANA_ULT_COST)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_ANA_BIOTIC_GRENADE_DAMAGE/OW2_ANA_BIOTIC_GRENADE_DAMAGE)
@@ -21,7 +20,7 @@ rule "[ana/init.opy]: Initialize Ana":
 
 rule "[ana/init.opy]: Correct Biotic Rifle, Sleep Dart, Melee damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.ANA
+    @Hero ana
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_1, Button.MELEE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

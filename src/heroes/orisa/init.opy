@@ -1,9 +1,11 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/orisa/javelin.opy"
 #!include "heroes/orisa/fortify.opy"
+#!include "heroes/orisa/terra_surge.opy"
 
 
-rule "[orisa/init.opy]: Orisa":
+rule "[orisa/init.opy]: Initialize Orisa":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ORISA
@@ -15,14 +17,5 @@ rule "[orisa/init.opy]: Orisa":
     removeTankPassive()
     removeSelfHealing()
 
+    eventPlayer.balance_change_check = true
     eventPlayer.call_init = false
-
-
-rule "[orisa/init.opy]: Reduce Terra Surge damage":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ORISA
-    @Condition eventPlayer.isUsingUltimate()
-    
-    eventPlayer.setDamageDealt(80)
-    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
-    eventPlayer.setDamageDealt(100)

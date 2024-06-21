@@ -6,7 +6,7 @@ playervar wall_impacted_victims
 
 rule "[doomfist/punch.opy]: Initialize rocket punch":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.DOOMFIST
+    @Hero doomfist
     @Condition eventPlayer.isFiringSecondaryFire()
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)
 
@@ -18,7 +18,7 @@ rule "[doomfist/punch.opy]: Initialize rocket punch":
 # The order is functionally significant
 rule "[doomfist/punch.opy]: Find wall impacted victims":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.DOOMFIST
+    @Hero doomfist
     @Condition eventAbility == Button.SECONDARY_FIRE
     @Condition victim in attacker.punched_victims
     @Condition victim not in attacker.wall_impacted_victims
@@ -31,7 +31,7 @@ rule "[doomfist/punch.opy]: Find wall impacted victims":
 # The order is functionally significant
 rule "[doomfist/punch.opy]: Best Defense for punched victims":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.DOOMFIST
+    @Hero doomfist
     @Condition eventAbility == Button.SECONDARY_FIRE
     @Condition victim not in attacker.punched_victims
 

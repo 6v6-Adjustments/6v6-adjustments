@@ -5,7 +5,7 @@
 #!include "heroes/reinhardt/shatter.opy"
 
 
-rule "[reinhardt/init.opy]: Reinhardt":
+rule "[reinhardt/init.opy]: Initialize Reinhardt":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.REINHARDT

@@ -4,7 +4,7 @@
 #!include "heroes/zarya/ally_bubble.opy"
 
 
-rule "[zarya/init.opy]: Zarya":
+rule "[zarya/init.opy]: Initialize Zarya":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ZARYA
@@ -35,7 +35,7 @@ rule "[zarya/init.opy]: Clean up Zarya":
 
 rule "[zarya/init.opy]: Correct Alternate Fire and Melee damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.ZARYA
+    @Hero zarya
     @Condition eventAbility in [Button.SECONDARY_FIRE, Button.MELEE]
     
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)

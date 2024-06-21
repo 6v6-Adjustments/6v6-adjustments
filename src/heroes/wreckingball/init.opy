@@ -5,7 +5,7 @@
 #!include "heroes/wreckingball/piledriver.opy"
 
 
-rule "[wreckingball/init.opy]: Wrecking Ball":
+rule "[wreckingball/init.opy]: Initialize Wrecking Ball":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.HAMMOND
@@ -24,7 +24,7 @@ rule "[wreckingball/init.opy]: Wrecking Ball":
 
 rule "[wreckingball/init.opy]: Correct primary fire, fireball, melee damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.HAMMOND
+    @Hero hammond
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_1, Button.MELEE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
@@ -33,7 +33,7 @@ rule "[wreckingball/init.opy]: Correct primary fire, fireball, melee damage":
 /*
 rule "Correct Adaptive Shields overhealth while outside spawn rooms":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.HAMMOND
+    @Hero hammond
     @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.isInSpawnRoom() == false
     @Condition eventPlayer.overhealth_check == false
@@ -47,7 +47,7 @@ rule "Correct Adaptive Shields overhealth while outside spawn rooms":
 /*
 rule "Correct Adaptive Shields overhealth while inside spawn rooms":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.HAMMOND
+    @Hero hammond
     @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.isInSpawnRoom() == true
     @Condition eventPlayer.overhealth_check == false
@@ -61,7 +61,7 @@ rule "Correct Adaptive Shields overhealth while inside spawn rooms":
 /*
 rule "Enable Adaptive Shields when near enemy players":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.HAMMOND
+    @Hero hammond
     @Condition getPlayersInRadius(eventPlayer, 8.9, getOppositeTeam(eventPlayer.getTeam()), LosCheck.OFF) >= 1
     
     eventPlayer.setAbility2Enabled(true)
@@ -70,7 +70,7 @@ rule "Enable Adaptive Shields when near enemy players":
 /*
 rule "Disable Adaptive Shields when not near enemy players":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.HAMMOND
+    @Hero hammond
     @Condition getPlayersInRadius(eventPlayer, 8.9, getOppositeTeam(eventPlayer.getTeam()), LosCheck.OFF) <= 0
     
     eventPlayer.setAbility2Enabled(false)

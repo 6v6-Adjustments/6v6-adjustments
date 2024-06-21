@@ -3,7 +3,7 @@
 
 rule "[venture/tectonic_shock.opy]: Increase Tectonic Shock damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.VENTURE
+    @Hero venture
     @Condition eventAbility == Button.ULTIMATE
 
     if distance(attacker, victim) <= ADJ_VENTURE_TECTONIC_SHOCK_CRIT_RADIUS:

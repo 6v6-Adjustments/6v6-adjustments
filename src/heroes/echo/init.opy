@@ -2,7 +2,8 @@
 
 #!include "heroes/echo/duplicate.opy"
 
-rule "[echo/init.opy]: Echo":
+
+rule "[echo/init.opy]: Initialize Echo":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ECHO
@@ -21,7 +22,7 @@ rule "[echo/init.opy]: Echo":
 
 rule "[echo/init.opy]: Correct Echo other forms of damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.ECHO
+    @Hero echo
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_2, Button.MELEE]
 
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)

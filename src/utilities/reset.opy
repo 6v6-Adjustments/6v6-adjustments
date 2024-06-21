@@ -110,7 +110,6 @@ def resetStatuses():
 def resetUltCharge():
     @Name "[utilities/reset.opy]: resetUltCharge()"
     
-    wait(eventPlayer.getUltCharge() > 0)
     eventPlayer.setUltCharge(0)
 
 

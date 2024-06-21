@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[sojourn/init.opy]: Sojourn":
+rule "[sojourn/init.opy]: Initialize Sojourn":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.SOJOURN
