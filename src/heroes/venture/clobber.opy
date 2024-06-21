@@ -3,7 +3,7 @@
 
 rule "[venture/clobber.opy]: Correct Venture melee damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.VENTURE
+    @Hero venture
     @Condition eventAbility == Button.MELEE
     
     damage(

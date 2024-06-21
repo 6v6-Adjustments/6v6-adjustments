@@ -3,7 +3,7 @@
 
 rule "[junkerqueen/jagged_blade.opy]: Increase pull distance on squishies":
     @Event playerDealtKnockback
-    @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
+    @Hero junkerQueen
     @Condition not eventPlayer.isMeleeing() 
     @Condition victim.getCurrentHero() not in getTankHeroes()
 

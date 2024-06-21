@@ -3,7 +3,7 @@
 #!include "heroes/bastion/reconfigure.opy"
 
 
-rule "[bastion/init.opy]: Bastion":
+rule "[bastion/init.opy]: Initialize Bastion":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.BASTION
@@ -16,7 +16,7 @@ rule "[bastion/init.opy]: Bastion":
 
 rule "[bastion/init.opy]: Reduce grenade self-damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.BASTION
+    @Hero bastion
     @Condition attacker == victim
     
     heal(victim, null, eventDamage - (eventDamage*0.5))

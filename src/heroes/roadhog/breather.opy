@@ -83,7 +83,7 @@ Below HUD is tuned for 16:9 aspect ratio monitors (typical PC Overwatch setup).
 
 rule "[roadhog/breather.opy]: Breather cooldown logic":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
+    @Hero roadhog
     @Condition eventPlayer.isFiringSecondaryFire()
     
     waitUntil(not eventPlayer.isFiringSecondaryFire(), Math.INFINITY)
@@ -93,7 +93,7 @@ rule "[roadhog/breather.opy]: Breather cooldown logic":
 
 rule "[roadhog/breather.opy]: Disable Breather if on cooldown":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
+    @Hero roadhog
     @Condition eventPlayer.breather_cooldown > 0
 
     eventPlayer.setSecondaryFireEnabled(false)
@@ -102,7 +102,7 @@ rule "[roadhog/breather.opy]: Disable Breather if on cooldown":
 
 rule "[roadhog/breather.opy]: Enable Breather if not on cooldown":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
+    @Hero roadhog
     @Condition eventPlayer.breather_cooldown <= 0
 
     eventPlayer.setSecondaryFireEnabled(true)

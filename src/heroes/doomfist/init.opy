@@ -5,7 +5,7 @@
 #!include "heroes/doomfist/powerblock.opy"
 
 
-rule "[doomfist/init.opy]: Doomfist":
+rule "[doomfist/init.opy]: Initialize Doomfist":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.DOOMFIST
@@ -21,7 +21,7 @@ rule "[doomfist/init.opy]: Doomfist":
 
 rule "[doomfist/init.opy]: Correct Rocket Punch and Meteor Strike damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.DOOMFIST
+    @Hero doomfist
     @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ULTIMATE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[junkrat/init.opy]: Junkrat":
+rule "[junkrat/init.opy]: Initialize Junkrat":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.JUNKRAT
@@ -27,7 +27,7 @@ rule "[junkrat/init.opy]: Junkrat":
 
 rule "[junkrat/init.opy]: Correct Junkrat other forms of damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.JUNKRAT
+    @Hero junkrat
     @Condition eventAbility in [Button.MELEE, Button.ABILITY_1, Button.ABILITY_2, Button.ULTIMATE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

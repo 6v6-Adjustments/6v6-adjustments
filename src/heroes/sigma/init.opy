@@ -4,7 +4,7 @@
 #!include "heroes/sigma/kinetic_grasp.opy"
 
 
-rule "[sigma/init.opy]: Sigma":
+rule "[sigma/init.opy]: Initialize Sigma":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.SIGMA

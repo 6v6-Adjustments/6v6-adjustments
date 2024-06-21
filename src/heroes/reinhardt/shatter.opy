@@ -3,7 +3,7 @@
 
 rule "[reinhardt/shatter.opy]: Correct Earthshatter damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.REINHARDT
+    @Hero reinhardt
     @Condition eventAbility == Button.ULTIMATE
     @Condition not eventWasCriticalHit
     
@@ -12,7 +12,7 @@ rule "[reinhardt/shatter.opy]: Correct Earthshatter damage":
 
 rule "[reinhardt/shatter.opy]: Correct Earthshatter critical damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.REINHARDT
+    @Hero reinhardt
     @Condition eventAbility == Button.ULTIMATE
     @Condition eventWasCriticalHit
     

@@ -5,7 +5,7 @@
 #!include "heroes/orisa/terra_surge.opy"
 
 
-rule "[orisa/init.opy]: Orisa":
+rule "[orisa/init.opy]: Initialize Orisa":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ORISA

@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[lifeweaver/init.opy]: Lifeweaver":
+rule "[lifeweaver/init.opy]: Initialize Lifeweaver":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
@@ -21,7 +21,7 @@ rule "[lifeweaver/init.opy]: Lifeweaver":
 
 rule "[lifeweaver/init.opy]: Reduce Lifeweaver melee damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
+    @Hero lifeweaver
     @Condition eventAbility == Button.MELEE
 
     heal(victim, null, eventDamage - (eventDamage/eventPlayer._base_damage_scalar))
@@ -29,7 +29,7 @@ rule "[lifeweaver/init.opy]: Reduce Lifeweaver melee damage":
 
 rule "[lifeweaver/init.opy]: Reduce Tree of Life healing":
     @Event playerDealtHealing
-    @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
+    @Hero lifeweaver
     @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setHealingDealt(83.333)
@@ -39,7 +39,7 @@ rule "[lifeweaver/init.opy]: Reduce Tree of Life healing":
 
 rule "[lifeweaver/init.opy]: Reduce Tree of Life duration":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
+    @Hero lifeweaver
     @Condition eventPlayer.isUsingUltimate()
     
     wait(ADJ_LIFEWEAVER_TREE_OF_LIFE_DURATION)
@@ -49,7 +49,7 @@ rule "[lifeweaver/init.opy]: Reduce Tree of Life duration":
 /*
 rule "(Duplicate) Plat cooldown":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
+    @Hero lifeweaver
     @Condition eventPlayer.isUsingAbility1() == true
     
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 10)

@@ -5,7 +5,7 @@
 #!include "heroes/mauga/overrun.opy"
 
 
-rule "[mauga/init.opy]: Mauga":
+rule "[mauga/init.opy]: Initialize Mauga":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MAUGA
@@ -28,7 +28,7 @@ rule "[mauga/init.opy]: Mauga":
 
 rule "[mauga/init.opy]: Increase Mauga melee damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.MAUGA
+    @Hero mauga
     @Condition eventAbility == Button.MELEE
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

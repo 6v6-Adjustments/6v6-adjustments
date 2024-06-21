@@ -5,7 +5,7 @@
 #!include "heroes/junkerqueen/rampage.opy"
 
 
-rule "[junkerqueen/init.opy]: Junker Queen":
+rule "[junkerqueen/init.opy]: Initialize Junker Queen":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN

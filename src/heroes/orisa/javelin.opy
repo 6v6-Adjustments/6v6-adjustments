@@ -3,7 +3,7 @@
 
 rule "[orisa/javelin.opy]: Increase Javelin direct damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.ORISA
+    @Hero orisa
     @Condition eventAbility == Button.SECONDARY_FIRE
     @Condition eventPlayer.balance_change_check
 

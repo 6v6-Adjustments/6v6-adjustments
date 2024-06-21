@@ -3,7 +3,7 @@
 
 rule "[mauga/init.opy]: Increase Mauga stomp damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.MAUGA
+    @Hero mauga
     @Condition eventPlayer.isUsingAbility1()
     @Condition eventDamage > 20 # arbitrary number chosen to not mistakenly buff burn damage
 

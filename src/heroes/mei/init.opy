@@ -3,7 +3,7 @@
 #!include "heroes/mei/cryo_freeze.opy"
 
 
-rule "[mei/init.opy]: Mei":
+rule "[mei/init.opy]: Initialize Mei":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MEI
@@ -21,7 +21,7 @@ rule "[mei/init.opy]: Mei":
 
 rule "[mei/init.opy]: Increase Mei other forms of damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.MEI
+    @Hero mei
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.MELEE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

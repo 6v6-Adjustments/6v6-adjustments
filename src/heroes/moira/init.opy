@@ -2,7 +2,7 @@
 
 #!include "heroes/moira/coalescence.opy"
 
-rule "[moira/init.opy]: Moira":
+rule "[moira/init.opy]: Initialize Moira":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.MOIRA

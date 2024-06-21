@@ -3,7 +3,7 @@
 #!include "heroes/ramattra/nemesis_form.opy"
 
 
-rule "[ramattra/init.opy]: Ramattra":
+rule "[ramattra/init.opy]: Initialize Ramattra":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.RAMATTRA

@@ -4,7 +4,7 @@
 #!include "heroes/roadhog/wholehog.opy"
 
 
-rule "[roadhog/init.opy]: Roadhog":
+rule "[roadhog/init.opy]: Initialize Roadhog":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
@@ -34,7 +34,7 @@ rule "[roadhog/init.opy]: Clean up Roadhog":
 
 rule "[roadhog/init.opy]: Correct melee damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
+    @Hero roadhog
     @Condition eventAbility == Button.MELEE
 
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
@@ -42,7 +42,7 @@ rule "[roadhog/init.opy]: Correct melee damage":
 
 rule "[roadhog/init.opy]: Correct Chain Hook damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
+    @Hero roadhog
     @Condition eventAbility == Button.ABILITY_1
 
     damage(
@@ -53,7 +53,7 @@ rule "[roadhog/init.opy]: Correct Chain Hook damage":
 
 rule "[roadhog/init.opy]: Correct Pigpen damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
+    @Hero roadhog
     @Condition eventAbility == Button.ABILITY_2
     @Condition not eventPlayer.isUsingUltimate()
 

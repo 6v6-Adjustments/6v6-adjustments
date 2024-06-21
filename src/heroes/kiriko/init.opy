@@ -5,7 +5,7 @@
 playervar suzu_flying
 
 
-rule "[kiriko/init.opy]: Kiriko":
+rule "[kiriko/init.opy]: Initialize Kiriko":
     @Event eachPlayer
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
@@ -23,7 +23,7 @@ rule "[kiriko/init.opy]: Kiriko":
 
 rule "[kiriko/init.opy]: Track Protection Suzu healing":
     @Event playerDealtHealing
-    @Condition eventPlayer.hero_setup == Hero.KIRIKO
+    @Hero kiriko
     @Condition eventAbility == Button.ABILITY_2
     
     eventPlayer.suzu_flying = false
@@ -31,7 +31,7 @@ rule "[kiriko/init.opy]: Track Protection Suzu healing":
 
 rule "[kiriko/init.opy]: Allow self healing during Protection Suzu":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.KIRIKO
+    @Hero kiriko
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_2) == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     
@@ -45,7 +45,7 @@ rule "[kiriko/init.opy]: Allow self healing during Protection Suzu":
 /*
 rule "Heal when using Protection Suzu":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.KIRIKO
+    @Hero kiriko
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 0
     
     eventPlayer.startHoT(eventPlayer, 0.65, 123)
@@ -54,7 +54,7 @@ rule "Heal when using Protection Suzu":
 /*
 rule "Unlock Swift Step while in LoS":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.KIRIKO
+    @Hero kiriko
     @Condition isInLoS(eventPlayer, eventPlayer.getPlayerClosestToReticle(eventPlayer.getTeam()), BarrierLos.PASS_THROUGH_BARRIERS) == true
     
     eventPlayer.setAbility1Enabled(true)
@@ -63,7 +63,7 @@ rule "Unlock Swift Step while in LoS":
 /*
 rule "Lock Swift Step while not in LoS":
     @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.KIRIKO
+    @Hero kiriko
     @Condition isInLoS(eventPlayer, eventPlayer.getPlayerClosestToReticle(eventPlayer.getTeam()), BarrierLos.PASS_THROUGH_BARRIERS) == false
     
     eventPlayer.setAbility1Enabled(false)
