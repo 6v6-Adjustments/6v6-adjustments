@@ -2,33 +2,6 @@
 
 playervar bash_cooldown
 
-# Credit to oreoslurpee for Brigitte shield bash logic
-# see https://workshop.codes/MR5QJ for oreslurpee's 2018 brig implementation
-
-# rule "[brigitte/bash.opy]: Add stun to shield bash":
-#     @Event playerDealtDamage
-#     @Hero brigitte
-#     @Condition attacker.isFiringSecondaryFire()
-#     @Condition eventAbility == Button.PRIMARY_FIRE
-#     # @Condition not attacker.shield_bash_through_barrier
-    
-#     victim.setStatusEffect(attacker, Status.STUNNED, ADJ_BRIGITTE_SHIELD_BASH_STUN_DURATION)
-
-
-# rule "[brigitte/bash.opy]: Reduce shield bash distance":
-#     @Event eachPlayer
-#     @Hero brigitte
-#     @Condition eventPlayer.isFiringSecondaryFire()
-#     @Condition eventPlayer.isFiringPrimaryFire()
-#     @Condition not eventPlayer.isUsingUltimate()
-    
-#     eventPlayer.setMoveSpeed(77.8) # arbitrarily decided based on trial and error
-#     waitUntil(eventPlayer.getAbilityCooldown(Button.PRIMARY_FIRE) > 0, Math.INFINITY)
-#     if eventPlayer.isUsingUltimate():
-#         eventPlayer.setMoveSpeed(percent(ADJ_BRIGITTE_RALLY_SPEED_BUFF/OW2_BRIGITTE_RALLY_SPEED_BUFF))
-#     else:
-#         eventPlayer.setMoveSpeed(100)
-
 
 rule "[brigitte/bash.opy]: Correct Shield Bash damage":
     @Event playerDealtDamage
