@@ -15,6 +15,6 @@ rule "[brigitte/init.opy]: Initialize Brigitte":
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_BRIGITTE_FLAIL_DAMAGE/OW2_BRIGITTE_FLAIL_DAMAGE)
-    eventPlayer.setHealingDealt(percent(ADJ_BRIGITTE_INSPIRE_TOTAL_HEALING/OW2_BRIGITTE_INSPIRE_TOTAL_HEALING))
+    setBaseHealing(eventPlayer, ADJ_BRIGITTE_INSPIRE_TOTAL_HEALING/OW2_BRIGITTE_INSPIRE_TOTAL_HEALING)
 
     eventPlayer.call_init = false
