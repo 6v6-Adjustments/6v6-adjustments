@@ -12,11 +12,11 @@ rule "[illari/solar_rifle.opy]: Correct Solar Rifle damage":
         damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar)*(ADJ_ILLARI_SOLAR_RIFLE_DAMAGE/OW2_ILLARI_SOLAR_RIFLE_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
-rule "[illari/solar_rifle.opy]: Reduce Solar Rifle healing":
+rule "[illari/solar_rifle.opy]: Correct Solar Rifle healing":
     @Event eachPlayer
     @Hero illari
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)
     
     eventPlayer.setHealingDealt(percent(ADJ_ILLARI_SOLAR_RIFLE_HEALING/OW2_ILLARI_SOLAR_RIFLE_HEALING))
     waitUntil(not eventPlayer.isHoldingButton(Button.SECONDARY_FIRE), Math.INFINITY)
-    eventPlayer.setHealingDealt(100)
+    eventPlayer.setHealingDealt(percent(ADJ_ILLARI_PYLON_HEALING/OW2_ILLARI_PYLON_HEALING))
