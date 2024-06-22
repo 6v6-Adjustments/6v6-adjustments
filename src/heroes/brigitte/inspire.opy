@@ -10,7 +10,7 @@ rule "[brigitte/inspire.opy]: Inspire self healing logic":
     popSelfHealing(Button.MELEE)
 
 
-rule "[brigitte/init.opy]: Increase Inspire self healing":
+rule "[brigitte/inspire.opy]: Increase Inspire self healing":
     @Event playerDealtHealing
     @Hero brigitte
     @Condition healee == healer
