@@ -122,8 +122,9 @@ rule "[utilities/reset.opy]: Reinitialize hero on new round":
     initHero()
 
 
-# rule "[utilities/reset.opy]: Reinitialize hero on respawn":
-#     @Event playerDied
+rule "[utilities/reset.opy]: Stop all extra effects over time":
+    @Event playerDied
 
-#     waitUntil(eventPlayer.isAlive(), Math.INFINITY)
-#     initHero()
+    eventPlayer.stopAllDoT()
+    eventPlayer.stopAllHoT()
+    
