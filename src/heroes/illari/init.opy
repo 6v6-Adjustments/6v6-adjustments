@@ -12,6 +12,7 @@ rule "[illari/init.opy]: Initialize Illari":
     removeRegenPassive()
 
     setBaseDamage(eventPlayer, ADJ_ILLARI_SUNSTRUCK_DAMAGE/OW2_ILLARI_SUNSTRUCK_DAMAGE)
+    setBaseHealing(eventPlayer, ADJ_ILLARI_PYLON_HEALING/OW2_ILLARI_PYLON_HEALING)
 
     eventPlayer.setMaxAmmo(0, ADJ_ILLARI_SOLAR_RIFLE_AMMO)
     eventPlayer.setAmmo(0, ADJ_ILLARI_SOLAR_RIFLE_AMMO)
