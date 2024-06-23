@@ -24,3 +24,18 @@ rule "[junkerqueen/init.opy]: Initialize Junker Queen":
     eventPlayer.overhealth_check = false
 
     eventPlayer.call_init = false
+
+
+rule "[junkerqueen/init.opy]: Reduce Commanding Shout overhealth for allies":
+    @Event eachPlayer
+    @Hero junkerQueen
+    @Condition eventPlayer.isUsingAbility1()
+
+    damage(
+        getPlayersInRadius(
+            eventPlayer, 
+            OW2_JUNKERQUEEN_SHOUT_RADIUS, 
+            eventPlayer.getTeam(), 
+            LosCheck.SURFACES).exclude(eventPlayer), 
+            null, 
+            (OW2_JUNKERQUEEN_SHOUT_ALLY_OVERHEALTH - ADJ_JUNKERQUEEN_SHOUT_ALLY_OVERHEALTH))

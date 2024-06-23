@@ -15,8 +15,10 @@ rule "[kiriko/init.opy]: Initialize Kiriko":
 
     eventPlayer.setAmmo(1, ADJ_KIRIKO_KUNAI_COUNT)
     eventPlayer.setMaxAmmo(1, ADJ_KIRIKO_KUNAI_COUNT)
+    eventPlayer.setMoveSpeed(percent(ADJ_KIRIKO_SPEED/OW2_KIRIKO_SPEED))
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN)
+    eventPlayer.setAbility1Enabled(false)
 
     eventPlayer.call_init = false
 
@@ -41,30 +43,3 @@ rule "[kiriko/init.opy]: Allow self healing during Protection Suzu":
     waitUntil(not eventPlayer.suzu_flying, ADJ_THROWABLES_WAIT_TIME)
     wait(0.65)
     popSelfHealing(Button.ABILITY_2)
-
-/*
-rule "Heal when using Protection Suzu":
-    @Event eachPlayer
-    @Hero kiriko
-    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 0
-    
-    eventPlayer.startHoT(eventPlayer, 0.65, 123)
-*/
-
-/*
-rule "Unlock Swift Step while in LoS":
-    @Event eachPlayer
-    @Hero kiriko
-    @Condition isInLoS(eventPlayer, eventPlayer.getPlayerClosestToReticle(eventPlayer.getTeam()), BarrierLos.PASS_THROUGH_BARRIERS) == true
-    
-    eventPlayer.setAbility1Enabled(true)
-*/
-
-/*
-rule "Lock Swift Step while not in LoS":
-    @Event eachPlayer
-    @Hero kiriko
-    @Condition isInLoS(eventPlayer, eventPlayer.getPlayerClosestToReticle(eventPlayer.getTeam()), BarrierLos.PASS_THROUGH_BARRIERS) == false
-    
-    eventPlayer.setAbility1Enabled(false)
-*/
