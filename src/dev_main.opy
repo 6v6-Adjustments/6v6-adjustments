@@ -72,3 +72,5 @@
 #!include "utilities/debug.opy"
 
 #!include "utilities/watermark.opy"
+
+#!include "utilities/compendium.opy"
