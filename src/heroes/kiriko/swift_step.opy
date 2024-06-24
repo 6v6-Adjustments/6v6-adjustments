@@ -6,10 +6,10 @@ rule "[kiriko/swift_step.opy]: Burst movement and heal when using Swift Step":
     @Hero kiriko
     @Condition eventPlayer.isUsingAbility1() == true
     
-    eventPlayer.setMoveSpeed(percent(ADJ_KIRIKO_SWIFT_STEP_SPEED/OW2_KIRIKO_SPEED))
+    # eventPlayer.setMoveSpeed(percent(ADJ_KIRIKO_SWIFT_STEP_SPEED/OW2_KIRIKO_SPEED))
     eventPlayer.startHoT(eventPlayer, ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL_DURATION, ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL/ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL_DURATION)
-    wait(ADJ_KIRIKO_SWIFT_STEP_SPEED_DURATION)
-    eventPlayer.setMoveSpeed(percent(ADJ_KIRIKO_SPEED/OW2_KIRIKO_SPEED))
+    # wait(ADJ_KIRIKO_SWIFT_STEP_SPEED_DURATION)
+    # eventPlayer.setMoveSpeed(percent(ADJ_KIRIKO_SPEED/OW2_KIRIKO_SPEED))
 
 
 rule "[kiriko/swift_step.opy]: Force swift step cooldown after spawning":
