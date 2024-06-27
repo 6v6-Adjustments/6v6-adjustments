@@ -265,6 +265,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_ROADHOG_HOOK_DAMAGE 5
 #!define ADJ_ROADHOG_PIGPEN_DAMAGE 175
 #!define ADJ_ROADHOG_SCRAP_GUN_DAMAGE 140
+#!define ADJ_ROADHOG_ULTIMATE_DURATION 5.5
 #!define ADJ_ROADHOG_ULT_COST 2240
 
 # Sigma
