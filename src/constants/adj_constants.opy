@@ -207,6 +207,8 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_ORISA_ULT_COST 1814
 
 # Pharah
+#!define ADJ_PHARAH_ATTACK_RECOVERY 0.83
+# slightly lower recovery speed to account for script execution time
 #!define ADJ_PHARAH_CONCUSSIVE_BLAST_COOLDOWN 8
 #!define ADJ_PHARAH_HEALTH 200
 #!define ADJ_PHARAH_ULT_COST 2100
