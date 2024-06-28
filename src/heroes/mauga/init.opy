@@ -2,7 +2,6 @@
 
 #!include "heroes/mauga/cage_fight.opy"
 #!include "heroes/mauga/cardiac.opy"
-#!include "heroes/mauga/overrun.opy"
 
 
 rule "[mauga/init.opy]: Initialize Mauga":
