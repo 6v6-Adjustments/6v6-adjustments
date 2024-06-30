@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/genji/dragonblade.opy"
+
 
 rule "[genji/init.opy]: Initialize Genji":
     @Event eachPlayer
@@ -10,6 +12,7 @@ rule "[genji/init.opy]: Initialize Genji":
     removeSelfHealing()
 
     eventPlayer.call_init = false
+    eventPlayer.dragonblade_prep = false
 
 
 rule "[genji/init.opy]: Correct Shurikens damage":
