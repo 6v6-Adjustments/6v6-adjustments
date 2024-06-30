@@ -12,7 +12,7 @@ rule "[genji/dragonblade.opy]: Reduce Dragonblade attack speed":
     waitUntil(eventPlayer.isFiringPrimaryFire() or not eventPlayer.isUsingUltimate(), Math.INFINITY)
     if eventPlayer.isUsingUltimate():
         eventPlayer.disallowButton([Button.PRIMARY_FIRE, Button.SECONDARY_FIRE, Button.MELEE])
-    waitUntil(eventPlayer.isUsingAbility1(), ADJ_GENJI_DRAGONBLADE_ATTACK_RECOVERY)
+    waitUntil(eventPlayer.isUsingAbility1() or eventPlayer.isUsingAbility2(), ADJ_GENJI_DRAGONBLADE_ATTACK_RECOVERY)
     eventPlayer.allowButton([Button.PRIMARY_FIRE, Button.SECONDARY_FIRE, Button.MELEE])
     if eventPlayer.isUsingUltimate():
         goto RULE_START

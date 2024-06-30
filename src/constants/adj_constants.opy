@@ -88,7 +88,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_ECHO_ULT_COST 2028
 
 # Genji
-#!define ADJ_GENJI_DRAGONBLADE_ATTACK_RECOVERY 0.69
+#!define ADJ_GENJI_DRAGONBLADE_ATTACK_RECOVERY 0.64
                                               # nice
 #!define ADJ_GENJI_DRAGONBLADE_DAMAGE 120
 #!define ADJ_GENJI_DEFLECT_DURATION 1.5
