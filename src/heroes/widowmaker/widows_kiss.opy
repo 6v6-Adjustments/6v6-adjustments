@@ -27,9 +27,9 @@ rule "[widowmaker/widows_kiss.opy]: Add bonus damage over time":
     @Hero widowmaker
     @Condition eventPlayer.isFiringSecondaryFire()
     @Condition eventAbility == Button.PRIMARY_FIRE
-    @Condition eventDamage >= ADJ_WIDOWMAKER_SCOPED_DAMAGE - 1
+    @Condition eventDamage >= ADJ_WIDOWMAKER_SCOPED_DAMAGE - 0.1
 
     if eventWasCriticalHit:
-        victim.startDoT(attacker, (ADJ_WIDOWMAKER_DOT_DURATION / 2), ADJ_WIDOWMAKER_DOT_DAMAGE * (OW2_WIDOWMAKER_SCOPED_DAMAGE / ADJ_WIDOWMAKER_SCOPED_DAMAGE * 2) / ADJ_WIDOWMAKER_DOT_DURATION)
+        victim.startDoT(attacker, (ADJ_WIDOWMAKER_DOT_DURATION * ADJ_WIDOWMAKER_DOT_CRIT_DURATION_MOD), ADJ_WIDOWMAKER_DOT_DAMAGE * (OW2_WIDOWMAKER_SCOPED_DAMAGE / ADJ_WIDOWMAKER_SCOPED_DAMAGE * 2) / ADJ_WIDOWMAKER_DOT_DURATION)
     else:
         victim.startDoT(attacker, ADJ_WIDOWMAKER_DOT_DURATION, ADJ_WIDOWMAKER_DOT_DAMAGE * (OW2_WIDOWMAKER_SCOPED_DAMAGE / ADJ_WIDOWMAKER_SCOPED_DAMAGE) / ADJ_WIDOWMAKER_DOT_DURATION)
