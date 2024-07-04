@@ -28,7 +28,7 @@ rule "[mauga/init.opy]: Initialize Mauga":
     enableAllAbilities()
     removeSelfHealing()
 
-    if eventPlayer.getMaxHealth() != 699:
+    if eventPlayer.getMaxHealth() != 649:
         goto RULE_START
    
     setBaseDamage(eventPlayer, ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)
@@ -40,9 +40,10 @@ rule "[mauga/init.opy]: Initialize Mauga":
 
     eventPlayer.call_init = false
     
-    wait()
-    waitUntil(not eventPlayer.isInSpawnRoom(), Math.INFINITY)
-    damage(eventPlayer, null, 149.99)
+    getPlayersOnHero(Hero.MAUGA, eventPlayer.getTeam()).setHealth(350)
+    heal(eventPlayer, null, 350)
+    # waitUntil(not eventPlayer.isInSpawnRoom(), Math.INFINITY)
+    # damage(eventPlayer, null, 100.99)
     
 
 rule "[mauga/init.opy]: Increase Mauga melee damage":
