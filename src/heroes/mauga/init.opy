@@ -16,7 +16,8 @@ rule "[mauga/init.opy]: Initialize Mauga":
     eventPlayer.setMaxHealth(100)
 
     eventPlayer.setHealingReceived(0)
-    eventPlayer.setHealth(ADJ_MAUGA_HEALTH)
+    eventPlayer.setHealth(649)
+    # using magic numbers in this code for the time being until it can be further understood
 
     eventPlayer.addHealthPool(Health.NORMAL, 1, true, true)
     eventPlayer.addHealthPool(Health.ARMOR, 1, true, true)
@@ -49,6 +50,6 @@ rule "[mauga/init.opy]: Initialize Mauga":
 rule "[mauga/init.opy]: Increase Mauga melee damage":
     @Event playerDealtDamage
     @Hero mauga
-    @Condition eventAbility == Button.MELEE
+    @Condition eventAbility in [Button.MELEE, Button.ABILITY_1]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
