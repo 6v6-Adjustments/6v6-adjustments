@@ -6,8 +6,8 @@
 
 rule "[mauga/init.opy]: Initialize Mauga":
     @Event eachPlayer
+    @Hero mauga
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.MAUGA
 
     eventPlayer.removeAllHealthPools()
     wait()
