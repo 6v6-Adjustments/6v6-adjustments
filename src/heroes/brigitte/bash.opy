@@ -18,8 +18,7 @@ rule "[brigitte/bash.opy]: Track Bash cooldown":
     @Condition eventPlayer.isFiringPrimaryFire()
     @Condition eventPlayer.isFiringSecondaryFire()
         
-    wait(ADJ_BRIGITTE_BASH_DURATION)
-    eventPlayer.bash_cooldown = ADJ_BRIGITTE_BASH_COOLDOWN
+    eventPlayer.bash_cooldown = (ADJ_BRIGITTE_BASH_COOLDOWN + ADJ_BRIGITTE_BASH_DURATION)
     chase(eventPlayer.bash_cooldown, 0, rate=1, ChaseReeval.NONE)
 
 
