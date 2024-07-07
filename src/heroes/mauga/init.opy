@@ -28,6 +28,7 @@ rule "[mauga/init.opy]: Initialize Mauga":
     resetStats()
     resetStatuses()
     enableAllAbilities()
+    removeTankPassive()
     removeSelfHealing()
 
 
@@ -52,12 +53,20 @@ rule "[mauga/init.opy]: Initialize Mauga":
 rule "[mauga/init.opy]: Increase Mauga melee damage":
     @Event playerDealtDamage
     @Hero mauga
-    @Condition eventAbility in [Button.MELEE, Button.ABILITY_1]
+    @Condition eventAbility in [Button.MELEE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
 
-rule "[mauga/init.opy]: Initialize Mauga":
+rule "[mauga/init.opy]: Increase Mauga Stomp damage":
+    @Event playerDealtDamage
+    @Hero mauga
+    @Condition eventAbility in [Button.ABILITY_1]
+
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar)*(ADJ_MAUGA_STOMP_DAMAGE/OW2_MAUGA_STOMP_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+
+
+rule "[mauga/init.opy]: (Duplicate) Initialize Mauga":
     @Event eachPlayer
     @Condition eventPlayer.isDuplicatingAHero() == Hero.MAUGA
     @Condition eventPlayer.call_init
