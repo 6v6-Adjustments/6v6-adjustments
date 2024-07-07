@@ -3,7 +3,7 @@
 
 rule "[mccree/roll.opy]: Reduce damage reduction during roll":
     @Event eachPlayer
-    @Hero mccree
+    @Hero cassidy
     @Condition eventPlayer.isUsingAbility1()
 
     eventPlayer.setDamageReceived(

@@ -7,7 +7,7 @@
 rule "[mccree/init.opy]: Initialize Cassidy":
     @Event eachPlayer
     @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.MCCREE
+    @Condition eventPlayer.hero_setup == Hero.CASSIDY
     
     setCustomHp(ADJ_MCCREE_HEALTH, 0, 0)
     removeSelfHealing()
