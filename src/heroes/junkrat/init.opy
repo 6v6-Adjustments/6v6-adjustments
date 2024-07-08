@@ -29,7 +29,6 @@ rule "[junkrat/init.opy]: Correct Junkrat invalid health": # Sometimes Junkrat c
     @Event eachPlayer
     @Hero junkrat
     @Condition eventPlayer.getMaxHealthOfType(Health.NORMAL) != ADJ_JUNKRAT_HEALTH
-    @Condition eventPlayer.isInSpawnRoom()
     @Condition not eventPlayer.call_init
 
     eventPlayer.call_init = true
