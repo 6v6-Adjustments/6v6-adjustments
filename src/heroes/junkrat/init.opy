@@ -27,7 +27,7 @@ rule "[junkrat/init.opy]: Initialize Junkrat":
 
 rule "[junkrat/init.opy]: Correct Junkrat invalid health": # Sometimes Junkrat can retain 250 HP between rounds
     @Event eachPlayer
-    @Hero junkrat
+    @Condition eventPlayer.hero_setup == Hero.JUNKRAT
     @Condition eventPlayer.getMaxHealthOfType(Health.NORMAL) != ADJ_JUNKRAT_HEALTH
     @Condition not eventPlayer.call_init
 
