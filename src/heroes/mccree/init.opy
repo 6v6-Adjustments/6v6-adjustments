@@ -10,6 +10,7 @@ rule "[mccree/init.opy]: Initialize Cassidy":
     @Condition eventPlayer.hero_setup == Hero.CASSIDY
     
     setCustomHp(ADJ_MCCREE_HEALTH, 0, 0)
+    setUltCost(ADJ_MCCREE_ULT_COST)
     removeSelfHealing()
 
     # setBaseDamage(eventPlayer, ADJ_MCCREE_FAN_THE_HAMMER_DAMAGE/OW2_MCCREE_FAN_THE_HAMMER_DAMAGE)

@@ -14,6 +14,7 @@ rule "[zarya/init.opy]: Initialize Zarya":
         0,
         ADJ_ZARYA_SHIELDS_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ZARYA_SHIELDS
     )
+    setUltCost(ADJ_ZARYA_ULT_COST)
     removeTankPassive()
     removeSelfHealing()
 

@@ -9,6 +9,7 @@ rule "[baptiste/init.opy]: Initialize Baptiste":
     @Condition eventPlayer.hero_setup == Hero.BAPTISTE
     
     setCustomHp(ADJ_BAPTISTE_HEALTH, 0, 0)
+    setUltCost(ADJ_BAPTISTE_ULT_COST)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_BAPTISTE_PRIMARY_DAMAGE/OW2_BAPTISTE_PRIMARY_DAMAGE)

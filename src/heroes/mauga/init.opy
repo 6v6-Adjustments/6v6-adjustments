@@ -29,6 +29,8 @@ rule "[mauga/init.opy]: Initialize Mauga":
     resetStatuses()
     enableAllAbilities()
 
+    setUltCost(ADJ_MAUGA_ULT_COST)
+
     removeTankPassive()
     removeSelfHealing()
 

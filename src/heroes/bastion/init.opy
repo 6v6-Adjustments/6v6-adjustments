@@ -9,6 +9,7 @@ rule "[bastion/init.opy]: Initialize Bastion":
     @Condition eventPlayer.hero_setup == Hero.BASTION
     
     setCustomHp(ADJ_BASTION_HEALTH, ADJ_BASTION_ARMOR, 0)
+    setUltCost(ADJ_BASTION_ULT_COST)
     removeSelfHealing()
 
     eventPlayer.call_init = false

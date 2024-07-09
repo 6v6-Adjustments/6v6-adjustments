@@ -11,6 +11,7 @@ rule "[kiriko/init.opy]: Initialize Kiriko":
     @Condition eventPlayer.hero_setup == Hero.KIRIKO
 
     setCustomHp(ADJ_KIRIKO_HEALTH, 0, 0)
+    setUltCost(ADJ_KIRIKO_ULT_COST)
     removeSelfHealing()
 
     eventPlayer.setAmmo(1, ADJ_KIRIKO_KUNAI_COUNT)

@@ -13,6 +13,7 @@ rule "[roadhog/init.opy]: Initialize Roadhog":
         ADJ_ROADHOG_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ROADHOG_HEALTH,
         0,
         0)
+    setUltCost(ADJ_ROADHOG_ULT_COST)
     removeTankPassive()
     removeSelfHealing()
     

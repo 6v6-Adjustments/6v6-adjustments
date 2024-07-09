@@ -15,9 +15,12 @@ rule "[junkrat/init.opy]: Initialize Junkrat":
     eventPlayer.addHealthPool(Health.SHIELDS, 1, true, true)
     eventPlayer.removeAllHealthPools()
     #eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
+
     resetStats()
     resetStatuses()
     enableAllAbilities()
+
+    setUltCost(ADJ_JUNKRAT_ULT_COST)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_JUNKRAT_FRAG_DAMAGE/OW2_JUNKRAT_FRAG_DAMAGE)

@@ -7,6 +7,7 @@ rule "[pharah/init.opy]: Initialize Pharah":
     @Condition eventPlayer.hero_setup == Hero.PHARAH
     
     setCustomHp(ADJ_PHARAH_HEALTH, 0, 0)
+    setUltCost(ADJ_PHARAH_ULT_COST)
     removeSelfHealing()
 
     eventPlayer.call_init = false

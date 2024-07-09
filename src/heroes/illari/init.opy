@@ -9,6 +9,7 @@ rule "[illari/init.opy]: Initialize Illari":
     @Condition eventPlayer.hero_setup == Hero.ILLARI
     
     setCustomHp(ADJ_ILLARI_HEALTH, 0, 0)
+    setUltCost(ADJ_ILLARI_ULT_COST)
     removeRegenPassive()
 
     setBaseDamage(eventPlayer, ADJ_ILLARI_SUNSTRUCK_DAMAGE/OW2_ILLARI_SUNSTRUCK_DAMAGE)

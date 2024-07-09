@@ -5,6 +5,7 @@ playervar balance_change_check
 playervar hero_setup
 playervar call_init
 
+subroutine resetUltCharge
 subroutine resetSelfHealing
 
 #!define resetHero()\
@@ -105,12 +106,6 @@ def resetStatuses():
     eventPlayer.clearStatusEffect(Status.ROOTED)
     eventPlayer.clearStatusEffect(Status.STUNNED)
     eventPlayer.clearStatusEffect(Status.UNKILLABLE)
-
-
-def resetUltCharge():
-    @Name "[utilities/reset.opy]: resetUltCharge()"
-    
-    eventPlayer.setUltCharge(0)
 
 
 rule "[utilities/reset.opy]: Reinitialize hero on new round":

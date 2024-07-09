@@ -7,6 +7,7 @@ rule "[sombra/init.opy]: Initialize Sombra":
     @Condition eventPlayer.hero_setup == Hero.SOMBRA
 
     setCustomHp(ADJ_SOMBRA_HEALTH, null, null)
+    setUltCost(ADJ_SOMBRA_ULT_COST)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_SOMBRA_SMG_DAMAGE/OW2_SOMBRA_SMG_DAMAGE)

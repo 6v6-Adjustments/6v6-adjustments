@@ -9,6 +9,7 @@ rule "[lucio/init.opy]: Initialize Lucio":
     @Condition eventPlayer.hero_setup == Hero.LUCIO
     
     setCustomHp(ADJ_LUCIO_HEALTH, 0, 0)
+    setUltCost(ADJ_LUCIO_ULT_COST)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_LUCIO_SOUNDWAVE_DAMAGE/OW2_LUCIO_SOUNDWAVE_DAMAGE)

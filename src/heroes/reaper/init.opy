@@ -7,6 +7,7 @@ rule "[reaper/init.opy]: Initialize Reaper":
     @Condition eventPlayer.hero_setup == Hero.REAPER
 
     setCustomHp(ADJ_REAPER_HEALTH, 0, 0)
+    setUltCost(ADJ_REAPER_ULT_COST)
     removeRegenPassive()
 
     eventPlayer.call_init = false

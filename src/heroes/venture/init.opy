@@ -12,6 +12,7 @@ rule "[venture/init.opy]: Initialize Venture":
     @Condition eventPlayer.hero_setup == Hero.VENTURE
 
     setCustomHp(ADJ_VENTURE_HEALTH, 0, 0)
+    setUltCost(ADJ_VENTURE_ULT_COST)
     removeSelfHealing()
 
     if not eventPlayer.isDuplicatingAHero():

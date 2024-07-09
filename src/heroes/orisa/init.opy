@@ -14,6 +14,7 @@ rule "[orisa/init.opy]: Initialize Orisa":
         ADJ_ORISA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ORISA_HEALTH, 
         ADJ_ORISA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ORISA_ARMOR, 
         0)
+    setUltCost(ADJ_ORISA_ULT_COST)
     removeTankPassive()
     removeSelfHealing()
 

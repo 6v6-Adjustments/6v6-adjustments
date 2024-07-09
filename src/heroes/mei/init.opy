@@ -9,6 +9,7 @@ rule "[mei/init.opy]: Initialize Mei":
     @Condition eventPlayer.hero_setup == Hero.MEI
 
     setCustomHp(ADJ_MEI_HEALTH, 0, 0)
+    setUltCost(ADJ_MEI_ULT_COST)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_MEI_ICICLE_DAMAGE/OW2_MEI_ICICLE_DAMAGE)

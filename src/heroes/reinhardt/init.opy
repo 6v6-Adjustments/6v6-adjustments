@@ -14,6 +14,7 @@ rule "[reinhardt/init.opy]: Initialize Reinhardt":
         ADJ_REINHARDT_HEALTH,
         ADJ_REINHARDT_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_REINHARDT_ARMOR,
         0)
+    setUltCost(ADJ_REINHARDT_ULT_COST)
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_REINHARDT_HAMMER_DAMAGE/OW2_REINHARDT_HAMMER_DAMAGE)

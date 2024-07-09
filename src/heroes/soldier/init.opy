@@ -9,6 +9,7 @@ rule "[soldier/init.opy]: Initialize Soldier 76":
     @Condition eventPlayer.hero_setup == Hero.SOLDIER
     
     setCustomHp(ADJ_SOLDIER_HEALTH, 0, 0)
+    setUltCost(ADJ_SOLDIER_ULT_COST)
     removeSelfHealing()
 
     eventPlayer.setHealingDealt(86.4)
