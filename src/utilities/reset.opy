@@ -7,14 +7,21 @@ playervar call_init
 
 subroutine resetUltCharge
 subroutine resetSelfHealing
+subroutine resetStats
+subroutine disableAllAbilities
+subroutine enableAllAbilities
 
-#!define resetHero()\
-    clearCustomHp() \
-    disableAllAbilities() \
-    resetStats() \
-    resetUltCharge() \
-    resetSelfHealing() \
-    enableAllAbilities() \
+
+def resetHero():
+    @Name "[utilities/reset.opy]: resetHero()"
+
+    clearCustomHp()
+    disableAllAbilities()
+    resetStats()
+    async(resetUltCharge, AsyncBehavior.RESTART)
+    resetSelfHealing()
+    enableAllAbilities()
+
 
 #!define initHero()\
     eventPlayer.call_init = true
