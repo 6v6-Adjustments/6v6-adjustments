@@ -7,7 +7,12 @@ rule "[junkrat/init.opy]: Initialize Junkrat":
     @Condition eventPlayer.hero_setup == Hero.JUNKRAT
 
     #Version or the "resetHealth" subroutine that keeps tire at 100 hp
+    eventPlayer.removeAllHealthPools()
     wait()
+    eventPlayer.setMaxHealth(100.001) # DO NOT REMOVE THIS LINE
+    wait() # DO NOT REMOVE THIS LINE
+    eventPlayer.setMaxHealth(100)
+
     eventPlayer.setHealingReceived(0)
     eventPlayer.setHealth(ADJ_JUNKRAT_HEALTH)
     eventPlayer.addHealthPool(Health.NORMAL, 1, true, true)
