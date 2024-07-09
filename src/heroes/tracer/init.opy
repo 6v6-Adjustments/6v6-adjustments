@@ -13,6 +13,7 @@ rule "[tracer/init.opy]: Initialize Tracer":
     eventPlayer.startScalingSize(0.96, true)
 
     eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_TRACER_HEALTH/OW2_TRACER_HEALTH)
 
 
 rule "[tracer/init.opy]: Correct melee and Pulse Bomb damage":

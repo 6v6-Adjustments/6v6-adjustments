@@ -19,6 +19,7 @@ rule "[illari/init.opy]: Initialize Illari":
     eventPlayer.setAmmo(0, ADJ_ILLARI_SOLAR_RIFLE_AMMO)
 
     eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_ILLARI_PYLON_HEALTH/OW2_ILLARI_PYLON_HEALTH)
 
 
 rule "[illari/init.opy]: Correct Outburst and melee damage":

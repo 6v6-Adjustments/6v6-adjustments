@@ -11,3 +11,4 @@ rule "[symmetra/init.opy]: Initialize Symmetra":
     removeSelfHealing()
 
     eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_SYMMETRA_TURRET_HEALTH/OW2_SYMMETRA_TURRET_HEALTH)

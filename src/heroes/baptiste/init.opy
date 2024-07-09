@@ -17,6 +17,7 @@ rule "[baptiste/init.opy]: Initialize Baptiste":
 
     eventPlayer.balance_change_check = true
     eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_BAPTISTE_LAMP_HP/OW2_BAPTISTE_LAMP_HP)
 
 
 rule "[baptiste/init.opy]: Increase Baptiste melee damage":

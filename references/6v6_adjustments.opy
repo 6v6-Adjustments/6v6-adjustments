@@ -255,6 +255,7 @@ playervar ally_bubble_cooldown 10
 playervar ally_bubble_cd_text 11
 playervar Ana_damage_check 12
 playervar AllowedHeroes 13
+playervar max_health_scaler 14
 
 
 #Subroutine names

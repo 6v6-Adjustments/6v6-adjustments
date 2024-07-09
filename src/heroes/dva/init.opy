@@ -16,6 +16,7 @@ rule "[dva/init.opy]: Initialize D.Va":
     setBaseDamage(eventPlayer, ADJ_DVA_CANNON_DAMAGE/OW2_DVA_CANNON_DAMAGE)
 
     eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_DVA_PILOT_HEALTH/OW2_DVA_PILOT_HEALTH)
 
 
 rule "[dva/init.opy]: Reduce Boosters damage":

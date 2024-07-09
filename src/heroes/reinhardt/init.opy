@@ -22,3 +22,4 @@ rule "[reinhardt/init.opy]: Initialize Reinhardt":
     eventPlayer.stopForcingThrottle()
 
     eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_REINHARDT_BARRIER_HEALTH/OW2_REINHARDT_BARRIER_HEALTH)

@@ -4,6 +4,7 @@ playervar overhealth_check
 playervar balance_change_check
 playervar hero_setup
 playervar call_init
+playervar max_health_scaler
 
 subroutine resetUltCharge
 subroutine resetSelfHealing
@@ -98,6 +99,7 @@ def resetStats():
 
     eventPlayer.stopScalingSize()
     # eventPlayer.stopScalingBarriers()
+    eventPlayer.max_health_scaler = 1
 
 
 def resetStatuses():

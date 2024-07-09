@@ -21,6 +21,7 @@ rule "[venture/init.opy]: Initialize Venture":
     eventPlayer.setMoveSpeed(percent(ADJ_VENTURE_SPEED/OW2_VENTURE_SPEED))
 
     eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS)
 
 
 rule "[venture/init.opy]: Correct Venture bonus shields":

@@ -19,3 +19,4 @@ rule "[ramattra/init.opy]: Initialize Ramattra":
     eventPlayer.startScalingSize(0.94, true)
 
     eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_RAMATTRA_BARRIER_HEALTH/OW2_RAMATTRA_BARRIER_HEALTH)

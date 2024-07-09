@@ -18,6 +18,7 @@ rule "[mei/init.opy]: Initialize Mei":
     eventPlayer.setAmmo(0, ADJ_MEI_AMMO_COUNT)
 
     eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_MEI_ICEWALL_HP/OW2_MEI_ICEWALL_HP)
 
 
 rule "[mei/init.opy]: Increase Mei other forms of damage":
