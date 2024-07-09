@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+globalvar ADJ_TANK_ULT_NEGATION_PERCENT = createWorkshopSetting(int[0:OW2_TANK_ULT_NEGATION_PERCENT], 'Passive', 'Tank - Ultimate Charge Negation Percent', ADJ_TANK_ULT_NEGATION_PERCENT_DEFAULT)
+
 # Player variables
 playervar ult_charge_pvar
 #!defineMember _missing_ult_points ult_charge_pvar[0]
@@ -28,7 +30,7 @@ rule "[passives/tank/ult_charge.opy]: Remember missing ult charge from damaging 
     @Condition not eventPlayer.isUsingUltimate()
     @Condition victim != eventPlayer
 
-    eventPlayer._missing_ult_points += OW2_TANK_ULT_NEGATION * eventDamage
+    eventPlayer._missing_ult_points += unpercent(OW2_TANK_ULT_NEGATION_PERCENT - ADJ_TANK_ULT_NEGATION_PERCENT) * eventDamage
 
 
 rule "[passives/tank/ult_charge.opy]: Remember missing ult charge from healing tank":
@@ -36,7 +38,7 @@ rule "[passives/tank/ult_charge.opy]: Remember missing ult charge from healing t
     @Condition healee.getCurrentHero() in getTankHeroes()
     @Condition not eventPlayer.isUsingUltimate()
 
-    eventPlayer._missing_ult_points += OW2_TANK_ULT_NEGATION * eventHealing
+    eventPlayer._missing_ult_points += unpercent(OW2_TANK_ULT_NEGATION_PERCENT - ADJ_TANK_ULT_NEGATION_PERCENT) * eventHealing
 
 
 rule "[passives/tank/ult_charge.opy]: Compensate missing ultimate percentage":

@@ -10,7 +10,7 @@
 #!define percent(p) (100*(p))
 
 # Macro function for converting percent to decimal 
-#!define unpercent(p) (p/100)
+#!define unpercent(p) ((p)/100)
 
 # Macro function for converting decimal to percent
 #!define roundedPercent(p) (round(percent(p)))
