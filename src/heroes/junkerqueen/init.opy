@@ -4,6 +4,8 @@
 #!include "heroes/junkerqueen/jagged_blade.opy"
 #!include "heroes/junkerqueen/rampage.opy"
 
+# playervar within_shout_radius = false
+
 
 rule "[junkerqueen/init.opy]: Initialize Junker Queen":
     @Event eachPlayer
@@ -25,3 +27,19 @@ rule "[junkerqueen/init.opy]: Initialize Junker Queen":
     eventPlayer.overhealth_check = false
 
     eventPlayer.call_init = false
+
+
+# rule "[junkerqueen/init.opy]: Prepare Commanding Shout overhealth reduction":
+#     @Event eachPlayer
+#     @Hero junkerQueen
+#     @Condition eventPlayer.isUsingAbility1()
+
+#     getPlayersInRadius(eventPlayer, 15.5, eventPlayer.getTeam(), LosCheck.SURFACES).exclude(eventPlayer).within_shout_radius = true
+
+
+# rule "[junkerqueen/init.opy]: Reduce Commanding Shout overhealth for allies":
+#     @Event eachPlayer
+#     @Condition eventPlayer.within_shout_radius == true
+
+#     damage(eventPlayer, null, 50 )
+#     eventPlayer.within_shout_radius = false
