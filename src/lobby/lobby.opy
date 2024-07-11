@@ -48,7 +48,7 @@ settings {
         "team1Slots": 6,
         "team2Slots": 6,
         # "minimumLatencyInNs": 10000000,
-        "pauseGameOnDisconnect": true,
+        # "pauseGameOnDisconnect": true,
         "returnToLobby": "afterGame",
         "swapTeamsAfterMatch": false,
         "teamBalancing": "afterGame"

@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-globalvar enable_regeneration = createWorkshopSetting(bool, 'Passive', 'Global - Regeneration', false, 0)
+globalvar enable_regeneration = createWorkshopSetting(bool, 'Passive', 'Global - Regeneration', true, 0)
 globalvar enable_support_passive = createWorkshopSetting(bool, 'Passive', 'Support - Quicker Regeneration', false, 0)
 
 playervar self_heal_pvar
