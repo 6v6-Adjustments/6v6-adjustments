@@ -1,6 +1,9 @@
 #!mainFile "../dev_main.opy"
 
 # Universal
+#!define ADJ_REGEN_TIMER 5
+#!define ADJ_SUPPORT_PASSIVE_TIMER 2.5
+#!define ADJ_REGEN_HPS 10
 #!define ADJ_TANK_KNOCKBACK_REDUCTION 0.10
 #!define ADJ_TANK_ULT_NEGATION_PERCENT_DEFAULT 15
 #!define ADJ_THROWABLES_WAIT_TIME 11
