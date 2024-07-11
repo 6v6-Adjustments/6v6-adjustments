@@ -6,7 +6,11 @@ rule "[passives/damage/damage_passive.opy]: Remove DPS Passive":
     @Condition attacker.getCurrentHero() in getDamageHeroes()
     @Condition attacker != victim
     
-    eventPlayer.setHealingReceived(percent(100/(100-OW2_DAMAGE_PASSIVE_HEAL_REDUCTION)))
+    if victim.getCurrentHero() in getTankHeroes():
+        eventPlayer.setHealingReceived(percent(100/(100-OW2_DAMAGE_PASSIVE_TANK_HEAL_REDUCTION)))
+    else:
+        eventPlayer.setHealingReceived(percent(100/(100-OW2_DAMAGE_PASSIVE_HEAL_REDUCTION)))
+
     wait(0.5)
     wait((OW2_DAMAGE_PASSIVE_DURATION - 0.5), Wait.RESTART_WHEN_TRUE)
     eventPlayer.setHealingReceived(100)

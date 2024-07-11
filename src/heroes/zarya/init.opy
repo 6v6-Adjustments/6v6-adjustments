@@ -24,6 +24,7 @@ rule "[zarya/init.opy]: Initialize Zarya":
     initAllyBubble()
 
     eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_ZARYA_BARRIER_HEALTH/OW2_ZARYA_BARRIER_HEALTH)
 
 
 rule "[zarya/init.opy]: Clean up Zarya":

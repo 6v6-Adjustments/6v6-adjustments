@@ -66,6 +66,7 @@ settings {
                 "ultGen%": percent(OW2_ANA_ULT_COST/ADJ_ANA_ULT_COST)
             },
             "ashe": {
+                "health%": percent(ADJ_ASHE_BOB_HEALTH/OW2_ASHE_BOB_HEALTH),
                 "ultGen%": percent(OW2_ASHE_ULT_COST/ADJ_ASHE_ULT_COST)
             },
             "baptiste": {
@@ -231,6 +232,7 @@ settings {
                 "ultGen%": percent(OW2_WRECKING_BALL_ULT_COST/ADJ_WRECKING_BALL_ULT_COST),
             },
             "zarya": {
+                "health%": percent(ADJ_ZARYA_BARRIER_HEALTH/OW2_ZARYA_BARRIER_HEALTH),
                 "ultGen%": percent(OW2_ZARYA_ULT_COST/ADJ_ZARYA_ULT_COST)
             },
             "zenyatta": {

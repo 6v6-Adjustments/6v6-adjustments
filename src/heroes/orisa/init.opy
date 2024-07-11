@@ -18,5 +18,16 @@ rule "[orisa/init.opy]: Initialize Orisa":
     removeTankPassive()
     removeSelfHealing()
 
+    # if not eventPlayer.isDuplicatingAHero():
+    #     setBaseDamage(eventPlayer, ADJ_ORISA_JAVELIN_DIRECT_DAMAGE / OW2_ORISA_JAVELIN_DIRECT_DAMAGE)
+
     eventPlayer.balance_change_check = true
     eventPlayer.call_init = false
+
+
+rule "[orisa/init.opy]: Increase Orisa other forms of damage":
+    @Event playerDealtDamage
+    @Hero orisa
+    @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ABILITY_2]
+
+    damage(victim, attacker, (eventDamage / eventPlayer._base_damage_scalar - eventDamage) / eventPlayer._base_damage_scalar)

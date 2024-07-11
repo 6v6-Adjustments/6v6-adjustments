@@ -11,3 +11,4 @@ rule "[ashe/init.opy]: Initialize Ashe":
     removeSelfHealing()
 
     eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_ASHE_BOB_HEALTH/OW2_ASHE_BOB_HEALTH)

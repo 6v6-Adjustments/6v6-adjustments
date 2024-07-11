@@ -7,10 +7,14 @@ rule "[ramattra/nemesis_form.opy]: Correct Nemesis Form armor and movement speed
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
     
     eventPlayer.setMoveSpeed(percent(ADJ_RAMATTRA_NEMESIS_MOVESPEED/OW2_RAMATTRA_NEMESIS_MOVESPEED))
-    eventPlayer.addHealthPool(Health.ARMOR, 53.75, true, true) # for some reason the addHealthPool function doesn't read constants as usable numbers
-    waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 54.75, 99999)
+    eventPlayer.addHealthPool(Health.ARMOR, 5, true, true) # for some reason the addHealthPool function doesn't read constants as usable numbers
+    waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 6, 99999)
     eventPlayer.setMoveSpeed(100)
     removeHealthPool(getLastCreatedHealthPool())
+    
+    # wait(0.5)
+    # if eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 0:
+    #     eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_RAMATTRA_NEMESIS_COOLDOWN - 0.5)
 
 
 rule "[ramattra/nemesis_form.opy]: Increase Pummel damage":
