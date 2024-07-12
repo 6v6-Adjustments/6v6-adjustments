@@ -1,6 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
 globalvar enable_regeneration = createWorkshopSetting(bool, 'Passive', 'Global - Regeneration', true, 0)
+globalvar ADJ_REGEN_HPS = createWorkshopSetting(int[1:100], 'Passive', 'Global - Regeneration Healing per Second', ADJ_REGEN_HPS_DEFAULT)
+globalvar ADJ_REGEN_TIMER = createWorkshopSetting(int[1:30], 'Passive', 'Global - Regeneration Activation Time', ADJ_REGEN_TIMER_DEFAULT)
 
 globalvar enable_support_passive = createWorkshopSetting(bool, 'Passive', 'Support - Quicker Regeneration', false, 0)
 
@@ -56,7 +58,6 @@ evalSelfHealingPercent()
 rule "[passives/support/self_heal.opy]: Detect healing passive":
     @Event playerTookDamage
 
-    
     eventPlayer._regen_passive_active = false
     eventPlayer._support_passive_active = false
     wait(OW2_SUPPORT_HEAL_PASSIVE_ACTIVATION_TIME - TICK_DURATION)
@@ -82,7 +83,7 @@ rule "[passives/support/self_heal.opy]: Remove Passive self healing":
     while RULE_CONDITION
 
 
-rule "[passives/support/self_heal.opy]: reset regen_passive_timer":
+rule "[passives/support/self_heal.opy]: Reset regen_passive_timer":
     @Event playerTookDamage
     @Condition enable_regeneration
 
@@ -90,39 +91,34 @@ rule "[passives/support/self_heal.opy]: reset regen_passive_timer":
     eventPlayer.regen_passive_timer = ADJ_REGEN_TIMER
 
 
-rule "[passives/support/self_heal.opy]: track regen_passive_timer for non-supports":
-    
+rule "[passives/support/self_heal.opy]: Track regen_passive_timer for non-supports":
     @Event eachPlayer
     @Condition enable_regeneration
     @Condition eventPlayer.getCurrentHero() not in getSupportHeroes()
     @Condition eventPlayer.regen_passive_timer != 0
     
-    
     chase(eventPlayer.regen_passive_timer, 0, duration = ADJ_REGEN_TIMER, ChaseReeval.DESTINATION_AND_DURATION)
-    waitUntil(eventPlayer.regen_passive_timer == 0, 99999)
+    waitUntil(eventPlayer.regen_passive_timer == 0, Math.INFINITY)
     if eventPlayer.getHealth() != eventPlayer.getMaxHealth():
-        eventPlayer.startHoT(null, 9999, ADJ_REGEN_HPS)
+        eventPlayer.startHoT(null, Math.INFINITY, ADJ_REGEN_HPS)
         eventPlayer._regen_passive_id = getLastHoT()
 
 
-rule "[passives/support/self_heal.opy]: track regen_passive_timer for supports":
-    
+rule "[passives/support/self_heal.opy]: Track regen_passive_timer for supports":
     @Event eachPlayer
     @Condition enable_regeneration
     @Condition eventPlayer.getCurrentHero() in getSupportHeroes()
     @Condition eventPlayer.getCurrentHero() != Hero.MERCY
     @Condition eventPlayer.regen_passive_timer != 0
     
-    
     chase(eventPlayer.regen_passive_timer, 0, duration = ADJ_SUPPORT_PASSIVE_TIMER if enable_support_passive else ADJ_REGEN_TIMER, ChaseReeval.DESTINATION_AND_DURATION)
-    waitUntil(eventPlayer.regen_passive_timer == 0, 99999)
+    waitUntil(eventPlayer.regen_passive_timer == 0, Math.INFINITY)
     if eventPlayer.getHealth() != eventPlayer.getMaxHealth():
-        eventPlayer.startHoT(null, 9999, ADJ_REGEN_HPS)
+        eventPlayer.startHoT(null, Math.INFINITY, ADJ_REGEN_HPS)
         eventPlayer._regen_passive_id = getLastHoT()
 
 
-rule "[passives/support/self_heal.opy]: turn off regen at full health":
-
+rule "[passives/support/self_heal.opy]: Turn off regen at full health":
     @Event eachPlayer
     @Condition enable_regeneration
     @Condition eventPlayer.getHealth() == eventPlayer.getMaxHealth()
