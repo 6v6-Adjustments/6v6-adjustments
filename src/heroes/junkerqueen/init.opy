@@ -46,5 +46,6 @@ rule "[junkerqueen/init.opy]: Reduce Commanding Shout overhealth for allies":
     @Condition eventPlayer.within_shout_radius == true
 
     damage(eventPlayer, null, (OW2_JUNKERQUEEN_SHOUT_ALLY_OVERHEALTH * eventPlayer.max_health_scaler))
+    heal(eventPlayer, null, 0.01)
     wait()
     eventPlayer.within_shout_radius = false

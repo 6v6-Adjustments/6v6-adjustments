@@ -1,12 +1,21 @@
 #!mainFile "../../dev_main.opy"
 
+rule "[mauga/cardiac.opy]: Reduce Cardiac Overdrive damage reduction":
+    @Event eachPlayer
+    @Hero mauga
+    @Condition eventPlayer.isUsingAbility2()
 
-rule "[mauga/init.opy]: Remove Cardiac Overdrive allied damage reduction":
+    eventPlayer.setDamageReceived(percent((1-ADJ_MAUGA_CARDIAC_DAMAGE_REDUCTION)/(1-OW2_MAUGA_CARDIAC_DAMAGE_REDUCTION)))
+    waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)
+    eventPlayer.setDamageReceived(100)
+
+
+rule "[mauga/cardiac.opy]: Remove Cardiac Overdrive allied damage reduction":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MAUGA
     @Condition eventPlayer.isUsingAbility2()
     
-    damage(eventPlayer, null, MIN_DAMAGE)
+    #damage(eventPlayer, null, MIN_DAMAGE)
     pushSelfHealing(Button.ABILITY_2)
     startDamageModification(
         getPlayersInRadius(
