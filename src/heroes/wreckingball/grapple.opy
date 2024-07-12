@@ -1,13 +1,13 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[wreckingball/grapple.opy]: Force Grappling Hook cooldown":
-    @Event eachPlayer
-    @Hero hammond
-    @Condition eventPlayer.isFiringSecondaryFire()
+# rule "[wreckingball/grapple.opy]: Force Grappling Hook cooldown":
+#     @Event eachPlayer
+#     @Hero hammond
+#     @Condition eventPlayer.isFiringSecondaryFire()
     
-    waitUntil(eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0, Math.INFINITY)
-    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, ADJ_WRECKING_BALL_GRAPPLE_COOLDOWN)
+#     waitUntil(eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0, Math.INFINITY)
+#     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, ADJ_WRECKING_BALL_GRAPPLE_COOLDOWN)
 
 
 rule "[wreckingball/grapple.opy]: Increase Fireball impact damage":
