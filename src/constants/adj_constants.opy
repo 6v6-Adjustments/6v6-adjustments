@@ -116,7 +116,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_ILLARI_SOLAR_RIFLE_DAMAGE_CRIT 110
 #!define ADJ_ILLARI_SOLAR_RIFLE_HEALING 115
 #!define ADJ_ILLARI_SUNSTRUCK_DAMAGE 120
-#!define ADJ_ILLARI_ULT_COST 2226
+#!define ADJ_ILLARI_ULT_COST 2315
 
 # JunkerQueen
 #!define ADJ_JUNKERQUEEN_AMMO_COUNT 8
@@ -164,8 +164,8 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_LUCIO_HEALTH 200
 #!define ADJ_LUCIO_SOUND_GUN_DAMAGE 20
 #!define ADJ_LUCIO_SOUNDWAVE_DAMAGE 30
-#!define ADJ_LUCIO_SOUNDWAVE_COOLDOWN 4
-#!define ADJ_LUCIO_SOUNDWAVE_KNOCKBACK 6
+#!define ADJ_LUCIO_SOUNDWAVE_COOLDOWN 4.2
+#!define ADJ_LUCIO_SOUNDWAVE_KNOCKBACK 7
 #!define ADJ_LUCIO_ULT_COST 2940
 
 # Mauga
@@ -197,6 +197,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # Mercy
 #!define ADJ_MERCY_AMMO 20
 #!define ADJ_MERCY_HEALTH 200
+#!define ADJ_MERCY_GA_COOLDOWN 1.1
 #!define ADJ_MERCY_ULT_COST 1820
 
 # Moira
