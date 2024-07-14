@@ -11,6 +11,7 @@ rule "[dva/hp.opy]: Correct DVa mech health":
         ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_HEALTH,
         ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_ARMOR,
         0)
+    setUltCost(ADJ_DVA_ULT_COST)
 
 
 rule "[dva/hp.opy]: Correct DVa pilot health":
@@ -21,3 +22,4 @@ rule "[dva/hp.opy]: Correct DVa pilot health":
     @Condition not eventPlayer.call_init
 
     clearCustomHp()
+    setUltCost(ADJ_DVA_REMECH_COST)

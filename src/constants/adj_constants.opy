@@ -84,6 +84,7 @@
 #!define ADJ_DVA_MICRO_MISSILES_DAMAGE 7
 #!define ADJ_DVA_PILOT_HEALTH 150
 #!define ADJ_DVA_ULT_COST 1540
+#!define ADJ_DVA_REMECH_COST 250
 
 # Echo
 globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", "Full Echo Tank HP", false, 0)
