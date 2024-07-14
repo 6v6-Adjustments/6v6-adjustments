@@ -12,8 +12,6 @@ rule "[zenyatta/init.opy]: Initialize Zenyatta":
     setUltCost(ADJ_ZENYATTA_ULT_COST)
     removeSelfHealing()
 
-    eventPlayer.setKnockbackDealt(7)
-
     eventPlayer.setAmmo(0, 20)
     eventPlayer.setMaxAmmo(0, 20)
 

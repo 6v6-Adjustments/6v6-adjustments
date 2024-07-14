@@ -10,6 +10,8 @@ rule "[reaper/init.opy]: Initialize Reaper":
     setUltCost(ADJ_REAPER_ULT_COST)
     removeRegenPassive()
 
+    eventPlayer.setHealingDealt(percent(ADJ_REAPER_LIFESTEAL_PERCENT / OW2_REAPER_LIFESTEAL_PERCENT))
+
     eventPlayer.call_init = false
 
 
