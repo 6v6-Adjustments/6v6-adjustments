@@ -104,6 +104,7 @@ rule "[roadhog/breather.opy]: Enable Breather if not on cooldown":
     @Event eachPlayer
     @Hero roadhog
     @Condition eventPlayer.breather_cooldown <= 0
+    @Condition not eventPlayer.isUsingUltimate()
 
     eventPlayer.setSecondaryFireEnabled(true)
     hideBreatherCD()
