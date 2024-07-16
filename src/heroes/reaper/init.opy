@@ -10,16 +10,18 @@ rule "[reaper/init.opy]: Initialize Reaper":
     setUltCost(ADJ_REAPER_ULT_COST)
     removeRegenPassive()
 
+    eventPlayer.setHealingDealt(percent(ADJ_REAPER_LIFESTEAL_PERCENT / OW2_REAPER_LIFESTEAL_PERCENT))
+
     eventPlayer.call_init = false
 
 
-rule "[reaper/init.opy]: Increase Hellfire Shotgun damage":
+rule "[reaper/init.opy]: Reduce Hellfire Shotgun damage":
     @Event playerDealtDamage
     @Hero reaper
     @Condition eventAbility == Button.PRIMARY_FIRE
     @Condition not eventPlayer.isUsingUltimate()
 
-    damage(victim, attacker, eventDamage * (ADJ_REAPER_HELLFIRE_SHOTGUNS_DAMAGE/OW2_REAPER_HELLFIRE_SHOTGUNS_DAMAGE) - eventDamage)
+    heal(victim, null, eventDamage - ((ADJ_REAPER_HELLFIRE_SHOTGUNS_DAMAGE / OW2_REAPER_HELLFIRE_SHOTGUNS_DAMAGE) * eventDamage/eventPlayer._base_damage_scalar))
 
 
 rule "[reaper/init.opy]: Reduce Death Blossom damage":

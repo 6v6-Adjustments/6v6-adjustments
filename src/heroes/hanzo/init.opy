@@ -15,7 +15,7 @@ rule "[hanzo/init.opy]: Initialize Hanzo":
     eventPlayer.call_init = false
 
 
-rule "[hanzo/init.opy]: Correct melee damage":
+rule "[hanzo/init.opy]: Correct Hanzo melee damage":
     @Event playerDealtDamage
     @Hero hanzo
     @Condition eventAbility == Button.MELEE

@@ -14,8 +14,8 @@ rule "[kiriko/init.opy]: Initialize Kiriko":
     setUltCost(ADJ_KIRIKO_ULT_COST)
     removeSelfHealing()
 
-    eventPlayer.setAmmo(1, ADJ_KIRIKO_KUNAI_COUNT)
-    eventPlayer.setMaxAmmo(1, ADJ_KIRIKO_KUNAI_COUNT)
+    # eventPlayer.setAmmo(1, ADJ_KIRIKO_KUNAI_COUNT)
+    # eventPlayer.setMaxAmmo(1, ADJ_KIRIKO_KUNAI_COUNT)
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN)
 
