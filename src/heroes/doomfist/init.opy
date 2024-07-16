@@ -1,5 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/doomfist/meteor_strike.opy"
 #!include "heroes/doomfist/punch.opy"
 #!include "heroes/doomfist/slam.opy"
 #!include "heroes/doomfist/powerblock.opy"
@@ -18,14 +19,15 @@ rule "[doomfist/init.opy]: Initialize Doomfist":
     removeTankPassive()
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_DOOMFIST_HAND_CANNON_DAMAGE/OW2_DOOMFIST_HAND_CANNON_DAMAGE)
+    setBaseDamage(eventPlayer, ADJ_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE/OW2_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE)
 
     eventPlayer.call_init = false
 
 
-rule "[doomfist/init.opy]: Correct Rocket Punch and Meteor Strike damage":
+rule "[doomfist/init.opy]: Correct Hand Cannon damage":
     @Event playerDealtDamage
     @Hero doomfist
-    @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ULTIMATE]
+    @Condition eventAbility == Button.PRIMARY_FIRE
 
-    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_DOOMFIST_HAND_CANNON_DAMAGE/OW2_DOOMFIST_HAND_CANNON_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+    
