@@ -73,18 +73,18 @@
 #!define ADJ_DOOMFIST_ULT_COST 1932
 
 # DVa
-#!define ADJ_DVA_ARMOR 125
+#!define ADJ_DVA_ARMOR 1
 #!define ADJ_DVA_ARMOR_DUPLICATE 100
 #!define ADJ_DVA_BOOSTER_DAMAGE 10
 #!define ADJ_DVA_CANNON_DAMAGE 20.5
-#!define ADJ_DVA_HEALTH 450
+#!define ADJ_DVA_HEALTH 20
 #!define ADJ_DVA_HEALTH_DUPLICATE 350
 #!define ADJ_DVA_MATRIX_COOLDOWN 1.5
 #!define ADJ_DVA_MATRIX_DURATION 2
 #!define ADJ_DVA_MICRO_MISSILES_DAMAGE 7
 #!define ADJ_DVA_PILOT_HEALTH 150
 #!define ADJ_DVA_ULT_COST 1540
-#!define ADJ_DVA_REMECH_COST 250
+#!define ADJ_DVA_REMECH_COST 380
 
 # Echo
 globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", "Full Echo Tank HP", false, 0)
