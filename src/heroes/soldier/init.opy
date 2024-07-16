@@ -12,6 +12,9 @@ rule "[soldier/init.opy]: Initialize Soldier 76":
     setUltCost(ADJ_SOLDIER_ULT_COST)
     removeSelfHealing()
 
+    eventPlayer.setAmmo(0, ADJ_SOLDIER_PULSE_RIFLE_AMMO)
+    eventPlayer.setMaxAmmo(0, ADJ_SOLDIER_PULSE_RIFLE_AMMO)
+
     eventPlayer.setHealingDealt(86.4)
 
     eventPlayer.call_init = false
