@@ -6,6 +6,7 @@ globalvar ADJ_RESPAWN_ASSIST_REDUCTION = createWorkshopSetting(float[0.1:10], 'G
 
 rule "[utilities/respawn_helper.opy]: Initialize Respawn Timers when starting a match":
     @Condition enable_respawn_helper
+    @Condition not getAllPlayers() == 12
 
     getPlayers(Team.1).setRespawnTime(10 - (6 - getNumberOfPlayers(Team.1)) * ADJ_RESPAWN_ASSIST_REDUCTION)
     getPlayers(Team.2).setRespawnTime(10 - (6 - getNumberOfPlayers(Team.2)) * ADJ_RESPAWN_ASSIST_REDUCTION)
