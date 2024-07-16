@@ -16,27 +16,18 @@ rule "[ramattra/init.opy]: Initialize Ramattra":
     removeTankPassive()
     removeSelfHealing()
 
+    setBaseDamage(eventPlayer, ADJ_RAMATTRA_ACCELERATOR_DAMAGE/OW2_RAMATTRA_ACCELERATOR_DAMAGE)
+
     eventPlayer.startScalingSize(0.94, true)
 
     eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_RAMATTRA_BARRIER_HEALTH/OW2_RAMATTRA_BARRIER_HEALTH)
 
 
-# rule "[ramattra/init.opy]: Correct Barrier cooldown":
-#     @Event eachPlayer
-#     @Hero ramattra
-#     @Condition eventPlayer.isFiringSecondaryFire()
-        
-#     waitUntil(not eventPlayer.isFiringSecondaryFire() or eventPlayer.isUsingAbility1(), Math.INFINITY)
-#     wait(0.1)
-#     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, OW2_RAMATTRA_VOID_BARRIER_COOLDOWN - 0.1)
-
-
-# rule "[ramattra/init.opy]: Correct Vortex cooldown":
-#     @Event eachPlayer
-#     @Hero ramattra
-#     @Condition eventPlayer.isUsingAbility2()
-        
-#     waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)
-#     wait(0.5)
-#     eventPlayer.setAbilityCooldown(Button.ABILITY_2, ADJ_RAMATTRA_VORTEX_COOLDOWN - 0.5)
+rule "[ramattra/init.opy]: Reduce Ramattra melee damage":
+    @Event playerDealtDamage
+    @Hero ramattra
+    @Condition eventAbility == Button.MELEE
+    @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == false
+    
+    heal(victim, null, eventDamage - (eventDamage/eventPlayer._base_damage_scalar))
