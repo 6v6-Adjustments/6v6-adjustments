@@ -6,7 +6,7 @@ rule "[reinhardt/firestrike.opy]: Force single firestrike":
     @Condition eventPlayer.hero_setup == Hero.REINHARDT
     @Condition eventPlayer.isUsingAbility2()
 
-    waitUntil(not eventPlayer.isUsingAbility2(), 1)
+    waitUntil(not eventPlayer.isUsingAbility2(), 0.9)
     eventPlayer.setAbilityCharge(Button.ABILITY_2, 0) # Every time rein uses firestrike, reset the resource to 0
     wait(ADJ_REINHARDT_FIRE_STRIKE_COOLDOWN_TIME)
     eventPlayer.setAbilityCharge(Button.ABILITY_2, 2)
