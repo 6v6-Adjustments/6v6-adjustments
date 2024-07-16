@@ -12,6 +12,12 @@ rule "[dva/init.opy]: Initialize D.Va":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.DVA
 
+    # if eventPlayer.isDuplicatingAHero() and not eventPlayer.isInAlternateForm():
+    #     setCustomHp(
+    #     ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_HEALTH,
+    #     ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_ARMOR,
+    #     0)
+
     setUltCost(ADJ_DVA_ULT_COST)
 
     removeTankPassive()

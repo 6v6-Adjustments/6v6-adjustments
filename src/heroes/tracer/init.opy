@@ -6,6 +6,19 @@ rule "[tracer/init.opy]: Initialize Tracer":
     @Condition eventPlayer.call_init
     @Condition eventPlayer.hero_setup == Hero.TRACER
 
+    if eventPlayer.isDuplicatingAHero():
+        eventPlayer.removeAllHealthPools()
+        wait(0.15)
+        eventPlayer.setMaxHealth(100.001) # DO NOT REMOVE THIS LINE
+        wait(0.15) # DO NOT REMOVE THIS LINE
+        eventPlayer.setMaxHealth(100)
+
+        eventPlayer.setHealingReceived(0)
+        eventPlayer.addHealthPool(Health.NORMAL, 1, true, true)
+        eventPlayer.addHealthPool(Health.ARMOR, 1, true, true)
+        eventPlayer.addHealthPool(Health.SHIELDS, 1, true, true)
+        eventPlayer.removeAllHealthPools()
+
     setUltCost(ADJ_TRACER_ULT_COST)
     removeSelfHealing()
 
