@@ -5,7 +5,8 @@
 #!define GAMEMODE_NAME "6v6 Adjustments"
 #!define GAMDMODE_DESCRIPTION (GAMEMODE_NAME + " " + GAMEMODE_VERSION + " " + "(" + GAMEMODE_CODE + ")" + "\n" + \
                                "\n" + \
-                               "Intended for 6v6 gameplay, by Toastie#11770" + "\n" + \
+                               "Overwatch 2 adjusted for 6v6 gameplay" + "\n" + \
+                               "by Toastie#11770 and ecksdee#11729" + "\n" + \
                                "\n" + \
                                "Developers:" + "\n" + \
                                "ecksdee#11729" + "\n" + \
@@ -15,7 +16,7 @@
                                "Main Build: " + GAMEMODE_CODE + "\n" + \
                                "Staging Build: " + STAGING_CODE + "\n" + \
                                "\n" + \
-                               "This gamemode is forked from" + "\n" + \
+                               "OverPy codebase forked from" + "\n" + \
                                "Overwatch 1 Emulator v1.12.2 (KHTG0)" + "\n" + \
                                "by ecksdee#11729" + "\n" + \
                                "\n" + \
