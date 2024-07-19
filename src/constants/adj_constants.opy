@@ -146,6 +146,10 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_JUNKRAT_HEALTH 200
 #!define ADJ_JUNKRAT_ULT_COST 1925
 
+# Juno
+# exact ult cost value unknown, approximating
+#!define ADJ_JUNO_ULT_COST 1900
+
 # Kiriko
 #!define ADJ_KIRIKO_HEALTH 200
 #!define ADJ_KIRIKO_KUNAI_COUNT 12
