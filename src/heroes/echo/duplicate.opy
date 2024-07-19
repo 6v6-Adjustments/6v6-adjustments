@@ -43,6 +43,17 @@ rule "[echo/duplicate.opy]: Death in Duplicate":
 
     waitUntil(eventPlayer.isInSpawnRoom() == true, Math.INFINITY)
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
+    wait(0.1)
+    resetHero()
+    wait(0.1)
+    initHero()
+
+
+rule "[echo/duplicate.opy]: Force Reset Incorrect Echo Setup":
+    @Event eachPlayer
+    @Hero echo
+    @Condition eventPlayer.getMaxHealth() == 499
+
     resetHero()
     initHero()
 
