@@ -13,7 +13,7 @@ rule "[mei/cryo_freeze.opy]: OW1 Cryo-Freeze healing":
 
 rule "[mei/cryo_freeze.opy]: Allow self healing during Cryo-Freeze":
     @Event eachPlayer
-    @Hero mei
+    @Condition eventPlayer.hero_setup == Hero.MEI
     @Condition eventPlayer.isUsingAbility1()
 
     pushSelfHealing(Button.ABILITY_1)
