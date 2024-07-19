@@ -26,7 +26,7 @@ rule "[sigma/init.opy]: Initialize Sigma":
 
 rule "[sigma/init.opy]: Increase Sigma other forms of damage":
     @Event playerDealtDamage
-    @Hero sigma
+    @Condition eventPlayer.hero_setup == Hero.SIGMA
     @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ULTIMATE]
     
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)

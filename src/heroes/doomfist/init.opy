@@ -19,7 +19,8 @@ rule "[doomfist/init.opy]: Initialize Doomfist":
     removeTankPassive()
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE/OW2_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE)
+    if not eventPlayer.isDuplicatingAHero():
+        setBaseDamage(eventPlayer, ADJ_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE/OW2_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE)
 
     eventPlayer.call_init = false
 
