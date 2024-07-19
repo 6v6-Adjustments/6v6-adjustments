@@ -6,6 +6,8 @@ rule "[ramattra/nemesis_form.opy]: Correct Nemesis Form armor and movement speed
     @Hero ramattra
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
     
+    if ramattra_steadfast:
+        eventPlayer.setKnockbackReceived(percent((1 - ADJ_REINHARDT_STEADAST_KNOCKBACK_REDUCTION)/(1 - OW2_TANK_KNOCKBACK_REDUCTION)))
     eventPlayer.setDamageDealt(percent(ADJ_RAMATTRA_PUMMEL_DAMAGE/OW2_RAMATTRA_PUMMEL_DAMAGE))
     eventPlayer.setMoveSpeed(percent(ADJ_RAMATTRA_NEMESIS_MOVESPEED/OW2_RAMATTRA_NEMESIS_MOVESPEED))
     eventPlayer.addHealthPool(Health.ARMOR, 5, true, true) # for some reason the addHealthPool function doesn't read constants as usable numbers
@@ -13,6 +15,7 @@ rule "[ramattra/nemesis_form.opy]: Correct Nemesis Form armor and movement speed
     eventPlayer.setMoveSpeed(100)
     removeHealthPool(getLastCreatedHealthPool())
     eventPlayer.setDamageDealt(percent(ADJ_RAMATTRA_ACCELERATOR_DAMAGE/OW2_RAMATTRA_ACCELERATOR_DAMAGE))
+    removeTankPassive()
 
 
 # rule "[ramattra/nemesis_form.opy]: Increase Pummel damage":
