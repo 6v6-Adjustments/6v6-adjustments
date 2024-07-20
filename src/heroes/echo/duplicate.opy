@@ -43,9 +43,9 @@ rule "[echo/duplicate.opy]: Death in Duplicate":
 
     waitUntil(eventPlayer.isInSpawnRoom() == true, Math.INFINITY)
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
-    wait(0.1)
+    wait(0.64)
     resetHero()
-    wait(0.1)
+    wait(0.64)
     initHero()
 
 

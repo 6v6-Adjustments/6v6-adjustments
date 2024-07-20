@@ -148,6 +148,8 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Juno
 # exact ult cost value unknown, approximating
+#!define ADJ_JUNO_HEALTH 75
+#!define ADJ_JUNK_SHIELDS 125
 #!define ADJ_JUNO_ULT_COST 1900
 
 # Kiriko
@@ -261,7 +263,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Reinhardt
 #!define ADJ_REINHARDT_ARMOR 150
-#!define ADJ_REINHARDT_ARMOR_DUPLICATE 50
+#!define ADJ_REINHARDT_ARMOR_DUPLICATE 49.99
 #!define ADJ_REINHARDT_BARRIER_HEALTH 1800
 #!define ADJ_REINHARDT_BARRIER_REGEN 140
 #!define ADJ_REINHARDT_CHARGE_COOLDOWN_TIME 10
