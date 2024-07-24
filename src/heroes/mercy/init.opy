@@ -9,7 +9,7 @@ rule "[mercy/init.opy]: Initialize Mercy":
     setCustomHp(ADJ_MERCY_HEALTH, 0, 0)
     setUltCost(ADJ_MERCY_ULT_COST)
 
-    eventPlayer.setHealingDealt(109.1)
+    eventPlayer.setHealingDealt(ADJ_MERCY_STAFF_HEALING / OW2_MERCY_STAFF_HEALING)
 
     eventPlayer.setAmmo(0, ADJ_MERCY_AMMO)
     eventPlayer.setMaxAmmo(0, ADJ_MERCY_AMMO)
@@ -23,5 +23,5 @@ rule "[mercy/init.opy]: Reduce Valkyrie healing":
     @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setHealingDealt(100)
-    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
-    eventPlayer.setHealingDealt(109.1)
+    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
+    eventPlayer.setHealingDealt(ADJ_MERCY_STAFF_HEALING / OW2_MERCY_STAFF_HEALING)

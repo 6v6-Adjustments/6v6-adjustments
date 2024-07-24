@@ -225,6 +225,7 @@
 
 # Mercy
 #!define OW2_MERCY_GA_COOLDOWN 1.5
+#!define OW2_MERCY_STAFF_HEALING 55
 #!define OW2_MERCY_ULT_COST 2000
 
 # Moira

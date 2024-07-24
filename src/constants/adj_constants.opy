@@ -215,7 +215,8 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # Mercy
 #!define ADJ_MERCY_AMMO 20
 #!define ADJ_MERCY_HEALTH 200
-#!define ADJ_MERCY_GA_COOLDOWN 1.1
+#!define ADJ_MERCY_GA_COOLDOWN 1.25
+#!define ADJ_MERCY_STAFF_HEALING 60
 #!define ADJ_MERCY_ULT_COST 1820
 
 # Moira
