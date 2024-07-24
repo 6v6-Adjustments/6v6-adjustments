@@ -90,6 +90,7 @@ settings {
         "allTeams": {
             "ana": {
                 "ability1Cooldown%": percent(ADJ_ANA_SLEEP_DART_COOLDOWN_TIME/OW2_ANA_SLEEP_DART_COOLDOWN_TIME),
+                "ability2Cooldown%": percent(ADJ_ANA_BIOTIC_GRENADE_COOLDOWN/OW2_ANA_BIOTIC_GRENADE_COOLDOWN),
                 "ultGen%": percent(OW2_ANA_ULT_COST/ADJ_ANA_ULT_COST)
             },
             "ashe": {
