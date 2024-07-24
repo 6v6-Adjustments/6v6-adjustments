@@ -7,7 +7,7 @@ rule "[wreckingball/grapple.opy]: Force Grappling Hook cooldown":
     @Condition eventPlayer.isFiringSecondaryFire()
     
     waitUntil(eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0, Math.INFINITY)
-    if eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) < ADJ_WRECKING_BALL_GRAPPLE_COOLDOWN:
+    if eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) <= OW2_WRECKING_BALL_FASTER_GRAPPLE_COOLDOWN:
         eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, ADJ_WRECKING_BALL_FASTER_GRAPPLE_COOLDOWN)
 
 
