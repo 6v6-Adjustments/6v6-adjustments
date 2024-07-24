@@ -101,6 +101,7 @@ rule "[passives/support/self_heal.opy]: Track regen_passive_timer for non-suppor
     waitUntil(eventPlayer.regen_passive_timer == 0, Math.INFINITY)
     if eventPlayer.getHealth() != eventPlayer.getMaxHealth():
         eventPlayer.startHoT(null, Math.INFINITY, ADJ_REGEN_HPS)
+        stopChasingVariable(eventPlayer.regen_passive_timer)
         eventPlayer._regen_passive_id = getLastHoT()
 
 
@@ -115,6 +116,7 @@ rule "[passives/support/self_heal.opy]: Track regen_passive_timer for supports":
     waitUntil(eventPlayer.regen_passive_timer == 0, Math.INFINITY)
     if eventPlayer.getHealth() != eventPlayer.getMaxHealth():
         eventPlayer.startHoT(null, Math.INFINITY, ADJ_REGEN_HPS)
+        stopChasingVariable(eventPlayer.regen_passive_timer)
         eventPlayer._regen_passive_id = getLastHoT()
 
 
@@ -123,4 +125,6 @@ rule "[passives/support/self_heal.opy]: Turn off regen at full health":
     @Condition enable_regeneration
     @Condition eventPlayer.getHealth() == eventPlayer.getMaxHealth()
 
+    eventPlayer.regen_passive_timer = 0
+    stopChasingVariable(eventPlayer.regen_passive_timer)
     stopHoT(eventPlayer._regen_passive_id)
