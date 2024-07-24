@@ -87,6 +87,7 @@ settings {
             },
             "dva": {
                 "secondaryFireMaximumTime%": percent(ADJ_DVA_MATRIX_DURATION/OW2_DVA_MATRIX_DURATION),
+                "secondaryFireRechargeRate%": percent(ADJ_DVA_MATRIX_RECHARGE/OW2_DVA_MATRIX_RECHARGE),
                 "health%": percent(ADJ_DVA_PILOT_HEALTH/OW2_DVA_PILOT_HEALTH), # for pilot dva hp
                 "ultGen%": percent(OW2_DVA_ULT_COST/ADJ_DVA_ULT_COST)
             },
@@ -225,6 +226,7 @@ settings {
             },
             "winston": {
                 "ability1Cooldown%": percent(ADJ_WINSTON_JUMP_PACK_COOLDOWN_TIME/OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME),
+                "health%": percent(ADJ_WINSTON_BARRIER_HEALTH/OW2_WINSTON_BARRIER_HEALTH),
                 "ultGen%": percent(OW2_WINSTON_ULT_COST/ADJ_WINSTON_ULT_COST)
             },
             "hammond": {
