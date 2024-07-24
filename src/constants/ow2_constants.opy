@@ -162,7 +162,7 @@
 
 # Junkrat
 #!define OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN 7
-#!define OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE 110
+#!define OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE 120
 #!define OW2_JUNKRAT_CONCUSSION_MINE_MIN_DAMAGE 30
 #!define OW2_JUNKRAT_FRAG_DAMAGE 125
 #!define OW2_JUNKRAT_HEALTH 250
@@ -198,7 +198,6 @@
 #!define OW2_LUCIO_SOUNDWAVE_DAMAGE 45
 #!define OW2_LUCIO_SOUNDWAVE_COOLDOWN 4
 #!define OW2_LUCIO_SOUNDWAVE_KNOCKBACK 7.2
-# changed lucio soundwave knockback to be distance in meters instead of a scaler (was previously 1.12)
 #!define OW2_LUCIO_ULT_COST 2650
 
 # Mauga
