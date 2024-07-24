@@ -186,6 +186,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_LUCIO_ULT_COST 2940
 
 # Mauga
+#!define ADJ_MAUGA_AMMO 250
 #!define ADJ_MAUGA_ARMOR 125
 #!define ADJ_MAUGA_BASE_ARMOR_DUPLICATE 122
 #!define ADJ_MAUGA_ARMOR_DUPLICATE 125

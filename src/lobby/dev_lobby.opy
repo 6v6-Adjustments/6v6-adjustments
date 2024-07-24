@@ -138,6 +138,7 @@ settings {
                 "ultGen%": percent(OW2_LUCIO_ULT_COST/ADJ_LUCIO_ULT_COST)
             },
             "mauga": {
+                "ammoClipSize%": percent(ADJ_MAUGA_AMMO/OW2_MAUGA_AMMO),
                 "primaryFireIgniteDamage": percent(ADJ_MAUGA_BURN_DPS/((ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)*OW2_MAUGA_BURN_DPS)),
                 "primaryFireIgniteDuration": percent(ADJ_MAUGA_BURN_DURATION/OW2_MAUGA_BURN_DURATION),
                 "primaryFireIgniteRate": percent(OW2_MAUGA_BURN_RATE/ADJ_MAUGA_BURN_RATE),
