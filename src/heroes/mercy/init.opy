@@ -10,7 +10,7 @@ rule "[mercy/init.opy]: Initialize Mercy":
     setUltCost(ADJ_MERCY_ULT_COST)
 
     removeSelfHealing()
-    eventPlayer.setHealingDealt(ADJ_MERCY_STAFF_HEALING / OW2_MERCY_STAFF_HEALING)
+    eventPlayer.setHealingDealt(percent(ADJ_MERCY_STAFF_HEALING / OW2_MERCY_STAFF_HEALING))
 
     eventPlayer.setAmmo(0, ADJ_MERCY_AMMO)
     eventPlayer.setMaxAmmo(0, ADJ_MERCY_AMMO)
