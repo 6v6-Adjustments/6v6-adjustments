@@ -101,8 +101,8 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # Genji
 #!define ADJ_GENJI_DEFLECT_DURATION 1.5
 #!define ADJ_GENJI_HEALTH 200
-#!define ADJ_GENJI_SHURIKEN_DAMAGE 29
-#!define ADJ_GENJI_ULT_COST 1850
+#!define ADJ_GENJI_SHURIKEN_DAMAGE 28.5
+#!define ADJ_GENJI_ULT_COST 1750
 
 # Hanzo
 #!define ADJ_HANZO_ARROW_DAMAGE 125
