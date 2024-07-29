@@ -25,6 +25,7 @@ rule "[winston/init.opy]: Initialize Winston":
 
 
     eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_WINSTON_BARRIER_HEALTH/OW2_WINSTON_BARRIER_HEALTH)
 
 
 rule "[winston/init.opy]: Correct Jump Pack, Melee, Primal Rage damage":

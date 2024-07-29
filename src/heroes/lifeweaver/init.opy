@@ -28,14 +28,14 @@ rule "[lifeweaver/init.opy]: Reduce Lifeweaver melee damage":
     heal(victim, null, eventDamage - (eventDamage/eventPlayer._base_damage_scalar))
 
 
-rule "[lifeweaver/init.opy]: Reduce Tree of Life healing":
-    @Event playerDealtHealing
-    @Hero lifeweaver
-    @Condition eventPlayer.isUsingUltimate()
+# rule "[lifeweaver/init.opy]: Reduce Tree of Life healing":
+#     @Event playerDealtHealing
+#     @Hero lifeweaver
+#     @Condition eventPlayer.isUsingUltimate()
     
-    eventPlayer.setHealingDealt(83.333)
-    waitUntil(eventPlayer.getUltCharge() > 0, Math.INFINITY)
-    eventPlayer.setHealingDealt(100)
+#     eventPlayer.setHealingDealt(ADJ_LIFEWEAVER_TREE_HEALING / OW2_LIFEWEAVER_TREE_HEALING)
+#     waitUntil(eventPlayer.getUltCharge() > 0, Math.INFINITY)
+#     eventPlayer.setHealingDealt(100)
 
 
 rule "[lifeweaver/init.opy]: Reduce Tree of Life duration":
@@ -43,16 +43,5 @@ rule "[lifeweaver/init.opy]: Reduce Tree of Life duration":
     @Hero lifeweaver
     @Condition eventPlayer.isUsingUltimate()
     
-    wait(ADJ_LIFEWEAVER_TREE_OF_LIFE_DURATION)
+    wait(ADJ_LIFEWEAVER_TREE_DURATION)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
-
-
-/*
-rule "(Duplicate) Plat cooldown":
-    @Event eachPlayer
-    @Hero lifeweaver
-    @Condition eventPlayer.isUsingAbility1() == true
-    
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 10)
-    waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_1) != 0, 99999)
-*/

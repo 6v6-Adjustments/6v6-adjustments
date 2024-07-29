@@ -28,7 +28,7 @@ rule "[junkrat/init.opy]: Initialize Junkrat":
     setUltCost(ADJ_JUNKRAT_ULT_COST)
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_JUNKRAT_FRAG_DAMAGE/OW2_JUNKRAT_FRAG_DAMAGE)
+    setBaseDamage(eventPlayer, ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE / OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE)
 
     eventPlayer.call_init = false
 
@@ -42,9 +42,17 @@ rule "[junkrat/init.opy]: Correct Junkrat invalid health": # Sometimes Junkrat c
     eventPlayer.call_init = true
 
 
+rule "[junkrat/init.opy]: Correct Frag Launcher damage":
+    @Event playerDealtDamage
+    @Hero junkrat
+    @Condition eventAbility == Button.PRIMARY_FIRE
+
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar)*(ADJ_JUNKRAT_FRAG_DAMAGE / OW2_JUNKRAT_FRAG_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+
+
 rule "[junkrat/init.opy]: Correct Junkrat other forms of damage":
     @Event playerDealtDamage
     @Hero junkrat
-    @Condition eventAbility in [Button.MELEE, Button.ABILITY_1, Button.ABILITY_2, Button.ULTIMATE]
+    @Condition eventAbility in [Button.MELEE, Button.ABILITY_2, Button.ULTIMATE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

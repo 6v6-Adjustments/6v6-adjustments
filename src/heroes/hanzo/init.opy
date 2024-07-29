@@ -28,4 +28,4 @@ rule "[hanzo/init.opy]: Correct Storm Bow, Sonic Arrow damage":
     @Hero hanzo
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_1]
 
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar)*(ADJ_HANZO_ARROW_DAMAGE/OW2_HANZO_ARROW_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_HANZO_ARROW_DAMAGE / OW2_HANZO_ARROW_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)

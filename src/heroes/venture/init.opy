@@ -21,6 +21,8 @@ rule "[venture/init.opy]: Initialize Venture":
     eventPlayer.setKnockbackDealt(70)
     eventPlayer.setMoveSpeed(percent(ADJ_VENTURE_SPEED/OW2_VENTURE_SPEED))
 
+    eventPlayer.setAmmo(0, 6)
+    eventPlayer.setMaxAmmo(0, 6)
     eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS)
 

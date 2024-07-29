@@ -90,6 +90,7 @@ settings {
         "allTeams": {
             "ana": {
                 "ability1Cooldown%": percent(ADJ_ANA_SLEEP_DART_COOLDOWN_TIME/OW2_ANA_SLEEP_DART_COOLDOWN_TIME),
+                "ability2Cooldown%": percent(ADJ_ANA_BIOTIC_GRENADE_COOLDOWN/OW2_ANA_BIOTIC_GRENADE_COOLDOWN),
                 "ultGen%": percent(OW2_ANA_ULT_COST/ADJ_ANA_ULT_COST)
             },
             "ashe": {
@@ -164,6 +165,7 @@ settings {
                 "ultGen%": percent(OW2_LUCIO_ULT_COST/ADJ_LUCIO_ULT_COST)
             },
             "mauga": {
+                "ammoClipSize%": percent(ADJ_MAUGA_AMMO/OW2_MAUGA_AMMO),
                 "primaryFireIgniteDamage": percent(ADJ_MAUGA_BURN_DPS/((ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)*OW2_MAUGA_BURN_DPS)),
                 "primaryFireIgniteDuration": percent(ADJ_MAUGA_BURN_DURATION/OW2_MAUGA_BURN_DURATION),
                 "primaryFireIgniteRate": percent(OW2_MAUGA_BURN_RATE/ADJ_MAUGA_BURN_RATE),
@@ -182,6 +184,7 @@ settings {
                 "ultGen%": percent(OW2_MOIRA_ULT_COST/ADJ_MOIRA_ULT_COST),
             },
             "orisa": {
+                "secondaryFireCooldown%": percent(ADJ_ORISA_JAVELIN_COOLDOWN/OW2_ORISA_JAVELIN_COOLDOWN),
                 "ability1Cooldown%": percent(ADJ_ORISA_FORTIFY_COOLDOWN/OW2_ORISA_FORTIFY_COOLDOWN),
                 "ability2Cooldown%": percent(ADJ_ORISA_JAVELIN_SPIN_COOLDOWN/OW2_ORISA_JAVELIN_SPIN_COOLDOWN),
                 "ultGen%": percent(OW2_ORISA_ULT_COST/ADJ_ORISA_ULT_COST)
@@ -191,9 +194,11 @@ settings {
                 "ultGen%": percent(OW2_PHARAH_ULT_COST/ADJ_PHARAH_ULT_COST)
             },
             "ramattra": {
+                "secondaryFireCooldown%": percent(ADJ_RAMATTRA_VOID_BARRIER_COOLDOWN/OW2_RAMATTRA_VOID_BARRIER_COOLDOWN),
                 "ability1Cooldown%": percent(ADJ_RAMATTRA_NEMESIS_COOLDOWN/OW2_RAMATTRA_NEMESIS_COOLDOWN),
                 "ability2Cooldown%": percent(ADJ_RAMATTRA_VORTEX_COOLDOWN/OW2_RAMATTRA_VORTEX_COOLDOWN),
                 "health%": percent(ADJ_RAMATTRA_BARRIER_HEALTH/OW2_RAMATTRA_BARRIER_HEALTH),
+                "ultDuration%": percent(ADJ_RAMATTRA_ANNIHILATION_DURATION/OW2_RAMATTRA_ANNIHILATION_DURATION),
                 "ultGen%": percent(OW2_RAMATTRA_ULT_COST/ADJ_RAMATTRA_ULT_COST),
             },
             "reaper": {
@@ -252,6 +257,7 @@ settings {
             },
             "winston": {
                 "ability1Cooldown%": percent(ADJ_WINSTON_JUMP_PACK_COOLDOWN_TIME/OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME),
+                "health%": percent(ADJ_WINSTON_BARRIER_HEALTH/OW2_WINSTON_BARRIER_HEALTH),
                 "ultGen%": percent(OW2_WINSTON_ULT_COST/ADJ_WINSTON_ULT_COST)
             },
             "hammond": {
