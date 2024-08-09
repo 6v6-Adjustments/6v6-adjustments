@@ -28,7 +28,7 @@ rule "[junkrat/init.opy]: Initialize Junkrat":
     setUltCost(ADJ_JUNKRAT_ULT_COST)
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE / OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE)
+    # setBaseDamage(eventPlayer, ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE / OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE)
 
     eventPlayer.call_init = false
 

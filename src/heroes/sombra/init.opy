@@ -10,18 +10,18 @@ rule "[sombra/init.opy]: Initialize Sombra":
     setUltCost(ADJ_SOMBRA_ULT_COST)
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_SOMBRA_SMG_DAMAGE/OW2_SOMBRA_SMG_DAMAGE)
+    # setBaseDamage(eventPlayer, ADJ_SOMBRA_SMG_DAMAGE/OW2_SOMBRA_SMG_DAMAGE)
 
     eventPlayer._self_healing_percent = 0.1 # set self healing to 0.1% such that 75hp healthpack becomes 0.075hp
     eventPlayer.call_init = false
 
 
-rule "[sombra/init.opy]: Increase Sombra Melee damage": # This doesn't include damage dealt by virus due to it being taxing on script load for an extended period of time
-    @Event playerDealtDamage
-    @Hero sombra
-    @Condition eventAbility == Button.MELEE
+# rule "[sombra/init.opy]: Increase Sombra Melee damage": # This doesn't include damage dealt by virus due to it being taxing on script load for an extended period of time
+#     @Event playerDealtDamage
+#     @Hero sombra
+#     @Condition eventAbility == Button.MELEE
 
-    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
+#     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 rule "[sombra/init.opy]: hacked health packs":

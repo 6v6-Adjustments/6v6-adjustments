@@ -16,14 +16,14 @@ rule "[echo/init.opy]: Initialize Echo":
     setUltCost(ADJ_ECHO_ULT_COST)
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_ECHO_STICKY_BOMBS_DAMAGE/OW2_ECHO_STICKY_BOMBS_DAMAGE)
+    # setBaseDamage(eventPlayer, ADJ_ECHO_STICKY_BOMBS_DAMAGE/OW2_ECHO_STICKY_BOMBS_DAMAGE)
 
     eventPlayer.call_init = false
 
 
-rule "[echo/init.opy]: Correct Echo other forms of damage":
+rule "[echo/init.opy]: Correct Focusing Beam damage":
     @Event playerDealtDamage
     @Hero echo
-    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_2, Button.MELEE]
+    @Condition eventAbility == Button.ABILITY_2
 
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
+    damage(victim, attacker, eventDamage * (ADJ_ECHO_FOCUSING_BEAM_DMG / OW2_ECHO_FOCUSING_BEAM_DMG) - eventDamage)

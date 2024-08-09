@@ -20,7 +20,7 @@ rule "[doomfist/init.opy]: Initialize Doomfist":
     removeSelfHealing()
 
     if not eventPlayer.isDuplicatingAHero():
-        setBaseDamage(eventPlayer, ADJ_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE/OW2_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE)
+        setBaseDamage(eventPlayer, ADJ_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE / OW2_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE / ADJ_DOOMFIST_ROCKET_PUNCH_PRIMARY_TARGET_MULTIPLIER)
 
     eventPlayer.call_init = false
 

@@ -12,7 +12,7 @@ rule "[bastion/init.opy]: Initialize Bastion":
     setUltCost(ADJ_BASTION_ULT_COST)
     removeSelfHealing()
 
-    eventPlayer.startScalingSize(0.96, true)
+    # eventPlayer.startScalingSize(0.96, true)
 
     eventPlayer.call_init = false
 

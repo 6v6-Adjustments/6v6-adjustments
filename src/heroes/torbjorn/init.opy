@@ -10,8 +10,8 @@ rule "[torbjorn/init.opy]: Initialize Torbjorn":
     setUltCost(ADJ_TORBJORN_ULT_COST)
     removeSelfHealing()
 
-    eventPlayer.setAmmo(0, 15)
-    eventPlayer.setMaxAmmo(0, 15)
+    eventPlayer.setAmmo(0, 18)
+    eventPlayer.setMaxAmmo(0, 18)
 
     eventPlayer.overhealth_check = false
     eventPlayer.call_init = false

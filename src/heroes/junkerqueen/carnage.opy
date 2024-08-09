@@ -7,10 +7,11 @@ rule "[junkerqueen/carnage.opy]: Bonus Carnage healing":
     @Condition eventPlayer.isUsingAbility2() # don't use eventAbility, every wound tick checks this rule otherwise
     @Condition eventDamage >= (ADJ_JUNKERQUEEN_CARNAGE_IMPACT_DAMAGE - 5)
 
+    damage(victim, attacker, eventDamage * (ADJ_JUNKERQUEEN_CARNAGE_IMPACT_DAMAGE / OW2_JUNKERQUEEN_CARNAGE_IMPACT_DAMAGE) - eventDamage)
     heal(eventPlayer, eventPlayer, ADJ_JUNKERQUEEN_CARNAGE_BONUS_HEALING)
 
 
-rule "[junkerqueen/carnage.opy]: Reduce Carnage damage":
+rule "[junkerqueen/carnage.opy]: Increase Carnage damage":
     @Event eachPlayer
     @Hero junkerQueen
     @Condition eventPlayer.isUsingAbility2()

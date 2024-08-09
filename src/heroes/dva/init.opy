@@ -23,28 +23,28 @@ rule "[dva/init.opy]: Initialize D.Va":
     removeTankPassive()
     removeSelfHealing()
 
-    if not eventPlayer.isDuplicatingAHero():
-        setBaseDamage(eventPlayer, ADJ_DVA_MICRO_MISSILES_DAMAGE / OW2_DVA_MICRO_MISSILES_DAMAGE)
+    # if not eventPlayer.isDuplicatingAHero():
+    #     setBaseDamage(eventPlayer, ADJ_DVA_MICRO_MISSILES_DAMAGE / OW2_DVA_MICRO_MISSILES_DAMAGE)
 
     eventPlayer.call_init = false
     eventPlayer.self_destruct_charge = 0
-    eventPlayer.max_health_scaler = (ADJ_DVA_PILOT_HEALTH / OW2_DVA_PILOT_HEALTH)
+    # eventPlayer.max_health_scaler = (ADJ_DVA_PILOT_HEALTH / OW2_DVA_PILOT_HEALTH)
 
 
-rule "[dva/init.opy]: Increase Fusion Cannons damage":
-    @Event playerDealtDamage
-    @Hero dva
-    @Condition not eventAbility in [Button.MELEE, Button.ABILITY_1, Button.ABILITY_2, Button.ULTIMATE]
+# rule "[dva/init.opy]: Increase Fusion Cannons damage":
+#     @Event playerDealtDamage
+#     @Hero dva
+#     @Condition not eventAbility in [Button.MELEE, Button.ABILITY_1, Button.ABILITY_2, Button.ULTIMATE]
 
-    damage(victim, attacker, ((eventDamage / eventPlayer._base_damage_scalar) * (ADJ_DVA_CANNON_DAMAGE / OW2_DVA_CANNON_DAMAGE) - eventDamage) / eventPlayer._base_damage_scalar)
+#     damage(victim, attacker, ((eventDamage / eventPlayer._base_damage_scalar) * (ADJ_DVA_CANNON_DAMAGE / OW2_DVA_CANNON_DAMAGE) - eventDamage) / eventPlayer._base_damage_scalar)
 
 
-rule "[dva/init.opy]: Increase D.va other forms of damage":
-    @Event playerDealtDamage
-    @Hero dva
-    @Condition eventAbility in [Button.MELEE, Button.ULTIMATE]
+# rule "[dva/init.opy]: Increase D.va other forms of damage":
+#     @Event playerDealtDamage
+#     @Hero dva
+#     @Condition eventAbility in [Button.MELEE, Button.ULTIMATE]
 
-    damage(victim, attacker, (eventDamage / eventPlayer._base_damage_scalar - eventDamage) / eventPlayer._base_damage_scalar)
+#     damage(victim, attacker, (eventDamage / eventPlayer._base_damage_scalar - eventDamage) / eventPlayer._base_damage_scalar)
 
 
 rule "[dva/init.opy]: Force reset ult charge when DVa exits Mech":
