@@ -190,6 +190,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_MAUGA_AMMO 250
 #!define ADJ_MAUGA_ARMOR 125
 #!define ADJ_MAUGA_ARMOR_DUPLICATE 125
+#!define ADJ_MAUGA_BERSERKER_OVERHEALTH 150
 #!define ADJ_MAUGA_BURN_DPS 20
 #!define ADJ_MAUGA_BURN_RATE 7.9
 # burn rate needs to be set slightly lower than target variable due to a rounding error
