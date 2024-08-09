@@ -18,15 +18,15 @@ rule "[sigma/init.opy]: Initialize Sigma":
     removeTankPassive()
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_SIGMA_ACCRETION_DAMAGE/OW2_SIGMA_ACCRETION_DAMAGE)
+    # setBaseDamage(eventPlayer, ADJ_SIGMA_ACCRETION_DAMAGE/OW2_SIGMA_ACCRETION_DAMAGE)
 
     eventPlayer.balance_change_check = 0
     eventPlayer.call_init = false
 
 
-rule "[sigma/init.opy]: Increase Sigma other forms of damage":
-    @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.SIGMA
-    @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ULTIMATE]
+# rule "[sigma/init.opy]: Increase Sigma other forms of damage":
+#     @Event playerDealtDamage
+#     @Condition eventPlayer.hero_setup == Hero.SIGMA
+#     @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ULTIMATE]
     
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
+#     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)

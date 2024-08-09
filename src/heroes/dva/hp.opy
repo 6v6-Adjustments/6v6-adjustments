@@ -17,7 +17,7 @@ rule "[dva/hp.opy]: Correct DVa pilot health":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.DVA
     @Condition eventPlayer.isInAlternateForm()
-    @Condition eventPlayer.getMaxHealthOfType(Health.NORMAL) != ADJ_DVA_PILOT_HEALTH
+    # @Condition eventPlayer.getMaxHealthOfType(Health.NORMAL) != ADJ_DVA_PILOT_HEALTH
     @Condition not eventPlayer.call_init
 
     clearCustomHp()

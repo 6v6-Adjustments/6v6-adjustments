@@ -18,9 +18,9 @@ rule "[mccree/init.opy]: Initialize Cassidy":
     eventPlayer.call_init = false
 
 
-# rule "[mccree/init.opy]: Correct Cassidy other forms of damage":
-#     @Event playerDealtDamage
-#     @Hero mccree
-#     @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ABILITY_2]
+rule "[mccree/init.opy]: Correct Cassidy other forms of damage":
+    @Event playerDealtDamage
+    @Hero cassidy
+    @Condition eventAbility == Button.SECONDARY_FIRE
 
-#     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
+    damage(victim, attacker, eventDamage * (ADJ_MCCREE_FAN_THE_HAMMER_DAMAGE / OW2_MCCREE_FAN_THE_HAMMER_DAMAGE) - eventDamage)

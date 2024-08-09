@@ -12,3 +12,11 @@ rule "[symmetra/init.opy]: Initialize Symmetra":
 
     eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_SYMMETRA_TURRET_HEALTH/OW2_SYMMETRA_TURRET_HEALTH)
+
+    
+rule "[symmetra/init.opy]: Correct photons damage":
+    @Event playerDealtDamage
+    @Hero symmetra
+    @Condition eventAbility == Button.SECONDARY_FIRE
+
+    damage(victim, attacker, eventDamage * (ADJ_SYMMETRA_PHOTON_DAMAGE / OW2_SYMMETRA_PHOTON_DAMAGE) - eventDamage)

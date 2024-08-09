@@ -12,7 +12,7 @@ rule "[baptiste/init.opy]: Initialize Baptiste":
     setUltCost(ADJ_BAPTISTE_ULT_COST)
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_BAPTISTE_PRIMARY_DAMAGE/OW2_BAPTISTE_PRIMARY_DAMAGE)
+    # setBaseDamage(eventPlayer, ADJ_BAPTISTE_PRIMARY_DAMAGE/OW2_BAPTISTE_PRIMARY_DAMAGE)
     setBaseHealing(eventPlayer, ADJ_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH/OW2_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH)
 
     eventPlayer.balance_change_check = true
@@ -20,12 +20,12 @@ rule "[baptiste/init.opy]: Initialize Baptiste":
     eventPlayer.max_health_scaler = (ADJ_BAPTISTE_LAMP_HP/OW2_BAPTISTE_LAMP_HP)
 
 
-rule "[baptiste/init.opy]: Increase Baptiste melee damage":
-    @Event playerDealtDamage
-    @Hero baptiste
-    @Condition eventAbility in [Button.MELEE]
+# rule "[baptiste/init.opy]: Increase Baptiste melee damage":
+#     @Event playerDealtDamage
+#     @Hero baptiste
+#     @Condition eventAbility in [Button.MELEE]
     
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
+#     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 rule "[baptiste/init.opy]: Increase Biotic Launcher healing":

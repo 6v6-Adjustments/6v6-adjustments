@@ -18,7 +18,7 @@ rule "[zarya/init.opy]: Initialize Zarya":
     removeTankPassive()
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_ZARYA_CANNON_DAMAGE_MAX/OW2_ZARYA_CANNON_DAMAGE_MAX)
+    # setBaseDamage(eventPlayer, ADJ_ZARYA_CANNON_DAMAGE_MAX/OW2_ZARYA_CANNON_DAMAGE_MAX)
 
     initSelfBubble()
     initAllyBubble()
@@ -35,9 +35,17 @@ rule "[zarya/init.opy]: Clean up Zarya":
     hideAllyBubbleCD()
 
 
-rule "[zarya/init.opy]: Correct Alternate Fire and Melee damage":
+rule "[zarya/init.opy]: Correct Zarya Primary Fire damage":
     @Event playerDealtDamage
     @Hero zarya
-    @Condition eventAbility in [Button.SECONDARY_FIRE, Button.MELEE]
+    @Condition eventAbility == Button.PRIMARY_FIRE
     
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
+    damage(victim, attacker, eventDamage * (ADJ_ZARYA_CANNON_DAMAGE_MAX / OW2_ZARYA_CANNON_DAMAGE_MAX) - eventDamage)
+
+
+rule "[zarya/init.opy]: Correct Zarya Alternate Fire damage":
+    @Event playerDealtDamage
+    @Hero zarya
+    @Condition eventAbility == Button.SECONDARY_FIRE
+    
+    damage(victim, attacker, eventDamage * (ADJ_ZARYA_PARTICLE_DAMAGE_MAX / OW2_ZARYA_PARTICLE_DAMAGE_MAX) - eventDamage)
