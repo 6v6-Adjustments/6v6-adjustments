@@ -6,7 +6,7 @@
 
 rule "[mauga/init.opy]: Initialize Mauga":
     @Event eachPlayer
-    @Hero mauga
+    @Condition eventPlayer.hero_setup == Hero.MAUGA
     @Condition eventPlayer.call_init
 
     setCustomHp(
@@ -42,12 +42,3 @@ rule "[mauga/init.opy]: Reduce Mauga stomp damage":
     @Condition eventAbility == Button.ABILITY_1
 
     heal(victim, null, eventDamage - ((ADJ_MAUGA_STOMP_DAMAGE / OW2_MAUGA_STOMP_DAMAGE) * eventDamage/eventPlayer._base_damage_scalar))
-
-
-rule "[mauga/init.opy]: (Duplicate) Initialize Mauga":
-    @Event eachPlayer
-    @Condition eventPlayer.isDuplicatingAHero() == Hero.MAUGA
-    @Condition eventPlayer.call_init
-
-    eventPlayer.addHealthPool(Health.NORMAL, ADJ_MAUGA_HEALTH_DUPLICATE - ADJ_MAUGA_BASE_HEALTH_DUPLICATE, true, true)
-    eventPlayer.addHealthPool(Health.ARMOR, ADJ_MAUGA_ARMOR_DUPLICATE - ADJ_MAUGA_BASE_ARMOR_DUPLICATE, true, true)
