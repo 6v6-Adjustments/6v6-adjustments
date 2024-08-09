@@ -28,17 +28,17 @@ rule "[mauga/init.opy]: Initialize Mauga":
     eventPlayer.call_init = false
 
 
-rule "[mauga/init.opy]: Increase Mauga melee damage":
+rule "[mauga/init.opy]: Increase Mauga melee and Stomp damage":
     @Event playerDealtDamage
     @Hero mauga
-    @Condition eventAbility in [Button.MELEE]
+    @Condition eventAbility in [Button.MELEE, Button.ABILITY_1]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
 
-rule "[mauga/init.opy]: Reduce Mauga stomp damage":
-    @Event playerDealtDamage
-    @Hero mauga
-    @Condition eventAbility == Button.ABILITY_1
+# rule "[mauga/init.opy]: Reduce Mauga stomp damage":
+#     @Event playerDealtDamage
+#     @Hero mauga
+#     @Condition eventAbility == Button.ABILITY_1
 
-    heal(victim, null, eventDamage - ((ADJ_MAUGA_STOMP_DAMAGE / OW2_MAUGA_STOMP_DAMAGE) * eventDamage/eventPlayer._base_damage_scalar))
+#     heal(victim, null, eventDamage - ((ADJ_MAUGA_STOMP_DAMAGE / OW2_MAUGA_STOMP_DAMAGE) * eventDamage/eventPlayer._base_damage_scalar))

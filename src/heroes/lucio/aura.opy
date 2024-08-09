@@ -11,12 +11,12 @@ rule "[lucio/aura.opy]: Allow self healing during heal aura":
     popSelfHealing(Button.ABILITY_1)
 
 
-rule "[illari/init.opy]: Correct Aura self healing":
-    @Event playerDealtHealing
-    @Hero lucio
-    @Condition healee == healer
-    @Condition eventAbility == Button.ABILITY_1
-    @Condition not eventPlayer.isUsingAbility2()
+# rule "[illari/init.opy]: Correct Aura self healing":
+#     @Event playerDealtHealing
+#     @Hero lucio
+#     @Condition healee == healer
+#     @Condition eventAbility == Button.ABILITY_1
+#     @Condition not eventPlayer.isUsingAbility2()
 
-    heal(healer, healer, eventHealing * (OW2_LUCIO_ALLY_HEALING / OW2_LUCIO_SELF_HEALING) - eventHealing)
+#     heal(healer, healer, eventHealing * (OW2_LUCIO_ALLY_HEALING / OW2_LUCIO_SELF_HEALING) - eventHealing)
     
