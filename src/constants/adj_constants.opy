@@ -191,7 +191,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Mauga
 #!define ADJ_MAUGA_AMMO 250
-#!define ADJ_MAUGA_ARMOR 125
+#!define ADJ_MAUGA_ARMOR 200
 #!define ADJ_MAUGA_BASE_ARMOR_DUPLICATE 122
 #!define ADJ_MAUGA_ARMOR_DUPLICATE 125
 #!define ADJ_MAUGA_BURN_DPS 20

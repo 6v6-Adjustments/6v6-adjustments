@@ -9,6 +9,10 @@ rule "[mauga/init.opy]: Initialize Mauga":
     @Hero mauga
     @Condition eventPlayer.call_init
 
+    setCustomHp(
+        ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, 
+        ADJ_MAUGA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_ARMOR, 
+        0)
     setUltCost(ADJ_MAUGA_ULT_COST)
 
     removeTankPassive()
