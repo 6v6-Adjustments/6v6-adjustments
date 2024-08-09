@@ -115,6 +115,7 @@ settings {
             },
             "dva": {
                 "secondaryFireMaximumTime%": percent(ADJ_DVA_MATRIX_DURATION/OW2_DVA_MATRIX_DURATION),
+                "ability1Cooldown%": percent(ADJ_DVA_BOOSTER_COOLDOWN/OW2_DVA_BOOSTER_COOLDOWN),
                 #"health%": percent(ADJ_DVA_PILOT_HEALTH/OW2_DVA_PILOT_HEALTH), # for pilot dva hp
                 "ultGen%": percent(OW2_DVA_ULT_COST/ADJ_DVA_ULT_COST)
             },
