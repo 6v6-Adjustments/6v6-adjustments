@@ -1,6 +1,6 @@
 #!mainFile "../dev_main.opy"
 
-globalvar enable_respawn_helper = createWorkshopSetting(bool, 'General Changes', 'Faster Respawning Below 6 Players', false, 0)
+globalvar enable_respawn_helper = createWorkshopSetting(bool, 'General Changes', 'Faster Respawning Below 6 Players', true, 0)
 globalvar ADJ_RESPAWN_ASSIST_REDUCTION = createWorkshopSetting(float[0.1:10], 'General Changes', 'Faster Respawning Timer per missing player', ADJ_RESPAWN_ASSIST_REDUCTION_DEFAULT)
 
 

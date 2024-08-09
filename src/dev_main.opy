@@ -13,7 +13,7 @@
 # !include "utilities/ready.opy"
 # !include "utilities/hit_detection.opy"
 #!include "utilities/anti_crash.opy"
-#!include "utilities/respawn_helper.opy"
+# !include "utilities/respawn_helper.opy"
 
 # Custom game lobby settings
 #!include "lobby/dev_lobby.opy"
@@ -41,6 +41,7 @@
 #!include "heroes/illari/init.opy"
 #!include "heroes/junkerqueen/init.opy"
 #!include "heroes/junkrat/init.opy"
+# !include "heroes/juno/init.opy"
 #!include "heroes/kiriko/init.opy"
 #!include "heroes/lifeweaver/init.opy"
 #!include "heroes/lucio/init.opy"
