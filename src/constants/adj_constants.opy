@@ -190,11 +190,11 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_LUCIO_ULT_COST (2940*1.075)
 
 # Mauga
-#!define ADJ_MAUGA_AMMO 250
-#!define ADJ_MAUGA_ARMOR 125
+#!define ADJ_MAUGA_AMMO 300
+#!define ADJ_MAUGA_ARMOR 200
 #!define ADJ_MAUGA_BASE_ARMOR_DUPLICATE 122
 #!define ADJ_MAUGA_ARMOR_DUPLICATE 125
-#!define ADJ_MAUGA_BURN_DPS 20
+#!define ADJ_MAUGA_BURN_DPS 25
 #!define ADJ_MAUGA_BURN_RATE 7.9
 # burn rate needs to be set slightly lower than target variable due to a rounding error
 #!define ADJ_MAUGA_BURN_DURATION 3.5
@@ -202,12 +202,12 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_MAUGA_CARDIAC_COOLDOWN 12
 #!define ADJ_MAUGA_CARDIAC_DAMAGE_REDUCTION 0.4
 #!define ADJ_MAUGA_CARDIAC_LIFESTEAL 0.7
-#!define ADJ_MAUGA_CHAINGUN_DAMAGE 3.3
+#!define ADJ_MAUGA_CHAINGUN_DAMAGE 3.55
 #!define ADJ_MAUGA_HEALTH 375
 #!define ADJ_MAUGA_BASE_HEALTH_DUPLICATE 228
 #!define ADJ_MAUGA_HEALTH_DUPLICATE 250
 #!define ADJ_MAUGA_OVERRUN_COOLDOWN 8
-#!define ADJ_MAUGA_STOMP_DAMAGE 50
+#!define ADJ_MAUGA_STOMP_DAMAGE 75
 #!define ADJ_MAUGA_ULT_COST (2400*1.075)
 
 # Mei
