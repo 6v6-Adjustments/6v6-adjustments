@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 # #!include "heroes/mccree/roll.opy"
-# #!include "heroes/mccree/deadeye.opy"
+#!include "heroes/mccree/deadeye.opy"
 
 
 rule "[mccree/init.opy]: Initialize Cassidy":
@@ -13,7 +13,7 @@ rule "[mccree/init.opy]: Initialize Cassidy":
     setUltCost(ADJ_MCCREE_ULT_COST)
     removeSelfHealing()
 
-    # setBaseDamage(eventPlayer, ADJ_MCCREE_FAN_THE_HAMMER_DAMAGE/OW2_MCCREE_FAN_THE_HAMMER_DAMAGE)
+    setBaseDamage(eventPlayer, ADJ_MCCREE_FAN_THE_HAMMER_DAMAGE/OW2_MCCREE_FAN_THE_HAMMER_DAMAGE)
 
     eventPlayer.call_init = false
 
@@ -21,6 +21,6 @@ rule "[mccree/init.opy]: Initialize Cassidy":
 rule "[mccree/init.opy]: Correct Cassidy other forms of damage":
     @Event playerDealtDamage
     @Hero cassidy
-    @Condition eventAbility == Button.SECONDARY_FIRE
+    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_1, Button.ABILITY_2]
 
     damage(victim, attacker, eventDamage * (ADJ_MCCREE_FAN_THE_HAMMER_DAMAGE / OW2_MCCREE_FAN_THE_HAMMER_DAMAGE) - eventDamage)

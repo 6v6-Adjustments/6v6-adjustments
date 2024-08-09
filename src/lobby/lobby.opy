@@ -1,8 +1,8 @@
 #!mainFile "../main.opy"
 
 # Environment Variables
-#!define GAMEMODE_VERSION "Experimental 6v6"
-#!define GAMEMODE_NAME "Spilo's"
+#!define GAMEMODE_VERSION ""
+#!define GAMEMODE_NAME "6v6 Re-Adjustments"
 #!define GAMDMODE_DESCRIPTION (GAMEMODE_NAME + " " + GAMEMODE_VERSION + " " + "(" + GAMEMODE_CODE + ")" + "\n" + \
                                "\n" + \
                                "6v6 Adjustments with post season 9 HP," + "\n" + \
