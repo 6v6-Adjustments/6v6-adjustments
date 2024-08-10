@@ -40,4 +40,4 @@ rule "[doomfist/punch.opy]: Find punched victims":
     attacker.punched_victims.append(victim)
     if (len(attacker.punched_victims) == 1): # OW1 single punch victim
         damage(victim, attacker, eventDamage * ADJ_DOOMFIST_ROCKET_PUNCH_PRIMARY_TARGET_MULTIPLIER)
-    damage(attacker, null, OW2_DOOMFIST_BEST_DEFENSE - ADJ_DOOMFIST_BEST_DEFENSE) # nerf shield gained per punch victim
+    # damage(attacker, null, OW2_DOOMFIST_BEST_DEFENSE - ADJ_DOOMFIST_BEST_DEFENSE) # nerf shield gained per punch victim
