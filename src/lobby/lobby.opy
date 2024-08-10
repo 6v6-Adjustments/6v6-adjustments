@@ -115,6 +115,7 @@ settings {
             },
             "dva": {
                 "secondaryFireMaximumTime%": percent(ADJ_DVA_MATRIX_DURATION/OW2_DVA_MATRIX_DURATION),
+                "secondaryFireRechargeRate%": percent(ADJ_DVA_MATRIX_RECHARGE/OW2_DVA_MATRIX_RECHARGE),
                 "health%": percent(ADJ_DVA_PILOT_HEALTH/OW2_DVA_PILOT_HEALTH), # for pilot dva hp
                 "ultGen%": percent(OW2_DVA_ULT_COST/ADJ_DVA_ULT_COST)
             },
@@ -181,6 +182,7 @@ settings {
                 "ultGen%": percent(OW2_MEI_ULT_COST/ADJ_MEI_ULT_COST)
             },
             "mercy": {
+                "ability1Cooldown%": percent(ADJ_MERCY_GA_COOLDOWN/OW2_MERCY_GA_COOLDOWN),
                 "enablePassive": false,
                 "ultGen%": percent(OW2_MERCY_ULT_COST/ADJ_MERCY_ULT_COST),
             },
@@ -210,7 +212,7 @@ settings {
                 "ultGen%": percent(OW2_REAPER_ULT_COST/ADJ_REAPER_ULT_COST)
             },
             "reinhardt": {
-                "secondaryFireRechargeRate%": percent(ADJ_REINHARDT_BARRIER_REGEN/OW2_REINHARDT_BARRIER_REGEN),
+                "secondaryFireRechargeRate%": percent((ADJ_REINHARDT_BARRIER_REGEN/OW2_REINHARDT_BARRIER_REGEN) * (OW2_REINHARDT_BARRIER_HEALTH/ADJ_REINHARDT_BARRIER_HEALTH)),
                 "ability1Cooldown%": percent(ADJ_REINHARDT_CHARGE_COOLDOWN_TIME/OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
                 "health%": percent(ADJ_REINHARDT_BARRIER_HEALTH/OW2_REINHARDT_BARRIER_HEALTH),
                 "ultGen%": percent(OW2_REINHARDT_ULT_COST/ADJ_REINHARDT_ULT_COST)
@@ -243,7 +245,6 @@ settings {
                 "ultGen%": percent(OW2_SYMMETRA_ULT_COST/ADJ_SYMMETRA_ULT_COST)
             },
             "torbjorn": {
-                "health%": percent(ADJ_TORBJORN_TURRET_HEALTH/OW2_TORBJORN_TURRET_HEALTH),
                 "ultGen%": percent(OW2_TORBJORN_ULT_COST/ADJ_TORBJORN_ULT_COST)
             },
             "tracer": {
