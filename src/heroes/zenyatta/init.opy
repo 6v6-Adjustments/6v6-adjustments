@@ -14,6 +14,7 @@ rule "[zenyatta/init.opy]: Initialize Zenyatta":
 
     eventPlayer.setAmmo(0, 20)
     eventPlayer.setMaxAmmo(0, 20)
+    eventPlayer.setKnockbackDealt(4)
 
     eventPlayer.call_init = false
 
