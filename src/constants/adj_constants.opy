@@ -340,7 +340,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # Torbjorn
 #!define ADJ_TORBJORN_ARMOR 25
 #!define ADJ_TORBJORN_HEALTH 225
-#!define ADJ_TORBJORN_TURRET_HEALTH 225
+#!define ADJ_TORBJORN_TURRET_HEALTH 200
 #!define ADJ_TORBJORN_ULT_COST 2142
 
 # Tracer

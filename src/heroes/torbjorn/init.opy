@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+playervar overload_overhealth
+
 
 rule "[torbjorn/init.opy]: Initialize Torbjorn":
     @Event eachPlayer
@@ -23,3 +25,14 @@ rule "[torbjorn/init.opy]: Increase Rivet Gun alternate fire ammo cost":
     @Condition eventPlayer.isFiringSecondaryFire() == true
     
     eventPlayer.setAmmo(0, eventPlayer.getAmmo(0) - 1)
+
+
+rule "[torbjorn/init.opy]: Increase Overload overhealth":
+    @Event eachPlayer
+    @Hero torbjorn
+    @Condition eventPlayer.isUsingAbility2()
+
+    eventPlayer.addHealthPool(Health.NORMAL, OW2_OVERLOAD_HEALTH - percent(ADJ_TORBJORN_TURRET_HEALTH/OW2_TORBJORN_TURRET_HEALTH), false, true)
+    eventPlayer.overload_overhealth = getLastCreatedHealthPool()
+    waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)
+    removeHealthPool(eventPlayer.overload_overhealth)
