@@ -171,7 +171,6 @@ settings {
                 "ultGen%": percent(OW2_MEI_ULT_COST/ADJ_MEI_ULT_COST)
             },
             "mercy": {
-                "enablePassive": true,
                 "ultGen%": percent(OW2_MERCY_ULT_COST/ADJ_MERCY_ULT_COST),
             },
             "moira": {
