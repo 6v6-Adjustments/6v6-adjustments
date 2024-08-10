@@ -25,9 +25,9 @@ rule "[orisa/init.opy]: Initialize Orisa":
     eventPlayer.call_init = false
 
 
-rule "[orisa/init.opy]: Increase Orisa other forms of damage":
-    @Event playerDealtDamage
-    @Hero orisa
-    @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ABILITY_2]
+# rule "[orisa/init.opy]: Increase Orisa other forms of damage":
+#     @Event playerDealtDamage
+#     @Hero orisa
+#     @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ABILITY_2]
 
-    damage(victim, attacker, (eventDamage / eventPlayer._base_damage_scalar - eventDamage) / eventPlayer._base_damage_scalar)
+#     damage(victim, attacker, (eventDamage / eventPlayer._base_damage_scalar - eventDamage) / eventPlayer._base_damage_scalar)
