@@ -409,5 +409,6 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Zenyatta
 #!define ADJ_ZENYATTA_HEALTH 50
+#!define ADJ_ZENYATTA_ORB_DAMAGE 50
 #!define ADJ_ZENYATTA_SHIELDS 150
 #!define ADJ_ZENYATTA_ULT_COST 2200
