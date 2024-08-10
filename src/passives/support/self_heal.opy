@@ -2,6 +2,7 @@
 
 globalvar enable_regeneration = createWorkshopSetting(bool, 'Passive', 'Global - Regeneration', true, 0)
 globalvar ADJ_REGEN_HPS = createWorkshopSetting(int[1:100], 'Passive', 'Global - Regeneration Healing per Second', ADJ_REGEN_HPS_DEFAULT)
+globalvar ADJ_REGEN_HPS_PER_HEALTH_PERCENT = createWorkshopSetting(int[0:100], 'Passive', 'Global - Regeneration Bonus per Health (%)', ADJ_REGEN_HPS_PER_HEALTH_PERCENT_DEFAULT)
 globalvar ADJ_REGEN_TIMER = createWorkshopSetting(int[1:30], 'Passive', 'Global - Regeneration Activation Time', ADJ_REGEN_TIMER_DEFAULT)
 globalvar enable_support_passive = createWorkshopSetting(bool, 'Passive', 'Support - Quicker Regeneration', false, 0)
 
@@ -90,26 +91,24 @@ def activateRegeneration():
     waitUntil(eventPlayer.getHealth() >= eventPlayer.getMaxHealth(), Math.INFINITY)
     stopHoT(eventPlayer._regen_passive_id)
     eventPlayer._regen_passive_id = null
+    eventPlayer._regen_hps = null # reset var for easy debugging
 
 
 rule "[passives/support/self_heal.opy]: Recreate regeneration passive":
     @Event playerTookDamage
-    @Condition enable_regeneration or (eventPlayer.getCurrentHero() == Hero.MERCY)
+    @Condition enable_regeneration
 
     stopHoT(eventPlayer._regen_passive_id)
     eventPlayer._regen_passive_id = null
 
     # logic for calculating regen parameters
-    if eventPlayer.getCurrentHero() == Hero.MERCY: # mercy passive
-        eventPlayer._regen_delay = ADJ_MERCY_PASSIVE_TIMER
-        eventPlayer._regen_hps = ADJ_MERCY_REGEN_HPS
-    elif enable_support_passive and (eventPlayer.getCurrentHero() in getSupportHeroes()): # support passive
+    if enable_support_passive and (eventPlayer.getCurrentHero() in getSupportHeroes()): # support passive
         eventPlayer._regen_delay = ADJ_SUPPORT_PASSIVE_TIMER
-        eventPlayer._regen_hps = ADJ_REGEN_HPS
+        eventPlayer._regen_hps = ADJ_REGEN_HPS + unpercent(ADJ_REGEN_HPS_PER_HEALTH_PERCENT) * eventPlayer.getMaxHealth()
     else: # everyone else
         eventPlayer._regen_delay = ADJ_REGEN_TIMER
-        eventPlayer._regen_hps = ADJ_REGEN_HPS
+        eventPlayer._regen_hps = ADJ_REGEN_HPS + unpercent(ADJ_REGEN_HPS_PER_HEALTH_PERCENT) * eventPlayer.getMaxHealth()
     
     wait(eventPlayer._regen_delay, Wait.RESTART_WHEN_TRUE)
-    eventPlayer._regen_delay = 0
+    eventPlayer._regen_delay = 0 # reset var for easy debugging
     async(activateRegeneration, AsyncBehavior.RESTART)
