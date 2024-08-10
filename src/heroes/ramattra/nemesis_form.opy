@@ -17,14 +17,14 @@ rule "[ramattra/nemesis_form.opy]: Correct Nemesis Form armor and movement speed
     eventPlayer.setDamageDealt(percent(ADJ_RAMATTRA_ACCELERATOR_DAMAGE/OW2_RAMATTRA_ACCELERATOR_DAMAGE))
 
 
-# rule "[ramattra/nemesis_form.opy]: Increase Pummel damage":
-#     @Event playerDealtDamage
-#     @Hero ramattra
-#     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
-#     @Condition eventDamage > 50 # This condition stops vortex from applying the damage increase
-#     @Condition eventAbility != Button.MELEE
-    
-#     damage(victim, attacker, eventDamage * (ADJ_RAMATTRA_PUMMEL_DAMAGE/OW2_RAMATTRA_PUMMEL_DAMAGE) - eventDamage)
+rule "[ramattra/nemesis_form.opy]: Increase other forms of damage (in nemesis)":
+    @Event playerDealtDamage
+    @Hero ramattra
+    @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
+    @Condition eventDamage < ADJ_RAMATTRA_PUMMEL_DAMAGE # This condition stops pummel from applying the damage increase
+
+    damage(victim, null, ((eventDamage/(ADJ_RAMATTRA_PUMMEL_DAMAGE/OW2_RAMATTRA_PUMMEL_DAMAGE)) - eventDamage)/(ADJ_RAMATTRA_PUMMEL_DAMAGE / OW2_RAMATTRA_PUMMEL_DAMAGE))
+    # null tracker to prevent recursive logic, vortex/annihilation can't be tracked but also apply very small damage instances
 
 
 rule "[ramattra/nemesis_form.opy]: Bonus Annihilation movement speed":
@@ -33,6 +33,6 @@ rule "[ramattra/nemesis_form.opy]: Bonus Annihilation movement speed":
     @Condition eventPlayer.isUsingUltimate() == true
     
     wait(0.064)
-    eventPlayer.setMoveSpeed(percent(ADJ_RAMATTRA_ANNIHILATION_MOVESPEED/OW2_RAMATTRA_NEMESIS_MOVESPEED))
+    eventPlayer.setMoveSpeed(percent(ADJ_RAMATTRA_ANNIHILATION_MOVESPEED / OW2_RAMATTRA_NEMESIS_MOVESPEED))
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     eventPlayer.setMoveSpeed(100)

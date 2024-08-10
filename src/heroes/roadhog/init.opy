@@ -26,11 +26,11 @@ rule "[roadhog/init.opy]: Initialize Roadhog":
     eventPlayer.call_init = false
 
 
-rule "[roadhog/init.opy]: Clean up Roadhog":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup != Hero.ROADHOG
+# rule "[roadhog/init.opy]: Clean up Roadhog":
+#     @Event eachPlayer
+#     @Condition eventPlayer.hero_setup != Hero.ROADHOG
 
-    hideBreatherCD()
+#     hideBreatherCD()
 
 
 rule "[roadhog/init.opy]: Correct melee damage":

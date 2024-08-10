@@ -1,16 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
-playervar wholehog_pvar
-#!defineMember _is_exiting_wholehog wholehog_pvar[0]
-#!defineMember _hog_hp reset_pvar[1]
-#!defineMember _hook_cooldown wholehog_pvar[2]
-#!defineMember _breather_cooldown wholehog_pvar[3]
-#!defineMember _scrap_ammo wholehog_pvar[4]
 
-subroutine cancelWholehog
-
-
-rule "[roadhog/wholehog.opy]: OW1 disable abilities during wholehog":
+rule "[roadhog/wholehog.opy]: Disable abilities during wholehog":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventPlayer.isUsingUltimate()
@@ -23,7 +14,7 @@ rule "[roadhog/wholehog.opy]: OW1 disable abilities during wholehog":
     eventPlayer.setKnockbackDealt(100)
 
 
-rule "[roadhog/wholehog.opy]: OW1 enable abilities when not in wholehog":
+rule "[roadhog/wholehog.opy]: Enable abilities after wholehog":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition not eventPlayer.isUsingUltimate()
@@ -37,7 +28,7 @@ rule "[roadhog/wholehog.opy]: OW1 enable abilities when not in wholehog":
     eventPlayer.setKnockbackDealt(35)
 
 
-rule "[roadhog/wholehog.opy]: OW1 Wholehog force autofire":
+rule "[roadhog/wholehog.opy]: Force autofire while in wholehog":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventPlayer.isUsingUltimate()
