@@ -156,6 +156,7 @@ settings {
             },
             "mercy": {
                 "ability1Cooldown%": percent(ADJ_MERCY_GA_COOLDOWN/OW2_MERCY_GA_COOLDOWN),
+                "enablePassive": false,
                 "ultGen%": percent(OW2_MERCY_ULT_COST/ADJ_MERCY_ULT_COST),
             },
             "moira": {
