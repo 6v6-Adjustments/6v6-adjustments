@@ -14,6 +14,8 @@ playervar self_heal_pvar
 #!defineMember _suppress_regen_passive self_heal_pvar[5]
 #!defineMember _support_passive_active self_heal_pvar[6]
 #!defineMember _regen_passive_id self_heal_pvar[7]
+#!defineMember _regen_delay self_heal_pvar[8]
+#!defineMember _regen_hps self_heal_pvar[9]
 
 def resetSelfHealing():
     @Name "[passives/support/self_heal.opy]: resetSelfHealing()"
@@ -27,12 +29,16 @@ def resetSelfHealing():
     eventPlayer._support_passive_active = true
 
 #!define removeRegenPassive()\
-    pass
+    eventPlayer._suppress_regen_passive = true
 
 def removeSelfHealing():
     @Name "[passives/support/self_heal.opy]: removeSelfHealing()"
 
-    pass
+    eventPlayer._self_healing_source = []
+    eventPlayer._self_healing_percent = 0
+    if eventPlayer._self_healing_id == null:
+        startHealingModification(eventPlayer, eventPlayer, eventPlayer._self_healing_percent, HealingReeval.RECEIVERS_HEALERS_AND_HEALPERCENT)
+        eventPlayer._self_healing_id = getLastHealingModification()
 
 #!define evalSelfHealingPercent()\
     eventPlayer._self_healing_percent = 100 if len(eventPlayer._self_healing_source) > 0 else 0\
@@ -73,3 +79,37 @@ rule "[passives/support/self_heal.opy]: Remove Passive self healing":
             if eventPlayer.getCurrentHero() in getSupportHeroes() \
             else OW2_HEAL_PASSIVE_ACTIVATION_TIME - TICK_DURATION, Wait.ABORT_WHEN_FALSE)
     while RULE_CONDITION
+
+
+def activateRegeneration():
+    @Name "[passives/support/self_heal.opy]: activateRegeneration()"
+
+    if eventPlayer.getHealth() < eventPlayer.getMaxHealth():
+        eventPlayer.startHoT(null, Math.INFINITY, eventPlayer._regen_hps)
+        eventPlayer._regen_passive_id = getLastHoT()
+    waitUntil(eventPlayer.getHealth() >= eventPlayer.getMaxHealth(), Math.INFINITY)
+    stopHoT(eventPlayer._regen_passive_id)
+    eventPlayer._regen_passive_id = null
+
+
+rule "[passives/support/self_heal.opy]: Recreate regeneration passive":
+    @Event playerTookDamage
+    @Condition enable_regeneration or (eventPlayer.getCurrentHero() == Hero.MERCY)
+
+    stopHoT(eventPlayer._regen_passive_id)
+    eventPlayer._regen_passive_id = null
+
+    # logic for calculating regen parameters
+    if eventPlayer.getCurrentHero() == Hero.MERCY: # mercy passive
+        eventPlayer._regen_delay = ADJ_MERCY_PASSIVE_TIMER
+        eventPlayer._regen_hps = ADJ_MERCY_REGEN_HPS
+    elif enable_support_passive and (eventPlayer.getCurrentHero() in getSupportHeroes()): # support passive
+        eventPlayer._regen_delay = ADJ_SUPPORT_PASSIVE_TIMER
+        eventPlayer._regen_hps = ADJ_REGEN_HPS
+    else: # everyone else
+        eventPlayer._regen_delay = ADJ_REGEN_TIMER
+        eventPlayer._regen_hps = ADJ_REGEN_HPS
+    
+    wait(eventPlayer._regen_delay, Wait.RESTART_WHEN_TRUE)
+    eventPlayer._regen_delay = 0
+    async(activateRegeneration, AsyncBehavior.RESTART)
