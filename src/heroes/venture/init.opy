@@ -19,7 +19,7 @@ rule "[venture/init.opy]: Initialize Venture":
     if not eventPlayer.isDuplicatingAHero():
         setBaseDamage(eventPlayer, ADJ_VENTURE_BURROW_DAMAGE / OW2_VENTURE_BURROW_DAMAGE)
     eventPlayer.setKnockbackDealt(70)
-    eventPlayer.setMoveSpeed(percent(ADJ_VENTURE_SPEED/OW2_VENTURE_SPEED))
+    # eventPlayer.setMoveSpeed(percent(ADJ_VENTURE_SPEED/OW2_VENTURE_SPEED))
 
     eventPlayer.setAmmo(0, 6)
     eventPlayer.setMaxAmmo(0, 6)

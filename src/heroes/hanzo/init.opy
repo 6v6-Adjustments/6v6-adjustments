@@ -10,7 +10,7 @@ rule "[hanzo/init.opy]: Initialize Hanzo":
     setUltCost(ADJ_HANZO_ULT_COST)
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_HANZO_STORM_DAMAGE/OW2_HANZO_STORM_DAMAGE)
+    setBaseDamage(eventPlayer, ADJ_HANZO_STORM_DAMAGE / OW2_HANZO_STORM_DAMAGE)
 
     eventPlayer.call_init = false
 
