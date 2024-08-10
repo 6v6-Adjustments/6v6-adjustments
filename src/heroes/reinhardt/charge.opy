@@ -10,13 +10,3 @@ rule "[reinhardt/charge.opy]: Correct Charge damage":
         damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar*(ADJ_REINHARDT_CHARGE_PIN_DAMAGE/OW2_REINHARDT_CHARGE_PIN_DAMAGE)-eventDamage)/eventPlayer._base_damage_scalar)
     else:
         damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
-
-
-rule "[reinhardt/charge.opy]: Reduce Charge radius":
-    @Event eachPlayer
-    @Hero reinhardt
-    @Condition eventPlayer.isUsingAbility1()
-
-    eventPlayer.startForcingThrottle(0, 1/OW2_REINHARDT_TURN_BONUS, 0, 1/OW2_REINHARDT_TURN_BONUS, 0, 1/OW2_REINHARDT_TURN_BONUS)
-    waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)
-    eventPlayer.stopForcingThrottle()
