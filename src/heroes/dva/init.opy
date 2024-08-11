@@ -7,10 +7,8 @@
 playervar self_destruct_charge
 
 
-rule "[dva/init.opy]: Initialize D.Va":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.DVA
+def initDva():
+    @Name "[dva/init.opy]: initDva()"
 
     # if eventPlayer.isDuplicatingAHero() and not eventPlayer.isInAlternateForm():
     #     setCustomHp(
@@ -26,9 +24,10 @@ rule "[dva/init.opy]: Initialize D.Va":
     if not eventPlayer.isDuplicatingAHero():
         setBaseDamage(eventPlayer, ADJ_DVA_MICRO_MISSILES_DAMAGE / OW2_DVA_MICRO_MISSILES_DAMAGE)
 
-    eventPlayer.call_init = false
     eventPlayer.self_destruct_charge = 0
     eventPlayer.max_health_scaler = (ADJ_DVA_PILOT_HEALTH / OW2_DVA_PILOT_HEALTH)
+
+    eventPlayer.hero_initialized = true
 
 
 rule "[dva/init.opy]: Increase Fusion Cannons damage":

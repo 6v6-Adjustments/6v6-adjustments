@@ -1,10 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[sojourn/init.opy]: Initialize Sojourn":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.SOJOURN
+def initSojourn():
+    @Name "[sojourn/init.opy]: initSojourn()"
     
     setCustomHp(ADJ_SOJOURN_HEALTH, 0, 0)
     setUltCost(ADJ_SOJOURN_ULT_COST)
@@ -13,4 +11,4 @@ rule "[sojourn/init.opy]: Initialize Sojourn":
     eventPlayer.setAmmo(0, ADJ_SOJOURN_RAILGUN_AMMO)
     eventPlayer.setMaxAmmo(0, ADJ_SOJOURN_RAILGUN_AMMO)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true

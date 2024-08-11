@@ -4,10 +4,8 @@
 #!include "heroes/zarya/ally_bubble.opy"
 
 
-rule "[zarya/init.opy]: Initialize Zarya":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.ZARYA
+def initZarya():
+    @Name "[zarya/init.opy]: initZarya()"
     
     setCustomHp(
         ADJ_ZARYA_HEALTH,
@@ -23,8 +21,9 @@ rule "[zarya/init.opy]: Initialize Zarya":
     initSelfBubble()
     initAllyBubble()
 
-    eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_ZARYA_BARRIER_HEALTH/OW2_ZARYA_BARRIER_HEALTH)
+
+    eventPlayer.hero_initialized = true
 
 
 rule "[zarya/init.opy]: Clean up Zarya":

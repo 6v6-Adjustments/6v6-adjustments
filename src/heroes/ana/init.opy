@@ -3,10 +3,8 @@
 #!include "heroes/ana/sleep.opy"
 #!include "heroes/ana/nade.opy"
 
-rule "[ana/init.opy]: Initialize Ana":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.ANA
+def initAna():
+    @Name "[ana/init.opy]: initAna()"
     
     setCustomHp(ADJ_ANA_HEALTH, 0, 0)
     setUltCost(ADJ_ANA_ULT_COST)
@@ -17,7 +15,7 @@ rule "[ana/init.opy]: Initialize Ana":
     eventPlayer.setMaxAmmo(0, ADJ_ANA_AMMO_COUNT)
     eventPlayer.setAmmo(0, ADJ_ANA_AMMO_COUNT)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 rule "[ana/init.opy]: Correct Biotic Rifle, Sleep Dart, Melee damage":

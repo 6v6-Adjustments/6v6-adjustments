@@ -3,10 +3,8 @@
 #!include "heroes/mei/cryo_freeze.opy"
 
 
-rule "[mei/init.opy]: Initialize Mei":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.MEI
+def initMei():
+    @Name "[mei/init.opy]: initMei()"
 
     setCustomHp(ADJ_MEI_HEALTH, 0, 0)
     setUltCost(ADJ_MEI_ULT_COST)
@@ -17,8 +15,9 @@ rule "[mei/init.opy]: Initialize Mei":
     eventPlayer.setMaxAmmo(0, ADJ_MEI_AMMO_COUNT)
     eventPlayer.setAmmo(0, ADJ_MEI_AMMO_COUNT)
 
-    eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_MEI_ICEWALL_HP/OW2_MEI_ICEWALL_HP)
+
+    eventPlayer.hero_initialized = true
 
 
 rule "[mei/init.opy]: Increase Mei other forms of damage":

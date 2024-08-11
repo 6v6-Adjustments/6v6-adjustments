@@ -4,10 +4,8 @@
 #!include "heroes/sigma/kinetic_grasp.opy"
 
 
-rule "[sigma/init.opy]: Initialize Sigma":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.SIGMA
+def initSigma():
+    @Name "[sigma/init.opy]: initSigma()"
 
     setCustomHp(
         ADJ_SIGMA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_SIGMA_HEALTH,
@@ -21,7 +19,8 @@ rule "[sigma/init.opy]: Initialize Sigma":
     setBaseDamage(eventPlayer, ADJ_SIGMA_ACCRETION_DAMAGE/OW2_SIGMA_ACCRETION_DAMAGE)
 
     eventPlayer.balance_change_check = 0
-    eventPlayer.call_init = false
+
+    eventPlayer.hero_initialized = true
 
 
 rule "[sigma/init.opy]: Increase Sigma other forms of damage":

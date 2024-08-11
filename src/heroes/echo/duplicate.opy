@@ -5,6 +5,10 @@
 # playervar hp_before_duplicate
 
 
+#!include "utilities/hero_reset.opy"
+#!include "utilities/hero_init.opy"
+
+
 # rule "[echo/duplicate.opy]: Remember hp before duplicate":
 #     @Event eachPlayer
 #     @Hero echo

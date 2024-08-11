@@ -6,10 +6,8 @@
 #!include "heroes/junkerqueen/rampage.opy"
 
 
-rule "[junkerqueen/init.opy]: Initialize Junker Queen":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.JUNKER_QUEEN
+def initJunkerQueen():
+    @Name "[junkerqueen/init.opy]: initJunkerQueen()"
 
     setCustomHp(
         ADJ_JUNKERQUEEN_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_JUNKERQUEEN_HEALTH,
@@ -28,5 +26,6 @@ rule "[junkerqueen/init.opy]: Initialize Junker Queen":
     eventPlayer.setAmmo(0, ADJ_JUNKERQUEEN_AMMO_COUNT)
 
     eventPlayer.overhealth_check = false
-    eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_JUNKERQUEEN_SHOUT_OVERHEALTH / OW2_JUNKERQUEEN_SHOUT_OVERHEALTH)
+
+    eventPlayer.hero_initialized = true

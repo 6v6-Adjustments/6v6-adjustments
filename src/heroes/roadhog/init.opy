@@ -4,10 +4,8 @@
 #!include "heroes/roadhog/wholehog.opy"
 
 
-rule "[roadhog/init.opy]: Initialize Roadhog":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.ROADHOG
+def initRoadhog():
+    @Name "[roadhog/init.opy]: initRoadhog()"
     
     setCustomHp(
         ADJ_ROADHOG_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ROADHOG_HEALTH,
@@ -23,7 +21,7 @@ rule "[roadhog/init.opy]: Initialize Roadhog":
     eventPlayer.setAmmo(0, 5)
     eventPlayer.setMaxAmmo(0, 5)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 # rule "[roadhog/init.opy]: Clean up Roadhog":

@@ -5,10 +5,8 @@
 #!include "heroes/wreckingball/piledriver.opy"
 
 
-rule "[wreckingball/init.opy]: Initialize Wrecking Ball":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.HAMMOND
+def initWreckingBall():
+    @Name "[wreckingball/init.opy]: initWreckingBall()"
 
     setCustomHp(
         ADJ_WRECKING_BALL_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_WRECKING_BALL_HEALTH, 
@@ -20,8 +18,9 @@ rule "[wreckingball/init.opy]: Initialize Wrecking Ball":
 
     setBaseDamage(eventPlayer, ADJ_WRECKING_BALL_MINEFIELD_DAMAGE/OW2_WRECKING_BALL_MINEFIELD_DAMAGE)
 
-    eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_WRECKING_BALL_SHIELD_PER_TARGET/OW2_WRECKING_BALL_SHIELD_PER_TARGET)
+
+    eventPlayer.hero_initialized = true
 
 
 rule "[wreckingball/init.opy]: Correct primary fire, fireball, melee damage":

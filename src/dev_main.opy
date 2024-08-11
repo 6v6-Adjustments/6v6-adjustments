@@ -1,22 +1,16 @@
 # Useful constants
 #!include "constants/ow2_constants.opy"
 #!include "constants/adj_constants.opy"
-
-# Useful functions
 #!include "utilities/macro_functions.opy"
-#!include "utilities/stat_helper.opy"
-#!include "utilities/custom_hp.opy"
-#!include "utilities/reset.opy"
-#!include "utilities/hero_switch.opy"
-# !include "utilities/hero_roster.opy"
-# !include "utilities/role_lock.opy"
-# !include "utilities/ready.opy"
-# !include "utilities/hit_detection.opy"
-#!include "utilities/anti_crash.opy"
-# !include "utilities/respawn_helper.opy"
 
 # Custom game lobby settings
 #!include "lobby/dev_lobby.opy"
+
+# Useful functions
+#!include "utilities/stat_helper.opy"
+#!include "utilities/custom_hp.opy"
+#!include "utilities/hero_switch.opy"
+#!include "utilities/anti_crash.opy"
 
 # Passive removal logic
 # Remove damage passive
