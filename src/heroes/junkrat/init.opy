@@ -31,14 +31,16 @@ rule "[junkrat/init.opy]: Initialize Junkrat":
     setBaseDamage(eventPlayer, ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE / OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE)
 
     eventPlayer.call_init = false
+    if eventPlayer.getMaxHealthOfType(Health.NORMAL) != ADJ_JUNKRAT_HEALTH:
+        RULE_START
 
 
 rule "[junkrat/init.opy]: Correct Junkrat invalid health": # Sometimes Junkrat can retain 250 HP between rounds
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.JUNKRAT
-    @Condition eventPlayer.getMaxHealthOfType(Health.NORMAL) != ADJ_JUNKRAT_HEALTH
-    @Condition not eventPlayer.call_init
+    @Condition isMatchBetweenRounds()
 
+    waitUntil(eventPlayer.isInSpawnRoom(), Math.INFINITY)
     eventPlayer.call_init = true
 
 
