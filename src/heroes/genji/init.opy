@@ -1,16 +1,14 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[genji/init.opy]: Initialize Genji":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.GENJI
+def initGenji():
+    @Name "[genji/init.opy]: initGenji()"
     
     setCustomHp(ADJ_GENJI_HEALTH, 0, 0)
     setUltCost(ADJ_GENJI_ULT_COST)
     removeSelfHealing()
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 rule "[genji/init.opy]: Correct Shurikens damage":

@@ -4,10 +4,8 @@
 #!include "heroes/mauga/cardiac.opy"
 
 
-rule "[mauga/init.opy]: Initialize Mauga":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup == Hero.MAUGA
-    @Condition eventPlayer.call_init
+def initMauga():
+    @Name "[mauga/init.opy]: initMauga()"
 
     setCustomHp(
         ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, 
@@ -25,7 +23,7 @@ rule "[mauga/init.opy]: Initialize Mauga":
 
     eventPlayer.balance_change_check = false
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 rule "[mauga/init.opy]: Increase Mauga melee damage":

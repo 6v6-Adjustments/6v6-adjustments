@@ -3,10 +3,8 @@
 #!include "heroes/ramattra/nemesis_form.opy"
 
 
-rule "[ramattra/init.opy]: Initialize Ramattra":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.RAMATTRA
+def initRamattra():
+    @Name "[ramattra/init.opy]: initRamattra()"
     
     setCustomHp(
         ADJ_RAMATTRA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_RAMATTRA_HEALTH,
@@ -20,8 +18,9 @@ rule "[ramattra/init.opy]: Initialize Ramattra":
 
     eventPlayer.startScalingSize(0.94, true)
 
-    eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_RAMATTRA_BARRIER_HEALTH/OW2_RAMATTRA_BARRIER_HEALTH)
+
+    eventPlayer.hero_initialized = true
 
 
 rule "[ramattra/init.opy]: Reduce Ramattra melee damage":

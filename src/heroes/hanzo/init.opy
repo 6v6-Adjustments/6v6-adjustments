@@ -1,10 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[hanzo/init.opy]: Initialize Hanzo":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.HANZO
+def initHanzo():
+    @Name "[hanzo/init.opy]: initHanzo()"
     
     setCustomHp(ADJ_HANZO_HEALTH, 0, 0)
     setUltCost(ADJ_HANZO_ULT_COST)
@@ -12,7 +10,7 @@ rule "[hanzo/init.opy]: Initialize Hanzo":
 
     setBaseDamage(eventPlayer, ADJ_HANZO_STORM_DAMAGE/OW2_HANZO_STORM_DAMAGE)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 rule "[hanzo/init.opy]: Correct Hanzo melee damage":

@@ -3,10 +3,8 @@
 playervar overload_overhealth
 
 
-rule "[torbjorn/init.opy]: Initialize Torbjorn":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.TORBJORN
+def initTorbjorn():
+    @Name "[torbjorn/init.opy]: initTorbjorn()"
 
     setCustomHp(ADJ_TORBJORN_HEALTH, ADJ_TORBJORN_ARMOR, 0)
     setUltCost(ADJ_TORBJORN_ULT_COST)
@@ -16,7 +14,8 @@ rule "[torbjorn/init.opy]: Initialize Torbjorn":
     eventPlayer.setMaxAmmo(0, 15)
 
     eventPlayer.overhealth_check = false
-    eventPlayer.call_init = false
+
+    eventPlayer.hero_initialized = true
 
 
 rule "[torbjorn/init.opy]: Increase Rivet Gun alternate fire ammo cost":

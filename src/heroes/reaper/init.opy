@@ -1,10 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[reaper/init.opy]: Initialize Reaper":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.REAPER
+def initReaper():
+    @Name "[reaper/init.opy]: initReaper()"
 
     setCustomHp(ADJ_REAPER_HEALTH, 0, 0)
     setUltCost(ADJ_REAPER_ULT_COST)
@@ -13,7 +11,7 @@ rule "[reaper/init.opy]: Initialize Reaper":
     setBaseDamage(eventPlayer, ADJ_REAPER_HELLFIRE_SHOTGUNS_DAMAGE / OW2_REAPER_HELLFIRE_SHOTGUNS_DAMAGE)
     setBaseHealing(eventPlayer, ADJ_REAPER_LIFESTEAL_PERCENT / OW2_REAPER_LIFESTEAL_PERCENT)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 rule "[reaper/init.opy]: Increase Reaper melee damage":

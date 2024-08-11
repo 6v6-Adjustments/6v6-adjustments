@@ -6,10 +6,8 @@
 #!include "heroes/brigitte/whipshot.opy"
 
 
-rule "[brigitte/init.opy]: Initialize Brigitte":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.BRIGITTE
+def initBrigitte():
+    @Name "[brigitte/init.opy]: initBrigitte()"
 
     setCustomHp(ADJ_BRIGITTE_HEALTH, ADJ_BRIGITTE_ARMOR, 0)
     setUltCost(ADJ_BRIGITTE_ULT_COST)
@@ -18,4 +16,4 @@ rule "[brigitte/init.opy]: Initialize Brigitte":
     setBaseDamage(eventPlayer, ADJ_BRIGITTE_FLAIL_DAMAGE/OW2_BRIGITTE_FLAIL_DAMAGE)
     setBaseHealing(eventPlayer, ADJ_BRIGITTE_INSPIRE_TOTAL_HEALING/OW2_BRIGITTE_INSPIRE_TOTAL_HEALING)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true

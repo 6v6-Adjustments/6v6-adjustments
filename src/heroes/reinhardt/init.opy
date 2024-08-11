@@ -5,10 +5,8 @@
 #!include "heroes/reinhardt/shatter.opy"
 
 
-rule "[reinhardt/init.opy]: Initialize Reinhardt":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.REINHARDT
+def initReinhardt():
+    @Name "[reinhardt/init.opy]: initReinhardt()"
     
     setCustomHp(
         ADJ_REINHARDT_HEALTH,
@@ -21,5 +19,6 @@ rule "[reinhardt/init.opy]: Initialize Reinhardt":
     eventPlayer.setKnockbackReceived(percent((1 - ADJ_REINHARDT_STEADAST_KNOCKBACK_REDUCTION)/(1 - OW2_TANK_KNOCKBACK_REDUCTION)))
     eventPlayer.stopForcingThrottle()
 
-    eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_REINHARDT_BARRIER_HEALTH/OW2_REINHARDT_BARRIER_HEALTH)
+
+    eventPlayer.hero_initialized = true

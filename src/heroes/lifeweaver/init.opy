@@ -1,10 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[lifeweaver/init.opy]: Initialize Lifeweaver":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.LIFEWEAVER
+def initLifeweaver():
+    @Name "[lifeweaver/init.opy]: initLifeweaver()"
     
     setCustomHp(ADJ_LIFEWEAVER_HEALTH, 0, ADJ_LIFEWEAVER_SHIELDS)
     setUltCost(ADJ_LIFEWEAVER_ULT_COST)
@@ -17,7 +15,7 @@ rule "[lifeweaver/init.opy]: Initialize Lifeweaver":
     eventPlayer.setMaxAmmo(1, ADJ_LIFEWEAVER_THORN_VOLLEY_AMMO)
     eventPlayer.setAmmo(1, ADJ_LIFEWEAVER_THORN_VOLLEY_AMMO)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 rule "[lifeweaver/init.opy]: Reduce Lifeweaver melee damage":
