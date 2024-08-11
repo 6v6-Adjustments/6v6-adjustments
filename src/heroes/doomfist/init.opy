@@ -20,7 +20,7 @@ rule "[doomfist/init.opy]: Initialize Doomfist":
     removeSelfHealing()
 
     if not eventPlayer.isDuplicatingAHero():
-        setBaseDamage(eventPlayer, ADJ_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE/OW2_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE)
+        setBaseDamage(eventPlayer, ADJ_DOOMFIST_SEISMIC_SLAM_DAMAGE/OW2_DOOMFIST_SEISMIC_SLAM_DAMAGE)
 
     eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_DOOMFIST_BEST_DEFENSE / OW2_DOOMFIST_BEST_DEFENSE)
