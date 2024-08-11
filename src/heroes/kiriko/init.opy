@@ -24,7 +24,7 @@ rule "[kiriko/init.opy]: Initialize Kiriko":
 
 rule "[kiriko/init.opy]: Reduce Kiriko melee damage":
     @Event playerDealtDamage
-    @Hero lifeweaver
+    @Hero kiriko
     @Condition eventAbility == Button.MELEE
 
     heal(victim, null, eventDamage - (eventDamage/eventPlayer._base_damage_scalar))
