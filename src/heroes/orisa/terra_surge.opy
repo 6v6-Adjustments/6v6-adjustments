@@ -13,7 +13,7 @@ rule "[orisa/terra_surge.opy]: Reduce Terra Surge damage":
     eventPlayer.setDamageDealt(percent(ADJ_ORISA_JAVELIN_DIRECT_DAMAGE / OW2_ORISA_JAVELIN_DIRECT_DAMAGE))
 
 
-rule "[torbjorn/init.opy]: Increase Terra Surge overhealth":
+rule "[orisa/terra_surge.opy]: Increase Terra Surge overhealth":
     @Event eachPlayer
     @Hero orisa
     @Condition eventPlayer.isUsingUltimate()
