@@ -27,6 +27,12 @@ def initDva():
     eventPlayer.self_destruct_charge = 0
     eventPlayer.max_health_scaler = (ADJ_DVA_PILOT_HEALTH / OW2_DVA_PILOT_HEALTH)
 
+    waitUntil(not eventPlayer.isInAlternateForm(), Math.INFINITY)
+    setCustomHp(
+        ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_HEALTH,
+        ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_ARMOR,
+        0)
+
     eventPlayer.hero_initialized = true
 
 
