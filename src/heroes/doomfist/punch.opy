@@ -10,8 +10,12 @@ rule "[doomfist/punch.opy]: Initialize rocket punch":
     @Condition eventPlayer.isFiringSecondaryFire()
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)
 
+    setBaseDamage(eventPlayer, ADJ_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE/OW2_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE)
     eventPlayer.punched_victims = []
     eventPlayer.wall_impacted_victims = []
+    waitUntil(not eventPlayer.isFiringSecondaryFire(), 4)
+    wait(0.2)
+    setBaseDamage(eventPlayer, ADJ_DOOMFIST_SEISMIC_SLAM_DAMAGE/OW2_DOOMFIST_SEISMIC_SLAM_DAMAGE)
 
 
 # DO NOT switch the order of this rule with the next rule
