@@ -2,7 +2,6 @@
 
 playervar overhealth_check
 playervar balance_change_check
-playervar max_health_scaler
 
 subroutine resetHero
 subroutine resetStats

@@ -2,6 +2,7 @@
 
 # Credit to https://discord.com/channels/570672959799164958/1095384108504465488
 # Base code written by CaptCaptain and cactuspuppy
+playervar max_health_scaler
 playervar custom_hp_pvar
 #!defineMember _hp_health custom_hp_pvar[0]
 #!defineMember _hp_armor custom_hp_pvar[1]

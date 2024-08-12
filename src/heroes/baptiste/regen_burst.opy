@@ -1,5 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "utilities/macro_functions.opy"
+#!include "passives/support/self_heal.opy"
+
 
 rule "[baptiste/regen_burst.opy]: Remove initial burst healing from Regenerative Burst and set cooldown for duplicate":
     @Event eachPlayer
