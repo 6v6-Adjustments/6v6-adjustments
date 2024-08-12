@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "utilities/custom_hp.opy"
+#!include "utilities/hero_init.opy"
 #!include "heroes/ana/sleep.opy"
 #!include "heroes/ana/nade.opy"
 

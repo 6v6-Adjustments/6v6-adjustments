@@ -1,5 +1,9 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "constants/adj_constants.opy"
+#!include "constants/ow2_constants.opy"
+#!include "utilities/macro_functions.opy"
+
 
 def removeTankPassive():
     @Name "[passives/tank/knockback.opy]: removeTankPassive()"
