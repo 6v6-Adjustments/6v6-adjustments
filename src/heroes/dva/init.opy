@@ -22,7 +22,7 @@ def initDva():
     removeSelfHealing()
 
     if not eventPlayer.isDuplicatingAHero():
-        setBaseDamage(eventPlayer, ADJ_DVA_MICRO_MISSILES_DAMAGE / OW2_DVA_MICRO_MISSILES_DAMAGE)
+        setBaseDamage(eventPlayer, ADJ_DVA_CANNON_DAMAGE / OW2_DVA_CANNON_DAMAGE)
 
     eventPlayer.self_destruct_charge = 0
     eventPlayer.max_health_scaler = (ADJ_DVA_PILOT_HEALTH / OW2_DVA_PILOT_HEALTH)
@@ -36,12 +36,12 @@ def initDva():
     eventPlayer.hero_initialized = true
 
 
-rule "[dva/init.opy]: Increase Fusion Cannons damage":
+rule "[dva/init.opy]: Reduce Micro Missiles damage":
     @Event playerDealtDamage
     @Hero dva
-    @Condition not eventAbility in [Button.MELEE, Button.ABILITY_1, Button.ABILITY_2, Button.ULTIMATE]
+    @Condition not eventAbility == Button.ABILITY_2
 
-    damage(victim, attacker, ((eventDamage / eventPlayer._base_damage_scalar) * (ADJ_DVA_CANNON_DAMAGE / OW2_DVA_CANNON_DAMAGE) - eventDamage) / eventPlayer._base_damage_scalar)
+    heal(victim, null, eventDamage - ((ADJ_DVA_MICRO_MISSILES_DAMAGE / ADJ_DVA_MICRO_MISSILES_DAMAGE) * eventDamage/eventPlayer._base_damage_scalar))
 
 
 rule "[dva/init.opy]: Increase D.va other forms of damage":
