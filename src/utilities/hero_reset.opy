@@ -2,8 +2,6 @@
 
 playervar overhealth_check
 playervar balance_change_check
-playervar hero_setup
-playervar call_init
 playervar max_health_scaler
 
 subroutine resetUltCharge
@@ -11,6 +9,9 @@ subroutine resetSelfHealing
 subroutine resetStats
 subroutine disableAllAbilities
 subroutine enableAllAbilities
+
+
+#!include "utilities/hero_init.opy"
 
 
 def resetHero():
@@ -23,9 +24,7 @@ def resetHero():
     resetSelfHealing()
     enableAllAbilities()
 
-
-#!define initHero()\
-    eventPlayer.call_init = true
+    eventPlayer.hero_initialized = false
 
 
 def enableAllAbilities():
@@ -115,19 +114,3 @@ def resetStatuses():
     eventPlayer.clearStatusEffect(Status.ROOTED)
     eventPlayer.clearStatusEffect(Status.STUNNED)
     eventPlayer.clearStatusEffect(Status.UNKILLABLE)
-
-
-rule "[utilities/reset.opy]: Reinitialize hero on new round":
-    @Event eachPlayer
-    @Condition isMatchBetweenRounds()
-
-    waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
-    resetHero()
-    initHero()
-
-
-# rule "[utilities/reset.opy]: Reinitialize hero on respawn":
-#     @Event playerDied
-
-#     waitUntil(eventPlayer.isAlive(), Math.INFINITY)
-#     initHero()

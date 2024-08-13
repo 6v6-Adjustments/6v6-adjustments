@@ -30,7 +30,7 @@ If you're interested in submitting code to this gamemode, read this guide carefu
 
 For instructions on how to use OverPy, see [here](https://github.com/Zezombye/overpy/wiki)
   
-1. Compile main.opy using the compiling instructions at [OverPy Wiki](https://github.com/Zezombye/overpy/wiki/General-usage#Compiling)
+1. Compile dev_main.opy using the compiling instructions at [OverPy Wiki](https://github.com/Zezombye/overpy/wiki/General-usage#Compiling)
 2. Open a custom game in Overwatch
 3. Paste the compiled gamemode code
 
@@ -48,9 +48,9 @@ For instructions on how to use OverPy, see [here](https://github.com/Zezombye/ov
 
 ## Release Cycle
 
-1. For every 3~5 features added to staging branch, the devs will compile a staging build and test each feature manually.
+1. Before new release, the devs will compile a staging build from dev branch and test each new feature manually.
 2. If your feature fails to meet quality expectations, the MR corresponding to that feature will be reverted to drop the changes.
-3. After each feature in staging branch is confirmed, the staging branch will be merged to main branch and released as latest build. If the latest build plays without crashing, it will be set as the stable build.  
+3. After each feature in dev branch is confirmed, the dev branch will be merged to main branch and a new version will be released.  
 
 
 ## Coding Style Guidelines

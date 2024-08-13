@@ -6,10 +6,8 @@
 #!include "heroes/doomfist/powerblock.opy"
 
 
-rule "[doomfist/init.opy]: Initialize Doomfist":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.DOOMFIST
+def initDoomfist():
+    @Name "[doomfist/init.opy]: initDoomfist()"
 
     setCustomHp(
         ADJ_DOOMFIST_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DOOMFIST_HEALTH, 
@@ -20,9 +18,11 @@ rule "[doomfist/init.opy]: Initialize Doomfist":
     removeSelfHealing()
 
     if not eventPlayer.isDuplicatingAHero():
-        setBaseDamage(eventPlayer, ADJ_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE/OW2_DOOMFIST_ROCKET_PUNCH_TOTAL_DAMAGE)
+        setBaseDamage(eventPlayer, ADJ_DOOMFIST_SEISMIC_SLAM_DAMAGE/OW2_DOOMFIST_SEISMIC_SLAM_DAMAGE)
 
-    eventPlayer.call_init = false
+    eventPlayer.max_health_scaler = (ADJ_DOOMFIST_BEST_DEFENSE / OW2_DOOMFIST_BEST_DEFENSE)
+
+    eventPlayer.hero_initialized = true
 
 
 rule "[doomfist/init.opy]: Correct Hand Cannon damage":

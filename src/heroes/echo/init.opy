@@ -3,10 +3,8 @@
 #!include "heroes/echo/duplicate.opy"
 
 
-rule "[echo/init.opy]: Initialize Echo":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.ECHO
+def initEcho():
+    @Name "[echo/init.opy]: initEcho()"
 
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
@@ -18,7 +16,7 @@ rule "[echo/init.opy]: Initialize Echo":
 
     setBaseDamage(eventPlayer, ADJ_ECHO_STICKY_BOMBS_DAMAGE/OW2_ECHO_STICKY_BOMBS_DAMAGE)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 rule "[echo/init.opy]: Correct Echo other forms of damage":

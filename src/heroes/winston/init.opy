@@ -3,10 +3,8 @@
 #!include "heroes/winston/primal.opy"
 
 
-rule "[winston/init.opy]: Initialize Winston":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.WINSTON
+def initWinston():
+    @Name "[winston/init.opy]: initWinston()"
 
     setCustomHp(
         ADJ_WINSTON_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_WINSTON_HEALTH - (OW2_WINSTON_PRIMAL_HEALTH_BONUS*(ADJ_WINSTON_BARRIER_HEALTH/OW2_WINSTON_BARRIER_HEALTH) - ADJ_WINSTON_PRIMAL_HEALTH_BONUS),
@@ -24,8 +22,9 @@ rule "[winston/init.opy]: Initialize Winston":
     setBaseDamage(eventPlayer, ADJ_WINSTON_TESLA_DAMAGE/OW2_WINSTON_TESLA_DAMAGE)
 
 
-    eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_WINSTON_BARRIER_HEALTH/OW2_WINSTON_BARRIER_HEALTH)
+
+    eventPlayer.hero_initialized = true
 
 
 rule "[winston/init.opy]: Correct Jump Pack, Melee, Primal Rage damage":

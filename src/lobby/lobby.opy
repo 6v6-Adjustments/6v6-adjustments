@@ -115,6 +115,7 @@ settings {
             },
             "dva": {
                 "secondaryFireMaximumTime%": percent(ADJ_DVA_MATRIX_DURATION/OW2_DVA_MATRIX_DURATION),
+                "secondaryFireRechargeRate%": percent(ADJ_DVA_MATRIX_RECHARGE/OW2_DVA_MATRIX_RECHARGE),
                 "health%": percent(ADJ_DVA_PILOT_HEALTH/OW2_DVA_PILOT_HEALTH), # for pilot dva hp
                 "ultGen%": percent(OW2_DVA_ULT_COST/ADJ_DVA_ULT_COST)
             },
@@ -122,6 +123,7 @@ settings {
                 # for some reason, overpy thinks power block is ability 1 and slam is ability 2
                 "ability1Cooldown%": percent(ADJ_DOOMFIST_POWER_BLOCK_COOLDOWN/OW2_DOOMFIST_POWER_BLOCK_COOLDOWN),
                 "ability2Cooldown%": percent(ADJ_DOOMFIST_SEISMIC_SLAM_COOLDOWN/OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN),
+                "health%": percent(ADJ_DOOMFIST_BEST_DEFENSE/OW2_DOOMFIST_BEST_DEFENSE), # for passive overhealth
                 "ultGen%": percent(OW2_DOOMFIST_ULT_COST/ADJ_DOOMFIST_ULT_COST)
             },
             "echo": {
@@ -171,6 +173,8 @@ settings {
                 "primaryFireIgniteRate": percent(OW2_MAUGA_BURN_RATE/ADJ_MAUGA_BURN_RATE),
                 "ability1Cooldown%": percent(ADJ_MAUGA_OVERRUN_COOLDOWN/OW2_MAUGA_OVERRUN_COOLDOWN),
                 "ability2Cooldown%": percent((ADJ_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)/(OW2_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)),
+                # for berserker overhealth scales quadratically for whatever reason; someone pls explain
+                "health%": percent(Math.sqrt(OW2_MAUGA_BERSERKER_OVERHEALTH*ADJ_MAUGA_BERSERKER_OVERHEALTH)/OW2_MAUGA_BERSERKER_OVERHEALTH),
                 "ultGen%": percent(OW2_MAUGA_ULT_COST/ADJ_MAUGA_ULT_COST)
             },
             "mei": {
@@ -178,6 +182,8 @@ settings {
                 "ultGen%": percent(OW2_MEI_ULT_COST/ADJ_MEI_ULT_COST)
             },
             "mercy": {
+                "ability1Cooldown%": percent(ADJ_MERCY_GA_COOLDOWN/OW2_MERCY_GA_COOLDOWN),
+                "enablePassive": false,
                 "ultGen%": percent(OW2_MERCY_ULT_COST/ADJ_MERCY_ULT_COST),
             },
             "moira": {
@@ -206,12 +212,13 @@ settings {
                 "ultGen%": percent(OW2_REAPER_ULT_COST/ADJ_REAPER_ULT_COST)
             },
             "reinhardt": {
-                "secondaryFireRechargeRate%": percent(ADJ_REINHARDT_BARRIER_REGEN/OW2_REINHARDT_BARRIER_REGEN),
+                "secondaryFireRechargeRate%": percent((ADJ_REINHARDT_BARRIER_REGEN/OW2_REINHARDT_BARRIER_REGEN) * (OW2_REINHARDT_BARRIER_HEALTH/ADJ_REINHARDT_BARRIER_HEALTH)),
                 "ability1Cooldown%": percent(ADJ_REINHARDT_CHARGE_COOLDOWN_TIME/OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
                 "health%": percent(ADJ_REINHARDT_BARRIER_HEALTH/OW2_REINHARDT_BARRIER_HEALTH),
                 "ultGen%": percent(OW2_REINHARDT_ULT_COST/ADJ_REINHARDT_ULT_COST)
             },
             "roadhog": {
+                "secondaryFireCooldown%": percent(ADJ_ROADHOG_BREATHER_COOLDOWN/OW2_ROADHOG_BREATHER_COOLDOWN),
                 "secondaryFireMaximumTime%": percent(ADJ_ROADHOG_BREATHER_DURATION/OW2_ROADHOG_BREATHER_DURATION),
                 "secondaryFireRechargeRate%": percent(ADJ_ROADHOG_BREATHER_RECHARGE_DURATION/OW2_ROADHOG_BREATHER_RECHARGE_DURATION),
                 "ability1Cooldown%": percent(ADJ_ROADHOG_HOOK_COOLDOWN_TIME/OW2_ROADHOG_HOOK_COOLDOWN_TIME),

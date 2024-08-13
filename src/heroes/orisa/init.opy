@@ -5,10 +5,8 @@
 #!include "heroes/orisa/terra_surge.opy"
 
 
-rule "[orisa/init.opy]: Initialize Orisa":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.ORISA
+def initOrisa():
+    @Name "[orisa/init.opy]: initOrisa()"
     
     setCustomHp(
         ADJ_ORISA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ORISA_HEALTH, 
@@ -22,12 +20,13 @@ rule "[orisa/init.opy]: Initialize Orisa":
     #     setBaseDamage(eventPlayer, ADJ_ORISA_JAVELIN_DIRECT_DAMAGE / OW2_ORISA_JAVELIN_DIRECT_DAMAGE)
 
     eventPlayer.balance_change_check = true
-    eventPlayer.call_init = false
+
+    eventPlayer.hero_initialized = true
 
 
-rule "[orisa/init.opy]: Increase Orisa other forms of damage":
-    @Event playerDealtDamage
-    @Hero orisa
-    @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ABILITY_2]
+# rule "[orisa/init.opy]: Increase Orisa other forms of damage":
+#     @Event playerDealtDamage
+#     @Hero orisa
+#     @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ABILITY_2]
 
-    damage(victim, attacker, (eventDamage / eventPlayer._base_damage_scalar - eventDamage) / eventPlayer._base_damage_scalar)
+#     damage(victim, attacker, (eventDamage / eventPlayer._base_damage_scalar - eventDamage) / eventPlayer._base_damage_scalar)

@@ -4,10 +4,8 @@
 #!include "heroes/kiriko/swift_step.opy"
 
 
-rule "[kiriko/init.opy]: Initialize Kiriko":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.KIRIKO
+def initKiriko():
+    @Name "[kiriko/init.opy]: initKiriko()"
 
     setCustomHp(ADJ_KIRIKO_HEALTH, 0, 0)
     setUltCost(ADJ_KIRIKO_ULT_COST)
@@ -19,12 +17,12 @@ rule "[kiriko/init.opy]: Initialize Kiriko":
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 rule "[kiriko/init.opy]: Reduce Kiriko melee damage":
     @Event playerDealtDamage
-    @Hero lifeweaver
+    @Hero kiriko
     @Condition eventAbility == Button.MELEE
 
     heal(victim, null, eventDamage - (eventDamage/eventPlayer._base_damage_scalar))

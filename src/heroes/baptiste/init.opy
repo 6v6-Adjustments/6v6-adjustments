@@ -3,10 +3,8 @@
 #!include "heroes/baptiste/regen_burst.opy"
 
 
-rule "[baptiste/init.opy]: Initialize Baptiste":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.BAPTISTE
+def initBaptiste():
+    @Name "[baptiste/init.opy]: initBaptiste()"
     
     setCustomHp(ADJ_BAPTISTE_HEALTH, 0, 0)
     setUltCost(ADJ_BAPTISTE_ULT_COST)
@@ -16,8 +14,9 @@ rule "[baptiste/init.opy]: Initialize Baptiste":
     setBaseHealing(eventPlayer, ADJ_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH/OW2_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH)
 
     eventPlayer.balance_change_check = true
-    eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_BAPTISTE_LAMP_HP/OW2_BAPTISTE_LAMP_HP)
+
+    eventPlayer.hero_initialized = true
 
 
 rule "[baptiste/init.opy]: Increase Baptiste melee damage":

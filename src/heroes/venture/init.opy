@@ -7,10 +7,8 @@
 #!include "heroes/venture/tectonic_shock.opy"
 
 
-rule "[venture/init.opy]: Initialize Venture":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.VENTURE
+def initVenture():
+    @Name "[venture/init.opy]: initVenture()"
 
     setCustomHp(ADJ_VENTURE_HEALTH, 0, 0)
     setUltCost(ADJ_VENTURE_ULT_COST)
@@ -19,12 +17,13 @@ rule "[venture/init.opy]: Initialize Venture":
     if not eventPlayer.isDuplicatingAHero():
         setBaseDamage(eventPlayer, ADJ_VENTURE_BURROW_DAMAGE / OW2_VENTURE_BURROW_DAMAGE)
     eventPlayer.setKnockbackDealt(70)
-    eventPlayer.setMoveSpeed(percent(ADJ_VENTURE_SPEED/OW2_VENTURE_SPEED))
+    # eventPlayer.setMoveSpeed(percent(ADJ_VENTURE_SPEED/OW2_VENTURE_SPEED))
 
     eventPlayer.setAmmo(0, 6)
     eventPlayer.setMaxAmmo(0, 6)
-    eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS)
+
+    eventPlayer.hero_initialized = true
 
 
 rule "[venture/init.opy]: Correct Venture bonus shields":

@@ -4,10 +4,8 @@
 # #!include "heroes/mccree/deadeye.opy"
 
 
-rule "[mccree/init.opy]: Initialize Cassidy":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.CASSIDY
+def initMccree():
+    @Name "[mccree/init.opy]: initMccree()"
     
     setCustomHp(ADJ_MCCREE_HEALTH, 0, 0)
     setUltCost(ADJ_MCCREE_ULT_COST)
@@ -15,7 +13,7 @@ rule "[mccree/init.opy]: Initialize Cassidy":
 
     # setBaseDamage(eventPlayer, ADJ_MCCREE_FAN_THE_HAMMER_DAMAGE/OW2_MCCREE_FAN_THE_HAMMER_DAMAGE)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 # rule "[mccree/init.opy]: Correct Cassidy other forms of damage":

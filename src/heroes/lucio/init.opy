@@ -3,10 +3,8 @@
 #!include "heroes/lucio/aura.opy"
 
 
-rule "[lucio/init.opy]: Initialize Lucio":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.LUCIO
+def initLucio():
+    @Name "[lucio/init.opy]: initLucio()"
     
     setCustomHp(ADJ_LUCIO_HEALTH, 0, 0)
     setUltCost(ADJ_LUCIO_ULT_COST)
@@ -15,7 +13,7 @@ rule "[lucio/init.opy]: Initialize Lucio":
     setBaseDamage(eventPlayer, ADJ_LUCIO_SOUNDWAVE_DAMAGE/OW2_LUCIO_SOUNDWAVE_DAMAGE)
     eventPlayer.setHealingDealt(100)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 rule "[lucio/init.opy]: Correct Lucio melee damage":

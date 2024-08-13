@@ -1,10 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[junkrat/init.opy]: Initialize Junkrat":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.JUNKRAT
+def initJunkrat():
+    @Name "[junkrat/init.opy]: initJunkrat()"
 
     #Version or the "resetHealth" subroutine that keeps tire at 100 hp
     eventPlayer.removeAllHealthPools()
@@ -30,16 +28,16 @@ rule "[junkrat/init.opy]: Initialize Junkrat":
 
     setBaseDamage(eventPlayer, ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE / OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 rule "[junkrat/init.opy]: Correct Junkrat invalid health": # Sometimes Junkrat can retain 250 HP between rounds
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.JUNKRAT
     @Condition eventPlayer.getMaxHealthOfType(Health.NORMAL) != ADJ_JUNKRAT_HEALTH
-    @Condition not eventPlayer.call_init
+    @Condition eventPlayer.hero_initialized
 
-    eventPlayer.call_init = true
+    initJunkrat()
 
 
 rule "[junkrat/init.opy]: Correct Frag Launcher damage":

@@ -3,10 +3,8 @@
 #!include "heroes/bastion/reconfigure.opy"
 
 
-rule "[bastion/init.opy]: Initialize Bastion":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.BASTION
+def initBastion():
+    @Name "[bastion/init.opy]: initBastion()"
     
     setCustomHp(ADJ_BASTION_HEALTH, ADJ_BASTION_ARMOR, 0)
     setUltCost(ADJ_BASTION_ULT_COST)
@@ -14,7 +12,7 @@ rule "[bastion/init.opy]: Initialize Bastion":
 
     eventPlayer.startScalingSize(0.96, true)
 
-    eventPlayer.call_init = false
+    eventPlayer.hero_initialized = true
 
 
 rule "[bastion/init.opy]: Reduce grenade self-damage":

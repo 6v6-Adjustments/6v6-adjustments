@@ -3,10 +3,8 @@
 #!include "heroes/illari/solar_rifle.opy"
 
 
-rule "[illari/init.opy]: Initialize Illari":
-    @Event eachPlayer
-    @Condition eventPlayer.call_init
-    @Condition eventPlayer.hero_setup == Hero.ILLARI
+def initIllari():
+    @Name "[illari/init.opy]: initIllari()"
     
     setCustomHp(ADJ_ILLARI_HEALTH, 0, 0)
     setUltCost(ADJ_ILLARI_ULT_COST)
@@ -18,8 +16,9 @@ rule "[illari/init.opy]: Initialize Illari":
     eventPlayer.setMaxAmmo(0, ADJ_ILLARI_SOLAR_RIFLE_AMMO)
     eventPlayer.setAmmo(0, ADJ_ILLARI_SOLAR_RIFLE_AMMO)
 
-    eventPlayer.call_init = false
     eventPlayer.max_health_scaler = (ADJ_ILLARI_PYLON_HEALTH/OW2_ILLARI_PYLON_HEALTH)
+
+    eventPlayer.hero_initialized = true
 
 
 rule "[illari/init.opy]: Correct Outburst and melee damage":
