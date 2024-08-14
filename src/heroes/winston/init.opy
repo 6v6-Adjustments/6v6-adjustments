@@ -23,7 +23,6 @@ def initWinston():
 
 
     eventPlayer.max_health_scaler = (ADJ_WINSTON_BARRIER_HEALTH/OW2_WINSTON_BARRIER_HEALTH)
-
     eventPlayer.hero_initialized = true
 
 

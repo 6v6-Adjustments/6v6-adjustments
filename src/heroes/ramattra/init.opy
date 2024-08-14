@@ -17,9 +17,7 @@ def initRamattra():
     setBaseDamage(eventPlayer, ADJ_RAMATTRA_ACCELERATOR_DAMAGE/OW2_RAMATTRA_ACCELERATOR_DAMAGE)
 
     eventPlayer.startScalingSize(0.94, true)
-
     eventPlayer.max_health_scaler = (ADJ_RAMATTRA_BARRIER_HEALTH/OW2_RAMATTRA_BARRIER_HEALTH)
-
     eventPlayer.hero_initialized = true
 
 

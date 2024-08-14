@@ -15,14 +15,12 @@ def initZarya():
     setUltCost(ADJ_ZARYA_ULT_COST)
     removeTankPassive()
     removeSelfHealing()
-
-    setBaseDamage(eventPlayer, ADJ_ZARYA_CANNON_DAMAGE_MAX/OW2_ZARYA_CANNON_DAMAGE_MAX)
-
     initSelfBubble()
     initAllyBubble()
 
-    eventPlayer.max_health_scaler = (ADJ_ZARYA_BARRIER_HEALTH/OW2_ZARYA_BARRIER_HEALTH)
+    setBaseDamage(eventPlayer, ADJ_ZARYA_CANNON_DAMAGE_MAX/OW2_ZARYA_CANNON_DAMAGE_MAX)
 
+    eventPlayer.max_health_scaler = (ADJ_ZARYA_BARRIER_HEALTH/OW2_ZARYA_BARRIER_HEALTH)
     eventPlayer.hero_initialized = true
 
 

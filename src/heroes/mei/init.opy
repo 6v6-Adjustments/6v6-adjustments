@@ -8,15 +8,15 @@ def initMei():
 
     setCustomHp(ADJ_MEI_HEALTH, 0, 0)
     setUltCost(ADJ_MEI_ULT_COST)
-    removeSelfHealing()
-
+    
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
     setBaseDamage(eventPlayer, ADJ_MEI_ICICLE_DAMAGE/OW2_MEI_ICICLE_DAMAGE)
 
-    eventPlayer.setMaxAmmo(0, ADJ_MEI_AMMO_COUNT)
-    eventPlayer.setAmmo(0, ADJ_MEI_AMMO_COUNT)
+    # eventPlayer.setMaxAmmo(0, ADJ_MEI_AMMO_COUNT)
+    # eventPlayer.setAmmo(0, ADJ_MEI_AMMO_COUNT)
 
     eventPlayer.max_health_scaler = (ADJ_MEI_ICEWALL_HP/OW2_MEI_ICEWALL_HP)
-
     eventPlayer.hero_initialized = true
 
 

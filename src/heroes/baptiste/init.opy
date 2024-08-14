@@ -8,8 +8,9 @@ def initBaptiste():
     
     setCustomHp(ADJ_BAPTISTE_HEALTH, 0, 0)
     setUltCost(ADJ_BAPTISTE_ULT_COST)
-    removeSelfHealing()
 
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
     setBaseDamage(eventPlayer, ADJ_BAPTISTE_PRIMARY_DAMAGE/OW2_BAPTISTE_PRIMARY_DAMAGE)
     setBaseHealing(eventPlayer, ADJ_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH/OW2_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH)
 

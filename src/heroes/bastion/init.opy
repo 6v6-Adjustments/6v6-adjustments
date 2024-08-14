@@ -8,7 +8,9 @@ def initBastion():
     
     setCustomHp(ADJ_BASTION_HEALTH, ADJ_BASTION_ARMOR, 0)
     setUltCost(ADJ_BASTION_ULT_COST)
-    removeSelfHealing()
+    
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
 
     eventPlayer.startScalingSize(0.96, true)
 
