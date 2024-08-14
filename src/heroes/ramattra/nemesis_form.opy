@@ -3,7 +3,7 @@
 
 rule "[ramattra/nemesis_form.opy]: Correct Nemesis Form armor and movement speed":
     @Event eachPlayer
-    @Hero ramattra
+    @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
     
     eventPlayer.stopScalingSize()
@@ -19,7 +19,7 @@ rule "[ramattra/nemesis_form.opy]: Correct Nemesis Form armor and movement speed
 
 rule "[ramattra/nemesis_form.opy]: Increase other forms of damage (in nemesis)":
     @Event playerDealtDamage
-    @Hero ramattra
+    @Condition eventPlayer.hero_setup == Hero.RAMATTRA
     @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
     @Condition eventDamage < ADJ_RAMATTRA_PUMMEL_DAMAGE # This condition stops pummel from applying the damage increase
 

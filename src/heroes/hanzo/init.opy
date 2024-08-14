@@ -8,7 +8,8 @@ def initHanzo():
     setUltCost(ADJ_HANZO_ULT_COST)
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_HANZO_STORM_DAMAGE/OW2_HANZO_STORM_DAMAGE)
+    if not eventPlayer.isDuplicatingAHero():
+        setBaseDamage(eventPlayer, ADJ_HANZO_STORM_DAMAGE/OW2_HANZO_STORM_DAMAGE)
 
     eventPlayer.hero_initialized = true
 

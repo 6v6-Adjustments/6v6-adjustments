@@ -16,7 +16,8 @@ def initSigma():
     removeTankPassive()
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_SIGMA_ACCRETION_DAMAGE/OW2_SIGMA_ACCRETION_DAMAGE)
+    if not eventPlayer.isDuplicatingAHero():
+        setBaseDamage(eventPlayer, ADJ_SIGMA_ACCRETION_DAMAGE/OW2_SIGMA_ACCRETION_DAMAGE)
 
     eventPlayer.balance_change_check = 0
 
@@ -25,7 +26,7 @@ def initSigma():
 
 rule "[sigma/init.opy]: Increase Sigma other forms of damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.SIGMA
+    @Hero sigma
     @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ULTIMATE]
     
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)

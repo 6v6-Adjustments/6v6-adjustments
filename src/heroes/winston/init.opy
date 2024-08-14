@@ -29,7 +29,7 @@ def initWinston():
 
 rule "[winston/init.opy]: Correct Jump Pack, Melee, Primal Rage damage":
     @Event playerDealtDamage
-    @Hero winston
+    @Condition eventPlayer.hero_setup == Hero.WINSTON
     @Condition eventAbility in [Button.ABILITY_1, Button.MELEE, Button.SECONDARY_FIRE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

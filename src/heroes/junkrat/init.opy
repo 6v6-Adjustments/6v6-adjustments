@@ -27,6 +27,7 @@ def initJunkrat():
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE / OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE)
+    heal(eventPlayer, null, 1) # fix visual HP bug when copying Junkrat
 
     eventPlayer.hero_initialized = true
 
