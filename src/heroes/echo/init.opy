@@ -21,7 +21,7 @@ def initEcho():
 
 rule "[echo/init.opy]: Correct Echo other forms of damage":
     @Event playerDealtDamage
-    @Hero echo
+    @Condition eventPlayer.hero_setup == Hero.ECHO
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_2, Button.MELEE]
 
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
