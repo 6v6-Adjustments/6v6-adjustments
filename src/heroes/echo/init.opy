@@ -29,7 +29,8 @@ rule "[echo/init.opy]: Correct Echo Tri-Shot damage":
 
 rule "[echo/init.opy]: Correct Echo other forms of damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.ECHO
+    @Hero echo
+    @Condition not eventPlayer.isDuplicatingAHero()
     @Condition eventAbility in [Button.ABILITY_2, Button.MELEE]
 
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
