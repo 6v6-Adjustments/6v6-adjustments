@@ -10,7 +10,8 @@ def initLucio():
     setUltCost(ADJ_LUCIO_ULT_COST)
     removeSelfHealing()
 
-    setBaseDamage(eventPlayer, ADJ_LUCIO_SOUNDWAVE_DAMAGE/OW2_LUCIO_SOUNDWAVE_DAMAGE)
+    if not eventPlayer.isDuplicatingAHero():
+        setBaseDamage(eventPlayer, ADJ_LUCIO_SOUNDWAVE_DAMAGE/OW2_LUCIO_SOUNDWAVE_DAMAGE)
     eventPlayer.setHealingDealt(100)
 
     eventPlayer.hero_initialized = true
