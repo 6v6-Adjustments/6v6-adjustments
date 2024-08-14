@@ -16,7 +16,7 @@
 #!define ADJ_ANA_BIOTIC_GRENADE_HEALING 100
 #!define ADJ_ANA_SLEEP_DART_COOLDOWN_TIME 12
 #!define ADJ_ANA_HEALTH 200
-#!define ADJ_ANA_ULT_COST 2100
+#!define ADJ_ANA_ULT_COST 2200
 
 # Ashe
 #!define ADJ_ASHE_BOB_HEALTH 900
@@ -290,6 +290,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_REINHARDT_ULT_COST 1540
 
 # Roadhog
+#!define ADJ_ROADHOG_AMMO 6
 #!define ADJ_ROADHOG_BREATHER_COOLDOWN 3.5
 #!define ADJ_ROADHOG_BREATHER_DURATION 1.075
 #!define ADJ_ROADHOG_BREATHER_HEAL_TOTAL 299.5
@@ -299,7 +300,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_ROADHOG_HOOK_COOLDOWN_TIME 7
 #!define ADJ_ROADHOG_HOOK_DAMAGE 5
 #!define ADJ_ROADHOG_PIGPEN_DAMAGE 150
-#!define ADJ_ROADHOG_SCRAP_GUN_DAMAGE 130
+#!define ADJ_ROADHOG_SCRAP_GUN_DAMAGE 133
 #!define ADJ_ROADHOG_ULT_COST 2275
 
 # Sigma
@@ -331,7 +332,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_SOMBRA_HEALTH 200
 #!define ADJ_SOMBRA_SMG_DAMAGE 7.5
 #!define ADJ_SOMBRA_VIRUS_COOLDOWN 7
-#!define ADJ_SOMBRA_ULT_COST 1484
+#!define ADJ_SOMBRA_ULT_COST 1375
 
 # Symmetra
 #!define ADJ_SYMMETRA_HEALTH 100

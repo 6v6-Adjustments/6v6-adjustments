@@ -18,8 +18,8 @@ def initRoadhog():
     setBaseDamage(eventPlayer, ADJ_ROADHOG_SCRAP_GUN_DAMAGE/OW2_ROADHOG_SCRAP_GUN_DAMAGE)
     eventPlayer.setHealingDealt(percent(ADJ_ROADHOG_BREATHER_HEAL_TOTAL/OW2_ROADHOG_BREATHER_HEAL_TOTAL))
 
-    eventPlayer.setAmmo(0, 5)
-    eventPlayer.setMaxAmmo(0, 5)
+    eventPlayer.setAmmo(0, ADJ_ROADHOG_AMMO)
+    eventPlayer.setMaxAmmo(0, ADJ_ROADHOG_AMMO)
 
     eventPlayer.hero_initialized = true
 
