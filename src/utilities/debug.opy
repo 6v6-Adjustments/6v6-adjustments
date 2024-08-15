@@ -36,6 +36,7 @@ rule "[utilities/debug.opy]: player debug (Top Right)":
     @Condition DEBUG_MODE == true
 
     hudHeader(eventPlayer, "Event Player", HudPosition.RIGHT, 0, Color.WHITE, HudReeval.STRING)
+    hudSubheader(eventPlayer, "peacekeeper_distance = {}".format(eventPlayer.peacekeeper_distance), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "hero_initialized = {}".format(eventPlayer.hero_initialized), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     #  hudSubheader(eventPlayer, "_regen_passive_id = {}".format(eventPlayer._regen_passive_id), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     #  hudSubheader(eventPlayer, "_regen_delay = {}".format(eventPlayer._regen_delay), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
