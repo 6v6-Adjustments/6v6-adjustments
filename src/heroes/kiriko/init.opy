@@ -14,14 +14,24 @@ def initKiriko():
         removeSelfHealing()
     setBaseDamage(eventPlayer, ADJ_KIRIKO_KUNAI_DAMAGE / OW2_KIRIKO_KUNAI_DAMAGE)
 
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN)
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN) 
 
     eventPlayer.hero_initialized = true
+    eventPlayer.suzu_flying = false
 
 
-rule "[kiriko/init.opy]: Reduce Kiriko melee damage":
+rule "[kiriko/init.opy]: Correct Kiriko melee damage":
     @Event playerDealtDamage
     @Hero kiriko
     @Condition eventAbility == Button.MELEE
 
     heal(victim, null, eventDamage - (eventDamage/eventPlayer._base_damage_scalar))
+
+
+rule "[kiriko/init.opy]: Correct Ofuda healing":
+    @Event playerDealtHealing
+    @Hero kiriko
+    @Condition eventHealing >= 10
+    @Condition eventPlayer.suzu_flying == false
+
+    heal(healee, healer, eventHealing * (ADJ_KIRIKO_OFUDA_HEALING/OW2_KIRIKO_OFUDA_HEALING) - eventHealing)
