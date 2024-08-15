@@ -37,3 +37,5 @@
                      or player.hasStatusEffect(Status.ASLEEP) \
                      or player.hasStatusEffect(Status.FROZEN) \
                      or player.hasStatusEffect(Status.KNOCKED_DOWN))
+
+#!define clamp(value, low, high) (low if (value < low) else (high if (value > high) else value))

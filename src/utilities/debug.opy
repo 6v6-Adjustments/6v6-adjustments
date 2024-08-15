@@ -36,7 +36,7 @@ rule "[utilities/debug.opy]: player debug (Top Right)":
     @Condition DEBUG_MODE == true
 
     hudHeader(eventPlayer, "Event Player", HudPosition.RIGHT, 0, Color.WHITE, HudReeval.STRING)
-    hudSubheader(eventPlayer, "hero_initialized = {}".format(eventPlayer.hero_initialized), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    # hudSubheader(eventPlayer, "hero_initialized = {}".format(eventPlayer.hero_initialized), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     #  hudSubheader(eventPlayer, "_regen_passive_id = {}".format(eventPlayer._regen_passive_id), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     #  hudSubheader(eventPlayer, "_regen_delay = {}".format(eventPlayer._regen_delay), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "hero_setup = {}".format(eventPlayer.hero_setup), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
@@ -79,11 +79,11 @@ rule "[utilities/debug.opy]: player debug (Top Right)":
     # hudSubheader(eventPlayer, "getSpeed() = {}".format(eventPlayer.getSpeed()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "_ult_cost = {}".format(eventPlayer._ult_cost), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "_ult_percent_compensated = {}".format(eventPlayer._ult_percent_compensated), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
-    hudSubheader(eventPlayer, "getMaxHealth() = {}".format(eventPlayer.getMaxHealth()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
-    hudSubheader(eventPlayer, "getHealth() = {}".format(eventPlayer.getHealth()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
-    hudSubheader(eventPlayer, "getMaxHealthOfType(NORMAL) = {}".format(eventPlayer.getMaxHealthOfType(Health.NORMAL)), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
-    hudSubheader(eventPlayer, "getMaxHealthOfType(ARMOR) = {}".format(eventPlayer.getMaxHealthOfType(Health.ARMOR)), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
-    hudSubheader(eventPlayer, "getMaxHealthOfType(SHIELDS) = {}".format(eventPlayer.getMaxHealthOfType(Health.SHIELDS)), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    # hudSubheader(eventPlayer, "getMaxHealth() = {}".format(eventPlayer.getMaxHealth()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    # hudSubheader(eventPlayer, "getHealth() = {}".format(eventPlayer.getHealth()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    # hudSubheader(eventPlayer, "getMaxHealthOfType(NORMAL) = {}".format(eventPlayer.getMaxHealthOfType(Health.NORMAL)), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    # hudSubheader(eventPlayer, "getMaxHealthOfType(ARMOR) = {}".format(eventPlayer.getMaxHealthOfType(Health.ARMOR)), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    # hudSubheader(eventPlayer, "getMaxHealthOfType(SHIELDS) = {}".format(eventPlayer.getMaxHealthOfType(Health.SHIELDS)), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "getHealthOfType(NORMAL) = {}".format(eventPlayer.getHealthOfType(Health.NORMAL)), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "getHealthOfType(ARMOR) = {}".format(eventPlayer.getHealthOfType(Health.ARMOR)), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "getHealthOfType(SHIELDS) = {}".format(eventPlayer.getHealthOfType(Health.SHIELDS)), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
@@ -195,7 +195,7 @@ rule "[utilities/debug.opy]: Debug damage instance":
     @Event playerTookDamage
     @Condition DEBUG_MODE
 
-    printLog("attacker={}, victim={}, ability={}, amount={}".format(attacker, victim, eventAbility, eventDamage))
+    printLog("attacker={}, victim={}, ability={}, amount={}, distance={}".format(attacker, victim, eventAbility, eventDamage, distance(attacker.getPosition(), victim.getPosition())))
 
     victim._last_damage_received = eventDamage
     victim._total_damage_received += eventDamage
