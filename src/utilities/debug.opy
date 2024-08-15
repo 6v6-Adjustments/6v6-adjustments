@@ -11,7 +11,7 @@ playervar debug_pvar
 #!define _last_healing_received debug_pvar[3]
 
 #!include "utilities/hero_init.opy"
-
+#!include "heroes/mccree/peacekeeper.opy"
 
 rule "[utilities/debug.opy] Disable Inspector for performance":
     @Event global
