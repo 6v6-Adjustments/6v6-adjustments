@@ -14,7 +14,6 @@
                                "LemonHead#11820" + "\n" + \
                                "\n" + \
                                "Main Build: " + GAMEMODE_CODE + "\n" + \
-                               "Staging Build: " + STAGING_CODE + "\n" + \
                                "\n" + \
                                "OverPy codebase forked from" + "\n" + \
                                "Overwatch 1 Emulator v1.12.2 (KHTG0)" + "\n" + \
