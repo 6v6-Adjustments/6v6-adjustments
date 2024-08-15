@@ -21,8 +21,8 @@ def initVenture():
 
     eventPlayer.setAmmo(0, 6)
     eventPlayer.setMaxAmmo(0, 6)
+    
     eventPlayer.max_health_scaler = (ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS)
-
     eventPlayer.hero_initialized = true
 
 

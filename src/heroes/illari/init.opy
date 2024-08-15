@@ -10,14 +10,14 @@ def initIllari():
     setUltCost(ADJ_ILLARI_ULT_COST)
     removeRegenPassive()
 
-    setBaseDamage(eventPlayer, ADJ_ILLARI_SUNSTRUCK_DAMAGE/OW2_ILLARI_SUNSTRUCK_DAMAGE)
-    setBaseHealing(eventPlayer, ADJ_ILLARI_PYLON_HEALING/OW2_ILLARI_PYLON_HEALING)
+    if not eventPlayer.isDuplicatingAHero():
+        setBaseDamage(eventPlayer, ADJ_ILLARI_SUNSTRUCK_DAMAGE/OW2_ILLARI_SUNSTRUCK_DAMAGE)
+        setBaseHealing(eventPlayer, ADJ_ILLARI_PYLON_HEALING/OW2_ILLARI_PYLON_HEALING)
 
     eventPlayer.setMaxAmmo(0, ADJ_ILLARI_SOLAR_RIFLE_AMMO)
     eventPlayer.setAmmo(0, ADJ_ILLARI_SOLAR_RIFLE_AMMO)
 
     eventPlayer.max_health_scaler = (ADJ_ILLARI_PYLON_HEALTH/OW2_ILLARI_PYLON_HEALTH)
-
     eventPlayer.hero_initialized = true
 
 

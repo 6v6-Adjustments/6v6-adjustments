@@ -14,13 +14,13 @@ def initOrisa():
         0)
     setUltCost(ADJ_ORISA_ULT_COST)
     removeTankPassive()
-    removeSelfHealing()
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
 
     # if not eventPlayer.isDuplicatingAHero():
     #     setBaseDamage(eventPlayer, ADJ_ORISA_JAVELIN_DIRECT_DAMAGE / OW2_ORISA_JAVELIN_DIRECT_DAMAGE)
 
     eventPlayer.balance_change_check = true
-
     eventPlayer.hero_initialized = true
 
 

@@ -7,7 +7,8 @@ def initMercy():
     setCustomHp(ADJ_MERCY_HEALTH, 0, 0)
     setUltCost(ADJ_MERCY_ULT_COST)
 
-    removeSelfHealing()
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
     setBaseHealing(eventPlayer, ADJ_MERCY_STAFF_HEALING/OW2_MERCY_STAFF_HEALING)
 
     eventPlayer.setAmmo(0, ADJ_MERCY_AMMO)

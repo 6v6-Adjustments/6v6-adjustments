@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 # #!include "heroes/mccree/deadeye.opy"
-# #!include "heroes/mccree/peacekeeper.opy"
+#!include "heroes/mccree/peacekeeper.opy"
 # #!include "heroes/mccree/roll.opy"
 
 
@@ -10,7 +10,9 @@ def initMccree():
     
     setCustomHp(ADJ_MCCREE_HEALTH, 0, 0)
     setUltCost(ADJ_MCCREE_ULT_COST)
-    removeSelfHealing()
+    
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
 
     # setBaseDamage(eventPlayer, ADJ_MCCREE_FAN_THE_HAMMER_DAMAGE/OW2_MCCREE_FAN_THE_HAMMER_DAMAGE)
 

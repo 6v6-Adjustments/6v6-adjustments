@@ -14,8 +14,8 @@ def initMauga():
     setUltCost(ADJ_MAUGA_ULT_COST)
 
     removeTankPassive()
-    removeSelfHealing()
-    
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
     setBaseDamage(eventPlayer, ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)
     startHealingModification(eventPlayer, eventPlayer, 100 * OW2_MAUGA_CARDIAC_ALLIED_EFFECTIVENESS, HealingReeval.RECEIVERS_HEALERS_AND_HEALPERCENT) # cardiac overdrive base healing is doubled to account for the half effectiveness on allies
 
@@ -23,7 +23,6 @@ def initMauga():
     eventPlayer.startScalingSize(0.94, true)
 
     eventPlayer.balance_change_check = false
-
     eventPlayer.hero_initialized = true
 
 

@@ -24,7 +24,6 @@ def initTracer():
     eventPlayer.startScalingSize(0.96, true)
 
     eventPlayer.max_health_scaler = (ADJ_TRACER_HEALTH/OW2_TRACER_HEALTH)
-
     eventPlayer.hero_initialized = true
 
 

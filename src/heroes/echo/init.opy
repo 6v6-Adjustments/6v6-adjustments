@@ -19,9 +19,18 @@ def initEcho():
     eventPlayer.hero_initialized = true
 
 
+rule "[echo/init.opy]: Correct Echo Tri-Shot damage":
+    @Event playerDealtDamage
+    @Condition eventPlayer.hero_setup == Hero.ECHO
+    @Condition eventAbility == Button.PRIMARY_FIRE
+
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_ECHO_TRISHOT_DAMAGE / OW2_ECHO_TRISHOT_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+
+
 rule "[echo/init.opy]: Correct Echo other forms of damage":
     @Event playerDealtDamage
     @Hero echo
-    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_2, Button.MELEE]
+    @Condition not eventPlayer.isDuplicatingAHero()
+    @Condition eventAbility in [Button.ABILITY_2, Button.MELEE]
 
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)

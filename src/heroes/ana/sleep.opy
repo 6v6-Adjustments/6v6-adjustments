@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "constants/adj_constants.opy"
+#!include "constants/ow2_constants.opy"
 
 rule "[ana/sleep.opy]: Sleep tanks as long as other heroes":
     @Event playerDealtDamage
