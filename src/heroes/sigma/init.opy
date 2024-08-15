@@ -20,7 +20,6 @@ def initSigma():
         setBaseDamage(eventPlayer, ADJ_SIGMA_ACCRETION_DAMAGE/OW2_SIGMA_ACCRETION_DAMAGE)
 
     eventPlayer.balance_change_check = 0
-
     eventPlayer.hero_initialized = true
 
 

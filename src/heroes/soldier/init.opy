@@ -8,12 +8,13 @@ def initSoldier():
     
     setCustomHp(ADJ_SOLDIER_HEALTH, 0, 0)
     setUltCost(ADJ_SOLDIER_ULT_COST)
-    removeSelfHealing()
+
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
+    setBaseHealing(eventPlayer, ADJ_SOLDIER_BIOTIC_FIELD_HEALING/OW2_SOLDIER_BIOTIC_FIELD_HEALING)
 
     eventPlayer.setAmmo(0, ADJ_SOLDIER_PULSE_RIFLE_AMMO)
     eventPlayer.setMaxAmmo(0, ADJ_SOLDIER_PULSE_RIFLE_AMMO)
-
-    eventPlayer.setHealingDealt(86.4)
 
     eventPlayer.hero_initialized = true
 

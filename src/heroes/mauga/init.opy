@@ -14,15 +14,14 @@ def initMauga():
     setUltCost(ADJ_MAUGA_ULT_COST)
 
     removeTankPassive()
-    removeSelfHealing()
-    
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
     setBaseDamage(eventPlayer, ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)
     setBaseHealing(eventPlayer, ADJ_MAUGA_CARDIAC_LIFESTEAL/OW2_MAUGA_CARDIAC_LIFESTEAL)
 
     eventPlayer.startScalingSize(0.94, true)
 
     eventPlayer.balance_change_check = false
-
     eventPlayer.hero_initialized = true
 
 

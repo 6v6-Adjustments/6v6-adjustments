@@ -6,7 +6,10 @@ def initAshe():
 
     setCustomHp(ADJ_ASHE_HEALTH, 0, 0)
     setUltCost(ADJ_ASHE_ULT_COST)
-    removeSelfHealing()
+    
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
+    
     eventPlayer.max_health_scaler = (ADJ_ASHE_BOB_HEALTH/OW2_ASHE_BOB_HEALTH)
 
     eventPlayer.hero_initialized = true

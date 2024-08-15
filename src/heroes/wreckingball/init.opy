@@ -19,7 +19,6 @@ def initWreckingBall():
     setBaseDamage(eventPlayer, ADJ_WRECKING_BALL_MINEFIELD_DAMAGE/OW2_WRECKING_BALL_MINEFIELD_DAMAGE)
 
     eventPlayer.max_health_scaler = (ADJ_WRECKING_BALL_SHIELD_PER_TARGET/OW2_WRECKING_BALL_SHIELD_PER_TARGET)
-
     eventPlayer.hero_initialized = true
 
 

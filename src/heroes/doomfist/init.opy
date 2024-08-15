@@ -15,9 +15,9 @@ def initDoomfist():
         0)
     setUltCost(ADJ_DOOMFIST_ULT_COST)
     removeTankPassive()
-    removeSelfHealing()
 
     if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
         setBaseDamage(eventPlayer, ADJ_DOOMFIST_SEISMIC_SLAM_DAMAGE/OW2_DOOMFIST_SEISMIC_SLAM_DAMAGE)
 
     eventPlayer.max_health_scaler = (ADJ_DOOMFIST_BEST_DEFENSE / OW2_DOOMFIST_BEST_DEFENSE)

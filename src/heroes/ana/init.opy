@@ -8,9 +8,9 @@ def initAna():
     
     setCustomHp(ADJ_ANA_HEALTH, 0, 0)
     setUltCost(ADJ_ANA_ULT_COST)
-    removeSelfHealing()
 
     if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
         setBaseDamage(eventPlayer, ADJ_ANA_BIOTIC_GRENADE_DAMAGE/OW2_ANA_BIOTIC_GRENADE_DAMAGE)
 
     eventPlayer.setMaxAmmo(0, ADJ_ANA_AMMO_COUNT)
