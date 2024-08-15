@@ -18,15 +18,16 @@ def initJunkrat():
     eventPlayer.addHealthPool(Health.SHIELDS, 1, true, true)
     eventPlayer.removeAllHealthPools()
     #eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
+    heal(eventPlayer, null, 1)
 
     resetStats()
     resetStatuses()
     enableAllAbilities()
 
     setUltCost(ADJ_JUNKRAT_ULT_COST)
-    removeSelfHealing()
-
-    setBaseDamage(eventPlayer, ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE / OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE)
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
+        setBaseDamage(eventPlayer, ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE / OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE)
 
     eventPlayer.hero_initialized = true
 

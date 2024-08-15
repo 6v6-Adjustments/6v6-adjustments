@@ -17,11 +17,10 @@ def initDva():
     #     0)
 
     setUltCost(ADJ_DVA_ULT_COST)
-
     removeTankPassive()
-    removeSelfHealing()
 
     if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
         setBaseDamage(eventPlayer, ADJ_DVA_CANNON_DAMAGE / OW2_DVA_CANNON_DAMAGE)
 
     eventPlayer.self_destruct_charge = 0
