@@ -9,7 +9,7 @@
 #!define expectedCassidyDamage(distance) (eventDamage/eventPlayer._base_damage_scalar)*(ADJCassidyFalloff(distance)/OW2CassidyFalloff(distance))
 
 
-rule "[mccree/peacekeeper.opy]: Increase Peacekeeper damage range":
+rule "[mccree/peacekeeper.opy]: Increase Peacekeeper falloff damage range":
     @Event playerDealtDamage
     @Hero cassidy
     @Condition eventAbility == Button.PRIMARY_FIRE
