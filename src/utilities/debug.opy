@@ -13,6 +13,7 @@ playervar debug_pvar
 #!include "utilities/hero_init.opy"
 #!include "heroes/mccree/peacekeeper.opy"
 
+
 rule "[utilities/debug.opy] Disable Inspector for performance":
     @Event global
     @Condition not DEBUG_MODE
