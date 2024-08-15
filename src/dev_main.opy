@@ -1,16 +1,15 @@
-# Useful constants
-#!include "constants/ow2_constants.opy"
-#!include "constants/adj_constants.opy"
-#!include "utilities/macro_functions.opy"
+rule "Copyright (c) 2024 Overwatch 1 Emulator & 6v6 Adjustments. See github.com/6v6-Adjustments/6v6-adjustments for license to use this code.":
+    @Disabled
+    disableInspector()
 
 # Custom game lobby settings
 #!include "lobby/dev_lobby.opy"
 
 # Useful functions
-#!include "utilities/stat_helper.opy"
-#!include "utilities/custom_hp.opy"
+#!include "utilities/debug.opy"
 #!include "utilities/hero_switch.opy"
 #!include "utilities/anti_crash.opy"
+#!include "utilities/watermark.opy"
 
 # Passive removal logic
 # Remove damage passive
@@ -63,8 +62,3 @@
 #!include "heroes/wreckingball/init.opy"
 #!include "heroes/zarya/init.opy"
 #!include "heroes/zenyatta/init.opy"
-
-# Include debug at the end so any variable can be viewed
-#!include "utilities/debug.opy"
-
-#!include "utilities/watermark.opy"

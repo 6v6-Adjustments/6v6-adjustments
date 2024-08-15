@@ -1,12 +1,39 @@
 #!mainFile "../dev_main.opy"
 
+# Gamemode
+#!define GAMEMODE_VERSION "Dev Build"
+#!define GAMEMODE_NAME "6v6 Adjustments"
+#!define GAMDMODE_DESCRIPTION (GAMEMODE_NAME + " " + GAMEMODE_VERSION + " " + "(" + GAMEMODE_CODE + ")" + "\n" + \
+                               "\n" + \
+                               "Overwatch 2 adjusted for 6v6 gameplay" + "\n" + \
+                               "by Toastie#11770 and ecksdee#11729" + "\n" + \
+                               "\n" + \
+                               "Developers:" + "\n" + \
+                               "ecksdee#11729" + "\n" + \
+                               "Toastie#11770" + "\n" + \
+                               "LemonHead#11820" + "\n" + \
+                               "\n" + \
+                               "Main Build: " + GAMEMODE_CODE + "\n" + \
+                               "Staging Build: " + STAGING_CODE + "\n" + \
+                               "\n" + \
+                               "OverPy codebase forked from" + "\n" + \
+                               "Overwatch 1 Emulator v1.12.2 (KHTG0)" + "\n" + \
+                               "by ecksdee#11729" + "\n" + \
+                               "\n" + \
+                               "Come join the discord server!" + "\n" + \
+                               "We host 6v6 custom lobbies every weekend!" + "\n" + \
+                               "\n" + \
+                               DISCORD_SHORT_LINK + "\n" + \
+                               DISCORD_LONG_LINK + "\n" + \
+                               SOURCE_CODE_LINK)
+#!define GAMEMODE_CODE "7HSKW"
+#!define STAGING_CODE "NSQSSS"
+#!define DISCORD_SHORT_LINK "6v6.info"
+#!define DISCORD_LONG_LINK "https://discord.gg/uzFUQu7G4s"
+#!define SOURCE_CODE_LINK "github.com/6v6-Adjustments/6v6-adjustments"
+
 # Universal
-#!define ADJ_REGEN_TIMER_DEFAULT 5
-#!define ADJ_SUPPORT_PASSIVE_TIMER (ADJ_REGEN_TIMER_DEFAULT/2)
-#!define ADJ_REGEN_HPS_DEFAULT 10
-#!define ADJ_RESPAWN_ASSIST_REDUCTION_DEFAULT 2.5
 #!define ADJ_TANK_KNOCKBACK_REDUCTION 0.10
-#!define ADJ_TANK_ULT_NEGATION_PERCENT_DEFAULT 15
 #!define ADJ_THROWABLES_WAIT_TIME 11
 
 # Ana

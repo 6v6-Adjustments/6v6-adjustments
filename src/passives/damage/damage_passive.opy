@@ -1,5 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "constants/ow2_constants.opy"
+#!include "utilities/macro_functions.opy"
+
 
 rule "[passives/damage/damage_passive.opy]: Remove DPS Passive":
     @Event playerTookDamage

@@ -24,6 +24,8 @@ playervar rgb_vect
 
 #!define infoVisible(player) (SHOW_WATERMARK)
 
+#!include "constants/adj_constants.opy"
+
 
 rule "[utilities/watermark.opy]: Create watermark HUD":
     @Event eachPlayer

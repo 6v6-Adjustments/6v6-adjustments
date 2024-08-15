@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-globalvar ADJ_TANK_ULT_NEGATION_PERCENT = createWorkshopSetting(int[0:OW2_TANK_ULT_NEGATION_PERCENT], 'Passive', 'Tank - Ultimate Charge Negation Percent', ADJ_TANK_ULT_NEGATION_PERCENT_DEFAULT)
+globalvar ADJ_TANK_ULT_NEGATION_PERCENT = createWorkshopSetting(int[0:OW2_TANK_ULT_NEGATION_PERCENT], 'Passive', 'Tank - Ultimate Charge Negation Percent', 15)
 
 # Player variables
 playervar ult_charge_pvar
@@ -13,6 +13,10 @@ playervar ult_charge_pvar
 
 #!define setUltCost(cost)\
     (eventPlayer._ult_cost = cost)
+
+#!include "constants/ow2_constants.opy"
+#!include "constants/adj_constants.opy"
+#!include "utilities/macro_functions.opy"
 
 
 def resetUltCharge():

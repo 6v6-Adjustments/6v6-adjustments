@@ -2,15 +2,16 @@
 
 playervar overhealth_check
 playervar balance_change_check
-playervar max_health_scaler
 
-subroutine resetUltCharge
-subroutine resetSelfHealing
+subroutine resetHero
 subroutine resetStats
+subroutine resetStatuses
 subroutine disableAllAbilities
 subroutine enableAllAbilities
 
-
+#!include "utilities/custom_hp.opy"
+#!include "passives/tank/ult_charge.opy"
+#!include "passives/support/self_heal.opy"
 #!include "utilities/hero_init.opy"
 
 

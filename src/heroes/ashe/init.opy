@@ -1,5 +1,11 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "constants/adj_constants.opy"
+#!include "utilities/custom_hp.opy"
+#!include "passives/tank/ult_charge.opy"
+#!include "passives/support/self_heal.opy"
+#!include "utilities/hero_init.opy"
+
 
 def initAshe():
     @Name "[ashe/init.opy]: initAshe()"
