@@ -437,7 +437,8 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Zarya
 #!define ADJ_ZARYA_BUBBLE_DURATION 2
-#!define ADJ_ZARYA_BARRIER_HEALTH 225
+#!define ADJ_ZARYA_BARRIER_HEALTH 224.9
+# 224.9 bubble hp gains 40 max charge per bubble, at exactly 225 max charge jumps to 45
 #!define ADJ_ZARYA_CANNON_DAMAGE_MAX 160
 #!define ADJ_ZARYA_HEALTH 200
 #!define ADJ_ZARYA_PARTICLE_BARRIER_COOLDOWN_TIME 10
