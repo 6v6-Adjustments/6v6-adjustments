@@ -10,7 +10,7 @@ rule "[orisa/terra_surge.opy]: Reduce Terra Surge damage":
     
     eventPlayer.setDamageDealt(percent(ADJ_ORISA_TERRA_SURGE_MAX_DAMAGE/OW2_ORISA_TERRA_SURGE_MAX_DAMAGE))
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
-    eventPlayer.setDamageDealt(percent(ADJ_ORISA_JAVELIN_DIRECT_DAMAGE / OW2_ORISA_JAVELIN_DIRECT_DAMAGE))
+    eventPlayer.setDamageDealt(100)
 
 
 rule "[orisa/terra_surge.opy]: Increase Terra Surge overhealth":
