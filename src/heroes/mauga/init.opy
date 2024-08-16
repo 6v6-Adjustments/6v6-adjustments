@@ -20,7 +20,7 @@ def initMauga():
     startHealingModification(eventPlayer, eventPlayer, 100 * OW2_MAUGA_CARDIAC_ALLIED_EFFECTIVENESS, HealingReeval.RECEIVERS_HEALERS_AND_HEALPERCENT) # cardiac overdrive base healing is doubled to account for the half effectiveness on allies
 
 
-    eventPlayer.startScalingSize(0.94, true)
+    eventPlayer.startScalingSize(0.91, true)
 
     eventPlayer.balance_change_check = false
     eventPlayer.hero_initialized = true
