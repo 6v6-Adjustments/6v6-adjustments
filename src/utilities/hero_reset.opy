@@ -95,7 +95,7 @@ def resetStats():
     eventPlayer.setKnockbackDealt(100)
     # eventPlayer.setGravity(100)
     # eventPlayer.setJumpVerticalSpeed(100) # might be responsible for jump bug
-    eventPlayer.setMoveSpeed(100)
+    setCurrentSpeed(eventPlayer, 1)
 
     eventPlayer.stopScalingSize()
     eventPlayer.stopScalingBarriers()

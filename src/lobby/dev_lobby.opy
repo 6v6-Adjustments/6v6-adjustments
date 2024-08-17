@@ -48,6 +48,7 @@ settings {
                 "ability1Cooldown%": percent(ADJ_BASTION_RECONFIGURE_COOLDOWN/OW2_BASTION_RECONFIGURE_COOLDOWN)
             },
             "brigitte": {
+                "health%": percent(ADJ_BRIGITTE_BARRIER_HEALTH/OW2_BRIGITTE_BARRIER_HEALTH),
                 "ability2Cooldown%": percent(ADJ_BRIGITTE_REPAIR_PACK_COOLDOWN/OW2_BRIGITTE_REPAIR_PACK_COOLDOWN),
                 "ultGen%": percent(OW2_BRIGITTE_ULT_COST/ADJ_BRIGITTE_ULT_COST)
             },
@@ -84,7 +85,8 @@ settings {
                 "ultGen%": percent(OW2_ILLARI_ULT_COST/ADJ_ILLARI_ULT_COST)
             },
             "junkerQueen": {
-                "ability1Cooldown%": percent(ADJ_JUNKERQUEEN_SHOUT_COOLDOWN_TIME/OW2_JUNKERQUEEN_SHOUT_COOLDOWN_TIME),
+                "ability1Cooldown%": percent(ADJ_JUNKERQUEEN_SHOUT_COOLDOWN/OW2_JUNKERQUEEN_SHOUT_COOLDOWN),
+                "ability2Cooldown%": percent(ADJ_JUNKERQUEEN_CARNAGE_COOLDOWN/OW2_JUNKERQUEEN_CARNAGE_COOLDOWN),
                 "health%": percent(ADJ_JUNKERQUEEN_SHOUT_OVERHEALTH/OW2_JUNKERQUEEN_SHOUT_OVERHEALTH), # for shout overhealth
                 "ultGen%": percent(OW2_JUNKERQUEEN_ULT_COST/ADJ_JUNKERQUEEN_ULT_COST)
             },
@@ -115,12 +117,15 @@ settings {
                 "ability1Cooldown%": percent(ADJ_MAUGA_OVERRUN_COOLDOWN/OW2_MAUGA_OVERRUN_COOLDOWN),
                 "ability2Cooldown%": percent((ADJ_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)/(OW2_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)),
                 # for berserker overhealth scales quadratically for whatever reason; someone pls explain
+                "ability2Healing%": percent(ADJ_MAUGA_CARDIAC_LIFESTEAL/OW2_MAUGA_CARDIAC_LIFESTEAL/OW2_MAUGA_CARDIAC_ALLIED_EFFECTIVENESS),
+                # healing is doubled to work at 100% for allies
                 "health%": percent(Math.sqrt(OW2_MAUGA_BERSERKER_OVERHEALTH*ADJ_MAUGA_BERSERKER_OVERHEALTH)/OW2_MAUGA_BERSERKER_OVERHEALTH),
                 "ultGen%": percent(OW2_MAUGA_ULT_COST/ADJ_MAUGA_ULT_COST)
             },
             "mei": {
                 "health%": percent(ADJ_MEI_ICEWALL_HP/OW2_MEI_ICEWALL_HP),
-                "ultGen%": percent(OW2_MEI_ULT_COST/ADJ_MEI_ULT_COST)
+                "ultGen%": percent(OW2_MEI_ULT_COST/ADJ_MEI_ULT_COST),
+                "primaryFireFreezeRate%": percent(ADJ_MEI_FREEZE_RATE/OW2_MEI_FREEZE_RATE)
             },
             "mercy": {
                 "ability1Cooldown%": percent(ADJ_MERCY_GA_COOLDOWN/OW2_MERCY_GA_COOLDOWN),
