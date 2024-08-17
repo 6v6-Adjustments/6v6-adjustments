@@ -2,7 +2,6 @@
 
 playervar overhealth_check
 playervar balance_change_check
-playervar movement_helper
 
 subroutine resetHero
 subroutine resetStats
@@ -96,13 +95,12 @@ def resetStats():
     eventPlayer.setKnockbackDealt(100)
     # eventPlayer.setGravity(100)
     # eventPlayer.setJumpVerticalSpeed(100) # might be responsible for jump bug
-    eventPlayer.setMoveSpeed(100)
+    setCurrentSpeed(eventPlayer, 1)
 
     eventPlayer.stopScalingSize()
     eventPlayer.stopScalingBarriers()
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE) # prevent wholehog from keeping primary fire held
     eventPlayer.max_health_scaler = 1
-    eventPlayer.movement_helper = 100
 
 
 def resetStatuses():

@@ -31,7 +31,7 @@ rule "[kiriko/init.opy]: Correct Kiriko melee damage":
 rule "[kiriko/init.opy]: Correct Ofuda healing":
     @Event playerDealtHealing
     @Hero kiriko
-    @Condition eventHealing >= 10
-    @Condition eventPlayer.suzu_flying == false
+    # @Condition eventHealing >= 10
+    @Condition not eventAbility == Button.ABILITY_2
 
     heal(healee, healer, eventHealing * (ADJ_KIRIKO_OFUDA_HEALING/OW2_KIRIKO_OFUDA_HEALING) - eventHealing)

@@ -245,7 +245,6 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_MAUGA_ULT_COST 2400
 
 # Mei
-#!define ADJ_MEI_AMMO_COUNT 120
 #!define ADJ_MEI_CRYO_HEALING 50
 #!define ADJ_MEI_FREEZE_RATE 130
 #!define ADJ_MEI_HEALTH 250
@@ -314,7 +313,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Reinhardt
 #!define ADJ_REINHARDT_ARMOR 225
-#!define ADJ_REINHARDT_ARMOR_DUPLICATE 124.99
+#!define ADJ_REINHARDT_ARMOR_DUPLICATE 125
 #!define ADJ_REINHARDT_BARRIER_HEALTH 1600
 #!define ADJ_REINHARDT_BARRIER_REGEN 140
 #!define ADJ_REINHARDT_CHARGE_COOLDOWN_TIME 10

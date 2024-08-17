@@ -28,4 +28,3 @@ rule "[genji/init.opy]: Reduce Deflect duration":
 
     wait(ADJ_GENJI_DEFLECT_DURATION)
     eventPlayer.forceButtonPress(Button.ABILITY_2)
-    

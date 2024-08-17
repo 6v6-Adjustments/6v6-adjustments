@@ -8,7 +8,6 @@ rule "[kiriko/protection_suzu.opy]: Track Protection Suzu healing":
     @Hero kiriko
     @Condition eventAbility == Button.ABILITY_2
     
-    wait(OW2_KIRIKO_SUZU_DURATION)
     eventPlayer.suzu_flying = false
 
 
