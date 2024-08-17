@@ -48,6 +48,7 @@ settings {
                 "ability1Cooldown%": percent(ADJ_BASTION_RECONFIGURE_COOLDOWN/OW2_BASTION_RECONFIGURE_COOLDOWN)
             },
             "brigitte": {
+                "health%": percent(ADJ_BRIGITTE_BARRIER_HEALTH/OW2_BRIGITTE_BARRIER_HEALTH),
                 "ability2Cooldown%": percent(ADJ_BRIGITTE_REPAIR_PACK_COOLDOWN/OW2_BRIGITTE_REPAIR_PACK_COOLDOWN),
                 "ultGen%": percent(OW2_BRIGITTE_ULT_COST/ADJ_BRIGITTE_ULT_COST)
             },
@@ -123,7 +124,8 @@ settings {
             },
             "mei": {
                 "health%": percent(ADJ_MEI_ICEWALL_HP/OW2_MEI_ICEWALL_HP),
-                "ultGen%": percent(OW2_MEI_ULT_COST/ADJ_MEI_ULT_COST)
+                "ultGen%": percent(OW2_MEI_ULT_COST/ADJ_MEI_ULT_COST),
+                "primaryFireFreezeRate%": percent(ADJ_MEI_FREEZE_RATE/OW2_MEI_FREEZE_RATE)
             },
             "mercy": {
                 "ability1Cooldown%": percent(ADJ_MERCY_GA_COOLDOWN/OW2_MERCY_GA_COOLDOWN),
