@@ -13,7 +13,7 @@ def initRoadhog():
         0)
     setUltCost(ADJ_ROADHOG_ULT_COST)
     removeTankPassive()
-    removeRegenPassive()
+    removeOW2RegenPassive()
     
     if not eventPlayer.isDuplicatingAHero():
         setBaseDamage(eventPlayer, ADJ_ROADHOG_SCRAP_GUN_DAMAGE/OW2_ROADHOG_SCRAP_GUN_DAMAGE)

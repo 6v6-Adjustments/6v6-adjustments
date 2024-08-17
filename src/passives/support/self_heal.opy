@@ -6,18 +6,18 @@ globalvar ADJ_REGEN_TIMER = createWorkshopSetting(int[1:30], 'Passive', 'Global 
 globalvar enable_support_passive = createWorkshopSetting(bool, 'Passive', 'Support - Quicker Regeneration', false, 0)
 
 playervar self_heal_pvar
-#!defineMember _self_healing_source self_heal_pvar[0]
-#!defineMember _self_healing_percent self_heal_pvar[1]
-#!defineMember _self_healing_id self_heal_pvar[2]
-#!defineMember _regen_passive_active self_heal_pvar[3]
-#!defineMember _last_time_damage_taken self_heal_pvar[4]
-#!defineMember _suppress_regen_passive self_heal_pvar[5]
-#!defineMember _support_passive_active self_heal_pvar[6]
-#!defineMember _regen_passive_id self_heal_pvar[7]
-#!defineMember _passive_regen_delay self_heal_pvar[8]
-#!defineMember _passive_regen_hps self_heal_pvar[9]
-#!defineMember _current_regen_hps self_heal_pvar[10]
-#!defineMember _new_regen_hps self_heal_pvar[11]
+playervar _self_healing_source
+playervar _self_healing_percent
+playervar _self_healing_id
+playervar _regen_passive_active
+playervar _last_time_damage_taken
+playervar _suppress_ow2_regen_passive
+playervar _support_passive_active
+playervar _regen_passive_id
+playervar _passive_regen_delay
+playervar _passive_regen_hps
+playervar _current_regen_hps
+playervar _new_regen_hps
 
 subroutine applyRegeneration
 subroutine startPassiveRegeneration
@@ -34,12 +34,14 @@ def resetSelfHealing():
     eventPlayer._self_healing_source = []
     eventPlayer._self_healing_percent = 0
     eventPlayer._regen_passive_active = true
-    eventPlayer._suppress_regen_passive = false
+    eventPlayer._suppress_ow2_regen_passive = false
     eventPlayer._support_passive_active = true
 
 
-#!define removeRegenPassive()\
-    eventPlayer._suppress_regen_passive = true
+def removeOW2RegenPassive():
+    @Name "[passives/support/self_heal.opy]: removeOW2RegenPassive()"
+
+    eventPlayer._suppress_ow2_regen_passive = true
 
 
 def removeSelfHealing():
@@ -52,9 +54,11 @@ def removeSelfHealing():
         eventPlayer._self_healing_id = getLastHealingModification()
 
 
-#!define evalSelfHealingPercent()\
-    eventPlayer._self_healing_percent = 100 if len(eventPlayer._self_healing_source) > 0 else 0\
-    eventPlayer._suppress_regen_passive = true if eventPlayer._self_healing_percent > 0 else false
+def evalSelfHealingPercent():
+    @Name "[passives/support/self_heal.opy]: evalSelfHealingPercent()"
+
+    eventPlayer._self_healing_percent = 100 if len(eventPlayer._self_healing_source) > 0 else 0
+    eventPlayer._suppress_ow2_regen_passive = true if eventPlayer._self_healing_percent > 0 else false
 
 
 #!define pushSelfHealing(button) \
@@ -84,9 +88,9 @@ rule "[passives/support/self_heal.opy]: Detect healing passive":
 
 
 # Deal damage to suppress regen passive except when regenerating shield hp
-rule "[passives/support/self_heal.opy]: Remove Passive self healing":
+rule "[passives/support/self_heal.opy]: Remove OW2 passive self healing":
     @Event eachPlayer
-    @Condition eventPlayer._suppress_regen_passive
+    @Condition eventPlayer._suppress_ow2_regen_passive
     @Condition eventPlayer._regen_passive_active or eventPlayer._support_passive_active
     @Condition eventPlayer.getHealthOfType(Health.SHIELDS) >= eventPlayer.getMaxHealthOfType(Health.SHIELDS)
     @Condition eventPlayer.getHealth() < eventPlayer.getMaxHealth()
@@ -135,7 +139,7 @@ def startPassiveRegeneration():
 def applyRegeneration():
     @Name "[passives/support/self_heal.opy]: applyRegeneration()"
 
-    # do nothing if regen_hps didn't change
+    # do nothing if regen hps didn't change
     if eventPlayer._new_regen_hps == eventPlayer._current_regen_hps: return
 
     # kill regen passive
