@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+playervar valk_regen_id
+
 
 def initMercy():
     @Name "[mercy/init.opy]: initMercy()"
@@ -23,5 +25,12 @@ rule "[mercy/init.opy]: Reduce Valkyrie healing and force self-healing":
     @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setHealingDealt(100)
+    eventPlayer.startHoT(null, Math.INFINITY, ADJ_MERCY_REGEN_HPS)
+    eventPlayer.valk_regen_id = getLastHoT()
+    damage(eventPlayer, null, MIN_DAMAGE)
+
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     eventPlayer.setHealingDealt(percent(eventPlayer._base_healing_scalar))
+    stopHoT(eventPlayer.valk_regen_id)
+    eventPlayer.valk_regen_id = null
+    

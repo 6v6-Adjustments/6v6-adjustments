@@ -104,7 +104,7 @@ rule "[passives/support/self_heal.opy]: Recreate regeneration passive":
     eventPlayer._regen_passive_id = null
 
     # logic for calculating regen parameters
-    if eventPlayer.getCurrentHero() == Hero.MERCY: # mercy passive
+    if eventPlayer.getCurrentHero() == Hero.MERCY and not eventPlayer.isUsingUltimate(): # mercy passive
         eventPlayer._regen_delay = ADJ_MERCY_PASSIVE_TIMER
         eventPlayer._regen_hps = ADJ_MERCY_REGEN_HPS
     elif enable_support_passive and (eventPlayer.getCurrentHero() in getSupportHeroes()): # support passive
