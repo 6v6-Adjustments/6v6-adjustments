@@ -117,7 +117,7 @@ settings {
                 "ability1Cooldown%": percent(ADJ_MAUGA_OVERRUN_COOLDOWN/OW2_MAUGA_OVERRUN_COOLDOWN),
                 "ability2Cooldown%": percent((ADJ_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)/(OW2_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)),
                 # for berserker overhealth scales quadratically for whatever reason; someone pls explain
-                "ability2Healing%": percent(ADJ_MAUGA_CARDIAC_LIFESTEAL/OW2_MAUGA_CARDIAC_LIFESTEAL/OW2_MAUGA_CARDIAC_ALLIED_EFFECTIVENESS),
+                "ability2Healing%": percent(ADJ_MAUGA_CARDIAC_ALLIED_LIFESTEAL/OW2_MAUGA_CARDIAC_LIFESTEAL/OW2_MAUGA_CARDIAC_ALLIED_EFFECTIVENESS),
                 # healing is doubled to work at 100% for allies
                 "health%": percent(Math.sqrt(OW2_MAUGA_BERSERKER_OVERHEALTH*ADJ_MAUGA_BERSERKER_OVERHEALTH)/OW2_MAUGA_BERSERKER_OVERHEALTH),
                 "ultGen%": percent(OW2_MAUGA_ULT_COST/ADJ_MAUGA_ULT_COST)

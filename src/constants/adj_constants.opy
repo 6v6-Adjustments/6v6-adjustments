@@ -138,7 +138,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_GENJI_ULT_COST 1750
 
 # Hanzo
-#!define ADJ_HANZO_ARROW_DAMAGE 125
+#!define ADJ_HANZO_ARROW_DAMAGE 120
 #!define ADJ_HANZO_HEALTH 200
 #!define ADJ_HANZO_DAMAGE_FALLOFF_END_DISTANCE 40
 #!define ADJ_HANZO_DAMAGE_FALLOFF_START_DISTANCE 27.5
@@ -201,7 +201,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN 5
 #!define ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL 35
 #!define ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL_DURATION 0.25
-#!define ADJ_KIRIKO_ULT_COST 2600
+#!define ADJ_KIRIKO_ULT_COST 2400
 
 # Lifeweaver
 #!define ADJ_LIFEWEAVER_HEALTH 100
@@ -234,9 +234,10 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # burn rate needs to be set slightly lower than target variable due to a rounding error
 #!define ADJ_MAUGA_BURN_DURATION 3.5
 #!define ADJ_MAUGA_CAGE_DURATION 7
+#!define ADJ_MAUGA_CARDIAC_ALLIED_LIFESTEAL 50
 #!define ADJ_MAUGA_CARDIAC_COOLDOWN 12
 #!define ADJ_MAUGA_CARDIAC_DAMAGE_REDUCTION 0.4
-#!define ADJ_MAUGA_CARDIAC_LIFESTEAL 0.75
+#!define ADJ_MAUGA_CARDIAC_LIFESTEAL 75
 #!define ADJ_MAUGA_CHAINGUN_DAMAGE 3.45
 #!define ADJ_MAUGA_HEALTH 300
 #!define ADJ_MAUGA_HEALTH_DUPLICATE 250

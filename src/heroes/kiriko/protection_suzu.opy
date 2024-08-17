@@ -21,5 +21,5 @@ rule "[kiriko/protection_suzu.opy]: Allow self healing during Protection Suzu":
     eventPlayer.suzu_flying = true
     pushSelfHealing(Button.ABILITY_2)
     waitUntil(not eventPlayer.suzu_flying, ADJ_THROWABLES_WAIT_TIME)
-    wait(0.65)
+    wait(OW2_KIRIKO_SUZU_DURATION)
     popSelfHealing(Button.ABILITY_2)

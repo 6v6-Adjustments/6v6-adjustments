@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/hanzo/stormbow.opy"
+# !include "heroes/hanzo/stormbow.opy"
 
 
 def initHanzo():
@@ -11,7 +11,7 @@ def initHanzo():
 
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
-        setBaseDamage(eventPlayer, ADJ_HANZO_MAX_DISTANCE_DAMAGE/OW2_HANZO_ARROW_DAMAGE)
+        setBaseDamage(eventPlayer, ADJ_HANZO_STORM_DAMAGE/OW2_HANZO_STORM_DAMAGE)
 
     eventPlayer.hero_initialized = true
 
@@ -19,6 +19,6 @@ def initHanzo():
 rule "[hanzo/init.opy]: Correct Hanzo other forms of damage":
     @Event playerDealtDamage
     @Hero hanzo
-    @Condition eventAbility in [Button.MELEE, Button.ULTIMATE]
+    @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ABILITY_1, Button.ULTIMATE]
 
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
