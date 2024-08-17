@@ -6,7 +6,8 @@ def initPharah():
     
     setCustomHp(ADJ_PHARAH_HEALTH, 0, 0)
     setUltCost(ADJ_PHARAH_ULT_COST)
-    removeSelfHealing()
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
 
     eventPlayer.hero_initialized = true
 

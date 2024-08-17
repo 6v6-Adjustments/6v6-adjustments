@@ -11,10 +11,12 @@ rule "[kiriko/swift_step.opy]: Force swift step cooldown after spawning":
 
 rule "[kiriko/swift_step.opy]: Heal when using Swift Step":
     @Event eachPlayer
-    @Hero kiriko
-    @Condition eventPlayer.isUsingAbility1() == true
+    @Condition eventPlayer.hero_setup == Hero.KIRIKO
+    @Condition eventPlayer.isUsingAbility1()
+    @Condition not eventPlayer.suzu_flying
     
-    eventPlayer.startHoT(eventPlayer, ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL_DURATION, ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL/ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL_DURATION)
+    wait(0.1) # grace period to allow SS to cleanse anti-heal effects
+    eventPlayer.startHoT(null , ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL_DURATION, ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL/ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL_DURATION)
 
 
 # rule "[kiriko/swift_step.opy]: Unlock Swift Step while in LoS":

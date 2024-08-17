@@ -1,8 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
 globalvar enable_regeneration = createWorkshopSetting(bool, 'Passive', 'Global - Regeneration', true, 0)
-globalvar ADJ_REGEN_HPS = createWorkshopSetting(int[1:100], 'Passive', 'Global - Regeneration Healing per Second', ADJ_REGEN_HPS_DEFAULT)
-globalvar ADJ_REGEN_TIMER = createWorkshopSetting(int[1:30], 'Passive', 'Global - Regeneration Activation Time', ADJ_REGEN_TIMER_DEFAULT)
+globalvar ADJ_REGEN_HPS = createWorkshopSetting(int[1:100], 'Passive', 'Global - Regeneration Healing per Second', 10)
+globalvar ADJ_REGEN_TIMER = createWorkshopSetting(int[1:30], 'Passive', 'Global - Regeneration Activation Time', 5)
 globalvar enable_support_passive = createWorkshopSetting(bool, 'Passive', 'Support - Quicker Regeneration', false, 0)
 
 playervar self_heal_pvar
@@ -16,6 +16,10 @@ playervar self_heal_pvar
 #!defineMember _regen_passive_id self_heal_pvar[7]
 #!defineMember _regen_delay self_heal_pvar[8]
 #!defineMember _regen_hps self_heal_pvar[9]
+
+#!include "constants/adj_constants.opy"
+#!include "constants/ow2_constants.opy"
+
 
 def resetSelfHealing():
     @Name "[passives/support/self_heal.opy]: resetSelfHealing()"
@@ -100,11 +104,11 @@ rule "[passives/support/self_heal.opy]: Recreate regeneration passive":
     eventPlayer._regen_passive_id = null
 
     # logic for calculating regen parameters
-    if eventPlayer.getCurrentHero() == Hero.MERCY: # mercy passive
+    if eventPlayer.getCurrentHero() == Hero.MERCY and not eventPlayer.isUsingUltimate(): # mercy passive
         eventPlayer._regen_delay = ADJ_MERCY_PASSIVE_TIMER
         eventPlayer._regen_hps = ADJ_MERCY_REGEN_HPS
     elif enable_support_passive and (eventPlayer.getCurrentHero() in getSupportHeroes()): # support passive
-        eventPlayer._regen_delay = ADJ_SUPPORT_PASSIVE_TIMER
+        eventPlayer._regen_delay = ADJ_REGEN_TIMER/2
         eventPlayer._regen_hps = ADJ_REGEN_HPS
     else: # everyone else
         eventPlayer._regen_delay = ADJ_REGEN_TIMER

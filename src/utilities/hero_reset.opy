@@ -2,15 +2,16 @@
 
 playervar overhealth_check
 playervar balance_change_check
-playervar max_health_scaler
 
-subroutine resetUltCharge
-subroutine resetSelfHealing
+subroutine resetHero
 subroutine resetStats
+subroutine resetStatuses
 subroutine disableAllAbilities
 subroutine enableAllAbilities
 
-
+#!include "utilities/custom_hp.opy"
+#!include "passives/tank/ult_charge.opy"
+#!include "passives/support/self_heal.opy"
 #!include "utilities/hero_init.opy"
 
 
@@ -37,10 +38,10 @@ def enableAllAbilities():
     eventPlayer.allowButton(Button.ULTIMATE)
 
     eventPlayer.allowButton(Button.MELEE)
-    # eventPlayer.allowButton(Button.JUMP)
-    # eventPlayer.allowButton(Button.CROUCH)
-    # eventPlayer.allowButton(Button.RELOAD)
-    # eventPlayer.allowButton(Button.INTERACT)
+    eventPlayer.allowButton(Button.JUMP)
+    eventPlayer.allowButton(Button.CROUCH)
+    eventPlayer.allowButton(Button.RELOAD)
+    eventPlayer.allowButton(Button.INTERACT)
 
     eventPlayer.setPrimaryFireEnabled(true)
     eventPlayer.setSecondaryFireEnabled(true)
@@ -49,9 +50,9 @@ def enableAllAbilities():
     eventPlayer.setUltEnabled(true)
 
     eventPlayer.setMeleeEnabled(true)
-    # eventPlayer.setJumpEnabled(true)
-    # eventPlayer.setCrouchEnabled(true)
-    # eventPlayer.setReloadEnabled(true)
+    eventPlayer.setJumpEnabled(true)
+    eventPlayer.setCrouchEnabled(true)
+    eventPlayer.setReloadEnabled(true)
 
 
 def disableAllAbilities():
@@ -64,10 +65,10 @@ def disableAllAbilities():
     eventPlayer.disallowButton(Button.ULTIMATE)
 
     eventPlayer.disallowButton(Button.MELEE)
-    # eventPlayer.disallowButton(Button.JUMP)
-    # eventPlayer.disallowButton(Button.CROUCH)
-    # eventPlayer.disallowButton(Button.RELOAD)
-    # eventPlayer.disallowButton(Button.INTERACT)
+    eventPlayer.disallowButton(Button.JUMP)
+    eventPlayer.disallowButton(Button.CROUCH)
+    eventPlayer.disallowButton(Button.RELOAD)
+    eventPlayer.disallowButton(Button.INTERACT)
 
     eventPlayer.setPrimaryFireEnabled(false)
     eventPlayer.setSecondaryFireEnabled(false)
@@ -76,9 +77,9 @@ def disableAllAbilities():
     eventPlayer.setUltEnabled(false)
 
     eventPlayer.setMeleeEnabled(false)
-    # eventPlayer.setJumpEnabled(false)
-    # eventPlayer.setCrouchEnabled(false)
-    # eventPlayer.setReloadEnabled(false)
+    eventPlayer.setJumpEnabled(false)
+    eventPlayer.setCrouchEnabled(false)
+    eventPlayer.setReloadEnabled(false)
 
 
 def resetStats():
@@ -87,18 +88,21 @@ def resetStats():
     setBaseDamage(eventPlayer, 1)
     eventPlayer.setDamageReceived(100)
     eventPlayer.setProjectileSpeed(100)
-    # eventPlayer.setProjectileGravity(100)
+    eventPlayer.setProjectileGravity(100)
     setBaseHealing(eventPlayer, 1)
     eventPlayer.setHealingReceived(100)
     eventPlayer.setKnockbackReceived(100)
     eventPlayer.setKnockbackDealt(100)
     # eventPlayer.setGravity(100)
-    # eventPlayer.setJumpVerticalSpeed(100)
-    eventPlayer.setMoveSpeed(100)
+    # eventPlayer.setJumpVerticalSpeed(100) # might be responsible for jump bug
+    setCurrentSpeed(eventPlayer, 1)
 
     eventPlayer.stopScalingSize()
-    # eventPlayer.stopScalingBarriers()
+    eventPlayer.stopScalingBarriers()
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE) # prevent wholehog from keeping primary fire held
     eventPlayer.max_health_scaler = 1
+    eventPlayer.stopAllDoT()
+    eventPlayer.stopAllHoT()
 
 
 def resetStatuses():

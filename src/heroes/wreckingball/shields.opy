@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+playervar adaptive_overhealth_id
+
 
 rule "[wreckingball/shields.opy]: Remove Adaptive Shields overhealth transfer":
     @Event eachPlayer
@@ -11,3 +13,15 @@ rule "[wreckingball/shields.opy]: Remove Adaptive Shields overhealth transfer":
     waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)
     enableAllAbilities()
     eventPlayer.allowButton(Button.ABILITY_2)
+
+
+rule "[wreckingball/shields.opy]: Increase Adaptive Shield base overhealth gain":
+    @Event eachPlayer
+    @Hero hammond
+    @Condition eventPlayer.isUsingAbility2()
+
+    eventPlayer.addHealthPool(Health.NORMAL, OW2_WRECKING_BALL_SHIELD_PER_TARGET - ADJ_WRECKING_BALL_SHIELD_PER_TARGET, false, true)
+    eventPlayer.adaptive_overhealth_id = getLastCreatedHealthPool()
+    waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)
+    removeHealthPool(eventPlayer.adaptive_overhealth_id)
+    eventPlayer.adaptive_overhealth_id = null

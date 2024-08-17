@@ -8,7 +8,7 @@ playervar primal_pvar
 
 rule "[winston/primal.opy]: Remove bonus Primal Rage health":
     @Event eachPlayer
-    @Hero winston
+    @Condition eventPlayer.hero_setup == Hero.WINSTON
     @Condition eventPlayer.isUsingUltimate()
 
     removeHealthPool(eventPlayer._primal_hp_id)
@@ -20,7 +20,7 @@ rule "[winston/primal.opy]: Remove bonus Primal Rage health":
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     eventPlayer.addHealthPool(
         Health.NORMAL, 
-        (OW2_WINSTON_PRIMAL_HEALTH_BONUS*(ADJ_WINSTON_BARRIER_HEALTH/OW2_WINSTON_BARRIER_HEALTH) - ADJ_WINSTON_PRIMAL_HEALTH_BONUS), 
+        ADJ_WINSTON_PRIMAL_HP_DELTA, 
         true, 
         true)
     eventPlayer._primal_hp_id = getLastCreatedHealthPool()

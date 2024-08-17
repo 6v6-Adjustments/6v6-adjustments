@@ -8,7 +8,6 @@ playervar hero_switch_pvar
 
 #!define switchedHero(player) player._hero_switched
 
-
 #!include "utilities/hero_reset.opy"
 #!include "utilities/hero_init.opy"
 

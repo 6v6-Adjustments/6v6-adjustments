@@ -1,40 +1,8 @@
 #!mainFile "../dev_main.opy"
 
-#!define GAMEMODE_VERSION "Dev Build"
-#!define GAMEMODE_NAME "6v6 Adjustments"
-#!define GAMDMODE_DESCRIPTION (GAMEMODE_NAME + " " + GAMEMODE_VERSION + " " + "(" + GAMEMODE_CODE + ")" + "\n" + \
-                               "\n" + \
-                               "Overwatch 2 adjusted for 6v6 gameplay" + "\n" + \
-                               "by Toastie#11770 and ecksdee#11729" + "\n" + \
-                               "\n" + \
-                               "Developers:" + "\n" + \
-                               "ecksdee#11729" + "\n" + \
-                               "Toastie#11770" + "\n" + \
-                               "LemonHead#11820" + "\n" + \
-                               "\n" + \
-                               "Main Build: " + GAMEMODE_CODE + "\n" + \
-                               "Staging Build: " + STAGING_CODE + "\n" + \
-                               "\n" + \
-                               "OverPy codebase forked from" + "\n" + \
-                               "Overwatch 1 Emulator v1.12.2 (KHTG0)" + "\n" + \
-                               "by ecksdee#11729" + "\n" + \
-                               "\n" + \
-                               "Come join the discord server!" + "\n" + \
-                               "We host 6v6 custom lobbies every weekend!" + "\n" + \
-                               "\n" + \
-                               DISCORD_SHORT_LINK + "\n" + \
-                               DISCORD_LONG_LINK + "\n" + \
-                               SOURCE_CODE_LINK)
-#!define GAMEMODE_CODE "7HSKW"
-#!define STAGING_CODE "NSQSSS"
-#!define DISCORD_SHORT_LINK "6v6.info"
-#!define DISCORD_LONG_LINK "https://discord.gg/uzFUQu7G4s"
-#!define SOURCE_CODE_LINK "github.com/6v6-Adjustments/6v6-adjustments"
-
-
-rule "Copyright (c) 2024 Overwatch 1 Emulator & 6v6 Adjustments. See github.com/6v6-Adjustments/6v6-adjustments for license to use this code.":
-    @Disabled
-    disableInspector()
+#!include "constants/adj_constants.opy"
+#!include "constants/ow2_constants.opy"
+#!include "utilities/macro_functions.opy"
 
 
 settings {
@@ -80,6 +48,7 @@ settings {
                 "ability1Cooldown%": percent(ADJ_BASTION_RECONFIGURE_COOLDOWN/OW2_BASTION_RECONFIGURE_COOLDOWN)
             },
             "brigitte": {
+                "health%": percent(ADJ_BRIGITTE_BARRIER_HEALTH/OW2_BRIGITTE_BARRIER_HEALTH),
                 "ability2Cooldown%": percent(ADJ_BRIGITTE_REPAIR_PACK_COOLDOWN/OW2_BRIGITTE_REPAIR_PACK_COOLDOWN),
                 "ultGen%": percent(OW2_BRIGITTE_ULT_COST/ADJ_BRIGITTE_ULT_COST)
             },
@@ -116,7 +85,8 @@ settings {
                 "ultGen%": percent(OW2_ILLARI_ULT_COST/ADJ_ILLARI_ULT_COST)
             },
             "junkerQueen": {
-                "ability1Cooldown%": percent(ADJ_JUNKERQUEEN_SHOUT_COOLDOWN_TIME/OW2_JUNKERQUEEN_SHOUT_COOLDOWN_TIME),
+                "ability1Cooldown%": percent(ADJ_JUNKERQUEEN_SHOUT_COOLDOWN/OW2_JUNKERQUEEN_SHOUT_COOLDOWN),
+                "ability2Cooldown%": percent(ADJ_JUNKERQUEEN_CARNAGE_COOLDOWN/OW2_JUNKERQUEEN_CARNAGE_COOLDOWN),
                 "health%": percent(ADJ_JUNKERQUEEN_SHOUT_OVERHEALTH/OW2_JUNKERQUEEN_SHOUT_OVERHEALTH), # for shout overhealth
                 "ultGen%": percent(OW2_JUNKERQUEEN_ULT_COST/ADJ_JUNKERQUEEN_ULT_COST)
             },
@@ -147,12 +117,15 @@ settings {
                 "ability1Cooldown%": percent(ADJ_MAUGA_OVERRUN_COOLDOWN/OW2_MAUGA_OVERRUN_COOLDOWN),
                 "ability2Cooldown%": percent((ADJ_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)/(OW2_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)),
                 # for berserker overhealth scales quadratically for whatever reason; someone pls explain
+                "ability2Healing%": percent(ADJ_MAUGA_CARDIAC_LIFESTEAL/OW2_MAUGA_CARDIAC_LIFESTEAL/OW2_MAUGA_CARDIAC_ALLIED_EFFECTIVENESS),
+                # healing is doubled to work at 100% for allies
                 "health%": percent(Math.sqrt(OW2_MAUGA_BERSERKER_OVERHEALTH*ADJ_MAUGA_BERSERKER_OVERHEALTH)/OW2_MAUGA_BERSERKER_OVERHEALTH),
                 "ultGen%": percent(OW2_MAUGA_ULT_COST/ADJ_MAUGA_ULT_COST)
             },
             "mei": {
                 "health%": percent(ADJ_MEI_ICEWALL_HP/OW2_MEI_ICEWALL_HP),
-                "ultGen%": percent(OW2_MEI_ULT_COST/ADJ_MEI_ULT_COST)
+                "ultGen%": percent(OW2_MEI_ULT_COST/ADJ_MEI_ULT_COST),
+                "primaryFireFreezeRate%": percent(ADJ_MEI_FREEZE_RATE/OW2_MEI_FREEZE_RATE)
             },
             "mercy": {
                 "ability1Cooldown%": percent(ADJ_MERCY_GA_COOLDOWN/OW2_MERCY_GA_COOLDOWN),

@@ -6,7 +6,9 @@ def initGenji():
     
     setCustomHp(ADJ_GENJI_HEALTH, 0, 0)
     setUltCost(ADJ_GENJI_ULT_COST)
-    removeSelfHealing()
+    
+    if not eventPlayer.isDuplicatingAHero():
+        removeSelfHealing()
 
     eventPlayer.hero_initialized = true
 

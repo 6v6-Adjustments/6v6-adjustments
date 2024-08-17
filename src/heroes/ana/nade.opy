@@ -2,6 +2,10 @@
 
 playervar biotic_nade_flying
 
+#!include "constants/adj_constants.opy"
+#!include "constants/ow2_constants.opy"
+#!include "passives/support/self_heal.opy"
+
 
 rule "[ana/nade.opy]: Increase Biotic Grenade healing":
     @Event playerDealtHealing
