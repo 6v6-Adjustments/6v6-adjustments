@@ -10,8 +10,7 @@ playervar debug_pvar
 #!define _total_healing_received debug_pvar[2]
 #!define _last_healing_received debug_pvar[3]
 
-#!include "utilities/hero_init.opy"
-#!include "heroes/mccree/peacekeeper.opy"
+#!include "passives/support/self_heal.opy"
 
 
 rule "[utilities/debug.opy] Disable Inspector for performance":
@@ -39,10 +38,13 @@ rule "[utilities/debug.opy]: player debug (Top Right)":
     @Condition DEBUG_MODE == true
 
     hudHeader(eventPlayer, "Event Player", HudPosition.RIGHT, 0, Color.WHITE, HudReeval.STRING)
-    hudSubheader(eventPlayer, "peacekeeper_distance = {}".format(eventPlayer.peacekeeper_distance), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    hudSubheader(eventPlayer, "_regen_passive_id = {}".format(eventPlayer._regen_passive_id), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    hudSubheader(eventPlayer, "_passive_regen_delay = {}".format(eventPlayer._passive_regen_delay), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    hudSubheader(eventPlayer, "_current_regen_hps = {}".format(eventPlayer._current_regen_hps), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    hudSubheader(eventPlayer, "_new_regen_hps = {}".format(eventPlayer._new_regen_hps), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+    # hudSubheader(eventPlayer, "peacekeeper_distance = {}".format(eventPlayer.peacekeeper_distance), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "hero_initialized = {}".format(eventPlayer.hero_initialized), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
-    #  hudSubheader(eventPlayer, "_regen_passive_id = {}".format(eventPlayer._regen_passive_id), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
-    #  hudSubheader(eventPlayer, "_regen_delay = {}".format(eventPlayer._regen_delay), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
+
     # hudSubheader(eventPlayer, "hero_setup = {}".format(eventPlayer.hero_setup), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "_last_hero_played = {}".format(eventPlayer._last_hero_played), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
     # hudSubheader(eventPlayer, "hasSpawned() = {}".format(eventPlayer.hasSpawned()), HudPosition.RIGHT, 1, Color.WHITE, HudReeval.STRING)
@@ -139,7 +141,7 @@ rule "[utilities/debug.opy]: do something on interact":
     @Condition eventPlayer.isHoldingButton(Button.INTERACT)
 
     # getAllPlayers().setHealth(1)
-    damage(eventPlayer, getClosestPlayer(eventPlayer, Team.2), 25)
+    damage(eventPlayer, getClosestPlayer(eventPlayer, getOppositeTeam(eventPlayer.getTeam())), 25/getClosestPlayer(eventPlayer, getOppositeTeam(eventPlayer.getTeam()))._base_damage_scalar)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)

@@ -8,7 +8,7 @@ def initIllari():
     
     setCustomHp(ADJ_ILLARI_HEALTH, 0, 0)
     setUltCost(ADJ_ILLARI_ULT_COST)
-    removeRegenPassive()
+    removeOW2RegenPassive()
 
     if not eventPlayer.isDuplicatingAHero():
         setBaseDamage(eventPlayer, ADJ_ILLARI_SUNSTRUCK_DAMAGE/OW2_ILLARI_SUNSTRUCK_DAMAGE)
