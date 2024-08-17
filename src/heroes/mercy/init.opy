@@ -25,11 +25,12 @@ rule "[mercy/init.opy]: Reduce Valkyrie healing and force self-healing":
     @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setHealingDealt(100)
-    eventPlayer.startHoT(null, Math.INFINITY, ADJ_MERCY_REGEN_HPS)
+    eventPlayer.startHoT(null, OW2_MERCY_VALKYRIE_DURATION, ADJ_MERCY_REGEN_HPS)
     eventPlayer.valk_regen_id = getLastHoT()
-    damage(eventPlayer, null, MIN_DAMAGE)
+    damage(eventPlayer, eventPlayer, MIN_DAMAGE)
+    # damage tick doesn't interrupt normal passive unless attributed to a player
 
-    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
+    waitUntil(not eventPlayer.isUsingUltimate(), OW2_MERCY_VALKYRIE_DURATION)
     eventPlayer.setHealingDealt(percent(eventPlayer._base_healing_scalar))
     stopHoT(eventPlayer.valk_regen_id)
     eventPlayer.valk_regen_id = null

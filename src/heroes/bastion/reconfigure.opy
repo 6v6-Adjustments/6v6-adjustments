@@ -25,3 +25,4 @@ rule "[bastion/reconfigure.opy]: Increase movement allowed by self-damage grenad
     if not RULE_CONDITION:
         return    
     eventPlayer.setMoveSpeed(percent(ADJ_BASTION_RECONFIGURE_MOVESPEED/OW2_BASTION_RECONFIGURE_MOVESPEED))
+    
