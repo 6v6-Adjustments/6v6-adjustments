@@ -15,7 +15,7 @@ def initJunkerQueen():
         0)
     setUltCost(ADJ_JUNKERQUEEN_ULT_COST)
     removeTankPassive()
-    removeOW2RegenPassive()
+    removeRegenPassive()
 
     setBaseDamage(eventPlayer, ADJ_JUNKERQUEEN_SCATTER_GUN_DAMAGE / OW2_JUNKERQUEEN_SCATTER_GUN_DAMAGE)
     eventPlayer.setHealingDealt(percent(ADJ_JUNKERQUEEN_ADRENALINE_HEAL_MOD / ((ADJ_JUNKERQUEEN_SCATTER_GUN_DAMAGE / OW2_JUNKERQUEEN_SCATTER_GUN_DAMAGE) * OW2_JUNKERQUEEN_ADRENALINE_HEAL_MOD)))

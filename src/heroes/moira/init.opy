@@ -7,6 +7,6 @@ def initMoira():
 
     setCustomHp(ADJ_MOIRA_HEALTH, 0, 0)
     setUltCost(ADJ_MOIRA_ULT_COST)
-    removeOW2RegenPassive()
+    removeRegenPassive()
 
     eventPlayer.hero_initialized = true

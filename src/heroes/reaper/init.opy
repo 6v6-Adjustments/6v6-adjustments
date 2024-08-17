@@ -6,7 +6,7 @@ def initReaper():
 
     setCustomHp(ADJ_REAPER_HEALTH, 0, 0)
     setUltCost(ADJ_REAPER_ULT_COST)
-    removeOW2RegenPassive()
+    removeRegenPassive()
 
     setBaseDamage(eventPlayer, ADJ_REAPER_HELLFIRE_SHOTGUNS_DAMAGE / OW2_REAPER_HELLFIRE_SHOTGUNS_DAMAGE)
     setBaseHealing(eventPlayer, ADJ_REAPER_LIFESTEAL_PERCENT / OW2_REAPER_LIFESTEAL_PERCENT)
