@@ -187,7 +187,8 @@
 #!define OW2_KIRIKO_KUNAI_HEADSHOT_MULTIPLIER 2.5
 #!define OW2_KIRIKO_OFUDA_HEALING 13
 #!define OW2_KIRIKO_SUZU_COOLDOWN 15
-#!define OW2_KIRIKO_SUZU_DURATION 0.66
+#!define OW2_KIRIKO_SUZU_DURATION 0.8
+# suzu invuln lasts for 0.65 seconds, but the healing over time is still 0.8
 #!define OW2_KIRIKO_SWIFT_STEP_COOLDOWN 8
 #!define OW2_KIRIKO_ULT_COST 2525
 
