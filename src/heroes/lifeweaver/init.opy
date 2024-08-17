@@ -6,7 +6,7 @@ def initLifeweaver():
     
     setCustomHp(ADJ_LIFEWEAVER_HEALTH, 0, ADJ_LIFEWEAVER_SHIELDS)
     setUltCost(ADJ_LIFEWEAVER_ULT_COST)
-    removeOW2RegenPassive()
+    removeRegenPassive()
 
     setBaseDamage(eventPlayer, ADJ_LIFEWEAVER_THORN_VOLLEY_DAMAGE/OW2_LIFEWEAVER_THORN_VOLLEY_DAMAGE)
 
