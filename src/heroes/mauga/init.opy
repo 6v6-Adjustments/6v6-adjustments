@@ -3,6 +3,8 @@
 #!include "heroes/mauga/cage_fight.opy"
 #!include "heroes/mauga/cardiac.opy"
 
+playervar mauga_healing_id
+
 
 def initMauga():
     @Name "[mauga/init.opy]: initMauga()"
@@ -18,12 +20,21 @@ def initMauga():
         removeSelfHealing()
     setBaseDamage(eventPlayer, ADJ_MAUGA_CHAINGUN_DAMAGE/OW2_MAUGA_CHAINGUN_DAMAGE)
     startHealingModification(eventPlayer, eventPlayer, percent(OW2_MAUGA_CARDIAC_ALLIED_EFFECTIVENESS), HealingReeval.RECEIVERS_HEALERS_AND_HEALPERCENT) # cardiac overdrive base healing is doubled to account for the half effectiveness on allies
+    eventPlayer.mauga_healing_id = getLastHealingModification()
 
 
     eventPlayer.startScalingSize(0.91, true)
 
     eventPlayer.balance_change_check = false
     eventPlayer.hero_initialized = true
+
+
+rule "[mauga/init.opy]: Clean up Mauga":
+    @Event eachPlayer
+    @Condition eventPlayer.hero_setup != Hero.MAUGA
+
+    stopHealingModification(eventPlayer.mauga_healing_id)
+    eventPlayer.mauga_healing_id = null
 
 
 rule "[mauga/init.opy]: Increase Mauga melee damage":
