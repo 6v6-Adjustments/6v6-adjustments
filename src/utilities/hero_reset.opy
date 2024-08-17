@@ -2,6 +2,7 @@
 
 playervar overhealth_check
 playervar balance_change_check
+playervar movement_helper
 
 subroutine resetHero
 subroutine resetStats
@@ -101,6 +102,7 @@ def resetStats():
     eventPlayer.stopScalingBarriers()
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE) # prevent wholehog from keeping primary fire held
     eventPlayer.max_health_scaler = 1
+    eventPlayer.movement_helper = 100
 
 
 def resetStatuses():

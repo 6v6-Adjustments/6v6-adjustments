@@ -8,9 +8,11 @@ rule "[ramattra/nemesis_form.opy]: Correct Nemesis Form armor and movement speed
     
     eventPlayer.stopScalingSize()
     eventPlayer.setDamageDealt(percent(ADJ_RAMATTRA_PUMMEL_DAMAGE/OW2_RAMATTRA_PUMMEL_DAMAGE))
+    eventPlayer.movement_helper = percent(ADJ_RAMATTRA_NEMESIS_MOVESPEED/OW2_RAMATTRA_NEMESIS_MOVESPEED)
     eventPlayer.setMoveSpeed(percent(ADJ_RAMATTRA_NEMESIS_MOVESPEED/OW2_RAMATTRA_NEMESIS_MOVESPEED))
     eventPlayer.addHealthPool(Health.ARMOR, 10, true, true) # for some reason the addHealthPool function doesn't read constants as usable numbers
     waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 11, Math.INFINITY)
+    eventPlayer.movement_helper = 100
     eventPlayer.setMoveSpeed(100)
     eventPlayer.startScalingSize(0.94, true)
     removeHealthPool(getLastCreatedHealthPool())
@@ -33,6 +35,8 @@ rule "[ramattra/nemesis_form.opy]: Bonus Annihilation movement speed":
     @Condition eventPlayer.isUsingUltimate() == true
     
     wait(0.064)
+    eventPlayer.movement_helper = percent(ADJ_RAMATTRA_ANNIHILATION_MOVESPEED / OW2_RAMATTRA_NEMESIS_MOVESPEED)
     eventPlayer.setMoveSpeed(percent(ADJ_RAMATTRA_ANNIHILATION_MOVESPEED / OW2_RAMATTRA_NEMESIS_MOVESPEED))
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
+    eventPlayer.movement_helper = 100
     eventPlayer.setMoveSpeed(100)
