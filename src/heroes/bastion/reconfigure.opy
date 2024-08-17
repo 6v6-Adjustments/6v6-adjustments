@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+playervar sentry_healing_id
+
 
 rule "[bastion/reconfigure.opy]: Reduce assault form damage and movement speed":
     @Event eachPlayer
@@ -7,10 +9,17 @@ rule "[bastion/reconfigure.opy]: Reduce assault form damage and movement speed":
     @Condition eventPlayer.isUsingAbility1()
     
     eventPlayer.setDamageReceived(percent(ADJ_BASTION_IRONCLAD_RESISTANCE/OW2_BASTION_IRONCLAD_RESISTANCE))
-    eventPlayer.setMoveSpeed(percent(ADJ_BASTION_RECONFIGURE_MOVESPEED/OW2_BASTION_RECONFIGURE_MOVESPEED))
+    setCurrentSpeed(eventPlayer, ADJ_BASTION_RECONFIGURE_MOVESPEED/OW2_BASTION_RECONFIGURE_MOVESPEED)
+    wait(OW2_BASTION_RECONFIGURE_CASTTIME)
+    eventPlayer.startHoT(eventPlayer, OW2_BASTION_ASSAULT_CONFIG_DURATION, ADJ_BASTION_ASSAULT_CONFIG_HPS)
+    eventPlayer.sentry_healing_id = getLastHoT()
+
     waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)
+
     eventPlayer.setDamageReceived(100)
-    eventPlayer.setMoveSpeed(100)
+    setCurrentSpeed(eventPlayer, 1)
+    stopHoT(eventPlayer.sentry_healing_id)
+    eventPlayer.sentry_healing_id = null
 
 
 rule "[bastion/reconfigure.opy]: Increase movement allowed by self-damage grenade":

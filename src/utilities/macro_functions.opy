@@ -3,6 +3,7 @@
 playervar macro_pvar
 #!defineMember _base_damage_scalar macro_pvar[0]
 #!defineMember _base_healing_scalar macro_pvar[1]
+#!defineMember _current_speed_scalar macro_pvar[2]
 
 # Macro function for retrieving id of hero
 #!define heroID(h) (getAllHeroes().index(h))
@@ -42,6 +43,8 @@ playervar macro_pvar
                      or player.hasStatusEffect(Status.FROZEN) \
                      or player.hasStatusEffect(Status.KNOCKED_DOWN))
 
+#!define clamp(value, low, high) (low if (value < low) else (high if (value > high) else value))
+
 #!define setBaseDamage(player, scalar) \
     player._base_damage_scalar = scalar \
     player.setDamageDealt(percent(player._base_damage_scalar))
@@ -49,6 +52,10 @@ playervar macro_pvar
 #!define setBaseHealing(player, scalar) \
     player._base_healing_scalar = scalar \
     player.setHealingDealt(percent(player._base_healing_scalar))
+
+#!define setCurrentSpeed(player, scalar) \
+    player._current_speed_scalar = scalar \
+    player.setMoveSpeed(percent(player._current_speed_scalar))
 
 # rule "[utilities/stat_helper.opy]: OW1 melee damage":
 #     @Event playerDealtDamage
