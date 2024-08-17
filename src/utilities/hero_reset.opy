@@ -101,6 +101,8 @@ def resetStats():
     eventPlayer.stopScalingBarriers()
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE) # prevent wholehog from keeping primary fire held
     eventPlayer.max_health_scaler = 1
+    eventPlayer.stopAllDoT()
+    eventPlayer.stopAllHoT()
 
 
 def resetStatuses():
