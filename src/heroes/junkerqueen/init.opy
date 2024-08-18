@@ -19,7 +19,7 @@ def initJunkerQueen():
 
     setBaseDamage(eventPlayer, ADJ_JUNKERQUEEN_SCATTER_GUN_DAMAGE / OW2_JUNKERQUEEN_SCATTER_GUN_DAMAGE)
     eventPlayer.setHealingDealt(percent(ADJ_JUNKERQUEEN_ADRENALINE_HEAL_MOD / ((ADJ_JUNKERQUEEN_SCATTER_GUN_DAMAGE / OW2_JUNKERQUEEN_SCATTER_GUN_DAMAGE) * OW2_JUNKERQUEEN_ADRENALINE_HEAL_MOD)))
-    eventPlayer.setKnockbackDealt(percent(ADJ_JUNKERQUEEN_BLADE_PULL_SCALER))
+    # eventPlayer.setKnockbackDealt(percent(ADJ_JUNKERQUEEN_BLADE_PULL_SCALER))
     eventPlayer.startScalingSize(0.96, true)
 
     eventPlayer.setMaxAmmo(0, ADJ_JUNKERQUEEN_AMMO_COUNT)
