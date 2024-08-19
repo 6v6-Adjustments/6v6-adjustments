@@ -6,7 +6,6 @@ globalvar ADJ_REGEN_TIMER = createWorkshopSetting(int[1:30], 'Passive', 'Global 
 globalvar enable_support_passive = createWorkshopSetting(bool, 'Passive', 'Support - Quicker Regeneration', false, 0)
 #!define ADJ_SUPPORT_PASSIVE_TIMER (ADJ_REGEN_TIMER/2)
 
-playervar regen_passive_timer
 playervar self_heal_pvar
 #!defineMember _self_healing_source self_heal_pvar[0]
 #!defineMember _self_healing_percent self_heal_pvar[1]
@@ -16,6 +15,8 @@ playervar self_heal_pvar
 #!defineMember _suppress_regen_passive self_heal_pvar[5]
 #!defineMember _support_passive_active self_heal_pvar[6]
 #!defineMember _regen_passive_id self_heal_pvar[7]
+#!defineMember _regen_hps self_heal_pvar[8]
+#!defineMember _regen_delay self_heal_pvar[9]
 
 def resetSelfHealing():
     @Name "[passives/support/self_heal.opy]: resetSelfHealing()"
@@ -52,7 +53,6 @@ evalSelfHealingPercent()
     eventPlayer._self_healing_source.remove(button) \
     evalSelfHealingPercent()
 
-
 rule "[passives/support/self_heal.opy]: Detect healing passive":
     @Event playerTookDamage
 
@@ -81,48 +81,37 @@ rule "[passives/support/self_heal.opy]: Remove Passive self healing":
     while RULE_CONDITION
 
 
-rule "[passives/support/self_heal.opy]: Reset regen_passive_timer":
+def activateRegeneration():
+    @Name "[passives/support/self_heal.opy]: activateRegeneration()"
+    
+    stopHoT(eventPlayer._regen_passive_id)
+    eventPlayer._regen_passive_id = null
+    eventPlayer.startHoT(null, Math.INFINITY, eventPlayer._regen_hps)
+    eventPlayer._regen_passive_id = getLastHoT()
+    waitUntil(eventPlayer.getHealth() >= eventPlayer.getMaxHealth(), Math.INFINITY)
+    stopHoT(eventPlayer._regen_passive_id)
+    eventPlayer._regen_passive_id = null
+
+
+rule "[passives/support/self_heal.opy]: Recreate regeneration passive":
     @Event playerTookDamage
-    @Condition enable_regeneration
+    @Condition enable_regeneration or (eventPlayer.getCurrentHero() == Hero.MERCY)
 
-    stopHoT(eventPlayer._regen_passive_id)
-    eventPlayer.regen_passive_timer = ADJ_REGEN_TIMER
+    # logic for calculating regen parameters
+    if eventPlayer.getCurrentHero() == Hero.MERCY: # mercy passive
+        eventPlayer._regen_delay = ADJ_MERCY_PASSIVE_TIMER if not eventPlayer.isUsingUltimate() else 0
+        eventPlayer._regen_hps = ADJ_MERCY_REGEN_HPS
+    elif enable_support_passive and (eventPlayer.getCurrentHero() in getSupportHeroes()): # support passive
+        eventPlayer._regen_delay = ADJ_REGEN_TIMER/2
+        eventPlayer._regen_hps = ADJ_REGEN_HPS
+    else: # everyone else
+        eventPlayer._regen_delay = ADJ_REGEN_TIMER
+        eventPlayer._regen_hps = ADJ_REGEN_HPS
 
-
-rule "[passives/support/self_heal.opy]: Track regen_passive_timer for non-supports":
-    @Event eachPlayer
-    @Condition enable_regeneration
-    @Condition eventPlayer.getCurrentHero() not in getSupportHeroes()
-    @Condition eventPlayer.regen_passive_timer != 0
-    
-    chase(eventPlayer.regen_passive_timer, 0, duration = ADJ_REGEN_TIMER, ChaseReeval.DESTINATION_AND_DURATION)
-    waitUntil(eventPlayer.regen_passive_timer == 0, Math.INFINITY)
-    if eventPlayer.getHealth() != eventPlayer.getMaxHealth():
-        eventPlayer.startHoT(null, Math.INFINITY, ADJ_REGEN_HPS)
-        stopChasingVariable(eventPlayer.regen_passive_timer)
-        eventPlayer._regen_passive_id = getLastHoT()
-
-
-rule "[passives/support/self_heal.opy]: Track regen_passive_timer for supports":
-    @Event eachPlayer
-    @Condition enable_regeneration
-    @Condition eventPlayer.getCurrentHero() in getSupportHeroes()
-    @Condition eventPlayer.getCurrentHero() != Hero.MERCY
-    @Condition eventPlayer.regen_passive_timer != 0
-    
-    chase(eventPlayer.regen_passive_timer, 0, duration = ADJ_SUPPORT_PASSIVE_TIMER if enable_support_passive else ADJ_REGEN_TIMER, ChaseReeval.DESTINATION_AND_DURATION)
-    waitUntil(eventPlayer.regen_passive_timer == 0, Math.INFINITY)
-    if eventPlayer.getHealth() != eventPlayer.getMaxHealth():
-        eventPlayer.startHoT(null, Math.INFINITY, ADJ_REGEN_HPS)
-        stopChasingVariable(eventPlayer.regen_passive_timer)
-        eventPlayer._regen_passive_id = getLastHoT()
-
-
-rule "[passives/support/self_heal.opy]: Turn off regen at full health":
-    @Event eachPlayer
-    @Condition enable_regeneration
-    @Condition eventPlayer.getHealth() == eventPlayer.getMaxHealth()
-
-    eventPlayer.regen_passive_timer = 0
-    stopChasingVariable(eventPlayer.regen_passive_timer)
-    stopHoT(eventPlayer._regen_passive_id)
+    if eventPlayer._regen_delay > 0:
+        stopHoT(eventPlayer._regen_passive_id)
+        eventPlayer._regen_passive_id = null
+    wait(eventPlayer._regen_delay, Wait.RESTART_WHEN_TRUE)
+    eventPlayer._regen_delay = 0
+    if eventPlayer.getHealth() < eventPlayer.getMaxHealth():
+        async(activateRegeneration, AsyncBehavior.RESTART)
