@@ -21,16 +21,26 @@ def initEcho():
 
 rule "[echo/init.opy]: Correct Echo Tri-Shot damage":
     @Event playerDealtDamage
-    @Condition eventPlayer.hero_setup == Hero.ECHO
+    @Hero echo
+    @Condition not eventPlayer.isDuplicatingAHero()
     @Condition eventAbility == Button.PRIMARY_FIRE
 
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_ECHO_TRISHOT_DAMAGE / OW2_ECHO_TRISHOT_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+
+
+# rule "[echo/init.opy]: Increase Focusing Beam damage":
+#     @Event playerDealtDamage
+#     @Hero echo
+#     @Condition not eventPlayer.isDuplicatingAHero()
+#     @Condition eventAbility == Button.ABILITY_2
+
+#     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_ECHO_BEAM_DPS / OW2_ECHO_BEAM_DPS) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 rule "[echo/init.opy]: Correct Echo other forms of damage":
     @Event playerDealtDamage
     @Hero echo
     @Condition not eventPlayer.isDuplicatingAHero()
-    @Condition eventAbility in [Button.ABILITY_2, Button.MELEE]
+    @Condition eventAbility in [Button.MELEE, Button.ABILITY_2]
 
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
