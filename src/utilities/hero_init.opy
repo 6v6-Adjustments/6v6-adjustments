@@ -92,9 +92,9 @@ def initHero():
         case Hero.JUNKRAT:
             initJunkrat()
             break
-        # case Hero.JUNO:
-        #     initJuno()
-        #     break
+        case Hero.JUNKRAT:
+            initJuno()
+            break
         case Hero.KIRIKO:
             initKiriko()
             break

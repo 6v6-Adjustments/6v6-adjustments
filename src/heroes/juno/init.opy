@@ -17,7 +17,7 @@ def initJuno():
 
 rule "[juno/init.opy]: Correct Juno melee damage":
     @Event playerDealtDamage
-    @Hero juno
+    @Hero junkrat
     @Condition eventAbility == Button.MELEE
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

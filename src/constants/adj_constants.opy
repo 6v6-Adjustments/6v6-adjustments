@@ -455,6 +455,8 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_ZARYA_SHIELDS 200
 #!define ADJ_ZARYA_SHIELDS_DUPLICATE 150
 #!define ADJ_ZARYA_ULT_COST 2100
+# Can't go lower without running damage script on primary
+#!define ADJ_ZARYA_ALT_FIRE_MAX_DAMAGE 98.42
 
 # Zenyatta
 #!define ADJ_ZENYATTA_HEALTH 50
