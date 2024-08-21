@@ -40,6 +40,6 @@ rule "[zarya/init.opy]: Clean up Zarya":
 rule "[zarya/init.opy]: Correct Alternate Fire and Melee damage":
     @Event playerDealtDamage
     @Hero zarya
-    @Condition eventAbility in [Button.SECONDARY_FIRE, Button.MELEE]
+    @Condition eventAbility == Button.MELEE
     
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
