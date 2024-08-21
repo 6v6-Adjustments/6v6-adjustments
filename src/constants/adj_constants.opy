@@ -191,13 +191,13 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # Juno
 # exact ult cost value unknown, approximating
 #!define ADJ_JUNO_HEALTH 75
-#!define ADJ_JUNK_SHIELDS 125
+#!define ADJ_JUNO_SHIELDS 125
 #!define ADJ_JUNO_ULT_COST 1900
 
 # Kiriko
 #!define ADJ_KIRIKO_HEALTH 200
 #!define ADJ_KIRIKO_KUNAI_COUNT 15
-#!define ADJ_KIRIKO_KUNAI_DAMAGE 48
+#!define ADJ_KIRIKO_KUNAI_DAMAGE 55
 #!define ADJ_KIRIKO_OFUDA_HEALING 14
 #!define ADJ_KIRIKO_SWIFT_STEP_COOLDOWN 7
 #!define ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN 5
@@ -208,7 +208,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # Lifeweaver
 #!define ADJ_LIFEWEAVER_HEALTH 100
 #!define ADJ_LIFEWEAVER_HEALING_BLOSSOM_AMMO 14
-#!define ADJ_LIFEWEAVER_PLATFORM_COOLDOWN 11
+#!define ADJ_LIFEWEAVER_PLATFORM_COOLDOWN 12
 #!define ADJ_LIFEWEAVER_PLATFORM_HEALTH 250
 #!define ADJ_LIFEWEAVER_SHIELDS 125
 #!define ADJ_LIFEWEAVER_THORN_VOLLEY_AMMO 60
@@ -261,7 +261,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_MERCY_GA_COOLDOWN 1.1
 #!define ADJ_MERCY_PASSIVE_TIMER 1
 #!define ADJ_MERCY_REGEN_HPS 20
-#!define ADJ_MERCY_STAFF_HEALING 60
+#!define ADJ_MERCY_STAFF_HEALING 55
 #!define ADJ_MERCY_ULT_COST 1820
 
 # Moira
@@ -374,6 +374,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_SOMBRA_HEALTH 200
 #!define ADJ_SOMBRA_SMG_DAMAGE 7.5
 #!define ADJ_SOMBRA_VIRUS_COOLDOWN 7
+#!define ADJ_SOMBRA_VIRUS_IMPACT_DAMAGE 25
 #!define ADJ_SOMBRA_ULT_COST 1375
 
 # Symmetra
@@ -450,6 +451,8 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_ZARYA_BARRIER_HEALTH 224.9
 # 224.9 bubble hp gains 40 max charge per bubble, at exactly 225 max charge jumps to 45
 #!define ADJ_ZARYA_CANNON_DAMAGE_MAX 170
+#!define ADJ_ZARYA_PARTICLE_DAMAGE_MAX 95
+#!define ADJ_ZARYA_PARTICLE_DAMAGE_MIN 47
 #!define ADJ_ZARYA_HEALTH 200
 #!define ADJ_ZARYA_PARTICLE_BARRIER_COOLDOWN_TIME 10
 #!define ADJ_ZARYA_PROJECTED_BARRIER_COOLDOWN_TIME 8
