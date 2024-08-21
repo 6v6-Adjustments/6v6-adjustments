@@ -182,8 +182,7 @@
 #!define OW2_JUNKRAT_ULT_COST 2100
 
 # Juno
-# exact ult cost value unknown, approximating
-#!define OW2_JUNO_ULT_COST 2000
+#!define OW2_JUNO_ULT_COST 2600
 
 # Kiriko
 #!define OW2_KIRIKO_KUNAI_DAMAGE 60
