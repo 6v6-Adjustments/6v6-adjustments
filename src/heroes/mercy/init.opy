@@ -36,6 +36,6 @@ rule "[mercy/init.opy]: Reduce Valkyrie healing and force self-healing":
     @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.regen_passive_timer = 0
-    eventPlayer.setHealingDealt(100)
+    # eventPlayer.setHealingDealt(100)
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
-    eventPlayer.setHealingDealt(percent(ADJ_MERCY_STAFF_HEALING / OW2_MERCY_STAFF_HEALING))
+    # eventPlayer.setHealingDealt(percent(ADJ_MERCY_STAFF_HEALING / OW2_MERCY_STAFF_HEALING))
