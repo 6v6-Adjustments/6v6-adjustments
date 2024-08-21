@@ -34,7 +34,7 @@ rule "Copyright (c) 2024 Overwatch 1 Emulator & 6v6 Adjustments. See github.com/
 #!include "heroes/illari/init.opy"
 #!include "heroes/junkerqueen/init.opy"
 #!include "heroes/junkrat/init.opy"
-# !include "heroes/juno/init.opy"
+#!include "heroes/juno/init.opy"
 #!include "heroes/kiriko/init.opy"
 #!include "heroes/lifeweaver/init.opy"
 #!include "heroes/lucio/init.opy"

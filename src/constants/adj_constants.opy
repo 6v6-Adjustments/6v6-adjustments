@@ -189,15 +189,14 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_JUNKRAT_ULT_COST 1925
 
 # Juno
-# exact ult cost value unknown, approximating
 #!define ADJ_JUNO_HEALTH 75
-#!define ADJ_JUNK_SHIELDS 125
-#!define ADJ_JUNO_ULT_COST 1900
+#!define ADJ_JUNO_SHIELDS 125
+#!define ADJ_JUNO_ULT_COST 2400
 
 # Kiriko
 #!define ADJ_KIRIKO_HEALTH 200
 #!define ADJ_KIRIKO_KUNAI_COUNT 15
-#!define ADJ_KIRIKO_KUNAI_DAMAGE 48
+#!define ADJ_KIRIKO_KUNAI_DAMAGE 60
 #!define ADJ_KIRIKO_OFUDA_HEALING 14
 #!define ADJ_KIRIKO_SWIFT_STEP_COOLDOWN 7
 #!define ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN 5
@@ -261,7 +260,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_MERCY_GA_COOLDOWN 1.1
 #!define ADJ_MERCY_PASSIVE_TIMER 1
 #!define ADJ_MERCY_REGEN_HPS 20
-#!define ADJ_MERCY_STAFF_HEALING 60
+#!define ADJ_MERCY_STAFF_HEALING 55
 #!define ADJ_MERCY_ULT_COST 1820
 
 # Moira
@@ -278,7 +277,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_ORISA_HEALTH 250
 #!define ADJ_ORISA_HEALTH_DUPLICATE 200
 #!define ADJ_ORISA_JAVELIN_COOLDOWN 7
-#!define ADJ_ORISA_JAVELIN_DIRECT_DAMAGE 75
+#!define ADJ_ORISA_JAVELIN_DIRECT_DAMAGE 80
 #!define ADJ_ORISA_JAVELIN_SPIN_COOLDOWN 6.5
 #!define ADJ_ORISA_TERRA_SURGE_MAX_DAMAGE 400
 #!define ADJ_ORISA_TERRA_SURGE_OVERHEALTH 250
@@ -372,8 +371,8 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Sombra
 #!define ADJ_SOMBRA_HEALTH 200
-#!define ADJ_SOMBRA_SMG_DAMAGE 7.5
-#!define ADJ_SOMBRA_VIRUS_COOLDOWN 7
+#!define ADJ_SOMBRA_SMG_DAMAGE 7.25
+#!define ADJ_SOMBRA_VIRUS_COOLDOWN 8
 #!define ADJ_SOMBRA_ULT_COST 1375
 
 # Symmetra

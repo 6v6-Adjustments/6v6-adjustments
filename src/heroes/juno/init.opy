@@ -4,7 +4,7 @@
 def initJuno():
     @Name "[juno/init.opy]: initJuno()"
     
-    setCustomHp(ADJ_JUNO_HEALTH, 0, ADJ_JUNK_SHIELDS)
+    setCustomHp(ADJ_JUNO_HEALTH, 0, ADJ_JUNO_SHIELDS)
     setUltCost(ADJ_JUNO_ULT_COST)
     
     if not eventPlayer.isDuplicatingAHero():
