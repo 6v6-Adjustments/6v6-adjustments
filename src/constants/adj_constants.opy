@@ -373,6 +373,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_SOMBRA_HEALTH 200
 #!define ADJ_SOMBRA_SMG_DAMAGE 7.5
 #!define ADJ_SOMBRA_VIRUS_COOLDOWN 7
+#!define ADJ_SOMBRA_VIRUS_DOT 90
 #!define ADJ_SOMBRA_VIRUS_IMPACT_DAMAGE 25
 #!define ADJ_SOMBRA_ULT_COST 1375
 
