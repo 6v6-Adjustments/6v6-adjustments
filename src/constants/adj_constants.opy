@@ -265,6 +265,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Moira
 #!define ADJ_MOIRA_COALESCENCE_SPEED_BUFF 1.5
+#!define ADJ_MOIRA_GRASP_DPS 60
 #!define ADJ_MOIRA_HEALTH 200
 #!define ADJ_MOIRA_ULT_COST 2800
 
