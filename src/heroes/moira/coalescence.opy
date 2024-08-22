@@ -11,7 +11,7 @@ rule "[moira/coalescence.opy]: Prevent fading during Coalescence":
     eventPlayer.setMoveSpeed(percent(ADJ_MOIRA_COALESCENCE_SPEED_BUFF/OW2_MOIRA_COALESCENCE_SPEED_BUFF))
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
-    eventPlayer.setMoveSpeed(100)
+    eventPlayer.setMoveSpeed(percent(eventPlayer._current_speed_scalar))
     eventPlayer.setAbility1Enabled(true)
 
 
