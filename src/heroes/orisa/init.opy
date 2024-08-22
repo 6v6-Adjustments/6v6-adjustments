@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-# !include "heroes/orisa/javelin.opy"
+#!include "heroes/orisa/javelin.opy"
 #!include "heroes/orisa/fortify.opy"
 #!include "heroes/orisa/terra_surge.opy"
 
