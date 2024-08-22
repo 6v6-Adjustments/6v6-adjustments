@@ -7,20 +7,12 @@ rule "[moira/coalescence.opy]: Prevent fading during Coalescence":
     @Condition eventPlayer.isUsingUltimate()
 
     eventPlayer.setAbility1Enabled(false)
+    eventPlayer.setDamageDealt(100)
     eventPlayer.setMoveSpeed(percent(ADJ_MOIRA_COALESCENCE_SPEED_BUFF/OW2_MOIRA_COALESCENCE_SPEED_BUFF))
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
+    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
     eventPlayer.setMoveSpeed(100)
     eventPlayer.setAbility1Enabled(true)
-
-
-rule "[moira/coalescence.opy]: Reset damage dealt for Coalescence":
-    @Event eachPlayer
-    @Hero moira
-    @Condition eventPlayer.isUsingUltimate()
-    
-    eventPlayer.setDamageDealt(100)
-    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
-    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
 
 
 # rule "[moira/coalescence.opy]: Allow self healing during Coalescence":
