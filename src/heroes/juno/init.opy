@@ -13,6 +13,14 @@ def initJuno():
     eventPlayer.hero_initialized = true
 
 
+rule "[juno/init.opy]: Correct Pulsar Torpedo damage":
+    @Event playerDealtDamage
+    @Hero junkrat
+    @Condition eventDamage <= 40 # melee damage threshold
+
+    damage(victim, attacker, eventDamage * (ADJ_JUNO_MEDIGUN_DAMAGE/OW2_JUNO_MEDIGUN_DAMAGE) - eventDamage)
+
+
 # rule "[juno/init.opy]: Correct Juno melee damage":
 #     @Event playerDealtDamage
 #     @Hero juno
