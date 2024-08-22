@@ -9,5 +9,5 @@ rule "[orisa/javelin.opy]: Increase Javelin direct damage":
 
     eventPlayer.balance_change_check = false
     heal(victim, null, (eventDamage * (ADJ_ORISA_JAVELIN_DIRECT_DAMAGE/OW2_ORISA_JAVELIN_DIRECT_DAMAGE) - eventDamage) * -1)
-    # damage(victim, attacker, eventDamage * (ADJ_ORISA_JAVELIN_DIRECT_DAMAGE/OW2_ORISA_JAVELIN_DIRECT_DAMAGE) - eventDamage)
+    wait(2) # arbitrary number chosen to not mistakenly buff wall-stun damage
     eventPlayer.balance_change_check = true
