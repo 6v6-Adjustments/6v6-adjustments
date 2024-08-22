@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[moira/coalescence.opy]: Prevent fading during coalescence":
+rule "[moira/coalescence.opy]: Prevent fading during Coalescence":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MOIRA
     @Condition eventPlayer.isUsingUltimate()
@@ -11,6 +11,16 @@ rule "[moira/coalescence.opy]: Prevent fading during coalescence":
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     eventPlayer.setMoveSpeed(100)
     eventPlayer.setAbility1Enabled(true)
+
+
+rule "[moira/coalescence.opy]: Reset damage dealt for Coalescence":
+    @Event eachPlayer
+    @Hero moira
+    @Condition eventPlayer.isUsingUltimate()
+    
+    eventPlayer.setDamageDealt(100)
+    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
+    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
 
 
 # rule "[moira/coalescence.opy]: Allow self healing during Coalescence":
