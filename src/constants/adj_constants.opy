@@ -188,17 +188,18 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # slightly lower recovery speed to account for script execution time
 #!define ADJ_JUNKRAT_CONCUSSION_MINE_COOLDOWN 8
 #!define ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE 90
-#!define ADJ_JUNKRAT_FRAG_DAMAGE 115
+#!define ADJ_JUNKRAT_FRAG_DAMAGE 110
 #!define ADJ_JUNKRAT_HEALTH 200
 #!define ADJ_JUNKRAT_ULT_COST 1925
 
 # Juno
 #!define ADJ_JUNO_HEALTH 75
 #!define ADJ_JUNO_MEDIGUN_DAMAGE 8
+#!define ADJ_JUNO_RAY_HPS 60
 #!define ADJ_JUNO_RING_COOLDOWN 12
 #!define ADJ_JUNO_SHIELDS 125
 #!define ADJ_JUNO_TORPEDO_DAMAGE 85
-#!define ADJ_JUNO_ULT_COST 2400
+#!define ADJ_JUNO_ULT_COST 2750
 
 # Kiriko
 #!define ADJ_KIRIKO_HEALTH 200
