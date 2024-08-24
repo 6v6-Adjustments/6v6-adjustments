@@ -124,12 +124,13 @@
 
 # Echo
 globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", "Full Echo Tank HP", false, 0)
+#!define ADJ_ECHO_BEAM_COOLDOWN 10
 # !define ADJ_ECHO_BEAM_DPS 200
 #!define ADJ_ECHO_DUPLICATE_EXIT_HEALTH 100
 #!define ADJ_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER 5
 #!define ADJ_ECHO_HEALTH 200
-#!define ADJ_ECHO_STICKY_BOMBS_DAMAGE 160
-#!define ADJ_ECHO_TRISHOT_DAMAGE 48
+#!define ADJ_ECHO_STICKY_BOMBS_DAMAGE 150
+#!define ADJ_ECHO_TRISHOT_DAMAGE 45
 #!define ADJ_ECHO_ULT_COST 1880
 
 # Genji
@@ -183,8 +184,10 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_JUNKERQUEEN_ULT_COST 2300
 
 # Junkrat
+#!define ADJ_PHARAH_ATTACK_RECOVERY 0.75
+# slightly lower recovery speed to account for script execution time
 #!define ADJ_JUNKRAT_CONCUSSION_MINE_COOLDOWN 8
-#!define ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE 110
+#!define ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE 90
 #!define ADJ_JUNKRAT_FRAG_DAMAGE 115
 #!define ADJ_JUNKRAT_HEALTH 200
 #!define ADJ_JUNKRAT_ULT_COST 1925

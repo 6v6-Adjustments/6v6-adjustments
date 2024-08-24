@@ -96,6 +96,7 @@ settings {
                 "ultGen%": percent(OW2_DOOMFIST_ULT_COST/ADJ_DOOMFIST_ULT_COST)
             },
             "echo": {
+                "ability2Cooldown%": percent(ADJ_ECHO_BEAM_COOLDOWN/OW2_ECHO_BEAM_COOLDOWN),
                 "ultGen%": percent(OW2_ECHO_ULT_COST/ADJ_ECHO_ULT_COST)
             },
             "genji": {
