@@ -92,9 +92,9 @@ def initHero():
         case Hero.JUNKRAT:
             initJunkrat()
             break
-        # case Hero.JUNO:
-        #     initJuno()
-        #     break
+        case Hero.JUNKRAT: # Juno is renamed to Junkrat temporarily until OverPy is updated properly
+            initJuno()
+            break
         case Hero.KIRIKO:
             initKiriko()
             break
@@ -177,7 +177,6 @@ def initHero():
             initZenyatta()
             break
         default:
-            initJuno()
             break
     
     if not eventPlayer.hero_initialized: bigMessage(eventPlayer, "warning: {} not initialized properly!".format(eventPlayer.hero_setup))

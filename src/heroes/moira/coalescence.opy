@@ -1,15 +1,17 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[moira/coalescence.opy]: Prevent fading during coalescence":
+rule "[moira/coalescence.opy]: Prevent fading during Coalescence":
     @Event eachPlayer
     @Condition eventPlayer.hero_setup == Hero.MOIRA
     @Condition eventPlayer.isUsingUltimate()
 
     eventPlayer.setAbility1Enabled(false)
+    eventPlayer.setDamageDealt(100)
     eventPlayer.setMoveSpeed(percent(ADJ_MOIRA_COALESCENCE_SPEED_BUFF/OW2_MOIRA_COALESCENCE_SPEED_BUFF))
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
-    eventPlayer.setMoveSpeed(100)
+    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
+    eventPlayer.setMoveSpeed(percent(eventPlayer._current_speed_scalar))
     eventPlayer.setAbility1Enabled(true)
 
 

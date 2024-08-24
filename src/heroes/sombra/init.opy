@@ -16,7 +16,7 @@ def initSombra():
     eventPlayer.hero_initialized = true
 
 
-rule "[sombra/init.opy]: Increase Sombra Melee damage": # This doesn't include damage dealt by virus due to it being taxing on script load for an extended period of time
+rule "[sombra/init.opy]: Correct Sombra Melee damage":
     @Event playerDealtDamage
     @Hero sombra
     @Condition eventAbility == Button.MELEE
@@ -24,7 +24,20 @@ rule "[sombra/init.opy]: Increase Sombra Melee damage": # This doesn't include d
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
 
-rule "[sombra/init.opy]: hacked health packs":
+rule "[sombra/init.opy]: Correct Virus damage":
+    @Event playerDealtDamage
+    @Hero sombra
+    @Condition eventAbility == Button.ABILITY_1
+    @Condition eventDamage >= ADJ_SOMBRA_VIRUS_IMPACT_DAMAGE
+
+    heal(victim, null, ((eventDamage * (ADJ_SOMBRA_VIRUS_IMPACT_DAMAGE/OW2_SOMBRA_VIRUS_IMPACT_DAMAGE) - eventDamage) * -1) * eventPlayer._base_damage_scalar)
+    if eventDamage >= 65: # number chosen is as close to critical virus threshold as possible, affected by base damage scalar
+        victim.startDoT(attacker, (OW2_SOMBRA_VIRUS_DURATION/2)-TICK_DURATION, (OW2_SOMBRA_VIRUS_DOT-(OW2_SOMBRA_VIRUS_DOT*eventPlayer._base_damage_scalar))/(OW2_SOMBRA_VIRUS_DURATION/2))
+        break
+    victim.startDoT(attacker, OW2_SOMBRA_VIRUS_DURATION-TICK_DURATION, (OW2_SOMBRA_VIRUS_DOT-(OW2_SOMBRA_VIRUS_DOT*eventPlayer._base_damage_scalar))/OW2_SOMBRA_VIRUS_DURATION)
+
+
+rule "[sombra/init.opy]: Hacked health pack logic":
     @Event playerReceivedHealing
     @Hero sombra
     @Condition eventWasHealthPack == true
