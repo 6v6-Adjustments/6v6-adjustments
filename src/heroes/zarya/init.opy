@@ -37,9 +37,17 @@ rule "[zarya/init.opy]: Clean up Zarya":
     hideAllyBubbleCD()
 
 
-rule "[zarya/init.opy]: Correct Alternate Fire and Melee damage":
+rule "[zarya/init.opy]: Increase Particle Cannon alternate fire damage":
     @Event playerDealtDamage
     @Hero zarya
-    @Condition eventAbility in [Button.SECONDARY_FIRE, Button.MELEE]
+    @Condition eventAbility == Button.SECONDARY_FIRE
+
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_ZARYA_PARTICLE_DAMAGE_MIN / OW2_ZARYA_PARTICLE_DAMAGE_MIN) - eventDamage)/eventPlayer._base_damage_scalar)
+
+
+rule "[zarya/init.opy]: Correct Zarya Melee damage":
+    @Event playerDealtDamage
+    @Hero zarya
+    @Condition eventAbility == Button.MELEE
     
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)

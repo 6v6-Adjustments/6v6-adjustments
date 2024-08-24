@@ -25,7 +25,7 @@ rule "[kiriko/init.opy]: Correct Kiriko melee damage":
     @Hero kiriko
     @Condition eventAbility == Button.MELEE
 
-    heal(victim, null, eventDamage - (eventDamage/eventPlayer._base_damage_scalar))
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 # rule "[kiriko/init.opy]: Correct Ofuda healing":

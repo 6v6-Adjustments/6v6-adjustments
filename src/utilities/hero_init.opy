@@ -177,6 +177,7 @@ def initHero():
             initZenyatta()
             break
         default:
+            initJuno()
             break
     
     if not eventPlayer.hero_initialized: bigMessage(eventPlayer, "warning: {} not initialized properly!".format(eventPlayer.hero_setup))
