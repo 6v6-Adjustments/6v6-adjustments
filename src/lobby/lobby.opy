@@ -120,7 +120,7 @@ settings {
             },
             "junkrat": {
                 "ability1Cooldown%": percent(ADJ_JUNKRAT_CONCUSSION_MINE_COOLDOWN/OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN),
-                "ability1Kb%": percent(1/ADJ_JUNKRAT_FRAG_KNOCKBACK_SCALAR),
+                #"ability1Kb%": percent(1/ADJ_JUNKRAT_FRAG_KNOCKBACK_SCALAR),
                 "ultGen%": percent(OW2_JUNKRAT_ULT_COST/ADJ_JUNKRAT_ULT_COST)
             },
             "kiriko": {

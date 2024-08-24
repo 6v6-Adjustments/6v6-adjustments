@@ -184,15 +184,11 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_JUNKERQUEEN_ULT_COST 2300
 
 # Junkrat
-#!define ADJ_PHARAH_ATTACK_RECOVERY 0.75
-# slightly lower recovery speed to account for script execution time
 #!define ADJ_JUNKRAT_CONCUSSION_MINE_COOLDOWN 8
 #!define ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE 90
 #!define ADJ_JUNKRAT_FRAG_DAMAGE 110
-#!define ADJ_JUNKRAT_FRAG_KNOCKBACK_SCALAR 0.5
-# do not set lower than 0.5
 #!define ADJ_JUNKRAT_HEALTH 200
-#!define ADJ_JUNKRAT_ULT_COST 1925
+#!define ADJ_JUNKRAT_ULT_COST 19250
 
 # Juno
 #!define ADJ_JUNO_HEALTH 75
