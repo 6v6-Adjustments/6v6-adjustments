@@ -28,6 +28,7 @@ def initJunkrat():
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
         setBaseDamage(eventPlayer, ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE / OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE)
+        eventPlayer.setKnockbackDealt(percent(ADJ_JUNKRAT_FRAG_KNOCKBACK_SCALAR)) # half knockback to greatly reduce displacement from frag launcher
 
     eventPlayer.hero_initialized = true
 
@@ -64,6 +65,6 @@ rule "[junkrat/init.opy]: Correct Frag Launcher damage":
 rule "[junkrat/init.opy]: Correct Junkrat other forms of damage":
     @Event playerDealtDamage
     @Hero junkrat
-    @Condition eventAbility in [Button.MELEE, Button.ABILITY_2, Button.ULTIMATE]
+    @Condition eventAbility in [Button.MELEE, Button.ULTIMATE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
