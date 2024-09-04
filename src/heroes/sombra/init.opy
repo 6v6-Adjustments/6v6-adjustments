@@ -32,9 +32,9 @@ rule "[sombra/init.opy]: Correct Virus damage":
 
     heal(victim, null, ((eventDamage * (ADJ_SOMBRA_VIRUS_IMPACT_DAMAGE/OW2_SOMBRA_VIRUS_IMPACT_DAMAGE) - eventDamage) * -1) * eventPlayer._base_damage_scalar)
     if eventDamage >= 65: # number chosen is as close to critical virus threshold as possible, affected by base damage scalar
-        victim.startDoT(attacker, (OW2_SOMBRA_VIRUS_DURATION/2)-TICK_DURATION, (OW2_SOMBRA_VIRUS_DOT-(OW2_SOMBRA_VIRUS_DOT*eventPlayer._base_damage_scalar))/(OW2_SOMBRA_VIRUS_DURATION/2))
+        victim.startDoT(attacker, OW2_SOMBRA_VIRUS_DURATION/2, (ADJ_SOMBRA_VIRUS_DOT-(OW2_SOMBRA_VIRUS_DOT*eventPlayer._base_damage_scalar))/(OW2_SOMBRA_VIRUS_DURATION/2))
         break
-    victim.startDoT(attacker, OW2_SOMBRA_VIRUS_DURATION-TICK_DURATION, (OW2_SOMBRA_VIRUS_DOT-(OW2_SOMBRA_VIRUS_DOT*eventPlayer._base_damage_scalar))/OW2_SOMBRA_VIRUS_DURATION)
+    victim.startDoT(attacker, OW2_SOMBRA_VIRUS_DURATION, (ADJ_SOMBRA_VIRUS_DOT-(OW2_SOMBRA_VIRUS_DOT*eventPlayer._base_damage_scalar))/OW2_SOMBRA_VIRUS_DURATION)
 
 
 rule "[sombra/init.opy]: Hacked health pack logic":
