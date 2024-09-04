@@ -16,7 +16,7 @@ def initJuno():
 
 # rule "[juno/init.opy]: Reduce Orbital Ray healing":
 #     @Event eachPlayer
-#     @Hero junkrat #juno
+#     @Hero juno
 #     @Condition eventPlayer.isUsingUltimate()
 
 #     eventPlayer.setHealingDealt(percent(ADJ_JUNO_RAY_HPS/OW2_JUNO_RAY_HPS))
@@ -26,7 +26,7 @@ def initJuno():
 
 # rule "[juno/init.opy]: Increase healing while using Orbital Ray":
 #     @Event playerDealtHealing
-#     @Hero junkrat #juno
+#     @Hero juno
 #     @Condition eventPlayer.isUsingUltimate()
 #     @Condition eventAbility == Button.SECONDARY_FIRE or eventHealing <= 20 # checks for medigun healing or torpedo healing
 
@@ -35,7 +35,7 @@ def initJuno():
 
 # rule "[juno/init.opy]: Correct Juno melee damage":
 #     @Event playerDealtDamage
-#     @Hero junkrat #juno
+#     @Hero juno
 #     @Condition eventAbility == Button.MELEE or eventDamage >= 95
 
 #     heal(victim, null, eventDamage - (eventDamage/eventPlayer._base_damage_scalar))

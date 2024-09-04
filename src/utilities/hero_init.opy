@@ -92,7 +92,7 @@ def initHero():
         case Hero.JUNKRAT:
             initJunkrat()
             break
-        case Hero.JUNKRAT: # Juno is renamed to Junkrat temporarily until OverPy is updated properly
+        case Hero.JUNO:
             initJuno()
             break
         case Hero.KIRIKO:
