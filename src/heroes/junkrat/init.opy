@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/junkrat/mayhem.opy"
+
 
 def initJunkrat():
     @Name "[junkrat/init.opy]: initJunkrat()"
@@ -23,6 +25,7 @@ def initJunkrat():
     resetStats()
     resetStatuses()
     enableAllAbilities()
+    eventPlayer.disallowButton(Button.ULTIMATE) # check mayhem.opy
 
     setUltCost(ADJ_JUNKRAT_ULT_COST)
     if not eventPlayer.isDuplicatingAHero():
@@ -40,31 +43,3 @@ rule "[junkrat/init.opy]: Correct Junkrat invalid health": # Sometimes Junkrat c
     @Condition eventPlayer.hero_initialized
 
     initJunkrat()
-
-
-# rule "[junkrat/init.opy]: Reduce Frag Launcher attack speed":
-#     @Event eachPlayer
-#     @Hero junkrat
-#     @Condition eventPlayer.isFiringPrimaryFire()
-    
-#     eventPlayer.setPrimaryFireEnabled(false)
-#     wait(ADJ_PHARAH_ATTACK_RECOVERY)
-#     eventPlayer.setPrimaryFireEnabled(true)
-#     if eventPlayer.isHoldingButton(Button.PRIMARY_FIRE): # if the player is holding down primary fire, this is necessary to allow automatic firing
-#         eventPlayer.forceButtonPress(Button.PRIMARY_FIRE)
-
-
-rule "[junkrat/init.opy]: Correct Frag Launcher damage":
-    @Event playerDealtDamage
-    @Hero junkrat
-    @Condition eventAbility == Button.PRIMARY_FIRE
-
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar)*(ADJ_JUNKRAT_FRAG_DAMAGE / OW2_JUNKRAT_FRAG_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
-
-
-rule "[junkrat/init.opy]: Correct Junkrat other forms of damage":
-    @Event playerDealtDamage
-    @Hero junkrat
-    @Condition eventAbility in [Button.MELEE, Button.ULTIMATE]
-
-    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
