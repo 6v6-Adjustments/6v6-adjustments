@@ -11,7 +11,7 @@ rule "[lucio/aura.opy]: Allow self healing during heal aura":
     popSelfHealing(Button.ABILITY_1)
 
 
-rule "[illari/init.opy]: Correct Aura self healing":
+rule "[lucio/init.opy]: Correct Aura self healing":
     @Event playerDealtHealing
     @Hero lucio
     @Condition healee == healer

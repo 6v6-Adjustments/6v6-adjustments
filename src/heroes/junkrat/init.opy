@@ -28,6 +28,7 @@ def initJunkrat():
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
         setBaseDamage(eventPlayer, ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE / OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE)
+        # eventPlayer.setKnockbackDealt(percent(ADJ_JUNKRAT_FRAG_KNOCKBACK_SCALAR)) # half knockback to greatly reduce displacement from frag launcher
 
     eventPlayer.hero_initialized = true
 
@@ -41,6 +42,18 @@ rule "[junkrat/init.opy]: Correct Junkrat invalid health": # Sometimes Junkrat c
     initJunkrat()
 
 
+# rule "[junkrat/init.opy]: Reduce Frag Launcher attack speed":
+#     @Event eachPlayer
+#     @Hero junkrat
+#     @Condition eventPlayer.isFiringPrimaryFire()
+    
+#     eventPlayer.setPrimaryFireEnabled(false)
+#     wait(ADJ_PHARAH_ATTACK_RECOVERY)
+#     eventPlayer.setPrimaryFireEnabled(true)
+#     if eventPlayer.isHoldingButton(Button.PRIMARY_FIRE): # if the player is holding down primary fire, this is necessary to allow automatic firing
+#         eventPlayer.forceButtonPress(Button.PRIMARY_FIRE)
+
+
 rule "[junkrat/init.opy]: Correct Frag Launcher damage":
     @Event playerDealtDamage
     @Hero junkrat
@@ -52,6 +65,6 @@ rule "[junkrat/init.opy]: Correct Frag Launcher damage":
 rule "[junkrat/init.opy]: Correct Junkrat other forms of damage":
     @Event playerDealtDamage
     @Hero junkrat
-    @Condition eventAbility in [Button.MELEE, Button.ABILITY_2, Button.ULTIMATE]
+    @Condition eventAbility in [Button.MELEE, Button.ULTIMATE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
