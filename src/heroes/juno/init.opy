@@ -31,3 +31,11 @@ def initJuno():
 #     @Condition eventAbility == Button.SECONDARY_FIRE or eventHealing <= 20 # checks for medigun healing or torpedo healing
 
 #     heal(healee, null, ((eventHealing/eventPlayer._base_healing_scalar) - eventHealing)/eventPlayer._base_healing_scalar)
+
+
+# rule "[juno/init.opy]: Correct Juno melee damage":
+#     @Event playerDealtDamage
+#     @Hero junkrat #juno
+#     @Condition eventAbility == Button.MELEE or eventDamage >= 95
+
+#     heal(victim, null, eventDamage - (eventDamage/eventPlayer._base_damage_scalar))
