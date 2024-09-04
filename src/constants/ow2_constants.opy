@@ -29,6 +29,7 @@
 # Ashe
 #!define OW2_ASHE_BOB_DAMAGE 17
 #!define OW2_ASHE_BOB_HEALTH 1000
+#!define OW2_ASHE_VIPER_DAMAGE 35
 #!define OW2_ASHE_ULT_COST 2450
 
 # Baptiste

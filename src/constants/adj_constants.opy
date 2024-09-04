@@ -47,6 +47,7 @@
 # Ashe
 #!define ADJ_ASHE_BOB_HEALTH 900
 #!define ADJ_ASHE_HEALTH 200
+#!define ADJ_ASHE_VIPER_DAMAGE 40
 #!define ADJ_ASHE_ULT_COST 2240
 
 # Baptiste
