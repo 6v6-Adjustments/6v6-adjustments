@@ -96,6 +96,10 @@ settings {
                 #"ability1Kb%": percent(1/ADJ_JUNKRAT_FRAG_KNOCKBACK_SCALAR),
                 "ultGen%": percent(OW2_JUNKRAT_ULT_COST/ADJ_JUNKRAT_ULT_COST)
             },
+            "juno": {
+                "ability2Cooldown%": percent(ADJ_JUNO_RING_COOLDOWN/OW2_JUNO_RING_COOLDOWN),
+                "ultGen%": percent(OW2_JUNO_ULT_COST/ADJ_JUNO_ULT_COST)
+            },
             "kiriko": {
                 "ability1Cooldown%": percent(ADJ_KIRIKO_SWIFT_STEP_COOLDOWN/OW2_KIRIKO_SWIFT_STEP_COOLDOWN),
                 "ultGen%": percent(OW2_KIRIKO_ULT_COST/ADJ_KIRIKO_ULT_COST)

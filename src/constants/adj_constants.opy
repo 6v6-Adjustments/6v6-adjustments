@@ -198,7 +198,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_JUNO_RING_COOLDOWN 12
 #!define ADJ_JUNO_SHIELDS 125
 # !define ADJ_JUNO_TORPEDO_DAMAGE 85
-#!define ADJ_JUNO_ULT_COST 2750
+#!define ADJ_JUNO_ULT_COST 2500
 
 # Kiriko
 #!define ADJ_KIRIKO_HEALTH 200
