@@ -118,3 +118,11 @@ def resetStatuses():
     eventPlayer.clearStatusEffect(Status.ROOTED)
     eventPlayer.clearStatusEffect(Status.STUNNED)
     eventPlayer.clearStatusEffect(Status.UNKILLABLE)
+
+
+rule "[utilities/reset.opy]: Stop DoT/HoT on death":
+    @Event playerDied
+
+    eventPlayer.stopAllDoT()
+    eventPlayer.stopAllHoT()
+    

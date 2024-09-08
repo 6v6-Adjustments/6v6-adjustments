@@ -26,3 +26,22 @@ rule "[winston/primal.opy]: Remove bonus Primal Rage health":
             true)
         eventPlayer._primal_hp_id = getLastCreatedHealthPool()
         eventPlayer.setHealth(min(ADJ_WINSTON_HEALTH, eventPlayer._primal_exit_health) + eventPlayer._primal_exit_armor)
+
+
+rule "[winston/primal.opy]: Reduce Primal Rage damage":
+    @Event eachPlayer
+    @Hero winston
+    @Condition eventPlayer.isUsingUltimate()
+    
+    eventPlayer.setDamageDealt(percent(ADJ_WINSTON_PRIMAL_DAMAGE/OW2_WINSTON_PRIMAL_DAMAGE))
+    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
+    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar)) # revert damage back after Primal Rage concludes
+
+
+rule "[winston/primal.opy]: Correct Jump Pack damage during Primal Rage":
+    @Event playerDealtDamage
+    @Hero winston
+    @Condition eventPlayer.isUsingUltimate()
+    @Condition eventAbility == Button.ABILITY_1
+
+    damage(victim, attacker, (eventDamage/(ADJ_WINSTON_PRIMAL_DAMAGE/OW2_WINSTON_PRIMAL_DAMAGE) - eventDamage)/(ADJ_WINSTON_PRIMAL_DAMAGE/OW2_WINSTON_PRIMAL_DAMAGE))
