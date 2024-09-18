@@ -22,20 +22,20 @@ def initVenture():
     eventPlayer.setAmmo(0, 6)
     eventPlayer.setMaxAmmo(0, 6)
     
-    eventPlayer.max_health_scaler = (ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS)
+    # eventPlayer.max_health_scaler = (ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS)
     eventPlayer.hero_initialized = true
 
 
-rule "[venture/init.opy]: Correct Venture bonus shields":
-    @Event eachPlayer
-    @Hero venture
-    @Condition eventPlayer.getMaxHealthOfType(Health.SHIELDS) >= floor(ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS * OW2_VENTURE_EXPLORER_SHIELDS_ULTIMATE)
+# rule "[venture/init.opy]: Correct Venture bonus shields":
+#     @Event eachPlayer
+#     @Hero venture
+#     @Condition eventPlayer.getMaxHealthOfType(Health.SHIELDS) >= floor(ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS * OW2_VENTURE_EXPLORER_SHIELDS_ULTIMATE)
     
-    eventPlayer.addHealthPool(
-        Health.SHIELDS,
-        ADJ_VENTURE_EXPLORER_SHIELDS_ULTIMATE - (ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS * OW2_VENTURE_EXPLORER_SHIELDS_ULTIMATE),
-        true,
-        true)
-    # subtract 1 to account for rounding error
-    waitUntil(eventPlayer.getMaxHealthOfType(Health.SHIELDS) < (ADJ_VENTURE_EXPLORER_SHIELDS_ULTIMATE - 1), Math.INFINITY)
-    removeHealthPool(getLastCreatedHealthPool())
+#     eventPlayer.addHealthPool(
+#         Health.SHIELDS,
+#         ADJ_VENTURE_EXPLORER_SHIELDS_ULTIMATE - (ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS * OW2_VENTURE_EXPLORER_SHIELDS_ULTIMATE),
+#         true,
+#         true)
+#     # subtract 1 to account for rounding error
+#     waitUntil(eventPlayer.getMaxHealthOfType(Health.SHIELDS) < (ADJ_VENTURE_EXPLORER_SHIELDS_ULTIMATE - 1), Math.INFINITY)
+#     removeHealthPool(getLastCreatedHealthPool())
