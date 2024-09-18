@@ -25,12 +25,12 @@ def initJunkrat():
     resetStats()
     resetStatuses()
     enableAllAbilities()
-    eventPlayer.disallowButton(Button.ULTIMATE) # check mayhem.opy
 
     setUltCost(ADJ_JUNKRAT_ULT_COST)
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
         setBaseDamage(eventPlayer, ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE / OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE)
+        eventPlayer.disallowButton(Button.ULTIMATE) # check mayhem.opy
         # eventPlayer.setKnockbackDealt(percent(ADJ_JUNKRAT_FRAG_KNOCKBACK_SCALAR)) # half knockback to greatly reduce displacement from frag launcher
 
     eventPlayer.hero_initialized = true
