@@ -188,6 +188,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # Junkrat
 #!define ADJ_JUNKRAT_CONCUSSION_MINE_COOLDOWN 8
 #!define ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE 90
+#!define ADJ_JUNKRAT_FRAG_AMMO 4
 #!define ADJ_JUNKRAT_FRAG_DAMAGE 110
 #!define ADJ_JUNKRAT_HEALTH 200
 #!define ADJ_JUNKRAT_ULT_COST 1925
@@ -272,6 +273,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_MERCY_ULT_COST 1820
 
 # Moira
+#!define ADJ_MOIRA_COALESCENCE_DPS 70
 #!define ADJ_MOIRA_COALESCENCE_SPEED_BUFF 1.5
 #!define ADJ_MOIRA_GRASP_DPS 60
 #!define ADJ_MOIRA_HEALTH 200
@@ -424,7 +426,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_VENTURE_ULT_COST 1780
 
 # Widowmaker
-#!define ADJ_WIDOWMAKER_HEALTH 175
+#!define ADJ_WIDOWMAKER_HEALTH 150
 #!define ADJ_WIDOWMAKER_ULT_COST 1540
 
 # Winston

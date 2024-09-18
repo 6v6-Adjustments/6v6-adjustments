@@ -22,6 +22,9 @@ def initJunkrat():
     #eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
     heal(eventPlayer, null, 1)
 
+    eventPlayer.setAmmo(0, ADJ_JUNKRAT_FRAG_AMMO)
+    eventPlayer.setMaxAmmo(0, ADJ_JUNKRAT_FRAG_AMMO)
+
     resetStats()
     resetStatuses()
     enableAllAbilities()
