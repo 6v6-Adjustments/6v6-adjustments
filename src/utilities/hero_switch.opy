@@ -26,6 +26,7 @@ rule "[utilities/hero_switch.opy]: detect hero switch":
 rule "[utilities/hero_switch.opy]: Initialize hero on hero switch":
     @Event eachPlayer
     @Condition switchedHero(eventPlayer)
+    @Condition not eventPlayer.isDummy()
 
     waitUntil(eventPlayer.hasSpawned(), Math.INFINITY)
     waitUntil(not switchedHero(eventPlayer), Math.INFINITY)
@@ -37,6 +38,7 @@ rule "[utilities/hero_switch.opy]: Initialize hero on hero switch":
 rule "[utilities/hero_switch.opy]: Reinitialize hero on new round":
     @Event eachPlayer
     @Condition isMatchBetweenRounds()
+    @Condition not eventPlayer.isDummy()
 
     waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
     resetHero()
