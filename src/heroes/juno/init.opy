@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-globalvar orbitalray_dummy_id
+# globalvar orbitalray_dummy_id
 
 
 def initJuno():
@@ -17,6 +17,14 @@ def initJuno():
     #     eventPlayer.setHealingDealt(5)
 
     eventPlayer.hero_initialized = true
+
+
+rule "[juno/init.opy]: Correct Pulsar Torpedo damage":
+    @Event playerDealtDamage
+    @Hero juno
+    @Condition eventDamage > OW2_JUNO_TORPEDO_DAMAGE -1
+
+    heal(victim, null, (eventDamage * (ADJ_JUNO_TORPEDO_DAMAGE/OW2_JUNO_TORPEDO_DAMAGE) - eventDamage) * -1)
 
 
 # rule "[juno/init.opy]: Spawn dummy for Orbital Ray":

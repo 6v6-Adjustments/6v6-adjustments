@@ -124,6 +124,7 @@ settings {
                 "ultGen%": percent(OW2_JUNKRAT_ULT_COST/ADJ_JUNKRAT_ULT_COST)
             },
             "juno": {
+                "secondaryFireCooldown%": percent(ADJ_JUNO_TORPEDO_COOLDOWN/OW2_JUNO_TORPEDO_COOLDOWN),
                 "ability2Cooldown%": percent(ADJ_JUNO_RING_COOLDOWN/OW2_JUNO_RING_COOLDOWN),
                 "ultGen%": percent(OW2_JUNO_ULT_COST/ADJ_JUNO_ULT_COST)
             },
