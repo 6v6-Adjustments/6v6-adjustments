@@ -21,6 +21,6 @@ def initMccree():
 rule "[mccree/init.opy]: Correct Cassidy melee damage":
     @Event playerDealtDamage
     @Hero cassidy
-    @Condition eventAbility == Button.MELEE
+    @Condition eventAbility in [Button.MELEE, Button.SECONDARY_FIRE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)

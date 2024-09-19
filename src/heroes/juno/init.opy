@@ -11,10 +11,10 @@ def initJuno():
     
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
-        # eventPlayer.disallowButton(Button.ULTIMATE)
+    #     eventPlayer.disallowButton(Button.ULTIMATE)
     # if eventPlayer.isDummy():
-        # eventPlayer.setHealingDealt(percent(ADJ_JUNO_ORBITAL_RAY_HPS/OW2_JUNO_ORBITAL_RAY_HPS))
-        eventPlayer.setHealingDealt(5)
+    #     eventPlayer.setHealingDealt(percent(ADJ_JUNO_ORBITAL_RAY_HPS/OW2_JUNO_ORBITAL_RAY_HPS))
+    #     eventPlayer.setHealingDealt(5)
 
     eventPlayer.hero_initialized = true
 
@@ -34,8 +34,6 @@ def initJuno():
 #     createDummy(Hero.JUNO, eventPlayer.getTeam(), 7, eventPlayer.getPosition() + 1 * angleToDirection(eventPlayer.getHorizontalFacingAngle(), 180), eventPlayer.getFacingDirection())
 #     orbitalray_dummy_id = getLastCreatedEntity()
 #     orbitalray_dummy_id.setStatusEffect(null, Status.PHASED_OUT, Math.INFINITY)
-#     # orbitalray_dummy_id.setHealingDealt(percent(ADJ_JUNO_ORBITAL_RAY_HPS/OW2_JUNO_ORBITAL_RAY_HPS))
-#     # orbitalray_dummy_id.setHealingDealt(5)
 #     wait(0.1)
 #     eventPlayer.setUltCharge(0)
 #     orbitalray_dummy_id.allowButton(Button.ULTIMATE)
