@@ -22,9 +22,6 @@ def initJunkrat():
     #eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
     heal(eventPlayer, null, 1)
 
-    eventPlayer.setAmmo(0, ADJ_JUNKRAT_FRAG_AMMO)
-    eventPlayer.setMaxAmmo(0, ADJ_JUNKRAT_FRAG_AMMO)
-
     resetStats()
     resetStatuses()
     enableAllAbilities()
@@ -34,7 +31,6 @@ def initJunkrat():
         removeSelfHealing()
         setBaseDamage(eventPlayer, ADJ_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE / OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE)
         eventPlayer.disallowButton(Button.ULTIMATE) # check mayhem.opy
-        # eventPlayer.setKnockbackDealt(percent(ADJ_JUNKRAT_FRAG_KNOCKBACK_SCALAR)) # half knockback to greatly reduce displacement from frag launcher
 
     eventPlayer.hero_initialized = true
 

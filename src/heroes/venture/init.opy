@@ -19,8 +19,8 @@ def initVenture():
     eventPlayer.setKnockbackDealt(70)
     # eventPlayer.setMoveSpeed(percent(ADJ_VENTURE_SPEED/OW2_VENTURE_SPEED))
 
-    eventPlayer.setAmmo(0, 6)
-    eventPlayer.setMaxAmmo(0, 6)
+    eventPlayer.setAmmo(0, ADJ_VENTURE_DRILL_AMMO)
+    eventPlayer.setMaxAmmo(0, ADJ_VENTURE_DRILL_AMMO)
     
     # eventPlayer.max_health_scaler = (ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS)
     eventPlayer.hero_initialized = true
