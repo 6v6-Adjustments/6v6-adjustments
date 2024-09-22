@@ -1,9 +1,9 @@
 #!mainFile "../../dev_main.opy"
 
 #!include "heroes/venture/excavator.opy"
-#!include "heroes/venture/drill_dash.opy"
+# !include "heroes/venture/drill_dash.opy"
 #!include "heroes/venture/clobber.opy"
-# !include "heroes/venture/burrow.opy"
+#!include "heroes/venture/burrow.opy"
 #!include "heroes/venture/tectonic_shock.opy"
 
 
@@ -15,9 +15,8 @@ def initVenture():
     removeSelfHealing()
 
     if not eventPlayer.isDuplicatingAHero():
-        setBaseDamage(eventPlayer, ADJ_VENTURE_BURROW_DAMAGE / OW2_VENTURE_BURROW_DAMAGE)
-    eventPlayer.setKnockbackDealt(70)
-    # eventPlayer.setMoveSpeed(percent(ADJ_VENTURE_SPEED/OW2_VENTURE_SPEED))
+        setBaseDamage(eventPlayer, ADJ_VENTURE_DRILL_DASH_DAMAGE/OW2_VENTURE_DRILL_DASH_DAMAGE)
+    eventPlayer.setKnockbackDealt(ADJ_VENTURE_DRILL_DASH_KNOCKBACK)
 
     eventPlayer.setAmmo(0, ADJ_VENTURE_DRILL_AMMO)
     eventPlayer.setMaxAmmo(0, ADJ_VENTURE_DRILL_AMMO)
