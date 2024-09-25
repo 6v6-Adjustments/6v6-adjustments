@@ -18,6 +18,7 @@ rule "[venture/excavator.opy]: Correct Smart Excavator damage":
     @Event playerDealtDamage
     @Hero venture
     @Condition eventPlayer.is_firing_excavator
+    @Condition not eventPlayer.isUsingAbility1()
 
     damage(
         victim, 

@@ -2,10 +2,8 @@
 
 
 rule "[venture/burrow.opy]: Correct Burrow damage":
-    @Event eachPlayer
+    @Event playerDealtDamage
     @Hero venture
-    @Condition eventPlayer.isUsingAbility1()
+    @Condition eventAbility == Button.ABILITY_1
     
-    eventPlayer.setDamageDealt(percent(ADJ_VENTURE_BURROW_DAMAGE/OW2_VENTURE_BURROW_DAMAGE))
-    waitUntil(not eventPlayer.isUsingAbility1(), ADJ_VENTURE_BURROW_DURATION)
-    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_VENTURE_BURROW_DAMAGE / OW2_VENTURE_BURROW_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
