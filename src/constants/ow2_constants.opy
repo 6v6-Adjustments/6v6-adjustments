@@ -200,6 +200,7 @@
 # suzu invuln lasts for 0.65 seconds, but the healing over time is still 0.8
 #!define OW2_KIRIKO_SWIFT_STEP_COOLDOWN 8
 #!define OW2_KIRIKO_ULT_COST 2525
+#!define OW2_KIRIKO_SPEED 5.5
 
 # Lifeweaver
 #!define OW2_LIFEWEAVER_PLATFORM_COOLDOWN 12
