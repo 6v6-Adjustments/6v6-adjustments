@@ -16,6 +16,7 @@ def initJuno():
     # if eventPlayer.isDummy():
     #     eventPlayer.setHealingDealt(percent(ADJ_JUNO_ORBITAL_RAY_HPS/OW2_JUNO_ORBITAL_RAY_HPS))
     #     eventPlayer.setHealingDealt(5)
+    eventPlayer.setMoveSpeed(percent(ADJ_KIRIKO_SPEED/OW2_KIRIKO_SPEED))
 
     eventPlayer.setAmmo(0, ADJ_JUNO_MEDIGUN_AMMO)
     eventPlayer.setMaxAmmo(0, ADJ_JUNO_MEDIGUN_AMMO)
