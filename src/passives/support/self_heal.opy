@@ -107,6 +107,7 @@ rule "[passives/support/self_heal.opy]: Track regen_passive_timer for supports":
     @Event eachPlayer
     @Condition enable_regeneration
     @Condition eventPlayer.getCurrentHero() in getSupportHeroes()
+    @Condition eventPlayer.getCurrentHero() != Hero.MERCY
     @Condition eventPlayer.regen_passive_timer != 0
     
     chase(eventPlayer.regen_passive_timer, 0, duration = ADJ_SUPPORT_PASSIVE_TIMER if enable_support_passive else ADJ_REGEN_TIMER, ChaseReeval.DESTINATION_AND_DURATION)
