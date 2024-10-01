@@ -6,15 +6,24 @@ rule "[junkrat/mayhem.opy]: Correct Frag Launcher damage":
     @Hero junkrat
     @Condition eventAbility == Button.PRIMARY_FIRE
 
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar)*(ADJ_JUNKRAT_FRAG_DAMAGE / OW2_JUNKRAT_FRAG_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+    # damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar)*(ADJ_JUNKRAT_FRAG_DAMAGE/OW2_JUNKRAT_FRAG_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+    heal(victim, null, ((eventDamage/eventPlayer._base_damage_scalar)*(ADJ_JUNKRAT_FRAG_DAMAGE/OW2_JUNKRAT_FRAG_DAMAGE) - eventDamage) * -1)
 
 
 rule "[junkrat/mayhem.opy]: Correct Junkrat Melee damage":
     @Event playerDealtDamage
     @Hero junkrat
-    @Condition eventAbility in Button.MELEE
+    @Condition eventAbility == Button.MELEE
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
+
+
+rule "[junkrat/mayhem.opy]: Correct Junkrat Trap damage":
+    @Event playerDealtDamage
+    @Hero junkrat
+    @Condition eventAbility == Button.ABILITY_2
+
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar)*(ADJ_JUNKRAT_STEEL_TRAP_DMG/OW2_JUNKRAT_STEEL_TRAP_DMG) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 rule "[junkrat/mayhem.opy]: Reset damage for Rip-Tire": # Rip-Tire damage is set as soon as the entity is created, this setup allows workshop logic to reset damage before the tire is spawned

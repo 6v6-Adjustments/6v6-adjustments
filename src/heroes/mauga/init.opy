@@ -15,6 +15,9 @@ def initMauga():
         0)
     setUltCost(ADJ_MAUGA_ULT_COST)
 
+    eventPlayer.setAmmo(0, ADJ_MAUGA_AMMO)
+    eventPlayer.setMaxAmmo(0, ADJ_MAUGA_AMMO)
+
     removeTankPassive()
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
