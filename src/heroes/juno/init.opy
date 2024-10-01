@@ -35,6 +35,8 @@ rule "[juno/init.opy]: Correct Pulsar Torpedo healing":
     @Hero juno
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) < 0.1
+    @Condition not eventPlayer.isMeleeing()
+    @Condition not eventPlayer.isReloading()
 
     eventPlayer.setHealingDealt(percent(ADJ_JUNO_TORPEDO_HEALING/OW2_JUNO_TORPEDO_HEALING))
     waitUntil(eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0, OW2_JUNO_TORPEDO_CAST_DURATION)
