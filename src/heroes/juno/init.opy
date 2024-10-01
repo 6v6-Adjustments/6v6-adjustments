@@ -11,11 +11,14 @@ def initJuno():
     
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
+        setBaseHealing(eventPlayer, ADJ_JUNO_MEDIGUN_HEALING/OW2_JUNO_MEDIGUN_HEALING)
     #     eventPlayer.disallowButton(Button.ULTIMATE)
     # if eventPlayer.isDummy():
     #     eventPlayer.setHealingDealt(percent(ADJ_JUNO_ORBITAL_RAY_HPS/OW2_JUNO_ORBITAL_RAY_HPS))
     #     eventPlayer.setHealingDealt(5)
 
+    eventPlayer.setAmmo(0, ADJ_JUNO_MEDIGUN_AMMO)
+    eventPlayer.setMaxAmmo(0, ADJ_JUNO_MEDIGUN_AMMO)
     eventPlayer.hero_initialized = true
 
 
@@ -25,6 +28,25 @@ rule "[juno/init.opy]: Correct Pulsar Torpedo damage":
     @Condition eventDamage > OW2_JUNO_TORPEDO_DAMAGE -1
 
     heal(victim, null, (eventDamage * (ADJ_JUNO_TORPEDO_DAMAGE/OW2_JUNO_TORPEDO_DAMAGE) - eventDamage) * -1)
+
+
+rule "[juno/init.opy]: Correct Pulsar Torpedo healing":
+    @Event eachPlayer
+    @Hero juno
+    @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)
+    @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) < 0.1
+
+    eventPlayer.setHealingDealt(percent(ADJ_JUNO_TORPEDO_HEALING/OW2_JUNO_TORPEDO_HEALING))
+    waitUntil(eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0, OW2_JUNO_TORPEDO_CAST_DURATION)
+    eventPlayer.setHealingDealt(percent(eventPlayer._base_healing_scalar))
+
+
+rule "[juno/init.opy]: Correct Pulsar Torpedo healing over time":
+    @Event playerDealtHealing
+    @Hero juno
+    @Condition eventHealing > ADJ_JUNO_TORPEDO_HEALING-1
+
+    healee.startDoT(null, OW2_JUNO_TORPEDO_HEALING_DURATION-0.1, OW2_JUNO_TORPEDO_HOT-ADJ_JUNO_TORPEDO_HOT)
 
 
 # rule "[juno/init.opy]: Spawn dummy for Orbital Ray":
