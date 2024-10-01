@@ -208,15 +208,16 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_JUNO_ULT_COST 3050
 
 # Kiriko
-#!define ADJ_KIRIKO_HEALTH 200
+#!define ADJ_KIRIKO_HEALTH 150
 #!define ADJ_KIRIKO_KUNAI_COUNT 15
-#!define ADJ_KIRIKO_KUNAI_DAMAGE 55
-#!define ADJ_KIRIKO_OFUDA_HEALING 14
+#!define ADJ_KIRIKO_KUNAI_DAMAGE 45
+#!define ADJ_KIRIKO_OFUDA_HEALING 10
 #!define ADJ_KIRIKO_SWIFT_STEP_COOLDOWN 7
 #!define ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN 5
-#!define ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL 35
+#!define ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL 50
 #!define ADJ_KIRIKO_SWIFT_STEP_SELF_HEAL_DURATION 0.25
 #!define ADJ_KIRIKO_ULT_COST 2400
+#!define ADJ_KIRIKO_SPEED 6.0
 
 # Lifeweaver
 #!define ADJ_LIFEWEAVER_HEALTH 100
@@ -240,7 +241,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_LUCIO_ULT_COST 2940
 
 # Mauga
-#!define ADJ_MAUGA_AMMO 300
+#!define ADJ_MAUGA_AMMO 200
 #!define ADJ_MAUGA_ARMOR 200
 #!define ADJ_MAUGA_ARMOR_DUPLICATE 125
 #!define ADJ_MAUGA_BERSERKER_OVERHEALTH 150
@@ -269,12 +270,12 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_MEI_ULT_COST 1610
 
 # Mercy
-#!define ADJ_MERCY_AMMO 20
-#!define ADJ_MERCY_HEALTH 200
-#!define ADJ_MERCY_GA_COOLDOWN 1.1
-#!define ADJ_MERCY_PASSIVE_TIMER 1
+#!define ADJ_MERCY_AMMO 15
+#!define ADJ_MERCY_HEALTH 225
+#!define ADJ_MERCY_GA_COOLDOWN 1.0
+#!define ADJ_MERCY_PASSIVE_TIMER 3
 #!define ADJ_MERCY_REGEN_HPS 20
-#!define ADJ_MERCY_STAFF_HEALING 55
+#!define ADJ_MERCY_STAFF_HEALING 50
 #!define ADJ_MERCY_ULT_COST 1820
 
 # Moira
@@ -435,7 +436,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Widowmaker
 #!define ADJ_WIDOWMAKER_HEALTH 150
-#!define ADJ_WIDOWMAKER_ULT_COST 1540
+#!define ADJ_WIDOWMAKER_ULT_COST 154
 
 # Winston
 #!define ADJ_WINSTON_ARMOR 100

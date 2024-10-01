@@ -8,6 +8,7 @@ rule "[kiriko/protection_suzu.opy]: Track Protection Suzu healing":
     @Hero kiriko
     @Condition eventAbility == Button.ABILITY_2
     
+    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 1.5)
     eventPlayer.suzu_flying = false
 
 

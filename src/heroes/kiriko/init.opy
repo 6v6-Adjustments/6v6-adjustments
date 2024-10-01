@@ -13,6 +13,9 @@ def initKiriko():
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
     setBaseDamage(eventPlayer, ADJ_KIRIKO_KUNAI_DAMAGE / OW2_KIRIKO_KUNAI_DAMAGE)
+    setBaseHealing(eventPlayer, 0.1)
+    eventPlayer.startScalingSize(0.95, true)
+    eventPlayer.setMoveSpeed(percent(ADJ_KIRIKO_SPEED/OW2_KIRIKO_SPEED))
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN) 
 
@@ -28,10 +31,18 @@ rule "[kiriko/init.opy]: Correct Kiriko melee damage":
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
-# rule "[kiriko/init.opy]: Correct Ofuda healing":
-#     @Event playerDealtHealing
-#     @Hero kiriko
-#     # @Condition eventHealing >= 10
-#     @Condition not eventAbility == Button.ABILITY_2
+rule "[kiriko/init.opy]: Correct Kiriko headshot damage":
+    @Event playerDealtDamage
+    @Hero kiriko
+    @Condition eventAbility != Button.MELEE
+    @Condition eventWasCriticalHit == true
 
-#     heal(healee, healer, eventHealing * (ADJ_KIRIKO_OFUDA_HEALING/OW2_KIRIKO_OFUDA_HEALING) - eventHealing)
+    damage(victim, attacker, 0.5*eventDamage)
+
+
+rule "[kiriko/init.opy]: Correct Ofuda healing":
+    @Event playerDealtHealing
+    @Hero kiriko
+    @Condition not eventAbility == Button.ABILITY_2
+
+    heal(healee, healer, eventHealing * (10 * ADJ_KIRIKO_OFUDA_HEALING/OW2_KIRIKO_OFUDA_HEALING) - eventHealing)
