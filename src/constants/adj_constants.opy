@@ -196,10 +196,10 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 # Juno
 #!define ADJ_JUNO_HEALTH 75
 #!define ADJ_JUNO_MEDIGUN_AMMO 144
-#!define ADJ_JUNO_MEDIGUN_DAMAGE 7.5
+#!define ADJ_JUNO_MEDIGUN_DAMAGE 6.5
 #!define ADJ_JUNO_MEDIGUN_HEALING 6
 # !define ADJ_JUNO_ORBITAL_RAY_HPS 60
-#!define ADJ_JUNO_RING_COOLDOWN 14
+#!define ADJ_JUNO_RING_COOLDOWN 16
 #!define ADJ_JUNO_SHIELDS 125
 #!define ADJ_JUNO_TORPEDO_COOLDOWN 10
 #!define ADJ_JUNO_TORPEDO_DAMAGE 70
@@ -435,7 +435,8 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_VENTURE_ULT_COST 1550
 
 # Widowmaker
-#!define ADJ_WIDOWMAKER_HEALTH 150
+#!define ADJ_WIDOWMAKER_HEALTH 175
+#!define ADJ_WIDOWMAKER_SCOPED_DAMAGE 105
 #!define ADJ_WIDOWMAKER_ULT_COST 1540
 
 # Winston

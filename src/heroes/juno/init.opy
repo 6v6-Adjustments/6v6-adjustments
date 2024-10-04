@@ -1,5 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/juno/torpedoes.opy"
+
 # globalvar orbitalray_dummy_id
 
 
@@ -11,6 +13,7 @@ def initJuno():
     
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
+        setBaseDamage(eventPlayer, ADJ_JUNO_MEDIGUN_DAMAGE/OW2_JUNO_MEDIGUN_DAMAGE)
         setBaseHealing(eventPlayer, ADJ_JUNO_MEDIGUN_HEALING/OW2_JUNO_MEDIGUN_HEALING)
     #     eventPlayer.disallowButton(Button.ULTIMATE)
     # if eventPlayer.isDummy():
@@ -23,33 +26,12 @@ def initJuno():
     eventPlayer.hero_initialized = true
 
 
-rule "[juno/init.opy]: Correct Pulsar Torpedo damage":
+rule "[juno/init.opy]: Correct Juno Melee damage":
     @Event playerDealtDamage
     @Hero juno
-    @Condition eventDamage > OW2_JUNO_TORPEDO_DAMAGE -1
+    @Condition eventAbility == Button.MELEE
 
-    heal(victim, null, (eventDamage * (ADJ_JUNO_TORPEDO_DAMAGE/OW2_JUNO_TORPEDO_DAMAGE) - eventDamage) * -1)
-
-
-rule "[juno/init.opy]: Correct Pulsar Torpedo healing":
-    @Event eachPlayer
-    @Hero juno
-    @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)
-    @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) < 0.1
-    @Condition not eventPlayer.isMeleeing()
-    @Condition not eventPlayer.isReloading()
-
-    eventPlayer.setHealingDealt(percent(ADJ_JUNO_TORPEDO_HEALING/OW2_JUNO_TORPEDO_HEALING))
-    waitUntil(eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0, OW2_JUNO_TORPEDO_CAST_DURATION)
-    eventPlayer.setHealingDealt(percent(eventPlayer._base_healing_scalar))
-
-
-rule "[juno/init.opy]: Correct Pulsar Torpedo healing over time":
-    @Event playerDealtHealing
-    @Hero juno
-    @Condition eventHealing > ADJ_JUNO_TORPEDO_HEALING-1
-
-    healee.startDoT(null, OW2_JUNO_TORPEDO_HEALING_DURATION-0.1, OW2_JUNO_TORPEDO_HOT-ADJ_JUNO_TORPEDO_HOT)
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 # rule "[juno/init.opy]: Spawn dummy for Orbital Ray":
