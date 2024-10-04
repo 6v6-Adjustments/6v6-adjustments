@@ -402,6 +402,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_SYMMETRA_ULT_COST 1680
 
 # Torbjorn
+#!define ADJ_TORBJORN_AMMO 18
 #!define ADJ_TORBJORN_ARMOR 50
 #!define ADJ_TORBJORN_HEALTH 200
 #!define ADJ_TORBJORN_TURRET_HEALTH 200
