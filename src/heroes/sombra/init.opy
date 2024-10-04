@@ -28,7 +28,7 @@ rule "[sombra/init.opy]: Correct Virus damage":
     @Event playerDealtDamage
     @Hero sombra
     @Condition eventAbility == Button.ABILITY_1
-    @Condition eventDamage >= ADJ_SOMBRA_VIRUS_IMPACT_DAMAGE
+    @Condition eventDamage >= OW2_SOMBRA_VIRUS_IMPACT_DAMAGE*eventPlayer._base_damage_scalar
 
     heal(victim, null, ((eventDamage * (ADJ_SOMBRA_VIRUS_IMPACT_DAMAGE/OW2_SOMBRA_VIRUS_IMPACT_DAMAGE) - eventDamage) * -1) * eventPlayer._base_damage_scalar)
     if eventDamage >= 65: # number chosen is as close to critical virus threshold as possible, affected by base damage scalar

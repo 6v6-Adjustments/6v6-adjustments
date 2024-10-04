@@ -132,7 +132,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER 5
 #!define ADJ_ECHO_HEALTH 200
 #!define ADJ_ECHO_STICKY_BOMBS_DAMAGE 150
-#!define ADJ_ECHO_TRISHOT_DAMAGE 45
+#!define ADJ_ECHO_TRISHOT_DAMAGE 49.5
 #!define ADJ_ECHO_ULT_COST 1880
 
 # Genji
@@ -388,10 +388,10 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 
 # Sombra
 #!define ADJ_SOMBRA_HEALTH 200
-#!define ADJ_SOMBRA_SMG_DAMAGE 7.5
-#!define ADJ_SOMBRA_VIRUS_COOLDOWN 7
+#!define ADJ_SOMBRA_SMG_DAMAGE 8
+#!define ADJ_SOMBRA_VIRUS_COOLDOWN 6
 #!define ADJ_SOMBRA_VIRUS_DOT 90
-#!define ADJ_SOMBRA_VIRUS_IMPACT_DAMAGE 25
+#!define ADJ_SOMBRA_VIRUS_IMPACT_DAMAGE 1
 #!define ADJ_SOMBRA_ULT_COST 1375
 
 # Symmetra
