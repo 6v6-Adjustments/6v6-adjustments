@@ -234,7 +234,8 @@
 #!define OW2_MAUGA_BERSERKER_OVERHEALTH 150
 #!define OW2_MAUGA_BURN_DPS 15
 #!define OW2_MAUGA_BURN_DURATION 3
-#!define OW2_MAUGA_BURN_RATE 10
+#!define OW2_MAUGA_BURN_RATE 11
+# burn rate is set slightly higher to help account for a rounding error
 #!define OW2_MAUGA_CARDIAC_ALLIED_EFFECTIVENESS 0.5
 #!define OW2_MAUGA_CARDIAC_ALLIED_LIFESTEAL 50
 #!define OW2_MAUGA_CARDIAC_COOLDOWN 12

@@ -139,8 +139,8 @@ rule "[utilities/debug.opy]: do something on interact":
     @Condition DEBUG_MODE
     @Condition eventPlayer.isHoldingButton(Button.INTERACT)
 
-    # getAllPlayers().setHealth(1)
-    damage(eventPlayer, getClosestPlayer(eventPlayer, Team.2), 25)
+    getAllPlayers().setHealth(1)
+    # damage(eventPlayer, getClosestPlayer(eventPlayer, Team.2), 25)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)

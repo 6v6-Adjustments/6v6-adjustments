@@ -10,3 +10,16 @@ rule "[roadhog/breather.opy]: Allow self healing during Breather":
     pushSelfHealing(Button.ABILITY_2)
     waitUntil(not eventPlayer.isFiringSecondaryFire(), Math.INFINITY)
     popSelfHealing(Button.ABILITY_2)
+
+    # do not merge these two rules together, the breather logic interferes with the self-healing timing
+
+rule "[roadhog/breather.opy]: Adjust Breather efficacy":
+    @Event eachPlayer
+    @Hero roadhog
+    @Condition eventPlayer.isFiringSecondaryFire()
+
+    eventPlayer.setHealingDealt(223) # exactly equals 200 HP, found through trial and error
+    wait(0.80) # exact duration of minimum breather usage
+    eventPlayer.setHealingDealt(48.2) # exactly equals an additional 150 HP, also found through trial and error
+    waitUntil(not eventPlayer.isFiringSecondaryFire(), Math.INFINITY)
+    eventPlayer.setHealingDealt(100)
