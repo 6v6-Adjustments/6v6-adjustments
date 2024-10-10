@@ -222,7 +222,6 @@ rule "[utilities/debug.opy]: Debug healing instance":
     healee._total_healing_received = 0
 
 
-/*
 rule "Debug: Display movement speed":
     @Event eachPlayer
     
@@ -230,7 +229,6 @@ rule "Debug: Display movement speed":
     #wait(0.25)
     #destroyHudText(getLastCreatedText())
     #goto RULE_START
-*/
 
 /*
 rule "Debug: Display hero_check":
