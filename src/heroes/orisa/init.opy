@@ -20,13 +20,6 @@ def initOrisa():
     # if not eventPlayer.isDuplicatingAHero():
     #     setBaseDamage(eventPlayer, ADJ_ORISA_JAVELIN_DIRECT_DAMAGE / OW2_ORISA_JAVELIN_DIRECT_DAMAGE)
 
+    eventPlayer.startScalingSize(1.04, true)
     eventPlayer.balance_change_check = true
     eventPlayer.hero_initialized = true
-
-
-# rule "[orisa/init.opy]: Increase Orisa other forms of damage":
-#     @Event playerDealtDamage
-#     @Hero orisa
-#     @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ABILITY_2]
-
-#     damage(victim, attacker, (eventDamage / eventPlayer._base_damage_scalar - eventDamage) / eventPlayer._base_damage_scalar)

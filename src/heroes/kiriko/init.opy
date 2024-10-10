@@ -13,6 +13,7 @@ def initKiriko():
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
     setBaseDamage(eventPlayer, ADJ_KIRIKO_KUNAI_DAMAGE / OW2_KIRIKO_KUNAI_DAMAGE)
+    setCurrentSpeed(eventPlayer, ADJ_KIRIKO_SPEED / OW2_KIRIKO_SPEED)
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_KIRIKO_SWIFT_STEP_SPAWN_COOLDOWN) 
 
