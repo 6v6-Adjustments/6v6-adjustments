@@ -16,22 +16,22 @@ def initSombra():
     eventPlayer.hero_initialized = true
 
 
-rule "[sombra/init.opy]: Correct Sombra Melee damage":
-    @Event playerDealtDamage
-    @Hero sombra
-    @Condition eventAbility == Button.MELEE
+# rule "[sombra/init.opy]: Correct Sombra Melee damage":
+#     @Event playerDealtDamage
+#     @Hero sombra
+#     @Condition eventAbility == Button.MELEE
 
-    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
+#     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 rule "[sombra/init.opy]: Correct Virus damage":
     @Event playerDealtDamage
     @Hero sombra
     @Condition eventAbility == Button.ABILITY_1
-    @Condition eventDamage >= ADJ_SOMBRA_VIRUS_IMPACT_DAMAGE
+    @Condition eventDamage >= OW2_SOMBRA_VIRUS_IMPACT_DAMAGE*eventPlayer._base_damage_scalar
 
     heal(victim, null, ((eventDamage * (ADJ_SOMBRA_VIRUS_IMPACT_DAMAGE/OW2_SOMBRA_VIRUS_IMPACT_DAMAGE) - eventDamage) * -1) * eventPlayer._base_damage_scalar)
-    if eventDamage >= 65: # number chosen is as close to critical virus threshold as possible, affected by base damage scalar
+    if eventDamage >= (65*eventPlayer._base_damage_scalar): # number chosen is as close to critical virus threshold as possible, affected by base damage scalar
         victim.startDoT(attacker, OW2_SOMBRA_VIRUS_DURATION/2, (ADJ_SOMBRA_VIRUS_DOT-(OW2_SOMBRA_VIRUS_DOT*eventPlayer._base_damage_scalar))/(OW2_SOMBRA_VIRUS_DURATION/2))
         break
     victim.startDoT(attacker, OW2_SOMBRA_VIRUS_DURATION, (ADJ_SOMBRA_VIRUS_DOT-(OW2_SOMBRA_VIRUS_DOT*eventPlayer._base_damage_scalar))/OW2_SOMBRA_VIRUS_DURATION)

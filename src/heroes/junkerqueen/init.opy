@@ -10,9 +10,7 @@ def initJunkerQueen():
     @Name "[junkerqueen/init.opy]: initJunkerQueen()"
 
     setCustomHp(
-        ADJ_JUNKERQUEEN_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_JUNKERQUEEN_HEALTH,
-        ADJ_JUNKERQUEEN_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_JUNKERQUEEN_ARMOR,
-        0)
+        ADJ_JUNKERQUEEN_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_JUNKERQUEEN_HEALTH, 0, 0)
     setUltCost(ADJ_JUNKERQUEEN_ULT_COST)
     removeTankPassive()
     removeRegenPassive()

@@ -139,8 +139,8 @@ rule "[utilities/debug.opy]: do something on interact":
     @Condition DEBUG_MODE
     @Condition eventPlayer.isHoldingButton(Button.INTERACT)
 
-    # getAllPlayers().setHealth(1)
-    damage(eventPlayer, getClosestPlayer(eventPlayer, Team.2), 25)
+    getAllPlayers().setHealth(1)
+    # damage(eventPlayer, getClosestPlayer(eventPlayer, Team.2), 25)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
@@ -222,7 +222,6 @@ rule "[utilities/debug.opy]: Debug healing instance":
     healee._total_healing_received = 0
 
 
-/*
 rule "Debug: Display movement speed":
     @Event eachPlayer
     
@@ -230,7 +229,6 @@ rule "Debug: Display movement speed":
     #wait(0.25)
     #destroyHudText(getLastCreatedText())
     #goto RULE_START
-*/
 
 /*
 rule "Debug: Display hero_check":

@@ -103,6 +103,7 @@ settings {
             },
             "kiriko": {
                 "ability1Cooldown%": percent(ADJ_KIRIKO_SWIFT_STEP_COOLDOWN/OW2_KIRIKO_SWIFT_STEP_COOLDOWN),
+                "ability2Cooldown%": percent(ADJ_KIRIKO_SUZU_COOLDOWN/OW2_KIRIKO_SUZU_COOLDOWN),
                 "ultGen%": percent(OW2_KIRIKO_ULT_COST/ADJ_KIRIKO_ULT_COST)
             },
             "lifeweaver": {
@@ -172,8 +173,9 @@ settings {
             },
             "roadhog": {
                 "secondaryFireCooldown%": percent(ADJ_ROADHOG_BREATHER_COOLDOWN/OW2_ROADHOG_BREATHER_COOLDOWN),
-                "secondaryFireMaximumTime%": percent(ADJ_ROADHOG_BREATHER_DURATION/OW2_ROADHOG_BREATHER_DURATION),
-                "secondaryFireRechargeRate%": percent(ADJ_ROADHOG_BREATHER_RECHARGE_DURATION/OW2_ROADHOG_BREATHER_RECHARGE_DURATION),
+                # "secondaryFireMaximumTime%": percent(ADJ_ROADHOG_BREATHER_DURATION/OW2_ROADHOG_BREATHER_DURATION),
+                # "secondaryFireRechargeRate%": percent(ADJ_ROADHOG_BREATHER_RECHARGE_DURATION/OW2_ROADHOG_BREATHER_RECHARGE_DURATION),
+                "secondaryFireRechargeRate%": 500, # maxed out so roadhog can decide how to use breather each time its off cooldown
                 "ability1Cooldown%": percent(ADJ_ROADHOG_HOOK_COOLDOWN_TIME/OW2_ROADHOG_HOOK_COOLDOWN_TIME),
                 "ultGen%": percent(OW2_ROADHOG_ULT_COST/ADJ_ROADHOG_ULT_COST)
             },

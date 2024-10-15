@@ -10,8 +10,8 @@ def initTorbjorn():
     setUltCost(ADJ_TORBJORN_ULT_COST)
     removeSelfHealing()
 
-    eventPlayer.setAmmo(0, 15)
-    eventPlayer.setMaxAmmo(0, 15)
+    eventPlayer.setAmmo(0, ADJ_TORBJORN_AMMO)
+    eventPlayer.setMaxAmmo(0, ADJ_TORBJORN_AMMO)
 
     eventPlayer.overhealth_check = false
 

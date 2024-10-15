@@ -26,6 +26,16 @@ def initSigma():
 rule "[sigma/init.opy]: Increase Sigma other forms of damage":
     @Event playerDealtDamage
     @Hero sigma
-    @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE, Button.ULTIMATE]
+    @Condition eventAbility in [Button.MELEE, Button.PRIMARY_FIRE]
     
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
+
+
+rule "[sigma/init.opy]: Reduce Gravitic Flux damage":
+    @Event eachPlayer
+    @Hero sigma
+    @Condition eventPlayer.isUsingUltimate()
+    
+    eventPlayer.setDamageDealt(100)
+    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
+    eventPlayer.setDamageDealt(percent(eventPlayer._base_damage_scalar))

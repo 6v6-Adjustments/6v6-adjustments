@@ -130,6 +130,7 @@ settings {
             },
             "kiriko": {
                 "ability1Cooldown%": percent(ADJ_KIRIKO_SWIFT_STEP_COOLDOWN/OW2_KIRIKO_SWIFT_STEP_COOLDOWN),
+                "ability2Cooldown%": percent(ADJ_KIRIKO_SUZU_COOLDOWN/OW2_KIRIKO_SUZU_COOLDOWN),
                 "ultGen%": percent(OW2_KIRIKO_ULT_COST/ADJ_KIRIKO_ULT_COST)
             },
             "lifeweaver": {
