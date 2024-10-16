@@ -195,6 +195,7 @@ settings {
             },
             "sombra": {
                 "ability1Cooldown%": percent(ADJ_SOMBRA_VIRUS_COOLDOWN/OW2_SOMBRA_VIRUS_COOLDOWN),
+                "ability2Cooldown%": percent(ADJ_SOMBRA_TRANSLOCATOR_COOLDOWN/OW2_SOMBRA_TRANSLOCATOR_COOLDOWN),
                 "ultGen%": percent(OW2_SOMBRA_ULT_COST/ADJ_SOMBRA_ULT_COST)
             },
             "symmetra": {

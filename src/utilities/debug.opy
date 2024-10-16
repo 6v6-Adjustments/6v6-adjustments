@@ -222,10 +222,10 @@ rule "[utilities/debug.opy]: Debug healing instance":
     healee._total_healing_received = 0
 
 
-rule "Debug: Display movement speed":
-    @Event eachPlayer
+# rule "Debug: Display movement speed":
+#     @Event eachPlayer
     
-    hudHeader(eventPlayer, l"({0})".format(eventPlayer.getSpeed()), HudPosition.LEFT, 2, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.DEFAULT)
+#     hudHeader(eventPlayer, l"({0})".format(eventPlayer.getSpeed()), HudPosition.LEFT, 2, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.DEFAULT)
     #wait(0.25)
     #destroyHudText(getLastCreatedText())
     #goto RULE_START
