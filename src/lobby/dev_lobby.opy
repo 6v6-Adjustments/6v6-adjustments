@@ -157,7 +157,8 @@ settings {
                 "secondaryFireCooldown%": percent(ADJ_RAMATTRA_VOID_BARRIER_COOLDOWN/OW2_RAMATTRA_VOID_BARRIER_COOLDOWN),
                 "ability1Cooldown%": percent(ADJ_RAMATTRA_NEMESIS_COOLDOWN/OW2_RAMATTRA_NEMESIS_COOLDOWN),
                 "ability2Cooldown%": percent(ADJ_RAMATTRA_VORTEX_COOLDOWN/OW2_RAMATTRA_VORTEX_COOLDOWN),
-                "health%": percent(ADJ_RAMATTRA_BARRIER_HEALTH/OW2_RAMATTRA_BARRIER_HEALTH),
+                "health%": percent(Math.sqrt(ADJ_RAMATTRA_BARRIER_HEALTH/OW2_RAMATTRA_BARRIER_HEALTH)),
+                # as of S13, ramattra heal scaling is quadrillatical
                 "ultDuration%": percent(ADJ_RAMATTRA_ANNIHILATION_DURATION/OW2_RAMATTRA_ANNIHILATION_DURATION),
                 "ultGen%": percent(OW2_RAMATTRA_ULT_COST/ADJ_RAMATTRA_ULT_COST),
             },

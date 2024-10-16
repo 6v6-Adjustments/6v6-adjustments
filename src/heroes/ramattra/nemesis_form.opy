@@ -9,8 +9,8 @@ rule "[ramattra/nemesis_form.opy]: Correct Nemesis Form armor and movement speed
     eventPlayer.startScalingSize(0.95, true)
     eventPlayer.setDamageDealt(percent(ADJ_RAMATTRA_PUMMEL_DAMAGE/OW2_RAMATTRA_PUMMEL_DAMAGE))
     setCurrentSpeed(eventPlayer, ADJ_RAMATTRA_NEMESIS_MOVESPEED/OW2_RAMATTRA_NEMESIS_MOVESPEED)
-    eventPlayer.addHealthPool(Health.ARMOR, 80, true, true) # for some reason the addHealthPool function doesn't read constants as usable numbers
-    waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 81, Math.INFINITY)
+    eventPlayer.addHealthPool(Health.ARMOR, 10, true, true) # for some reason the addHealthPool function doesn't read constants as usable numbers
+    waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 11, Math.INFINITY)
     setCurrentSpeed(eventPlayer, 1)
     eventPlayer.stopScalingSize()
     removeHealthPool(getLastCreatedHealthPool())
