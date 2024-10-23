@@ -10,7 +10,7 @@ def initSombra():
     
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
-        # eventPlayer._self_healing_percent = 0.1 # set self healing to 0.1% such that 75hp healthpack becomes 0.075hp
+        eventPlayer._self_healing_percent = 0.1 # set self healing to 0.1% such that 75hp healthpack becomes 0.075hp
         
     # setBaseDamage(eventPlayer, ADJ_SOMBRA_SMG_DAMAGE/OW2_SOMBRA_SMG_DAMAGE)
 
@@ -38,9 +38,9 @@ def initSombra():
 #     victim.startDoT(attacker, OW2_SOMBRA_VIRUS_DURATION, (ADJ_SOMBRA_VIRUS_DOT-(OW2_SOMBRA_VIRUS_DOT*eventPlayer._base_damage_scalar))/OW2_SOMBRA_VIRUS_DURATION)
 
 
-# rule "[sombra/init.opy]: Hacked health pack logic":
-#     @Event playerReceivedHealing
-#     @Hero sombra
-#     @Condition eventWasHealthPack == true
+ rule "[sombra/init.opy]: Hacked health pack logic":
+     @Event playerReceivedHealing
+     @Hero sombra
+     @Condition eventWasHealthPack == true
     
-#     heal(eventPlayer, eventPlayer, eventHealing/unpercent(eventPlayer._self_healing_percent) - eventHealing)
+     heal(eventPlayer, eventPlayer, eventHealing/unpercent(eventPlayer._self_healing_percent) - eventHealing)
