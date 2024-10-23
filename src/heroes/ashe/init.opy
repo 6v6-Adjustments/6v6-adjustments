@@ -25,6 +25,8 @@ rule "[ashe/init.opy]: Correct Viper damage":
     @Event playerDealtDamage
     @Hero ashe
     @Condition eventAbility in Button.PRIMARY_FIRE
-    @Condition not eventPlayer.isFiringSecondaryFire()
 
-    damage(victim, attacker, eventDamage * (ADJ_ASHE_VIPER_DAMAGE/OW2_ASHE_VIPER_DAMAGE) - eventDamage)
+    if not eventPlayer.isFiringSecondaryFire():
+        damage(victim, attacker, eventDamage * (ADJ_ASHE_VIPER_DAMAGE/OW2_ASHE_VIPER_DAMAGE) - eventDamage)
+    else:
+        damage(victim, attacker, eventDamage * (ADJ_ASHE_SCOPED_DAMAGE/OW2_ASHE_SCOPED_DAMAGE) - eventDamage)

@@ -14,17 +14,21 @@ def initAna():
 
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
-        setBaseDamage(eventPlayer, ADJ_ANA_BIOTIC_GRENADE_DAMAGE/OW2_ANA_BIOTIC_GRENADE_DAMAGE)
-
-    eventPlayer.setMaxAmmo(0, ADJ_ANA_AMMO_COUNT)
-    eventPlayer.setAmmo(0, ADJ_ANA_AMMO_COUNT)
 
     eventPlayer.hero_initialized = true
 
 
-rule "[ana/init.opy]: Correct Biotic Rifle, Sleep Dart, Melee damage":
+rule "[ana/init.opy]: Increase Biotic Rifle damage":
     @Event playerDealtDamage
     @Hero ana
-    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.ABILITY_1, Button.MELEE]
+    @Condition eventAbility == Button.PRIMARY_FIRE
 
-    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
+    damage(victim, attacker, eventDamage * (ADJ_ANA_BIOTIC_RIFLE_DAMAGE/OW2_ANA_BIOTIC_RIFLE_DAMAGE) - eventDamage)
+
+
+rule "[ana/init.opy]: Increase Biotic Rifle healing":
+    @Event playerDealtHealing
+    @Hero ana
+    @Condition eventAbility == Button.PRIMARY_FIRE
+
+    heal(healee, healer, eventHealing * (ADJ_ANA_BIOTIC_RIFLE_HEALING/OW2_ANA_BIOTIC_RIFLE_HEALING) - eventHealing)

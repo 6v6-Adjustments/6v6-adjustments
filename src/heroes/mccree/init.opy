@@ -1,8 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/mccree/deadeye.opy"
-#!include "heroes/mccree/peacekeeper.opy"
-# #!include "heroes/mccree/roll.opy"
+# !include "heroes/mccree/deadeye.opy"
+# !include "heroes/mccree/peacekeeper.opy"
+# !include "heroes/mccree/roll.opy"
 
 
 def initMccree():
@@ -13,14 +13,13 @@ def initMccree():
     
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
-        setBaseDamage(eventPlayer, ADJ_CASSIDY_FLASHBANG_DAMAGE/OW2_CASSIDY_FLASHBANG_DAMAGE)
 
     eventPlayer.hero_initialized = true
 
 
-rule "[mccree/init.opy]: Correct Cassidy melee damage":
+rule "[mccree/init.opy]: Correct Peacekeeper damage":
     @Event playerDealtDamage
     @Hero cassidy
-    @Condition eventAbility in [Button.MELEE, Button.SECONDARY_FIRE]
+    @Condition eventAbility == Button.PRIMARY_FIRE
 
-    damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
+    damage(victim, attacker, eventDamage * (ADJ_MCCREE_PEACEKEEPER_DAMAGE/OW2_MCCREE_PEACEKEEPER_DAMAGE) - eventDamage)

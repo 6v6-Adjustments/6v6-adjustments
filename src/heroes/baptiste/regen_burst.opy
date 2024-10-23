@@ -4,7 +4,7 @@
 #!include "passives/support/self_heal.opy"
 
 
-rule "[baptiste/regen_burst.opy]: Remove initial burst healing from Regenerative Burst and set cooldown for duplicate":
+rule "[baptiste/regen_burst.opy]: Remove initial burst healing from Regenerative Burst":
     @Event eachPlayer
     @Hero baptiste
     @Condition eventPlayer.isUsingAbility1()
