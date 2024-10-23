@@ -20,6 +20,7 @@ rule "[sombra/translocator_cooldown_reset.opy]: Sombra stealth refund variables"
     
 rule "[sombra/translocator_cooldown_reset.opy]: When Translocator is used, begin tracking how long Sombra is in stealth":
     @Event eachPlayer
+    @Hero sombra
     @Condition (eventPlayer.getCurrentHero() == Hero.SOMBRA) == true
     @Condition eventPlayer.isUsingAbility2() == true
     
@@ -43,7 +44,18 @@ rule "[sombra/translocator_cooldown_reset.opy]: When Translocator is used, begin
     
 rule "[sombra/translocator_cooldown_reset.opy]: Set max stealth cooldown observed":
     @Event eachPlayer
+    @Hero sombra
     @Condition (eventPlayer.getCurrentHero() == Hero.SOMBRA) == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > eventPlayer.stealth_max_Cooldown
     
     eventPlayer.stealth_max_Cooldown = round(eventPlayer.getAbilityCooldown(Button.ABILITY_2))
+
+rule "[sombra/translocator_cooldown_reset.opy]: Track ultimate charge from previous tick":
+    @Event eachPlayer
+    @Hero sombra
+    @Condition eventPlayer.ult_charge_Percent_cache != eventPlayer.getUltCharge()
+    
+    eventPlayer.ult_charge_Percent_cache = eventPlayer.getUltCharge()
+    wait()
+    if RULE_CONDITION:
+        goto RULE_START 
