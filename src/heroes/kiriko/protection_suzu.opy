@@ -9,6 +9,8 @@ rule "[kiriko/protection_suzu.opy]: Track Protection Suzu healing":
     @Condition eventAbility == Button.ABILITY_2
     
     eventPlayer.suzu_flying = false
+    stopChasingVariable(eventPlayer.remainingAntiDuration)
+    eventPlayer.remainingAntiDuration = 0.0
 
 
 rule "[kiriko/protection_suzu.opy]: Allow self healing during Protection Suzu":
