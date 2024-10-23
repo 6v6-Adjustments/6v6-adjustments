@@ -1,5 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
+#!include "heroes/sombra/translocator_cooldown_reset.opy"
 
 def initSombra():
     @Name "[sombra/init.opy]: initSombra()"
@@ -43,4 +44,3 @@ def initSombra():
 #     @Condition eventWasHealthPack == true
     
 #     heal(eventPlayer, eventPlayer, eventHealing/unpercent(eventPlayer._self_healing_percent) - eventHealing)
- 
