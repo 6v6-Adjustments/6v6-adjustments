@@ -47,13 +47,3 @@ rule "[sombra/translocator_cooldown_reset.opy]: Set max stealth cooldown observe
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > eventPlayer.stealth_max_Cooldown
     
     eventPlayer.stealth_max_Cooldown = round(eventPlayer.getAbilityCooldown(Button.ABILITY_2))
-    
-    
-#rule "[sombra/translocator_cooldown_reset.opy]: Track ultimate charge from previous tick":
-#    @Event eachPlayer
-#    @Condition eventPlayer.ult_charge_Percent_cache != eventPlayer.getUltCharge()
-#    
-#    eventPlayer.ult_charge_Percent_cache = eventPlayer.getUltCharge()
-#    wait()
-#    if RULE_CONDITION:
-#        goto RULE_START 
