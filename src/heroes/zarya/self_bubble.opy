@@ -50,6 +50,8 @@ rule "[zarya/self_bubble.opy]: OW1 zarya self bubble cooldown":
     @Condition eventPlayer.hero_setup == Hero.ZARYA
     @Condition eventPlayer.isUsingAbility1()
     
+    stopChasingVariable(eventPlayer.remainingAntiDuration)
+    eventPlayer.remainingAntiDuration = 0
     eventPlayer.disallowButton(Button.ABILITY_1)
     eventPlayer.setAbilityCharge(Button.ABILITY_1, 2)
     waitUntil(not eventPlayer.isUsingAbility1(), ADJ_ZARYA_BUBBLE_DURATION) # wait bubble duration

@@ -33,6 +33,7 @@ rule "[juno/orbital_ray.opy]: Adjust Orbital Ray Healing":
             for player 
             in getLivingPlayers(eventPlayer.getTeam())
             if distance(vect(eventPlayer.orbital_ray_x, 0.0, eventPlayer.orbital_ray_z), vect(player.getPosition().x, 0.0, player.getPosition().z)) < OW2_JUNO_ORBITAL_RAY_RADIUS
-            and player.getHealth() < player.getMaxHealth()].startDoT(null, ADJ_JUNO_ORBITAL_RAY_UPDATE_DELAY, OW2_JUNO_ORBITAL_RAY_HPS - ADJ_JUNO_ORBITAL_RAY_HPS)
+            and player.getHealth() < player.getMaxHealth()
+            and player.remainingAntiDuration <= 0].startDoT(null, ADJ_JUNO_ORBITAL_RAY_UPDATE_DELAY, OW2_JUNO_ORBITAL_RAY_HPS - ADJ_JUNO_ORBITAL_RAY_HPS)
         wait(ADJ_JUNO_ORBITAL_RAY_UPDATE_DELAY)
 
