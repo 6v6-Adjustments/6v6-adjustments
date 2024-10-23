@@ -26,3 +26,14 @@ rule "[ana/nade.opy]: Allow self healing during Biotic Grenade":
     pushSelfHealing(Button.ABILITY_2)
     waitUntil(not eventPlayer.biotic_nade_flying, ADJ_THROWABLES_WAIT_TIME)
     popSelfHealing(Button.ABILITY_2)
+
+
+rule "[ana/nade.opy]: Track Biotic Grenade Anti duration effect":
+    @Event playerDealtDamage
+    @Hero ana
+    @Condition eventAbility == Button.ABILITY_2
+
+    if victim.remainingAntiDuration < OW2_ANA_BIOTIC_GRENADE_DURATION:
+        stopChasingVariable(eventPlayer.remainingAntiDuration)
+        victim.remainingAntiDuration = OW2_ANA_BIOTIC_GRENADE_DURATION
+        chase(victim.remainingAntiDuration, 0.0, rate=1.0, ChaseReeval.NONE)
