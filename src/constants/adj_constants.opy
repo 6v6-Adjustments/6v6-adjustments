@@ -399,7 +399,6 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_SOMBRA_TRANSLOCATOR_COOLDOWN 6
 #!define ADJ_SOMBRA_VIRUS_COOLDOWN 6
 #!define ADJ_SOMBRA_STEALTH_REFUND_FRACTION createWorkshopSetting(int[0:100], "Sombra Stealth refund settings", "Percent of Stealth Timer Remaining Refunded Towards Translocator Cooldown", 40, 0) / 100
-#!define ADJ_SOMBRA_MINIMUM_TRANSLOCATOR_COOLDOWN = 4
 #!define ADJ_SOMBRA_NEGATIVE_STATUS_PREVENTS_REFUND createWorkshopSetting(bool, "Sombra Stealth refund settings", "Negative Status Effects Cancelling Stealth Prevents Translocator Cooldown Refund", true, 1)
 #!define ADJ_SOMBRA_VIRUS_DOT 75
 #!define ADJ_SOMBRA_VIRUS_IMPACT_DAMAGE 35

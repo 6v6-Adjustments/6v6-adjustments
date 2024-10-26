@@ -4,8 +4,6 @@
 # OverPy implementation by Unmellow#1512
 
 
-
-
 #Player variables
 playervar stealth_timer
 playervar stealth_pvar
