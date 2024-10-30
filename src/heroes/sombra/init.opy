@@ -10,7 +10,7 @@ def initSombra():
     setUltCost(ADJ_SOMBRA_ULT_COST)
     
     if not eventPlayer.isDuplicatingAHero():
-        removeSelfHealing()
+        # removeSelfHealing()
         # eventPlayer._self_healing_percent = 0.1 # set self healing to 0.1% such that 75hp healthpack becomes 0.075hp
         
     # setBaseDamage(eventPlayer, ADJ_SOMBRA_SMG_DAMAGE/OW2_SOMBRA_SMG_DAMAGE)
