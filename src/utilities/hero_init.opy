@@ -45,7 +45,7 @@ subroutine initWreckingBall
 subroutine initZarya
 subroutine initZenyatta
 
-playervar remainingAntiDuration 0
+playervar remainingAntiDuration
 
 
 #!include "utilities/hero_switch.opy"
