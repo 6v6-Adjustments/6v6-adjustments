@@ -203,8 +203,9 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_JUNO_TORPEDO_DAMAGE 70
 #!define ADJ_JUNO_TORPEDO_HEALING 70
 #!define ADJ_JUNO_TORPEDO_HOT 35
-#!define ADJ_JUNO_ORBITAL_RAY_HPS 1
+#!define ADJ_JUNO_ORBITAL_RAY_HPS 60.0
 #!define ADJ_JUNO_ORBITAL_RAY_UPDATE_DELAY 0.098
+ # did some finer testing to get more exact healing values, update delay adjusted to be slightly more accurate
 #!define ADJ_JUNO_ULT_COST 3050
 
 # Kiriko
