@@ -463,6 +463,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_WINSTON_ULT_COST 1630
 
 # Wrecking Ball
+#!define ADJ_WRECKING_BALL_AMMO 80
 #!define ADJ_WRECKING_BALL_ARMOR 75
 #!define ADJ_WRECKING_BALL_ARMOR_DUPLICATE 50
 #!define ADJ_WRECKING_BALL_FIREBALL_KB 1.13
