@@ -7,13 +7,13 @@ playervar biotic_nade_flying
 #!include "passives/support/self_heal.opy"
 
 
-rule "[ana/nade.opy]: Increase Biotic Grenade healing":
-    @Event playerDealtHealing
-    @Hero ana
-    @Condition eventAbility == Button.ABILITY_2
+# rule "[ana/nade.opy]: Increase Biotic Grenade healing":
+#     @Event playerDealtHealing
+#     @Hero ana
+#     @Condition eventAbility == Button.ABILITY_2
 
-    heal(healee, healer, eventHealing*(ADJ_ANA_BIOTIC_GRENADE_HEALING/OW2_ANA_BIOTIC_GRENADE_HEALING)-eventHealing)
-    eventPlayer.biotic_nade_flying = false
+#     heal(healee, healer, eventHealing*(ADJ_ANA_BIOTIC_GRENADE_HEALING/OW2_ANA_BIOTIC_GRENADE_HEALING)-eventHealing)
+#     eventPlayer.biotic_nade_flying = false
 
 
 rule "[ana/nade.opy]: Allow self healing during Biotic Grenade":

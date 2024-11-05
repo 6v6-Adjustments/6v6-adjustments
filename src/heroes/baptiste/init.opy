@@ -18,7 +18,7 @@ def initBaptiste():
 
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
-    setBaseDamage(eventPlayer, ADJ_BAPTISTE_PRIMARY_DAMAGE/OW2_BAPTISTE_PRIMARY_DAMAGE)
+    # setBaseDamage(eventPlayer, ADJ_BAPTISTE_PRIMARY_DAMAGE/OW2_BAPTISTE_PRIMARY_DAMAGE)
     setBaseHealing(eventPlayer, ADJ_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH/OW2_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH)
 
     eventPlayer.baptiste_balance_change_check = true
@@ -27,12 +27,12 @@ def initBaptiste():
     eventPlayer.hero_initialized = true
 
 
-rule "[baptiste/init.opy]: Increase Baptiste melee damage":
-    @Event playerDealtDamage
-    @Hero baptiste
-    @Condition eventAbility in [Button.MELEE]
+# rule "[baptiste/init.opy]: Increase Baptiste melee damage":
+#     @Event playerDealtDamage
+#     @Hero baptiste
+#     @Condition eventAbility in [Button.MELEE]
     
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
+#     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
 rule "[baptiste/init.opy]: Increase Biotic Launcher healing":

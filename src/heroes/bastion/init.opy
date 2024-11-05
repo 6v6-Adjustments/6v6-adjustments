@@ -17,9 +17,9 @@ def initBastion():
     eventPlayer.hero_initialized = true
 
 
-rule "[bastion/init.opy]: Reduce grenade self-damage":
-    @Event playerDealtDamage
-    @Hero bastion
-    @Condition attacker == victim
+# rule "[bastion/init.opy]: Reduce grenade self-damage":
+#     @Event playerDealtDamage
+#     @Hero bastion
+#     @Condition attacker == victim
     
-    heal(victim, null, eventDamage - (eventDamage*0.5))
+#     heal(victim, null, eventDamage - (eventDamage*0.5))
