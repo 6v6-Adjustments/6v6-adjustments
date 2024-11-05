@@ -36,4 +36,3 @@ rule "[juno/orbital_ray.opy]: Adjust Orbital Ray Healing":
             and player.getHealth() < player.getMaxHealth()
             and player.remainingAntiDuration <= 0].startDoT(null, ADJ_JUNO_ORBITAL_RAY_UPDATE_DELAY, OW2_JUNO_ORBITAL_RAY_HPS - ADJ_JUNO_ORBITAL_RAY_HPS)
         wait(ADJ_JUNO_ORBITAL_RAY_UPDATE_DELAY)
-

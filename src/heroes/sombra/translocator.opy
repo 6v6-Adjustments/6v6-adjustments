@@ -8,13 +8,9 @@ globalvar STEALTH_REFUND_FRACTION
 globalvar NEGATIVE_STATUS_PREVENTS_REFUND
 globalvar MINIMUM_TRANSLOCATOR_COOLDOWN
 
-
 #Player variables
 
-playervar stealth_timer 0
-# playervar stealth_max_Cooldown 1
-# playervar ult_charge_Percent_cache 2
-
+playervar stealth_timer
 playervar stealth_pvar
 #!defineMember _stealth_max_cooldown stealth_pvar[0]
 #!defineMember _ult_charge_percent_cache stealth_pvar[1]
