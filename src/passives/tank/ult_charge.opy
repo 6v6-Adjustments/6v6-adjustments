@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-globalvar ADJ_TANK_ULT_NEGATION_PERCENT = createWorkshopSetting(int[0:OW2_TANK_ULT_NEGATION_PERCENT], 'Passive', 'Tank - Ultimate Charge Negation Percent', 15)
+globalvar ADJ_TANK_ULT_NEGATION_PERCENT = createWorkshopSetting(int[0:OW2_TANK_ULT_NEGATION_PERCENT], 'Passive', 'Tank - Ultimate Charge Negation Percent', 0)
 
 # Player variables
 playervar ult_charge_pvar
