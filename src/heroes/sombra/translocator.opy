@@ -3,11 +3,13 @@
 # OverPy implementation by Unmellow#1512
 
 #Global variables
+
 globalvar STEALTH_REFUND_FRACTION
 globalvar NEGATIVE_STATUS_PREVENTS_REFUND
 globalvar MINIMUM_TRANSLOCATOR_COOLDOWN
 
 #Player variables
+
 playervar stealth_timer
 playervar stealth_pvar
 #!defineMember _stealth_max_cooldown stealth_pvar[0]

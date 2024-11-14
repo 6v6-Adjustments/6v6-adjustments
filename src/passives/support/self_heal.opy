@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
 globalvar enable_regeneration = createWorkshopSetting(bool, 'Passive', 'Global - Regeneration', true, 0)
-globalvar ADJ_REGEN_HPS = createWorkshopSetting(int[1:100], 'Passive', 'Global - Regeneration Healing per Second', 10)
+globalvar ADJ_REGEN_HPS = createWorkshopSetting(int[1:100], 'Passive', 'Global - Regeneration Healing per Second', 25)
 globalvar ADJ_REGEN_TIMER = createWorkshopSetting(int[1:30], 'Passive', 'Global - Regeneration Activation Time', 5)
 globalvar enable_support_passive = createWorkshopSetting(bool, 'Passive', 'Support - Quicker Regeneration', false, 0)
 #!define ADJ_SUPPORT_PASSIVE_TIMER (ADJ_REGEN_TIMER/2)
@@ -108,6 +108,7 @@ rule "[passives/support/self_heal.opy]: Track regen_passive_timer for supports":
     @Condition enable_regeneration
     @Condition eventPlayer.getCurrentHero() in getSupportHeroes()
     @Condition eventPlayer.getCurrentHero() != Hero.MERCY
+    @Condition eventPlayer.getCurrentHero() != Hero.SOMBRA
     @Condition eventPlayer.regen_passive_timer != 0
     
     chase(eventPlayer.regen_passive_timer, 0, duration = ADJ_SUPPORT_PASSIVE_TIMER if enable_support_passive else ADJ_REGEN_TIMER, ChaseReeval.DESTINATION_AND_DURATION)

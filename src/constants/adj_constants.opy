@@ -113,7 +113,7 @@
 #!define ADJ_DVA_ARMOR 225
 #!define ADJ_DVA_ARMOR_DUPLICATE 100
 #!define ADJ_DVA_BOOSTER_DAMAGE 20
-#!define ADJ_DVA_CANNON_DAMAGE 20.5
+#!define ADJ_DVA_CANNON_DAMAGE 21
 #!define ADJ_DVA_HEALTH 325
 #!define ADJ_DVA_HEALTH_DUPLICATE 325
 #!define ADJ_DVA_MATRIX_COOLDOWN 1.5
@@ -203,8 +203,9 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_JUNO_TORPEDO_DAMAGE 70
 #!define ADJ_JUNO_TORPEDO_HEALING 70
 #!define ADJ_JUNO_TORPEDO_HOT 35
-#!define ADJ_JUNO_ORBITAL_RAY_HPS 60
-#!define ADJ_JUNO_ORBITAL_RAY_UPDATE_DELAY 0.094
+#!define ADJ_JUNO_ORBITAL_RAY_HPS 60.0
+#!define ADJ_JUNO_ORBITAL_RAY_UPDATE_DELAY 0.098
+ # did some finer testing to get more exact healing values, update delay adjusted to be slightly more accurate
 #!define ADJ_JUNO_ULT_COST 3050
 
 # Kiriko
@@ -462,6 +463,7 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_WINSTON_ULT_COST 1630
 
 # Wrecking Ball
+#!define ADJ_WRECKING_BALL_AMMO 80
 #!define ADJ_WRECKING_BALL_ARMOR 75
 #!define ADJ_WRECKING_BALL_ARMOR_DUPLICATE 50
 #!define ADJ_WRECKING_BALL_FIREBALL_KB 1.13
