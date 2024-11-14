@@ -16,6 +16,7 @@ def initVenture():
 
     if not eventPlayer.isDuplicatingAHero():
         setBaseDamage(eventPlayer, ADJ_VENTURE_CLOBBER_DAMAGE/OW2_VENTURE_CLOBBER_DAMAGE)
+        setCurrentSpeed(eventPlayer, ADJ_VENTURE_SPEED/OW2_VENTURE_SPEED)
     eventPlayer.setKnockbackDealt(ADJ_VENTURE_DRILL_DASH_KNOCKBACK)
 
     eventPlayer.setAmmo(0, ADJ_VENTURE_DRILL_AMMO)
