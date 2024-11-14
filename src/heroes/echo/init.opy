@@ -15,6 +15,7 @@ def initEcho():
     removeSelfHealing()
 
     setBaseDamage(eventPlayer, ADJ_ECHO_STICKY_BOMBS_DAMAGE/OW2_ECHO_STICKY_BOMBS_DAMAGE)
+    eventPlayer.startScalingSize(0.94, true)
 
     eventPlayer.hero_initialized = true
 
