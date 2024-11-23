@@ -21,4 +21,4 @@ rule "[hanzo/stormbow.opy]: Increase Storm Arrow damage":
     @Hero hanzo
     @Condition eventAbility == Button.ABILITY_2
 
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_HANZO_STORM_DAMAGE / OW2_HANZO_STORM_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_HANZO_STORM_DAMAGE/OW2_HANZO_STORM_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
