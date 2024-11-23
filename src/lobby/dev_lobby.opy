@@ -80,6 +80,10 @@ settings {
                 "ability2Quantity%": ADJ_HANZO_STORM_QUANTITY,
                 "ultGen%": percent(OW2_HANZO_ULT_COST/ADJ_HANZO_ULT_COST)
             },
+            # "hazard": {
+            #     "secondaryFireDuration%": percent(ADJ_HAZARD_BLOCK_DURATION/OW2_HAZARD_BLOCK_DURATION),
+            #     "ultGen%": percent(OW2_HAZARD_ULT_COST/ADJ_HAZARD_ULT_COST)
+            # },
             "illari": {
                 "ability2Cooldown%": percent(ADJ_ILLARI_PYLON_COOLDOWN/OW2_ILLARI_PYLON_COOLDOWN),
                 "health%": percent(ADJ_ILLARI_PYLON_HEALTH/OW2_ILLARI_PYLON_HEALTH), # for pylon hp

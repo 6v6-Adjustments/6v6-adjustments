@@ -155,6 +155,14 @@ globalvar SETTING_ECHO_TANK_HP = createWorkshopSetting(bool, "General Changes", 
 #!define ADJ_HANZO_STORM_QUANTITY 5
 #!define ADJ_HANZO_ULT_COST 1680
 
+# Hazard
+#!define ADJ_HAZARD_ARMOR 150
+#!define ADJ_HAZARD_BLOCK_DURATION 2.75
+#!define ADJ_HAZARD_BONESPUR_DAMAGE 60
+#!define ADJ_HAZARD_HEALTH 300
+# !define ADJ_HAZARD_SLASH_DAMAGE 70
+#!define ADJ_HAZARD_ULT_COST 1800
+
 # Illari
 #!define ADJ_ILLARI_HEALTH 200
 #!define ADJ_ILLARI_PYLON_COOLDOWN 16
