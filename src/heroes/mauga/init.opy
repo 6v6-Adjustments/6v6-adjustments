@@ -10,8 +10,8 @@ def initMauga():
     @Name "[mauga/init.opy]: initMauga()"
 
     setCustomHp(
-        ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_HEALTH, 
-        ADJ_MAUGA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_MAUGA_ARMOR, 
+        ADJ_MAUGA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_MAUGA_HEALTH, 
+        ADJ_MAUGA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_MAUGA_ARMOR, 
         0)
     setUltCost(ADJ_MAUGA_ULT_COST)
 
@@ -25,9 +25,7 @@ def initMauga():
     startHealingModification(eventPlayer, eventPlayer, percent(ADJ_MAUGA_CARDIAC_LIFESTEAL/OW2_MAUGA_CARDIAC_LIFESTEAL), HealingReeval.RECEIVERS_HEALERS_AND_HEALPERCENT) # cardiac overdrive base healing is increased to account for the half effectiveness on allies, see lobby.opy
     eventPlayer.mauga_healing_id = getLastHealingModification()
 
-
     eventPlayer.startScalingSize(0.91, true)
-
     eventPlayer.balance_change_check = false
     eventPlayer.hero_initialized = true
 

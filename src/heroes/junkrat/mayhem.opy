@@ -6,7 +6,6 @@ rule "[junkrat/mayhem.opy]: Correct Frag Launcher damage":
     @Hero junkrat
     @Condition eventAbility == Button.PRIMARY_FIRE
 
-    # damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar)*(ADJ_JUNKRAT_FRAG_DAMAGE/OW2_JUNKRAT_FRAG_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
     heal(victim, null, ((eventDamage/eventPlayer._base_damage_scalar)*(ADJ_JUNKRAT_FRAG_DAMAGE/OW2_JUNKRAT_FRAG_DAMAGE) - eventDamage) * -1)
 
 

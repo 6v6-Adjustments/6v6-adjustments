@@ -10,15 +10,6 @@ playervar self_destruct_charge
 def initDva():
     @Name "[dva/init.opy]: initDva()"
 
-    # if eventPlayer.isDuplicatingAHero() and not eventPlayer.isInAlternateForm():
-    #     setCustomHp(
-    #     ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_HEALTH,
-    #     ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_ARMOR,
-    #     0)
-
-    setUltCost(ADJ_DVA_ULT_COST)
-    removeTankPassive()
-
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
         setBaseDamage(eventPlayer, ADJ_DVA_CANNON_DAMAGE / OW2_DVA_CANNON_DAMAGE)
@@ -28,10 +19,12 @@ def initDva():
 
     waitUntil(not eventPlayer.isInAlternateForm(), Math.INFINITY)
     setCustomHp(
-        ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_HEALTH,
-        ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_ARMOR,
+        ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_DVA_HEALTH,
+        ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_DVA_ARMOR,
         0)
 
+    setUltCost(ADJ_DVA_ULT_COST)
+    removeTankPassive()
     eventPlayer.hero_initialized = true
 
 

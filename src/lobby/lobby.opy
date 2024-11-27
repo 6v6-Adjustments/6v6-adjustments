@@ -120,7 +120,6 @@ settings {
             },
             "junkrat": {
                 "ability1Cooldown%": percent(ADJ_JUNKRAT_CONCUSSION_MINE_COOLDOWN/OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN),
-                #"ability1Kb%": percent(1/ADJ_JUNKRAT_FRAG_KNOCKBACK_SCALAR),
                 "ultGen%": percent(OW2_JUNKRAT_ULT_COST/ADJ_JUNKRAT_ULT_COST)
             },
             "juno": {
@@ -202,8 +201,6 @@ settings {
             },
             "roadhog": {
                 "secondaryFireCooldown%": percent(ADJ_ROADHOG_BREATHER_COOLDOWN/OW2_ROADHOG_BREATHER_COOLDOWN),
-                # "secondaryFireMaximumTime%": percent(ADJ_ROADHOG_BREATHER_DURATION/OW2_ROADHOG_BREATHER_DURATION),
-                # "secondaryFireRechargeRate%": percent(ADJ_ROADHOG_BREATHER_RECHARGE_DURATION/OW2_ROADHOG_BREATHER_RECHARGE_DURATION),
                 "secondaryFireRechargeRate%": 500, # maxed out so roadhog can decide how to use breather each time its off cooldown
                 "ability1Cooldown%": percent(ADJ_ROADHOG_HOOK_COOLDOWN_TIME/OW2_ROADHOG_HOOK_COOLDOWN_TIME),
                 "ultGen%": percent(OW2_ROADHOG_ULT_COST/ADJ_ROADHOG_ULT_COST)

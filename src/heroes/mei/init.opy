@@ -13,9 +13,6 @@ def initMei():
         removeSelfHealing()
     setBaseDamage(eventPlayer, ADJ_MEI_ICICLE_DAMAGE/OW2_MEI_ICICLE_DAMAGE)
 
-    # eventPlayer.setMaxAmmo(0, ADJ_MEI_AMMO_COUNT)
-    # eventPlayer.setAmmo(0, ADJ_MEI_AMMO_COUNT)
-
     eventPlayer.max_health_scaler = (ADJ_MEI_ICEWALL_HP/OW2_MEI_ICEWALL_HP)
     eventPlayer.hero_initialized = true
 

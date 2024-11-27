@@ -10,7 +10,7 @@ def initReinhardt():
     
     setCustomHp(
         ADJ_REINHARDT_HEALTH,
-        ADJ_REINHARDT_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_REINHARDT_ARMOR,
+        ADJ_REINHARDT_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_REINHARDT_ARMOR,
         0)
     setUltCost(ADJ_REINHARDT_ULT_COST)
     removeSelfHealing()

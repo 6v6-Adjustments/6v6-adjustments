@@ -13,15 +13,6 @@ def initJunkrat():
     wait() # DO NOT REMOVE THIS LINE
     eventPlayer.setMaxHealth(80)
 
-    # eventPlayer.setHealingReceived(0)
-    # eventPlayer.setHealth(ADJ_JUNKRAT_HEALTH)
-    # eventPlayer.addHealthPool(Health.NORMAL, 1, true, true)
-    # eventPlayer.addHealthPool(Health.ARMOR, 1, true, true)
-    # eventPlayer.addHealthPool(Health.SHIELDS, 1, true, true)
-    # eventPlayer.removeAllHealthPools()
-    # #eventPlayer.addHealthPool(Health.NORMAL, 199, true, true)
-    # heal(eventPlayer, null, 1)
-
     resetStats()
     resetStatuses()
     enableAllAbilities()

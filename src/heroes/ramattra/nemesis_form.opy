@@ -24,7 +24,7 @@ rule "[ramattra/nemesis_form.opy]: Increase other forms of damage (in nemesis)":
     @Condition eventDamage < ADJ_RAMATTRA_PUMMEL_DAMAGE # This condition stops pummel from applying the damage increase
 
     damage(victim, null, ((eventDamage/(ADJ_RAMATTRA_PUMMEL_DAMAGE/OW2_RAMATTRA_PUMMEL_DAMAGE)) - eventDamage)/(ADJ_RAMATTRA_PUMMEL_DAMAGE / OW2_RAMATTRA_PUMMEL_DAMAGE))
-    # null tracker to prevent recursive logic, vortex/annihilation can't be tracked but also apply very small damage instances
+    # null tracker to prevent recursive logic, vortex/annihilation can't be tracked but also applies very small damage instances
 
 
 rule "[ramattra/nemesis_form.opy]: Bonus Annihilation movement speed":

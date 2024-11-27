@@ -4,7 +4,11 @@
 # def initHazard():
 #     @Name "[hazard/init.opy]: initHazard()"
     
-#     setCustomHp(ADJ_HAZARD_HEALTH, ADJ_HAZARD_ARMOR, 0)
+
+#     setCustomHp(
+#         ADJ_HAZARD_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_HAZARD_HEALTH,
+#         ADJ_HAZARD_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_HAZARD_ARMOR,
+#         0)
 #     setUltCost(ADJ_HAZARD_ULT_COST)
 
 #     if not eventPlayer.isDuplicatingAHero():

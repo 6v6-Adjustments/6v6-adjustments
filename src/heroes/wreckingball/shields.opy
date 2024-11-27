@@ -25,3 +25,4 @@ rule "[wreckingball/shields.opy]: Increase Adaptive Shield base overhealth gain"
     waitUntil(not eventPlayer.isUsingAbility2(), Math.INFINITY)
     removeHealthPool(eventPlayer.adaptive_overhealth_id)
     eventPlayer.adaptive_overhealth_id = null
+    

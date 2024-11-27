@@ -26,16 +26,6 @@ rule "[lifeweaver/init.opy]: Reduce Lifeweaver melee damage":
     heal(victim, null, eventDamage - (eventDamage/eventPlayer._base_damage_scalar))
 
 
-# rule "[lifeweaver/init.opy]: Reduce Tree of Life healing":
-#     @Event playerDealtHealing
-#     @Hero lifeweaver
-#     @Condition eventPlayer.isUsingUltimate()
-    
-#     eventPlayer.setHealingDealt(ADJ_LIFEWEAVER_TREE_HEALING / OW2_LIFEWEAVER_TREE_HEALING)
-#     waitUntil(eventPlayer.getUltCharge() > 0, Math.INFINITY)
-#     eventPlayer.setHealingDealt(100)
-
-
 rule "[lifeweaver/init.opy]: Reduce Tree of Life duration":
     @Event eachPlayer
     @Hero lifeweaver

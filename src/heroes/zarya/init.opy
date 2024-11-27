@@ -15,7 +15,7 @@ def initZarya():
     setCustomHp(
         ADJ_ZARYA_HEALTH,
         0,
-        ADJ_ZARYA_SHIELDS_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ZARYA_SHIELDS
+        ADJ_ZARYA_SHIELDS_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_ZARYA_SHIELDS
     )
     setUltCost(ADJ_ZARYA_ULT_COST)
     removeTankPassive()

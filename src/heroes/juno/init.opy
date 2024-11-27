@@ -13,10 +13,6 @@ def initJuno():
         removeSelfHealing()
         setBaseDamage(eventPlayer, ADJ_JUNO_MEDIGUN_DAMAGE/OW2_JUNO_MEDIGUN_DAMAGE)
         setBaseHealing(eventPlayer, ADJ_JUNO_MEDIGUN_HEALING/OW2_JUNO_MEDIGUN_HEALING)
-    #     eventPlayer.disallowButton(Button.ULTIMATE)
-    # if eventPlayer.isDummy():
-    #     eventPlayer.setHealingDealt(percent(ADJ_JUNO_ORBITAL_RAY_HPS/OW2_JUNO_ORBITAL_RAY_HPS))
-    #     eventPlayer.setHealingDealt(5)
     eventPlayer.setMoveSpeed(percent(ADJ_KIRIKO_SPEED/OW2_KIRIKO_SPEED))
 
     eventPlayer.setAmmo(0, ADJ_JUNO_MEDIGUN_AMMO)

@@ -9,16 +9,13 @@ def initOrisa():
     @Name "[orisa/init.opy]: initOrisa()"
     
     setCustomHp(
-        ADJ_ORISA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ORISA_HEALTH, 
-        ADJ_ORISA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ORISA_ARMOR, 
+        ADJ_ORISA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_ORISA_HEALTH, 
+        ADJ_ORISA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_ORISA_ARMOR, 
         0)
     setUltCost(ADJ_ORISA_ULT_COST)
     removeTankPassive()
     if not eventPlayer.isDuplicatingAHero():
         removeSelfHealing()
-
-    # if not eventPlayer.isDuplicatingAHero():
-    #     setBaseDamage(eventPlayer, ADJ_ORISA_JAVELIN_DIRECT_DAMAGE / OW2_ORISA_JAVELIN_DIRECT_DAMAGE)
 
     eventPlayer.startScalingSize(1.04, true)
     eventPlayer.balance_change_check = true

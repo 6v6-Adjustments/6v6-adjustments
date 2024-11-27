@@ -7,8 +7,8 @@ def initWinston():
     @Name "[winston/init.opy]: initWinston()"
 
     setCustomHp(
-        ADJ_WINSTON_HEALTH_DUPLICATE - ADJ_WINSTON_PRIMAL_HP_DELTA if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_WINSTON_HEALTH - ADJ_WINSTON_PRIMAL_HP_DELTA,
-        ADJ_WINSTON_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_WINSTON_ARMOR,
+        ADJ_WINSTON_HEALTH_DUPLICATE - ADJ_WINSTON_PRIMAL_HP_DELTA if eventPlayer.isDuplicatingAHero() else ADJ_WINSTON_HEALTH - ADJ_WINSTON_PRIMAL_HP_DELTA,
+        ADJ_WINSTON_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_WINSTON_ARMOR,
         0)
     eventPlayer.addHealthPool(
         Health.NORMAL, 

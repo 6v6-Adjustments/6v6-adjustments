@@ -1,20 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
-# globalvar health_pool
-
-# playervar hp_before_duplicate
-
-
 #!include "utilities/hero_reset.opy"
 #!include "utilities/hero_init.opy"
-
-
-# rule "[echo/duplicate.opy]: Remember hp before duplicate":
-#     @Event eachPlayer
-#     @Hero echo
-#     @Condition eventPlayer.isHoldingButton(Button.ULTIMATE)
-
-#     eventPlayer.hp_before_duplicate = eventPlayer.getHealth()
 
 
 rule "[echo/duplicate.opy]: Override hero setup during duplicate":
@@ -35,9 +22,6 @@ rule "[echo/duplicate.opy]: Revert hero setup when exiting Duplicate":
     eventPlayer.hero_setup = eventPlayer.getCurrentHero()
     resetHero()
     initHero()
-
-    # waitUntil(not eventPlayer.call_init, Math.INFINITY)
-    # damage(eventPlayer, null, ADJ_ECHO_HEALTH - max(eventPlayer.hp_before_duplicate, ADJ_ECHO_DUPLICATE_EXIT_HEALTH))
 
 
 rule "[echo/duplicate.opy]: Death in Duplicate":

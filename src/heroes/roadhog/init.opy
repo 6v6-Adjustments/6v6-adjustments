@@ -8,7 +8,7 @@ def initRoadhog():
     @Name "[roadhog/init.opy]: initRoadhog()"
     
     setCustomHp(
-        ADJ_ROADHOG_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_ROADHOG_HEALTH,
+        ADJ_ROADHOG_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_ROADHOG_HEALTH,
         0,
         0)
     setUltCost(ADJ_ROADHOG_ULT_COST)
@@ -22,13 +22,6 @@ def initRoadhog():
     eventPlayer.setMaxAmmo(0, ADJ_ROADHOG_AMMO)
 
     eventPlayer.hero_initialized = true
-
-
-# rule "[roadhog/init.opy]: Clean up Roadhog":
-#     @Event eachPlayer
-#     @Condition eventPlayer.hero_setup != Hero.ROADHOG
-
-#     hideBreatherCD()
 
 
 rule "[roadhog/init.opy]: Correct melee damage":

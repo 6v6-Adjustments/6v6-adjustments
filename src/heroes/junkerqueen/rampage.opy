@@ -20,3 +20,4 @@ rule "[ana/nade.opy]: Track Biotic Grenade Anti duration effect":
         stopChasingVariable(eventPlayer.remainingAntiDuration)
         victim.remainingAntiDuration = OW2_JUNKERQUEEN_RAMPAGE_ANTI_DURATION
         chase(victim.remainingAntiDuration, 0.0, rate=1.0, ChaseReeval.NONE)
+        

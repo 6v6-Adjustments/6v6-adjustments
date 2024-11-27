@@ -8,7 +8,7 @@ def initSigma():
     @Name "[sigma/init.opy]: initSigma()"
 
     setCustomHp(
-        ADJ_SIGMA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_SIGMA_HEALTH,
+        ADJ_SIGMA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_SIGMA_HEALTH,
         0,
         ADJ_SIGMA_SHIELDS)
     setUltCost(

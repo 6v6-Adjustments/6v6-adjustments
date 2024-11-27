@@ -9,8 +9,8 @@ def initWreckingBall():
     @Name "[wreckingball/init.opy]: initWreckingBall()"
 
     setCustomHp(
-        ADJ_WRECKING_BALL_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_WRECKING_BALL_HEALTH, 
-        ADJ_WRECKING_BALL_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_WRECKING_BALL_ARMOR, 
+        ADJ_WRECKING_BALL_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_WRECKING_BALL_HEALTH, 
+        ADJ_WRECKING_BALL_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_WRECKING_BALL_ARMOR, 
         0)
     setUltCost(ADJ_WRECKING_BALL_ULT_COST)
     removeTankPassive()

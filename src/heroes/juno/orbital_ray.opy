@@ -27,6 +27,7 @@ rule "[juno/orbital_ray.opy]: Adjust Orbital Ray Healing":
     chase(eventPlayer.orbital_ray_z, eventPlayer.orbital_ray_final_z, duration=OW2_JUNO_ORBITAL_RAY_DURATION, ChaseReeval.NONE)
 
     # createBeam(eventPlayer, Beam.GOOD, vect(eventPlayer.orbital_ray_x, 0.0, eventPlayer.orbital_ray_z), vect(eventPlayer.orbital_ray_x, 100.0, eventPlayer.orbital_ray_z), Color.WHITE, EffectReeval.POSITION_AND_RADIUS)
+    # debug beam location
 
     while eventPlayer.isUsingUltimate():
         [player

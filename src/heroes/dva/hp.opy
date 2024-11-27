@@ -8,8 +8,8 @@ rule "[dva/hp.opy]: Correct DVa mech health":
     @Condition eventPlayer.hero_initialized
 
     setCustomHp(
-        ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_HEALTH,
-        ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() or SETTING_ECHO_TANK_HP else ADJ_DVA_ARMOR,
+        ADJ_DVA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_DVA_HEALTH,
+        ADJ_DVA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_DVA_ARMOR,
         0)
 
 

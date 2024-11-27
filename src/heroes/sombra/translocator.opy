@@ -4,9 +4,9 @@
 
 #Global variables
 
-globalvar STEALTH_REFUND_FRACTION
-globalvar NEGATIVE_STATUS_PREVENTS_REFUND
-globalvar MINIMUM_TRANSLOCATOR_COOLDOWN
+globalvar STEALTH_REFUND_FRACTION = 0.4
+globalvar NEGATIVE_STATUS_PREVENTS_REFUND = true
+globalvar MINIMUM_TRANSLOCATOR_COOLDOWN = 4
 
 #Player variables
 
@@ -15,12 +15,6 @@ playervar stealth_pvar
 #!defineMember _stealth_max_cooldown stealth_pvar[0]
 #!defineMember _ult_charge_percent_cache stealth_pvar[1]
 
-
-rule "[sombra/translocator_cooldown_reset.opy]: Sombra stealth refund variables":
-    STEALTH_REFUND_FRACTION = createWorkshopSetting(int[0:100], "Gameplay Settings", "Percent of Stealth Timer Remaining Refunded Towards Translocator Cooldown", 40, 0) / 100
-    NEGATIVE_STATUS_PREVENTS_REFUND = createWorkshopSetting(bool, "Gameplay Settings", "Negative Status Effects Cancelling Stealth Prevents Translocator Cooldown Refund", true, 1)
-    MINIMUM_TRANSLOCATOR_COOLDOWN = 4
-    
     
 rule "[sombra/translocator_cooldown_reset.opy]: When Translocator is used, begin tracking how long Sombra is in stealth":
     @Event eachPlayer

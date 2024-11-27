@@ -2,7 +2,6 @@
 
 #!include "heroes/mccree/deadeye.opy"
 #!include "heroes/mccree/peacekeeper.opy"
-# #!include "heroes/mccree/roll.opy"
 
 
 def initMccree():
