@@ -13,7 +13,7 @@ subroutine initDva
 subroutine initEcho
 subroutine initGenji
 subroutine initHanzo
-subroutine initHazard
+# subroutine initHazard
 subroutine initIllari
 subroutine initJunkerQueen
 subroutine initJunkrat
@@ -85,9 +85,6 @@ def initHero():
             break
         case Hero.HANZO:
             initHanzo()
-            break
-        case Hero.HANZO: #hazard
-            initHazard()
             break
         case Hero.ILLARI:
             initIllari()
