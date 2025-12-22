@@ -1,10 +1,19 @@
 rule "Copyright (c) 2024 Overwatch 1 Emulator & 6v6 Adjustments. See github.com/6v6-Adjustments/6v6-adjustments for license to use this code.":
     disableInspector()
 
+# Useful constants and macros
+#!include "constants/adj_constants.opy"
+#!include "constants/ow2_constants.opy"
+#!include "utilities/macro_functions.opy"
+
 # Custom game lobby settings
 #!include "lobby/lobby.opy"
 
 # Useful functions
+# !include "utilities/debug.opy"
+#!include "utilities/custom_hp.opy"
+#!include "utilities/hero_init.opy"
+#!include "utilities/hero_reset.opy"
 #!include "utilities/hero_switch.opy"
 #!include "utilities/anti_crash.opy"
 #!include "utilities/watermark.opy"
@@ -29,6 +38,7 @@ rule "Copyright (c) 2024 Overwatch 1 Emulator & 6v6 Adjustments. See github.com/
 #!include "heroes/echo/init.opy"
 #!include "heroes/genji/init.opy"
 #!include "heroes/hanzo/init.opy"
+#!include "heroes/hazard/init.opy"
 #!include "heroes/illari/init.opy"
 #!include "heroes/junkerqueen/init.opy"
 #!include "heroes/junkrat/init.opy"

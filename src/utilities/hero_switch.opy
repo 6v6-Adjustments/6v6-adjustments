@@ -1,15 +1,12 @@
 #!mainFile "../dev_main.opy"
 
-playervar hero_setup
 playervar hero_switch_pvar
 #!defineMember _last_hero_played hero_switch_pvar[0]
 #!defineMember _hero_switched hero_switch_pvar[1]
 #!defineMember _hero_id hero_switch_pvar[2]
 
-#!define switchedHero(player) player._hero_switched
-
-#!include "utilities/hero_reset.opy"
-#!include "utilities/hero_init.opy"
+macro switchedHero(player):
+    player._hero_switched
 
 
 rule "[utilities/hero_switch.opy]: detect hero switch":

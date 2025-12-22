@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/juno/torpedoes.opy"
-#!include "heroes/juno/orbital_ray.opy"
+#!include "../../heroes/juno/torpedoes.opy"
+#!include "../../heroes/juno/orbital_ray.opy"
 
 def initJuno():
     @Name "[juno/init.opy]: initJuno()"

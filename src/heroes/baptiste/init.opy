@@ -2,12 +2,7 @@
 
 playervar baptiste_balance_change_check
 
-#!include "utilities/macro_functions.opy"
-#!include "passives/support/self_heal.opy"
-#!include "utilities/custom_hp.opy"
-#!include "passives/tank/ult_charge.opy"
-#!include "utilities/hero_init.opy"
-#!include "heroes/baptiste/regen_burst.opy"
+#!include "../../heroes/baptiste/regen_burst.opy"
 
 
 def initBaptiste():

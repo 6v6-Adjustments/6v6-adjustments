@@ -1,6 +1,7 @@
 #!mainFile "../dev_main.opy"
 
 playervar hero_initialized
+playervar hero_setup
 
 subroutine initHero
 subroutine initAna
@@ -47,9 +48,6 @@ subroutine initZarya
 subroutine initZenyatta
 
 playervar remainingAntiDuration
-
-
-#!include "utilities/hero_switch.opy"
 
 
 def initHero():

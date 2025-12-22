@@ -28,7 +28,7 @@ def resetSelfHealing():
     eventPlayer._suppress_regen_passive = false
     eventPlayer._support_passive_active = true
 
-#!define removeRegenPassive()\
+macro removeRegenPassive():
     eventPlayer._suppress_regen_passive = true
 
 def removeSelfHealing():
@@ -40,16 +40,17 @@ def removeSelfHealing():
         startHealingModification(eventPlayer, eventPlayer, eventPlayer._self_healing_percent, HealingReeval.RECEIVERS_HEALERS_AND_HEALPERCENT)
         eventPlayer._self_healing_id = getLastHealingModification()
 
-#!define evalSelfHealingPercent()\
-    eventPlayer._self_healing_percent = 100 if len(eventPlayer._self_healing_source) > 0 else 0\
+macro evalSelfHealingPercent():
+    eventPlayer._self_healing_percent = 100 if len(eventPlayer._self_healing_source) > 0 else 0
     eventPlayer._suppress_regen_passive = true if eventPlayer._self_healing_percent > 0 else false
 
-#!define pushSelfHealing(button) \
-    if (button not in eventPlayer._self_healing_source): eventPlayer._self_healing_source.append(button) \
-evalSelfHealingPercent()
+macro pushSelfHealing(button):
+    if (button not in eventPlayer._self_healing_source):
+        eventPlayer._self_healing_source.append(button)
+        evalSelfHealingPercent()
 
-#!define popSelfHealing(button) \
-    eventPlayer._self_healing_source.remove(button) \
+macro popSelfHealing(button):
+    eventPlayer._self_healing_source.remove(button)
     evalSelfHealingPercent()
 
 

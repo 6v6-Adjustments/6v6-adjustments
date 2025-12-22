@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/echo/duplicate.opy"
+#!include "../../heroes/echo/duplicate.opy"
 
 
 def initEcho():

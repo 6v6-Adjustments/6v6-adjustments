@@ -8,15 +8,11 @@ playervar ult_charge_pvar
 #!defineMember _ult_cost ult_charge_pvar[1]
 #!defineMember _new_ult_percent ult_charge_pvar[2]
 
-#!define getUltPoints(player)\
-    (percentOf(player.getUltCharge(), player._ult_cost))
+macro getUltPoints(player):
+    percentOf(player.getUltCharge(), player._ult_cost)
 
-#!define setUltCost(cost)\
-    (eventPlayer._ult_cost = cost)
-
-#!include "constants/ow2_constants.opy"
-#!include "constants/adj_constants.opy"
-#!include "utilities/macro_functions.opy"
+macro setUltCost(cost):
+    eventPlayer._ult_cost = cost
 
 
 def resetUltCharge():

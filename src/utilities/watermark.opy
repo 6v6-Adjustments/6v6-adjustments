@@ -4,8 +4,8 @@
 globalvar SHOW_WATERMARK = createWorkshopSetting(bool, "Watermark", "Show Watermark", true, 0)
 playervar watermark_pvar
 
-#!define infoVisible(player) (SHOW_WATERMARK)
-#!include "constants/adj_constants.opy"
+macro infoVisible(player):
+    SHOW_WATERMARK
 
 
 rule "[utilities/watermark.opy]: Create watermark HUD":

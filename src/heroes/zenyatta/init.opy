@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/zenyatta/transc.opy"
+#!include "../../heroes/zenyatta/transc.opy"
 
 
 def initZenyatta():

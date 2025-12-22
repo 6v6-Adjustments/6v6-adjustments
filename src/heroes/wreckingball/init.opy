@@ -1,8 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/wreckingball/grapple.opy"
-#!include "heroes/wreckingball/shields.opy"
-#!include "heroes/wreckingball/piledriver.opy"
+#!include "../../heroes/wreckingball/grapple.opy"
+#!include "../../heroes/wreckingball/shields.opy"
+#!include "../../heroes/wreckingball/piledriver.opy"
 
 
 def initWreckingBall():

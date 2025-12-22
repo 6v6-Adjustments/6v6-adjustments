@@ -1,8 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/reinhardt/firestrike.opy"
-#!include "heroes/reinhardt/charge.opy"
-#!include "heroes/reinhardt/shatter.opy"
+#!include "../../heroes/reinhardt/firestrike.opy"
+#!include "../../heroes/reinhardt/charge.opy"
+#!include "../../heroes/reinhardt/shatter.opy"
 
 
 def initReinhardt():

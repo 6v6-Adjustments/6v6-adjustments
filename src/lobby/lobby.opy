@@ -1,13 +1,9 @@
 #!mainFile "../main.opy"
 
-#!include "constants/adj_constants.opy"
-#!include "constants/ow2_constants.opy"
-#!include "utilities/macro_functions.opy"
-
 
 settings {
     "main": {
-        "modeName": GAMEMODE_NAME + " " + GAMEMODE_VERSION,
+        "modeName": GAMEMODE_NAME" "GAMEMODE_VERSION,
         "description": GAMDMODE_DESCRIPTION,
     },
     "lobby": {
@@ -107,6 +103,10 @@ settings {
                 "ability2Quantity%": ADJ_HANZO_STORM_QUANTITY,
                 "ultGen%": percent(OW2_HANZO_ULT_COST/ADJ_HANZO_ULT_COST)
             },
+            # "hazard": {
+            #     "secondaryFireDuration%": percent(ADJ_HAZARD_BLOCK_DURATION/OW2_HAZARD_BLOCK_DURATION),
+            #     "ultGen%": percent(OW2_HAZARD_ULT_COST/ADJ_HAZARD_ULT_COST)
+            # },
             "illari": {
                 "ability2Cooldown%": percent(ADJ_ILLARI_PYLON_COOLDOWN/OW2_ILLARI_PYLON_COOLDOWN),
                 "health%": percent(ADJ_ILLARI_PYLON_HEALTH/OW2_ILLARI_PYLON_HEALTH), # for pylon hp
@@ -152,9 +152,9 @@ settings {
                 "ability1Cooldown%": percent(ADJ_MAUGA_OVERRUN_COOLDOWN/OW2_MAUGA_OVERRUN_COOLDOWN),
                 "ability2Cooldown%": percent((ADJ_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)/(OW2_MAUGA_CARDIAC_COOLDOWN + OW2_MAUGA_CARDIAC_DURATION)),
                 # for berserker overhealth scales quadratically for whatever reason; someone pls explain
-                "ability2Healing%": percent(ADJ_MAUGA_CARDIAC_LIFESTEAL/OW2_MAUGA_CARDIAC_LIFESTEAL/OW2_MAUGA_CARDIAC_ALLIED_EFFECTIVENESS),
+                "ability2Healing%": percent(ADJ_MAUGA_CARDIAC_ALLIED_LIFESTEAL/OW2_MAUGA_CARDIAC_LIFESTEAL/OW2_MAUGA_CARDIAC_ALLIED_EFFECTIVENESS),
                 # healing is doubled to work at 100% for allies
-                "health%": percent(Math.sqrt(OW2_MAUGA_BERSERKER_OVERHEALTH*ADJ_MAUGA_BERSERKER_OVERHEALTH)/OW2_MAUGA_BERSERKER_OVERHEALTH),
+                "health%": percent(sqrt(OW2_MAUGA_BERSERKER_OVERHEALTH*ADJ_MAUGA_BERSERKER_OVERHEALTH)/OW2_MAUGA_BERSERKER_OVERHEALTH),
                 "ultGen%": percent(OW2_MAUGA_ULT_COST/ADJ_MAUGA_ULT_COST)
             },
             "mei": {
@@ -184,7 +184,7 @@ settings {
                 "secondaryFireCooldown%": percent(ADJ_RAMATTRA_VOID_BARRIER_COOLDOWN/OW2_RAMATTRA_VOID_BARRIER_COOLDOWN),
                 "ability1Cooldown%": percent(ADJ_RAMATTRA_NEMESIS_COOLDOWN/OW2_RAMATTRA_NEMESIS_COOLDOWN),
                 "ability2Cooldown%": percent(ADJ_RAMATTRA_VORTEX_COOLDOWN/OW2_RAMATTRA_VORTEX_COOLDOWN),
-                "health%": percent(Math.sqrt(ADJ_RAMATTRA_BARRIER_HEALTH/OW2_RAMATTRA_BARRIER_HEALTH)),
+                "health%": percent(sqrt(ADJ_RAMATTRA_BARRIER_HEALTH/OW2_RAMATTRA_BARRIER_HEALTH)),
                 # as of S13, ramattra health scaling is quadrillatical
                 "ultDuration%": percent(ADJ_RAMATTRA_ANNIHILATION_DURATION/OW2_RAMATTRA_ANNIHILATION_DURATION),
                 "ultGen%": percent(OW2_RAMATTRA_ULT_COST/ADJ_RAMATTRA_ULT_COST),

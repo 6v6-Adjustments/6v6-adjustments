@@ -1,9 +1,9 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/junkerqueen/carnage.opy"
-#!include "heroes/junkerqueen/commanding_shout.opy"
-#!include "heroes/junkerqueen/jagged_blade.opy"
-#!include "heroes/junkerqueen/rampage.opy"
+#!include "../../heroes/junkerqueen/carnage.opy"
+#!include "../../heroes/junkerqueen/commanding_shout.opy"
+#!include "../../heroes/junkerqueen/jagged_blade.opy"
+#!include "../../heroes/junkerqueen/rampage.opy"
 
 
 def initJunkerQueen():

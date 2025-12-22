@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/mei/cryo_freeze.opy"
+#!include "../../heroes/mei/cryo_freeze.opy"
 
 
 def initMei():

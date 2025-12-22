@@ -1,9 +1,9 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/doomfist/meteor_strike.opy"
-#!include "heroes/doomfist/punch.opy"
-#!include "heroes/doomfist/slam.opy"
-#!include "heroes/doomfist/powerblock.opy"
+#!include "../../heroes/doomfist/meteor_strike.opy"
+#!include "../../heroes/doomfist/punch.opy"
+#!include "../../heroes/doomfist/slam.opy"
+#!include "../../heroes/doomfist/powerblock.opy"
 
 
 def initDoomfist():

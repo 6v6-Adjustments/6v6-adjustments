@@ -11,8 +11,8 @@ playervar debug_pvar
 #!define _total_healing_received debug_pvar[2]
 #!define _last_healing_received debug_pvar[3]
 
-#!include "utilities/hero_init.opy"
-#!include "heroes/mccree/peacekeeper.opy"
+#!include "../utilities/hero_init.opy"
+#!include "../heroes/mccree/peacekeeper.opy"
 
 
 rule "[utilities/debug.opy] Disable Inspector for performance":
