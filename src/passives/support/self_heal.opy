@@ -17,8 +17,11 @@ playervar self_heal_pvar
 #!defineMember _support_passive_active self_heal_pvar[6]
 #!defineMember _regen_passive_id self_heal_pvar[7]
 
+
 def resetSelfHealing():
     @Name "[passives/support/self_heal.opy]: resetSelfHealing()"
+
+    eventPlayer._self_healing_reset = false
 
     stopHealingModification(eventPlayer._self_healing_id)
     eventPlayer._self_healing_id = null
@@ -28,8 +31,12 @@ def resetSelfHealing():
     eventPlayer._suppress_regen_passive = false
     eventPlayer._support_passive_active = true
 
+    eventPlayer._self_healing_reset = true
+
+
 macro removeRegenPassive():
     eventPlayer._suppress_regen_passive = true
+
 
 def removeSelfHealing():
     @Name "[passives/support/self_heal.opy]: removeSelfHealing()"
@@ -40,14 +47,17 @@ def removeSelfHealing():
         startHealingModification(eventPlayer, eventPlayer, eventPlayer._self_healing_percent, HealingReeval.RECEIVERS_HEALERS_AND_HEALPERCENT)
         eventPlayer._self_healing_id = getLastHealingModification()
 
+
 macro evalSelfHealingPercent():
     eventPlayer._self_healing_percent = 100 if len(eventPlayer._self_healing_source) > 0 else 0
     eventPlayer._suppress_regen_passive = true if eventPlayer._self_healing_percent > 0 else false
+
 
 macro pushSelfHealing(button):
     if (button not in eventPlayer._self_healing_source):
         eventPlayer._self_healing_source.append(button)
         evalSelfHealingPercent()
+
 
 macro popSelfHealing(button):
     eventPlayer._self_healing_source.remove(button)

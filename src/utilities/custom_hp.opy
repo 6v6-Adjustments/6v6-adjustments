@@ -2,21 +2,22 @@
 
 # Credit to https://discord.com/channels/570672959799164958/1095384108504465488
 # Base code written by CaptCaptain and cactuspuppy
-playervar max_health_scaler
 playervar custom_hp_pvar
 #!defineMember _hp_health custom_hp_pvar[0]
 #!defineMember _hp_armor custom_hp_pvar[1]
 #!defineMember _hp_shields custom_hp_pvar[2]
-#!defineMember _hp_iter_count custom_hp_pvar[3]
+#!defineMember _hp_health_ow2 custom_hp_pvar[3]
+#!defineMember _hp_armor_ow2 custom_hp_pvar[4]
+#!defineMember _hp_shields_ow2 custom_hp_pvar[5]
+#!defineMember _hp_scalar custom_hp_pvar[6]
+playervar max_health_scaler
 
 #!define MIN_HP 1
 #!define HP_ROUNDING_ERROR_MARGIN 0.01
-#!define MAX_HP_ITER_COUNT 10
 
-subroutine clearCustomHp
 subroutine applyCustomHp
 
-# setCustomHp(0, 0, 0) simply clears the hero's hp
+
 macro setCustomHp(health, armor, shields):
     eventPlayer._hp_health = health
     eventPlayer._hp_armor = armor
@@ -27,49 +28,56 @@ macro setCustomHp(health, armor, shields):
 def clearCustomHp():
     @Name "[utilities/custom_hp.opy]: clearCustomHp()"
 
+    eventPlayer._hp_reset = false
+
     eventPlayer.removeAllHealthPools()
     wait()
-    eventPlayer.setMaxHealth(99.999) # DO NOT REMOVE THIS LINE
-    wait() # DO NOT REMOVE THIS LINE
     eventPlayer.setMaxHealth(100)
+    wait()
+
+    eventPlayer._hp_health = 0
+    eventPlayer._hp_armor = 0
+    eventPlayer._hp_shields = 0
+
+    eventPlayer._hp_health_ow2 = eventPlayer.getMaxHealthOfType(Health.NORMAL)
+    eventPlayer._hp_armor_ow2 = eventPlayer.getMaxHealthOfType(Health.ARMOR)
+    eventPlayer._hp_shields_ow2 = eventPlayer.getMaxHealthOfType(Health.SHIELDS)
+
+    eventPlayer._hp_scalar = 1
+    
+    eventPlayer.max_health_scaler = 1
+
+    eventPlayer._hp_reset = true
 
 
-# Assume hero's at default hp values before setting custom hp
 def applyCustomHp():
     @Name "[utilities/custom_hp.opy]: applyCustomHp()"
 
-    eventPlayer._hp_iter_count = 0
+    if (eventPlayer.getMaxHealthOfType(Health.NORMAL) == eventPlayer._hp_health) and \
+       (eventPlayer.getMaxHealthOfType(Health.ARMOR) == eventPlayer._hp_armor) and \
+       (eventPlayer.getMaxHealthOfType(Health.SHIELDS) == eventPlayer._hp_shields):
+       return
 
-    # loop MAX_HP_ITER_COUNT times if hp is incorrect
-    while (((abs(eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer._hp_health) > HP_ROUNDING_ERROR_MARGIN)\
-         or (abs(eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer._hp_armor) > HP_ROUNDING_ERROR_MARGIN)\
-         or (abs(eventPlayer.getMaxHealthOfType(Health.SHIELDS) - eventPlayer._hp_shields) > HP_ROUNDING_ERROR_MARGIN))\
-       and (eventPlayer._hp_iter_count < MAX_HP_ITER_COUNT)):
-    
-        eventPlayer.setHealingReceived(0)
+    # Find minimum hp scalar value that ensures
+    # the scaled health/armor/shields is less or equal to
+    # the desired custom health/armor/shield value
+    eventPlayer._hp_scalar = \
+        min(
+            min(
+                (eventPlayer._hp_health/eventPlayer._hp_health_ow2) if eventPlayer._hp_health_ow2 > 0 else Math.INFINITY, 
+                (eventPlayer._hp_armor/eventPlayer._hp_armor_ow2)   if eventPlayer._hp_armor_ow2 > 0 else Math.INFINITY), 
+            (eventPlayer._hp_shields/eventPlayer._hp_shields_ow2) if eventPlayer._hp_shields_ow2 > 0 else Math.INFINITY)
 
-        eventPlayer.setHealth(MIN_HP)
-        eventPlayer.addHealthPool(Health.NORMAL, MIN_HP, true, true)
-        eventPlayer.addHealthPool(Health.ARMOR, MIN_HP, true, true)
-        eventPlayer.addHealthPool(Health.SHIELDS, MIN_HP, true, true)
-        eventPlayer.setStatusEffect(null, Status.INVINCIBLE, Math.INFINITY)
+    # infinite hp scalar exception
+    if eventPlayer._hp_scalar == Math.INFINITY:
+        return
 
-        eventPlayer.removeAllHealthPools()
-
-        # wait(0.064)
-        wait()
-        waitUntil(eventPlayer.getMaxHealth() <= MIN_HP, 1)
-
-        # Apply custom health pool to player
-        if eventPlayer._hp_health > 0:
-            eventPlayer.addHealthPool(Health.NORMAL, max(1, eventPlayer._hp_health - MIN_HP), true, true)
-        if eventPlayer._hp_armor > 0:
-            eventPlayer.addHealthPool(Health.ARMOR, max(1, eventPlayer._hp_armor), true, true)
-        if eventPlayer._hp_shields > 0:
-            eventPlayer.addHealthPool(Health.SHIELDS, max(1, eventPlayer._hp_shields), true, true)
-        eventPlayer.setHealingReceived(100)
-        heal(eventPlayer, null, Math.INFINITY)
-        eventPlayer.clearStatusEffect(Status.INVINCIBLE)
-
-        wait()
-        eventPlayer._hp_iter_count += 1
+    eventPlayer.setMaxHealth(percent(eventPlayer._hp_scalar))
+    wait(TICK_DURATION)
+    waitUntil(eventPlayer.getMaxHealth() != eventPlayer._hp_health_ow2 + eventPlayer._hp_armor_ow2 + eventPlayer._hp_shields_ow2, 1)
+    if (eventPlayer._hp_health - eventPlayer.getMaxHealthOfType(Health.NORMAL)) >= 1:
+        eventPlayer.addHealthPool(Health.NORMAL, (eventPlayer._hp_health - eventPlayer.getMaxHealthOfType(Health.NORMAL)), true, false)
+    if (eventPlayer._hp_armor - eventPlayer.getMaxHealthOfType(Health.ARMOR)) >= 1:
+        eventPlayer.addHealthPool(Health.ARMOR, (eventPlayer._hp_armor - eventPlayer.getMaxHealthOfType(Health.ARMOR)), true, false)
+    if (eventPlayer._hp_shields - eventPlayer.getMaxHealthOfType(Health.SHIELDS)) >= 1:
+        eventPlayer.addHealthPool(Health.SHIELDS, (eventPlayer._hp_shields - eventPlayer.getMaxHealthOfType(Health.SHIELDS)), true, false)

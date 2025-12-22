@@ -3,30 +3,55 @@
 playervar overhealth_check
 playervar balance_change_check
 
-subroutine resetHero
+playervar reset_pvar
+#!defineMember _reset_complete reset_pvar[0]
+#!defineMember _hp_reset reset_pvar[8]
+#!defineMember _stat_reset reset_pvar[9]
+#!defineMember _status_reset reset_pvar[10]
+#!defineMember _frenemy_reset reset_pvar[11]
+#!defineMember _ult_charge_reset reset_pvar[12]
+#!defineMember _self_healing_reset reset_pvar[13]
+#!defineMember _ability_reset reset_pvar[14]
+
+subroutine clearCustomHp
+subroutine enableAllAbilities
+subroutine disableAllAbilities
 subroutine resetStats
 subroutine resetStatuses
+subroutine resetFrenemies
 subroutine resetUltCharge
 subroutine resetSelfHealing
-subroutine disableAllAbilities
-subroutine enableAllAbilities
+
+
+macro isResetComplete(player):
+    (player._hp_reset \
+    and player._stat_reset \
+    and player._status_reset \
+    and player._ult_charge_reset \
+    and player._self_healing_reset \
+    and player._ability_reset)
 
 
 def resetHero():
     @Name "[utilities/reset.opy]: resetHero()"
 
-    clearCustomHp()
-    disableAllAbilities()
-    resetStats()
+    async(clearCustomHp, AsyncBehavior.RESTART)
+    async(resetStats, AsyncBehavior.RESTART)
+    async(resetStatuses, AsyncBehavior.RESTART)
     async(resetUltCharge, AsyncBehavior.RESTART)
-    resetSelfHealing()
-    enableAllAbilities()
+    async(resetSelfHealing, AsyncBehavior.RESTART)
+    async(enableAllAbilities, AsyncBehavior.RESTART)
+
+    wait() # wait at least 1 tick
+    waitUntil(isResetComplete(eventPlayer), Math.INFINITY)
 
     eventPlayer.hero_initialized = false
 
 
 def enableAllAbilities():
     @Name "[utilities/reset.opy]: enableAllAbilities()"
+
+    eventPlayer._ability_reset = false
 
     eventPlayer.allowButton(Button.PRIMARY_FIRE)
     eventPlayer.allowButton(Button.SECONDARY_FIRE)
@@ -50,6 +75,8 @@ def enableAllAbilities():
     eventPlayer.setJumpEnabled(true)
     eventPlayer.setCrouchEnabled(true)
     eventPlayer.setReloadEnabled(true)
+
+    eventPlayer._ability_reset = true
 
 
 def disableAllAbilities():
@@ -82,6 +109,8 @@ def disableAllAbilities():
 def resetStats():
     @Name "[utilities/reset.opy]: resetStats()"
 
+    eventPlayer._stat_reset = false
+
     setBaseDamage(eventPlayer, 1)
     eventPlayer.setDamageReceived(100)
     eventPlayer.setProjectileSpeed(100)
@@ -97,13 +126,16 @@ def resetStats():
     eventPlayer.stopScalingSize()
     eventPlayer.stopScalingBarriers()
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE) # prevent wholehog from keeping primary fire held
-    eventPlayer.max_health_scaler = 1
     eventPlayer.stopAllDoT()
     eventPlayer.stopAllHoT()
+
+    eventPlayer._stat_reset = true
 
 
 def resetStatuses():
     @Name "[utilities/reset.opy]: resetStatuses()"
+
+    eventPlayer._status_reset = false
 
     eventPlayer.clearStatusEffect(Status.ASLEEP)
     eventPlayer.clearStatusEffect(Status.BURNING)
@@ -115,6 +147,8 @@ def resetStatuses():
     eventPlayer.clearStatusEffect(Status.ROOTED)
     eventPlayer.clearStatusEffect(Status.STUNNED)
     eventPlayer.clearStatusEffect(Status.UNKILLABLE)
+
+    eventPlayer._status_reset = true
 
 
 rule "[utilities/reset.opy]: Stop DoT/HoT on death":

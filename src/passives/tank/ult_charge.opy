@@ -18,10 +18,14 @@ macro setUltCost(cost):
 def resetUltCharge():
     @Name "[passives/tank/ult_charge.opy]: resetUltCharge()"
 
+    eventPlayer._ult_charge_reset = false
+
     eventPlayer._missing_ult_points = 0
     eventPlayer._ult_cost = 0
     waitUntil(eventPlayer.getUltCharge() > 0, 1)
     eventPlayer.setUltCharge(0)
+
+    eventPlayer._ult_charge_reset = true
 
 
 rule "[passives/tank/ult_charge.opy]: Remember missing ult charge from damaging tank":
