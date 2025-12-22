@@ -8,7 +8,7 @@ def initRamattra():
     
     setCustomHp(
         ADJ_RAMATTRA_HEALTH_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_RAMATTRA_HEALTH,
-        0,
+        ADJ_RAMATTRA_ARMOR_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_RAMATTRA_ARMOR,
         0)
     setUltCost(ADJ_RAMATTRA_ULT_COST)
     removeTankPassive()
