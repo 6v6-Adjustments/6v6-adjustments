@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/bastion/reconfigure.opy"
+#!include "../../heroes/bastion/reconfigure.opy"
 
 
 def initBastion():

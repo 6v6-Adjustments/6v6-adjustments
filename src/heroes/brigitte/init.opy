@@ -1,9 +1,9 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/brigitte/bash.opy"
-#!include "heroes/brigitte/inspire.opy"
-#!include "heroes/brigitte/repair_pack.opy"
-#!include "heroes/brigitte/whipshot.opy"
+#!include "../../heroes/brigitte/bash.opy"
+#!include "../../heroes/brigitte/inspire.opy"
+#!include "../../heroes/brigitte/repair_pack.opy"
+#!include "../../heroes/brigitte/whipshot.opy"
 
 
 def initBrigitte():

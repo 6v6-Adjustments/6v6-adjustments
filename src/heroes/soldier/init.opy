@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/soldier/biotic_field.opy"
+#!include "../../heroes/soldier/biotic_field.opy"
 
 
 def initSoldier():

@@ -1,8 +1,5 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "utilities/hero_reset.opy"
-#!include "utilities/hero_init.opy"
-
 
 rule "[echo/duplicate.opy]: Override hero setup during duplicate":
     @Event eachPlayer

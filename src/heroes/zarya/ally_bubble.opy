@@ -3,10 +3,9 @@
 playervar ally_bubble_cooldown
 playervar ally_bubble_cd_text
 
-#!define initAllyBubble()\
+macro initAllyBubble():
     eventPlayer.ally_bubble_cooldown = 0
 
-#!include "utilities/hero_switch.opy"
 
 /*
 Below HUD code is sourced from https://workshop.codes/wiki/articles/rendering-an-inworld-text-at-a-specific-onscreen-position

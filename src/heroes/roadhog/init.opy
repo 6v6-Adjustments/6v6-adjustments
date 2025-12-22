@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/roadhog/breather.opy"
-#!include "heroes/roadhog/wholehog.opy"
+#!include "../../heroes/roadhog/breather.opy"
+#!include "../../heroes/roadhog/wholehog.opy"
 
 
 def initRoadhog():

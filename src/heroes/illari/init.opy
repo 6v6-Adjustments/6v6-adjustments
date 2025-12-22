@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/illari/solar_rifle.opy"
+#!include "../../heroes/illari/solar_rifle.opy"
 
 
 def initIllari():

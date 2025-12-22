@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/lucio/aura.opy"
+#!include "../../heroes/lucio/aura.opy"
 
 
 def initLucio():

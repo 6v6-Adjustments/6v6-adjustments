@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/kiriko/protection_suzu.opy"
-#!include "heroes/kiriko/swift_step.opy"
+#!include "../../heroes/kiriko/protection_suzu.opy"
+#!include "../../heroes/kiriko/swift_step.opy"
 
 
 def initKiriko():

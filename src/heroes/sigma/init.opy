@@ -1,7 +1,7 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/sigma/accretion.opy"
-#!include "heroes/sigma/kinetic_grasp.opy"
+#!include "../../heroes/sigma/accretion.opy"
+#!include "../../heroes/sigma/kinetic_grasp.opy"
 
 
 def initSigma():

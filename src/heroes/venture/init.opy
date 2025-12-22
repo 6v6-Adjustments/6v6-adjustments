@@ -1,10 +1,10 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/venture/excavator.opy"
-#!include "heroes/venture/drill_dash.opy"
-#!include "heroes/venture/clobber.opy"
-#!include "heroes/venture/burrow.opy"
-#!include "heroes/venture/tectonic_shock.opy"
+#!include "../../heroes/venture/excavator.opy"
+#!include "../../heroes/venture/drill_dash.opy"
+#!include "../../heroes/venture/clobber.opy"
+#!include "../../heroes/venture/burrow.opy"
+#!include "../../heroes/venture/tectonic_shock.opy"
 
 
 def initVenture():

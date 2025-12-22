@@ -1,8 +1,8 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/dva/boosters.opy"
-#!include "heroes/dva/defense_matrix.opy"
-#!include "heroes/dva/hp.opy"
+#!include "../../heroes/dva/boosters.opy"
+#!include "../../heroes/dva/defense_matrix.opy"
+#!include "../../heroes/dva/hp.opy"
 
 playervar self_destruct_charge
 

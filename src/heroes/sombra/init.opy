@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/sombra/translocator.opy"
+#!include "../../heroes/sombra/translocator.opy"
 
 
 def initSombra():

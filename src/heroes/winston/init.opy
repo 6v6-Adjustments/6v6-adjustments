@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/winston/primal.opy"
+#!include "../../heroes/winston/primal.opy"
 
 
 def initWinston():

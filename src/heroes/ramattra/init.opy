@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "heroes/ramattra/nemesis_form.opy"
+#!include "../../heroes/ramattra/nemesis_form.opy"
 
 
 def initRamattra():
