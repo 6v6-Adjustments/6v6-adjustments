@@ -13,23 +13,18 @@ def initZarya():
         ADJ_ZARYA_SHIELDS_DUPLICATE if eventPlayer.isDuplicatingAHero() else ADJ_ZARYA_SHIELDS
     )
     setUltCost(ADJ_ZARYA_ULT_COST)
+
     removeTankPassive()
     removeSelfHealing()
-    initSelfBubble()
-    initAllyBubble()
 
     setBaseDamage(eventPlayer, ADJ_ZARYA_CANNON_DAMAGE_MAX/OW2_ZARYA_CANNON_DAMAGE_MAX)
 
     eventPlayer.max_health_scaler = (ADJ_ZARYA_BARRIER_HEALTH/OW2_ZARYA_BARRIER_HEALTH)
+
+    initSelfBubble()
+    initAllyBubble()
+
     eventPlayer.hero_initialized = true
-
-
-rule "[zarya/init.opy]: Clean up Zarya":
-    @Event eachPlayer
-    @Condition eventPlayer.hero_setup != Hero.ZARYA
-
-    hideSelfBubbleCD()
-    hideAllyBubbleCD()
 
 
 rule "[zarya/init.opy]: Increase Particle Cannon alternate fire damage":
@@ -44,5 +39,5 @@ rule "[zarya/init.opy]: Correct Zarya Melee damage":
     @Event playerDealtDamage
     @Hero zarya
     @Condition eventAbility == Button.MELEE
-    
+
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
