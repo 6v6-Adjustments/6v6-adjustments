@@ -169,6 +169,7 @@ settings {
             "reinhardt": {
                 "secondaryFireRechargeRate%": percent((ADJ_REINHARDT_BARRIER_REGEN/OW2_REINHARDT_BARRIER_REGEN) * (OW2_REINHARDT_BARRIER_HEALTH/ADJ_REINHARDT_BARRIER_HEALTH)),
                 "ability1Cooldown%": percent(ADJ_REINHARDT_CHARGE_COOLDOWN_TIME/OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
+                "ability2Cooldown%": percent(ADJ_REINHARDT_FIRE_STRIKE_COOLDOWN_TIME/OW2_REINHARDT_FIRESTRIKE_COOLDOWN),
                 "health%": percent(ADJ_REINHARDT_BARRIER_HEALTH/OW2_REINHARDT_BARRIER_HEALTH),
                 "ultGen%": percent(OW2_REINHARDT_ULT_COST/ADJ_REINHARDT_ULT_COST)
             },
