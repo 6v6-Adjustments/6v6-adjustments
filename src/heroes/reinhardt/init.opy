@@ -15,7 +15,7 @@ def initReinhardt():
     setUltCost(ADJ_REINHARDT_ULT_COST)
     removeSelfHealing()
 
-    eventPlayer.addHealthPool(Health.ARMOR, ADJ_REINHARDT_EXTRA_ARMOR, true, true)
+    eventPlayer.addHealthPool(Health.ARMOR, ADJ_REINHARDT_ARMOR_EXTRA, true, true)
     setBaseDamage(eventPlayer, ADJ_REINHARDT_HAMMER_DAMAGE/OW2_REINHARDT_HAMMER_DAMAGE)
     eventPlayer.setKnockbackReceived(percent((1 - ADJ_REINHARDT_STEADAST_KNOCKBACK_REDUCTION)/(1 - OW2_TANK_KNOCKBACK_REDUCTION)))
     eventPlayer.stopForcingThrottle()
