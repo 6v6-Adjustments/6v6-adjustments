@@ -12,6 +12,7 @@ subroutine initBrigitte
 subroutine initDoomfist
 subroutine initDva
 subroutine initEcho
+subroutine initFreja
 subroutine initGenji
 subroutine initHanzo
 # subroutine initHazard
@@ -40,10 +41,12 @@ subroutine initSombra
 subroutine initSymmetra
 subroutine initTorbjorn
 subroutine initTracer
+subroutine initVendetta
 subroutine initVenture
 subroutine initWidowmaker
 subroutine initWinston
 subroutine initWreckingBall
+subroutine initWuyang
 subroutine initZarya
 subroutine initZenyatta
 
@@ -77,6 +80,9 @@ def initHero():
             break
         case Hero.ECHO:
             initEcho()
+            break
+        case Hero.FREJA:
+            initFreja()
             break
         case Hero.GENJI:
             initGenji()
@@ -159,6 +165,9 @@ def initHero():
         case Hero.TRACER:
             initTracer()
             break
+        case Hero.VENDETTA:
+            initVendetta()
+            break
         case Hero.VENTURE:
             initVenture()
             break
@@ -167,6 +176,9 @@ def initHero():
             break
         case Hero.WINSTON:
             initWinston()
+            break
+        case Hero.WUYANG:
+            initWuyang()
             break
         case Hero.HAMMOND:
             initWreckingBall()

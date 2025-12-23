@@ -68,6 +68,9 @@ settings {
                 "ability2Cooldown%": percent(ADJ_ECHO_BEAM_COOLDOWN/OW2_ECHO_BEAM_COOLDOWN),
                 "ultGen%": percent(OW2_ECHO_ULT_COST/ADJ_ECHO_ULT_COST)
             },
+            "freja": {
+                "ultGen%": percent(OW2_FREJA_ULT_COST/ADJ_FREJA_ULT_COST)
+            },
             "genji": {
                 "ultGen%": percent(OW2_GENJI_ULT_COST/ADJ_GENJI_ULT_COST)
             },
@@ -210,6 +213,9 @@ settings {
                 "health%": percent(ADJ_TRACER_HEALTH/OW2_TRACER_HEALTH),
                 "ultGen%": percent(OW2_TRACER_ULT_COST/ADJ_TRACER_ULT_COST)
             },
+            "vendetta": {
+                "ultGen%": percent(OW2_VENDETTA_ULT_COST/ADJ_VENDETTA_ULT_COST)
+            },
             "venture": {
                 "ability1Duration%": percent(ADJ_VENTURE_BURROW_DURATION/OW2_VENTURE_BURROW_DURATION),
                 "secondaryFireCooldown%": percent(ADJ_VENTURE_DRILL_DASH_COOLDOWN/OW2_VENTURE_DRILL_DASH_COOLDOWN),
@@ -223,6 +229,9 @@ settings {
                 "ability1Cooldown%": percent(ADJ_WINSTON_JUMP_PACK_COOLDOWN_TIME/OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME),
                 "health%": percent(ADJ_WINSTON_BARRIER_HEALTH/OW2_WINSTON_BARRIER_HEALTH),
                 "ultGen%": percent(OW2_WINSTON_ULT_COST/ADJ_WINSTON_ULT_COST)
+            },
+            "wuyang": {
+                "ultGen%": percent(OW2_WUYANG_ULT_COST/ADJ_WUYANG_ULT_COST)
             },
             "hammond": {
                 "ability1Kb%": percent(ADJ_WRECKING_BALL_FIREBALL_KB/OW2_WRECKING_BALL_FIREBALL_KB),
