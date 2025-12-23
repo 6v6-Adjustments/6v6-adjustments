@@ -40,10 +40,10 @@ rule "[roadhog/init.opy]: Correct Chain Hook damage":
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_ROADHOG_HOOK_DAMAGE/OW2_ROADHOG_HOOK_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
 
 
-rule "[roadhog/init.opy]: Correct Pigpen damage":
-    @Event playerDealtDamage
-    @Hero roadhog
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition not eventPlayer.isUsingUltimate()
+#rule "[roadhog/init.opy]: Correct Pigpen damage":
+#    @Event playerDealtDamage
+#    @Hero roadhog
+#    @Condition eventAbility == Button.ABILITY_2
+#    @Condition not eventPlayer.isUsingUltimate()
 
-    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_ROADHOG_PIGPEN_DAMAGE/OW2_ROADHOG_PIGPEN_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
+#    damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) * (ADJ_ROADHOG_PIGPEN_DAMAGE/OW2_ROADHOG_PIGPEN_DAMAGE) - eventDamage)/eventPlayer._base_damage_scalar)
