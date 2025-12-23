@@ -1,6 +1,6 @@
 #!mainFile "../../dev_main.opy"
 
-#!include "../../heroes/ana/sleep.opy"
+# !include "../../heroes/ana/sleep.opy"
 #!include "../../heroes/ana/nade.opy"
 
 
