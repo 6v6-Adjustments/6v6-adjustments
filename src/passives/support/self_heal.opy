@@ -39,6 +39,7 @@ macro removeRegenPassive():
 
 
 def removeSelfHealing():
+    @Disabled
     @Name "[passives/support/self_heal.opy]: removeSelfHealing()"
 
     eventPlayer._self_healing_source = []
@@ -65,6 +66,7 @@ macro popSelfHealing(button):
 
 
 rule "[passives/support/self_heal.opy]: Detect healing passive":
+    @Disabled
     @Event playerTookDamage
 
     eventPlayer._regen_passive_active = false
@@ -77,6 +79,7 @@ rule "[passives/support/self_heal.opy]: Detect healing passive":
 
 # Deal damage to suppress regen passive except when regenerating shield hp
 rule "[passives/support/self_heal.opy]: Remove Passive self healing":
+    @Disabled
     @Event eachPlayer
     @Condition eventPlayer._suppress_regen_passive
     @Condition eventPlayer._regen_passive_active or eventPlayer._support_passive_active
